@@ -1,0 +1,25 @@
+{
+    "name": "hipay/fullservice-sdk",
+    "type": "library",
+    "description": "The Hipay FullService PHP SDK",
+    "keywords": ["hipay","payment" "payment method"],
+    "homepage": "http://www.hipayfullservice.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kassim Belghait",
+            "homepage": "http://www.sirateck.com",
+            "email": "kassim@sirateck.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@hipay.com",
+    },
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "Hipay\\Fullservice\\": "lib/" }
+    }
+}
