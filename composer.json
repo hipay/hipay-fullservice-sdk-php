@@ -2,7 +2,7 @@
     "name": "hipay/fullservice-sdk",
     "type": "library",
     "description": "The Hipay FullService PHP SDK",
-    "keywords": ["hipay","payment" "payment method"],
+    "keywords": ["hipay","payment", "payment method"],
     "homepage": "http://www.hipayfullservice.com/",
     "license": "MIT",
     "authors": [
@@ -14,10 +14,11 @@
         }
     ],
     "support": {
-        "email": "support@hipay.com",
+        "email": "support@hipay.com"
     },
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "autoload": {
         "psr-0": { "Hipay\\Fullservice\\": "lib/" }
