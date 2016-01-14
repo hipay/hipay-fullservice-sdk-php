@@ -1,0 +1,117 @@
+<?php
+/*
+ * Hipay fullservice SDK
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @copyright      Copyright (c) 2016 - Hipay
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ *
+ */
+namespace Hipay\Fullservice\Gateway\Client;
+
+use Hipay\Fullservice\HTTP\ClientProvider;
+use Hipay\Fullservice\Gateway\Request\OrderRequest;
+use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
+use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
+use Hipay\Fullservice\Validator\RespectValidator;
+use Hipay\Fullservice\Gateway\Model\Transaction;
+/**
+ * Client class for all request send to TPP Fullservice.
+ *
+ * @category    Hipay
+ * @package     Hipay\Fullservice
+ * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @copyright   Copyright (c) 2016 - Hipay
+ * @license     http://opensource.org/licenses/mit-license.php MIT License
+ * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @api
+ */
+class GatewayClient implements GatewayClientInterface{
+	
+	
+	/**
+	 *
+	 * @var ClientProvider $_clientProvider
+	 */
+	protected $_clientProvider;
+	
+	
+	/**
+	 * Construct gateway client with an HTTP client 
+	 * @param ClientProvider $clientProvider
+	 */
+	public function __construct(ClientProvider $clientProvider) {
+		$this->_clientProvider = $clientProvider;
+	}
+
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestNewOrder()
+	 */
+	public function requestNewOrder(OrderRequest $orderRequest) {
+		
+		//Execute Mapper to validate request and retrieve params
+		$params = (new OrderMapper($orderRequest, new RespectValidator()))->toArray();
+		//send request
+		$response = $this->getClientProvider()->request($orderRequest->getMethod(), $orderRequest->getEndpoint(),$params);
+		
+		//Transform response to Transaction Model
+		$transaction = new Transaction($response->getBody());
+		
+		return $transaction;
+		
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestHostedPaymentPage()
+	 */
+	public function requestHostedPaymentPage() {
+		// TODO: Auto-generated method stub
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
+	 */
+	public function requestMaintenanceTransaction() {
+		// TODO: Auto-generated method stub
+	}
+	
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestTransactionInformation()
+	 */
+	public function requestTransactionInformation() {
+		// TODO: Auto-generated method stub
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::getClientProvider()
+	 */
+	public function getClientProvider() {
+		return $this->_clientProvider;
+	}
+
+
+
+	
+}
