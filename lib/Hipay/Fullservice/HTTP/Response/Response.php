@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Hipay fullservice SDK
  *
  * NOTICE OF LICENSE
@@ -9,21 +9,22 @@
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
  *
- * @copyright      Copyright (c) 2016
+ * @copyright      Copyright (c) 2016 - Hipay
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Gateway\Response;
+namespace Hipay\Fullservice\HTTP\Response;
 
+use Hipay\Fullservice\HTTP\Response\AbstractResponse;
 
 /**
- * Transaction response interface.
  *
- * @category       Hipay
- * @package        Hipay_Fullservice
+ * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
+ * @copyright Copyright (c) 2016 - Hipay
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface TransactionInterface{
-
+class Response extends AbstractResponse {
 }

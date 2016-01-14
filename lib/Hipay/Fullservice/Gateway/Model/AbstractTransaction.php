@@ -13,11 +13,14 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Request;
+namespace Hipay\Fullservice\Gateway\Model;
+
+
+use Hipay\Fullservice\Model\AbstractModel;
 
 /**
- * Model request interface.
- * All request object sended by Gateway or Secure Vault client must implement it
+ * Abstract Model Transaction response.
+ * Order and Transaction commons methods
  *
  * @category    Hipay
  * @package     Hipay\Fullservice
@@ -27,25 +30,6 @@ namespace Hipay\Fullservice\Request;
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface RequestInterface{
-	
-	
-	/**
-	 * Returns data to send
-	 * @return array
-	 */
-	public function getParams();
-	
-	/**
-	 * Return HTTP method for current request
-	 * @return string http method
-	 */
-	public function getMethod();
-	
-	/**
-	 * Return Request enpoint
-	 * @return string Request Endpoint
-	 */
-	public function getEndpoint();
-	
+abstract class AbstractTransaction extends AbstractModel{
+
 }

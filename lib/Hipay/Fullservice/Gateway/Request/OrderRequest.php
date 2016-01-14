@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Hipay fullservice SDK
  *
  * NOTICE OF LICENSE
@@ -9,22 +9,25 @@
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
  *
- * @copyright      Copyright (c) 2016
+ * @copyright      Copyright (c) 2016 - Hipay
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
 namespace Hipay\Fullservice\Gateway\Request;
 
 
-use Hipay\Fullservice\Model\AbstractRequest;
+use Hipay\Fullservice\Request\AbstractRequest;
 /**
  * Order request class.
  *
- * @category       Hipay
- * @package        Hipay_Fullservice
- * @author Kassim Belghait <kassim@sirateck.com>
+ * @category    Hipay
+ * @package     Hipay\Fullservice
+ * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @copyright   Copyright (c) 2016 - Hipay
+ * @license     http://opensource.org/licenses/mit-license.php MIT License
+ * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
- */
-class Order extends AbstractRequest {
+ * */
+class OrderRequest extends AbstractRequest {
 	
 }

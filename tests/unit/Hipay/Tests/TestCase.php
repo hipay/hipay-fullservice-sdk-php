@@ -12,7 +12,7 @@ namespace Hipay\Tests;
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
  *
- * @copyright      Copyright (c) 2016
+ * @copyright      Copyright (c) 2016 - Hipay
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */

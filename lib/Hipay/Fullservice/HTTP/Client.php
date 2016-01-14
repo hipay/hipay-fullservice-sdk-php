@@ -12,15 +12,13 @@
 * @copyright      Copyright (c) 2016 - Hipay
 * @license        http://opensource.org/licenses/mit-license.php MIT License
 *
-*/
-namespace Hipay\Fullservice\Gateway\Client;
-
-use Hipay\Fullservice\Gateway\Request\OrderRequest;
-use Hipay\Fullservice\Gateway\Model\Transaction;
+*/ 
+namespace Hipay\Fullservice\HTTP;
 
 
+use Hipay\Fullservice\HTTP\Response\AbstractResponse;
 /**
- * Client interface for all request send to TPP Fullservice.
+ * Client interface for construct and send request.
  *
  * @category    Hipay
  * @package     Hipay\Fullservice
@@ -30,25 +28,18 @@ use Hipay\Fullservice\Gateway\Model\Transaction;
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface GatewayClientInterface {
+interface Client{
 
-	/**
-	 * Request a new order
-	 * @param OrderRequest $orderRequest
-	 * @return Transaction $transaction
-	 */
-	function requestNewOrder(OrderRequest $orderRequest);
-	
-
-	function requestMaintenanceTransaction();
-
-	function requestHostedPaymentPage();
-
-	function requestTransactionInformation();
-	
-	/**
-	 * Return current HTTP client provider
-	 */
-	function getClientProvider();
+    /**
+     * Create and send an HTTP request.
+     *
+     * @param string              $method  HTTP method
+     * @param string $endpoint    Endpoint string. Base url is determined by Configuration Object
+     * @param array               $params  Request params to apply.
+     *
+     * @return AbstractResponse
+     * @throws Exception
+     */
+    public function request($method, $endpoint, array $params = []);
 
 }

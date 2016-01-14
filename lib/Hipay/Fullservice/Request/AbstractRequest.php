@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Hipay fullservice SDK
  *
  * NOTICE OF LICENSE
@@ -9,7 +9,7 @@
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
  *
- * @copyright      Copyright (c) 2016
+ * @copyright      Copyright (c) 2016 - Hipay
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
@@ -20,14 +20,22 @@ namespace Hipay\Fullservice\Request;
  * Model request abstract.
  * All request object sended by Gateway or Secure Vault client must implement it
  *
- * @category       Hipay
- * @package        Hipay_Fullservice
- * @author Kassim Belghait <kassim@sirateck.com>
+ * @category    Hipay
+ * @package     Hipay\Fullservice
+ * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @copyright   Copyright (c) 2016 - Hipay
+ * @license     http://opensource.org/licenses/mit-license.php MIT License
+ * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
 abstract class AbstractRequest implements RequestInterface{
 	
-	protected $_params = array();
+	/**
+	 *
+	 * @var array
+	 */
+	protected $_params;
+	
 	
 	/**
 	 *
@@ -41,10 +49,8 @@ abstract class AbstractRequest implements RequestInterface{
 	}
 	
 	/**
-	 *
-	 * {@inheritDoc}
-	 *
-	 * @see \Hipay\Fullservice\Model\RequestInterface::prepareParams()
+	 * Populate $_params array with data to send
+	 * @return array $this->_params
 	 */
 	protected function prepareParams() {
 		$properties = get_object_vars($this);
@@ -52,6 +58,26 @@ abstract class AbstractRequest implements RequestInterface{
 			$this->_params[$p] = $v;
 		
 	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Request\RequestInterface::getEndpoint()
+	 */
+	public function getEndpoint();
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \Hipay\Fullservice\Request\RequestInterface::getMethod()
+	 */
+	public function getMethod();
+
+
+	
+	
 
 
 

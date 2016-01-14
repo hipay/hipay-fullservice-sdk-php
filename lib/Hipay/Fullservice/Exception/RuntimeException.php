@@ -13,12 +13,13 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Request;
+namespace Hipay\Fullservice\Exception;
+
+use Hipay\Fullservice\Exception\ExceptionInterface;
 
 /**
- * Model request interface.
- * All request object sended by Gateway or Secure Vault client must implement it
- *
+ * Exception thrown if an error which can only be found on runtime occurs.
+ * 
  * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
@@ -27,25 +28,5 @@ namespace Hipay\Fullservice\Request;
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface RequestInterface{
-	
-	
-	/**
-	 * Returns data to send
-	 * @return array
-	 */
-	public function getParams();
-	
-	/**
-	 * Return HTTP method for current request
-	 * @return string http method
-	 */
-	public function getMethod();
-	
-	/**
-	 * Return Request enpoint
-	 * @return string Request Endpoint
-	 */
-	public function getEndpoint();
-	
+class RuntimeException extends \RuntimeException implements ExceptionInterface {
 }

@@ -13,39 +13,38 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Request;
+namespace Hipay\Fullservice\HTTP;
+
+use Hipay\Fullservice\HTTP\ClientProvider;
+
 
 /**
- * Model request interface.
- * All request object sended by Gateway or Secure Vault client must implement it
  *
- * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link 		https://github.com/hipay/hipay-fullservice-sdk-php 
  * @api
  */
-interface RequestInterface{
-	
-	
+class SimpleHTTPClient extends ClientProvider {
+
 	/**
-	 * Returns data to send
-	 * @return array
+	 * {@inheritDoc}
+	 * @see \Hipay\Fullservice\HTTP\ClientProvider::doRequest()
 	 */
-	public function getParams();
-	
+	protected function doRequest( $method, $endpoint,array $params=array() ){ 
+		// TODO Auto-generated method stub 
+	}
+
 	/**
-	 * Return HTTP method for current request
-	 * @return string http method
+	 * {@inheritDoc}
+	 * @see \Hipay\Fullservice\HTTP\ClientProvider::createHttpClient()
 	 */
-	public function getMethod();
-	
-	/**
-	 * Return Request enpoint
-	 * @return string Request Endpoint
-	 */
-	public function getEndpoint();
-	
+	protected 
+	function createHttpClient() {
+		// TODO Auto-generated method stub
+	}
+
+
 }

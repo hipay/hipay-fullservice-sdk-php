@@ -13,17 +13,19 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Model;
+namespace Hipay\Fullservice\Gateway\Model;
 
 /**
- * 
- * @category    Hipay
- * @package     Hipay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
- * @copyright   Copyright (c) 2016 - Hipay
- * @license     http://opensource.org/licenses/mit-license.php MIT License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
+ *
+ * @package Hipay\Fullservice
+ * @author Kassim Belghait <kassim@sirateck.com>
+ * @copyright Copyright (c) 2016 - Hipay
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @link https://github.com/hipay/hipay-fullservice-sdk-php
+ *       @api
  */
-interface ModelInterface {
+class Transaction extends AbstractTransaction
+{
+    
+    
 }

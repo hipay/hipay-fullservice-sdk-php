@@ -20,8 +20,9 @@
 		"email" : "support@hipay.com"
 	},
 	"require" : {
-		"php" : ">=5.3.3",
-		"guzzlehttp/guzzle" : "^6.1"
+		"php" : ">=5.4.0",
+		"guzzlehttp/guzzle" : "^6.1",
+		"respect/validation": "^1.0"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "4.8.x@stable"

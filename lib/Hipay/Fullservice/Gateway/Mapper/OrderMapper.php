@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Hipay fullservice SDK
  *
  * NOTICE OF LICENSE
@@ -9,22 +9,22 @@
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
  *
- * @copyright      Copyright (c) 2016
+ * @copyright      Copyright (c) 2016 - Hipay
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Request;
+namespace Hipay\Fullservice\Gateway\Mapper;
 
+use Hipay\Fullservice\Mapper\AbstractMapper;
 
 /**
- * Model request interface.
- * All request object sended by Gateway or Secure Vault client must implement it
  *
- * @category       Hipay
- * @package        Hipay_Fullservice
+ * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
- * @api
+ * @copyright Copyright (c) 2016 - Hipay
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @link https://github.com/hipay/hipay-fullservice-sdk-php
+ *       @api
  */
-interface RequestInterface{
-	
+class OrderMapper extends AbstractMapper {
 }
