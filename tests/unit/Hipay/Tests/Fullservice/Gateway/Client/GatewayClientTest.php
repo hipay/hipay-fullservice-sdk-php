@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Hipay fullservice SDK
  *
  * NOTICE OF LICENSE

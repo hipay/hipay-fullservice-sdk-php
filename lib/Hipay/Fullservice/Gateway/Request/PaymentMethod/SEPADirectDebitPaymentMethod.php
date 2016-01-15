@@ -13,10 +13,14 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Gateway\Model;
+namespace Hipay\Fullservice\Gateway\Request\PaymentMethod;
+
+use Hipay\Fullservice\Request\AbstractRequest;
 
 /**
- *
+ * SEPA Direct Debit Payment Method
+ * Data related to payment with qiwi wallet system
+ * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - Hipay
@@ -24,35 +28,20 @@ namespace Hipay\Fullservice\Gateway\Model;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  *       @api
  */
-class Transaction extends AbstractTransaction
+class SEPADirectDebitPaymentMethod extends AbstractRequest
 {
-    
-    public $reason;
-    public $forwardUrl;
-    public $attemptId;
-    public $referenceToPay;
-    public $ipAddress;
-    public $ipCountry;
-    public $deviceId;
-    public $avsResult;
-    public $cvcResult;
-    public $eci;
-    public $paymentProduct;
-    public $paymentMethod;
-    public $threeDSecure;
-    public $fraudScreening;
-    public $order;
-    public $debitAgreement;
-    
-    public $cdata1;
-    public $cdata2;
-    public $cdata3;
-    public $cdata4;
-    public $cdata5;
-    public $cdata6;
-    public $cdata7;
-    public $cdata8;
-    public $cdata9;
-    public $cdata10;
-    
+   /**
+    * @var numeric
+    * @desc If recurring payment the agreement ID returned on first transaction.
+    */ 
+   public $debit_agreement_id;
+   
+   /**
+    * @var numeric
+    * @length 1
+    * @type options
+    * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
+    * @desc Indicates if the debit agreement will be created for a single-use or a multi-use.
+    */
+   public $recurring_payment;
 }

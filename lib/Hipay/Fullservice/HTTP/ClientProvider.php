@@ -41,7 +41,7 @@ abstract class ClientProvider implements Client{
 	
 	/**
 	 *
-	 * @var Client $httpClient
+	 * @var object $httpClient
 	 */
 	protected $_httpClient;
 	
@@ -88,7 +88,7 @@ abstract class ClientProvider implements Client{
 	
 	
 	/**
-	 * @return Client $_httpClient
+	 * @return Object $_httpClient
 	 */
 	public function getHttpClient(){
 		return $this->_httpClient;
