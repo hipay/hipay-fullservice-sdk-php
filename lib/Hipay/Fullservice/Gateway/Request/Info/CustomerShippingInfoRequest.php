@@ -25,72 +25,61 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
 class CustomerShippingInfoRequest extends AbstractRequest
 {
       
     /**
-     * @var string
+     * @var string $shipto_firstname The first name of the order recipient.
      * @required
-     * @desc The first name of the order recipient.
      */
     public $shipto_firstname;
     
     /**
-     * @var string
+     * @var string $shipto_lastname The last name of the order recipient.
      * @required
-     * @desc The last name of the order recipient.
      */
     public $shipto_lastname;
     
     /**
-     * @var string
-     * @desc Additional information about the order recipient
-     * @example Quality or function, company name, department, etc...
+     * @var string $shipto_recipientinfo Additional information about the order recipient (Quality or function, company name, department, etc...).
      */
     public $shipto_recipientinfo;
     
     /**
-     * @var string
-     * @desc Street address to which the order is to be shipped.
+     * @var string $shipto_streetaddress  Street address to which the order is to be shipped.
      */
     public $shipto_streetaddress;
     
     /**
-     * @var string
-     * @desc Additional address information to which the order is to be shipped
-     * @example building, floor, flat, etc...
+     * @var string $shipto_streetaddress2 Additional address information to which the order is to be shipped (building, floor, flat, etc...).
      */
     public $shipto_streetaddress2;
     
     
     /**
-     * @var string
-     * @desc The city to which the order is to be shipped.
+     * @var string $shipto_city The city to which the order is to be shipped.
      */
     public $shipto_city;
     
     /**
-     * @var string
-     * @desc The USA state or the Canada state to which the order is being shipped.
      * Send this information only if the address country of the customer is US (USA) or CA (Canada).
+     * 
+     * @var string $shipto_state The USA state or the Canada state to which the order is being shipped.
      */
     public $shipto_state;
     
     /**
-     * @var string
-     * @desc The zip or postal code to which the order is being shipped.
+     * @var string $shipto_zipcode The zip or postal code to which the order is being shipped.
      */
     public $shipto_zipcode;
     
     /**
-     * @var string
+     * @var string $shipto_country The country code to which the order is being shipped. This two-letter country code complies with ISO 3166-1 (alpha 2).
      * @type country
      * @required
      * @length 2
-     * @desc The country code to which the order is being shipped.
-     * This two-letter country code complies with ISO 3166-1 (alpha 2).
      */
     public $shipto_country;
     

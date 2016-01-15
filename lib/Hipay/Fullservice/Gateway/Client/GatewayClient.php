@@ -16,12 +16,9 @@
 namespace Hipay\Fullservice\Gateway\Client;
 
 use Hipay\Fullservice\HTTP\ClientProvider;
-use Hipay\Fullservice\Gateway\Request\OrderRequest;
-use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
-use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
-use Hipay\Fullservice\Validator\RespectValidator;
 use Hipay\Fullservice\Gateway\Model\Transaction;
 use Hipay\Fullservice\Request\RequestSerializer;
+use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -40,8 +37,7 @@ class GatewayClient implements GatewayClientInterface{
     const METHOD_NEW_ORDER = 'POST';
 	
 	/**
-	 *
-	 * @var ClientProvider $_clientProvider
+	 * @var ClientProvider $_clientProvider HTTP client provider
 	 */
 	protected $_clientProvider;
 	

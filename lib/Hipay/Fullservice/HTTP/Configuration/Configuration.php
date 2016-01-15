@@ -21,68 +21,72 @@ use Hipay\Fullservice\Exception\UnexpectedValueException;
 
 /**
  * Client configuration class.
- * this contains Hipay username, password, environment
- * and others utils configuration
+ * 
+ * This contains Hipay username, password, environment
+ * and others utils configuration.
  *
- * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 class Configuration implements ConfigurationInterface {
 	
 	/**
-	 *
-	 * @var string $_apiUsername
+	 * @var string $_apiUsername API Username provided by Hipay
 	 */
 	private $_apiUsername;
 	
 	/**
-	 * @var string $_apiPassword
+	 * @var string $_apiPassword API Password provided by Hipay
 	 */
 	private $_apiPassword;
 	
 	/**
-	 * @var string $_apiEnv
+	 * @var string $_apiEnv API Environment can be *stage* or *production* 
 	 */
 	private $_apiEnv = self::API_ENV_STAGE;
 	
 	/**
 	 *
-	 * @var string $_apiEndpointStage
+	 * @var string $_apiEndpointStage API Endpoint for test
 	 */
 	private $_apiEndpointStage = 'https://stage-secure-gateway.hipay-tpp.com/rest/v1/';
 	
 	/**
 	 *
-	 * @var string $_apiEndpointProd
+	 * @var string $_apiEndpointProd API Endpoint for production
 	 */
 	private $_apiEndpointProd = 'https://secure-gateway.hipay-tpp.com/rest/v1/';
 	
 	/**
-	 * HTTP header Accept's value
-	 * @var string $_apiHTTPHeaderAccept
+	 * @var string $_apiHTTPHeaderAccept HTTP header Accept's value
 	 */
 	private $_apiHTTPHeaderAccept = 'application/json';
 	
 	/**
-	 * Allowed HTTP header Accept's values
-	 * @var array $_validHTPPHeaders
+	 * @var string[] $_validHTPPHeaders Allowed HTTP header Accept's values
 	 */
 	protected $_validHTPPHeaders = array("application/json");
 	
 	/**
 	 * Contruct configuration object.
-	 * Used by Hipay\Fullservice\Client
+	 * 
+	 * Configuration Object is used by HTTP client.
+	 * It must be instanciate with Hipay Fullservice TPP, Process Environment.
+	 * Optionaly, you can change the header HTTP *Accept* by another one on this:
+	 * - `application/json` (Default one)
+	 * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
+	 * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
+	 * 
 	 * @param string $apiUsername Merchant API Username
 	 * @param string $apiPassword Merchant API Password
 	 * @param string $apiEnv API environment. Value between 'stage' or 'production'
 	 * @param string $apiHTTPHeaderAccept HTTP header Accept's value. default: application/json  
 	 * @throws InvalidArgumentException
 	 * @throws UnexpectedValueException
+	 * @see Hipay\Fullservice\HTTP\ClientProvider::__construct Used for http client configuration (credentials,env etc ...)
 	 */
 	public function __construct($apiUsername,$apiPassword,$apiEnv = self::API_ENV_STAGE,$apiHTTPHeaderAccept = null){
 	

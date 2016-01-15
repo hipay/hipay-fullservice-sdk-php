@@ -17,8 +17,9 @@ namespace Hipay\Fullservice\HTTP;
 
 use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use Hipay\Fullservice\HTTP\Client;
-use Hipay\Fullservice\HTTP\Response\Response;
+use Hipay\Fullservice\HTTP\Response\AbstractResponse;
 use Hipay\Fullservice\Exception\InvalidArgumentException;
+use Hipay\Fullservice\HTTP\Configuration\Configuration;
 
 /**
  * Abstract Client for send request
@@ -35,25 +36,27 @@ abstract class ClientProvider implements Client{
 	
 	/**
 	 * 
-	 * @var ConfigurationInterface $configuration
+	 * @var ConfigurationInterface $configuration Configuration object used for authentication and endpoints
 	 */
 	protected $_configuration;
 	
 	/**
 	 *
-	 * @var object $httpClient
+	 * @var object $httpClient Client used to execute HTTP request
 	 */
 	protected $_httpClient;
 	
 	/**
-	 * Contruct HTTP client with mandatories values
-	 * @param ConfigurationInterface $configuration
+	 * Contruct HTTP client with Confuration Onject
+	 * 
+	 * @param ConfigurationInterface $configuration Configuration object
+	 * @see \Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface
 	 */
 	public function __construct(ConfigurationInterface $configuration){
 		
 		$this->_configuration = $configuration;
 		
-		/**
+		/*
 		 * Force http client instanciation
 		 * This ensure the availability of http client object
 		 */
@@ -64,22 +67,22 @@ abstract class ClientProvider implements Client{
 	 *
 	 * {@inheritDoc}
 	 *
-	 * @see \Hipay\Fullservice\Client\Client::request()
+	 * @see \Hipay\Fullservice\HTTP\Client::request()
 	 */
 	public function request($method, $endpoint, array $params = array()) {
 		return $this->doRequest($method, $endpoint,$params);
 	}
 	
 	/**
-	 * @return ConfigurationInterface
+	 * @return ConfigurationInterface Current Configuration
 	 */
 	public function getConfiguration() {
 		return $this->_configuration;
 	}
 	
-	/**
-	 * 
+	/** 
 	 * @param ConfigurationInterface $configuration
+	 * @return $this
 	 */
 	public function setConfiguration($configuration) {
 		$this->_configuration = $configuration;
@@ -88,7 +91,7 @@ abstract class ClientProvider implements Client{
 	
 	
 	/**
-	 * @return Object $_httpClient
+	 * @return object $_httpClient Current HTTP client used
 	 */
 	public function getHttpClient(){
 		return $this->_httpClient;
@@ -100,15 +103,19 @@ abstract class ClientProvider implements Client{
 	 * 
 	 * @param string $method HTTP method
 	 * @param string $endpoint Endpoint
-	 * @param array $params to send
+	 * @param array $params Params to send
+	 * 
 	 * @throws RuntimeException
 	 * @throws InvalidArgumentException
-	 * @return Response
+     * @return AbstractResponse
 	 */
 	abstract protected function doRequest($method, $endpoint, array $params = []);
 	
 	/**
 	 * Create local http client object used in doRequest method
+	 * Called in contructor
+	 * 
+	 *  @throws \Exception
 	 */
 	abstract protected function createHttpClient();
 	

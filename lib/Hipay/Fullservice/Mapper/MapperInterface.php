@@ -26,13 +26,14 @@ use Hipay\Fullservice\Model\AbstractModel;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 interface MapperInterface {
 	
 	/**
-	 * Return object mapped
-	 * @return AbstractModel
+	 * Return an object model mapped
+	 * Each call map model object before return it
+	 * 
+	 * @return AbstractModel Model object filled with Client Response
 	 */
 	public function getModelObject();
 }

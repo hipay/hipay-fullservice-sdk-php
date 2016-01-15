@@ -24,7 +24,6 @@ use Hipay\Fullservice\Exception\InvalidArgumentException;
 /**
  * Guzzle provider
  *
- * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay

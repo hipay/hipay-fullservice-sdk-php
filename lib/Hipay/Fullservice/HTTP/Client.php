@@ -26,19 +26,25 @@ use Hipay\Fullservice\HTTP\Response\AbstractResponse;
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 interface Client{
 
     /**
      * Create and send an HTTP request.
      *
-     * @param string              $method  HTTP method
-     * @param string $endpoint    Endpoint string. Base url is determined by Configuration Object
-     * @param array               $params  Request params to apply.
+     * - $method must be a valid HTTP METHOD (POST,GET,PUT etc ...)
+     * - $endpoint is only enpoint of wanted action.
+     *   Ex. To query an order, you assign '/rest/v1/order' to $endpoint
+     *   Base Url is already know by Configuration object used in constructor
+     * - $params Array with key/value pairs of data to send
      *
+     * @param string $method  HTTP method
+     * @param string $endpoint Api Endpoint for this request. Base url is determined by Configuration Object
+     * @param array  $params  Request params to apply.
+     *
+	 * @throws RuntimeException
+	 * @throws InvalidArgumentException
      * @return AbstractResponse
-     * @throws Exception
      */
     public function request($method, $endpoint, array $params = []);
 

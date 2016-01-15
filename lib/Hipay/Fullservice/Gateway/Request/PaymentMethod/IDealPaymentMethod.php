@@ -26,28 +26,29 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
 class IDealPaymentMethod extends AbstractRequest
 {
    /**
-    * @var string
-    * @required
-    * @desc Issuers’ bank Id list
+    * Issuers’ bank Id list
     * 
-    *|issuer_bank_id|Bank description| 
-    * -------------------------------
-    *| ABNANL2A     | ABN AMRO       |
-    *| INGBNL2A     | ING            |
-    *| RABONL2U     | Rabobank       |
-    *| SNSBNL2A     | SNS Bank       |
-    *| ASNBNL21     | ASN Bank       |
-    *| FRBKNL2L     | Friesland Bank |
-    *| KNABNL2H     | Knab           |
-    *| RBRBNL21     | SNS RegioBank  |
-    *| TRIONL2U     | Triodos bank   |
-    *| FVLBNL22     | Van Lanschot   |
-    * -------------------------------
+    * |issuer_bank_id|Bank description| 
+    *  --------------|----------------
+    * | ABNANL2A     | ABN AMRO       |
+    * | INGBNL2A     | ING            |
+    * | RABONL2U     | Rabobank       |
+    * | SNSBNL2A     | SNS Bank       |
+    * | ASNBNL21     | ASN Bank       |
+    * | FRBKNL2L     | Friesland Bank |
+    * | KNABNL2H     | Knab           |
+    * | RBRBNL21     | SNS RegioBank  |
+    * | TRIONL2U     | Triodos bank   |
+    * | FVLBNL22     | Van Lanschot   |
+    *  -------------------------------
+    * 
+    * @var string $issuer_bank_id Issuers’ bank Id
+    * @required
     */ 
    public $issuer_bank_id;
 }

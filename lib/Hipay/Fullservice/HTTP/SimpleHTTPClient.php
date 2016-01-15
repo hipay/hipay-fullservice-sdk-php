@@ -19,7 +19,8 @@ use Hipay\Fullservice\HTTP\ClientProvider;
 
 
 /**
- *
+ * Simple HTTP client
+ * 
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay

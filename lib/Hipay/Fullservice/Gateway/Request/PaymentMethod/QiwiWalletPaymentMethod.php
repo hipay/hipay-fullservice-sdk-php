@@ -26,18 +26,17 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
 class QiwiWalletPaymentMethod extends AbstractRequest
 {
    /**
-    * @var string
+    * The Qiwi user's ID, to whom the invoice is issued.
+    * It is the user's phone number, in international format (+79263745223).
+    * 
+    * @var string $qiwiuser The Qiwi user's ID
     * @length 12
     * @required
-    * @desc The Qiwi user's ID, to whom the invoice is issued.
-    * It is the user's phone number, in international format.
-    * @example +79263745223
-    * 
     */ 
    public $qiwiuser;
 }

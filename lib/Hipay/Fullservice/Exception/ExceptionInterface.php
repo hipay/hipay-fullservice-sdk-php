@@ -17,13 +17,12 @@ namespace Hipay\Fullservice\Exception;
 
 /**
  * Exception interface
- * @category    Hipay
+ * 
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 interface ExceptionInterface {
 }

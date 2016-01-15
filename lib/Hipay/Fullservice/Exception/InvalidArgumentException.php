@@ -27,7 +27,6 @@ use Hipay\Fullservice\Exception\ExceptionInterface;
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface {
 }

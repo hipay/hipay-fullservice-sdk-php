@@ -16,7 +16,11 @@
 namespace Hipay\Fullservice\Request;
 
 /**
- *
+ * Serialize Request object
+ * 
+ * This class is used to serialize request objects
+ * It can return request oject to array or Json format
+ * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - Hipay
@@ -27,12 +31,12 @@ namespace Hipay\Fullservice\Request;
 class RequestSerializer
 {
     /**
-     * 
-     * @var AbstractRequest
+     * @var AbstractRequest $_request Request object
      */
     private $_request;
     
     /**
+     * Construct a new Serializer
      * 
      * @param AbstractRequest $request
      */
@@ -42,7 +46,9 @@ class RequestSerializer
     
     /**
      * Returns data string as Json
-     * @return string
+     * 
+     * @param bool $pretty If true, display with pretty format (const: JSON_PRETTY_PRINT)
+     * @return string Return result of json_encode function
      */
     public function toJson($pretty=false){
         return json_encode($this->toArray(),$pretty ? JSON_PRETTY_PRINT : 0);
@@ -50,11 +56,12 @@ class RequestSerializer
     
     
     /**
-	 * Returns data array 
-	 * @return array
+	 * Returns data array with only scalar values
+	 * @return array Hashed array with key/valur pairs (property/value)
 	 */
     public function toArray() {
         $params = array();
+        
         //prepare an array of scalar properties
         $this->prepareParams($this->_request,$params);
         return $params;
@@ -62,11 +69,14 @@ class RequestSerializer
     
     /**
      * Populate $_params array with data to send
+     * 
      * If one of properties is type of AbstractRequest
-     * This method is called recursively
+     * This method will be called recursively
+     * 
      * @param AbstractRequest $object Object source
-     * @param array $params
-     * @return array $this->_params
+     * @param array $params Passed by reference
+     * 
+     * @todo Make only one depth
      */
     protected function prepareParams($object,&$params) {
         //Get all readble object properties

@@ -18,7 +18,7 @@ namespace Hipay\Fullservice\Exception;
 use Hipay\Fullservice\Exception\ExceptionInterface;
 
 /**
- *Exception thrown if a length is invalid.
+ * Exception thrown if a length is invalid.
  * 
  * @category    Hipay
  * @package     Hipay\Fullservice
@@ -26,7 +26,6 @@ use Hipay\Fullservice\Exception\ExceptionInterface;
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 class LengthException extends \LengthException implements ExceptionInterface {
 }

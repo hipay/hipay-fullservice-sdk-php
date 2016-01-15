@@ -26,22 +26,28 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
 class SEPADirectDebitPaymentMethod extends AbstractRequest
 {
    /**
-    * @var numeric
-    * @desc If recurring payment the agreement ID returned on first transaction.
+    * If recurring payment the agreement ID returned on first transaction.
+    * 
+    * @var int $debit_agreement_id Agreement ID returned on first transaction 
     */ 
    public $debit_agreement_id;
    
    /**
-    * @var numeric
+    * Indicates if the debit agreement will be created for a single-use or a multi-use.
+    * 
+    * Possible values:
+    * - 0 = Single use
+    * - 1 = Multi use
+    * 
+    * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
     * @length 1
     * @type options
     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
-    * @desc Indicates if the debit agreement will be created for a single-use or a multi-use.
     */
    public $recurring_payment;
 }

@@ -26,63 +26,71 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
 class XTimesCreditCardPaymentMethod extends AbstractRequest
 {
    /**
-    * @var string
+    * Gender of the ship-to customer.
+    * 
+    * Possible values:
+    * - M (Male)
+    * - F (Female)
+    * - U (Unknown)
+    * 
+    * @var string $shipto_gender Gender of the ship-to customer.
     * @required
     * @type options
-    * @values M|Male,F|Female,U|Unknow
+    * @values M|Male,F|Female,U|Unknown
     * @length 1
-    * @desc Gender of the ship-to customer. (M=male,F=female, U=unknown).
-    * 
     */ 
    public $shipto_gender;
    
    /**
-    * @var string
+    * @var string $shipto_phone The customer's ship-to phone number.
     * @required
     * @type phone
-    * @desc The customer's ship-to phone number.
     */
    public $shipto_phone;
    
    /**
-    * @var string
+    * @var string $shipto_msisdn The customer's ship-to mobile phone number
     * @required
     * @type phone
-    * @desc The customer's ship-to mobile phone number
     */
    public $shipto_msisdn;
    
    /**
-    * @var string
-    * @type list
-    * @desc Order category list
+    * @var string $order_category_code Order category list
+    * @type list 
     */
    public $order_category_code;
    
    /**
-    * @var string
+    * @var string $delivery_date Estimated delivery date (yyyy-mm-dd).
     * @type date
     * @format yyyy-mm-dd
-    * @desc Estimated delivery date.
     */
    public $delivery_date;
    
    /**
-    * @var string
+    * Delivery method type 
+    * 
+    * Possible values:
+    * - STORE24H
+    * - CARRIER
+    * - CARRIER24H
+    * - RELAYPOINT
+    * - RELAYPOINT24H
+    * 
+    * @var string $delivery_method Delivery method
     * @type options
     * $value STORE24H,CARRIER,CARRIER24H,RELAYPOINT,RELAYPOINT24H
-    * @desc Delivery method 
     */
    public $delivery_method;
    
    /**
-    * @var string
-    * @desc Carrier Description
+    * @var string $carrier_description Carrier Description
     */
    public $carrier_description;
    
