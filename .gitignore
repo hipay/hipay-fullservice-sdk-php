@@ -46,3 +46,4 @@ Thumbs.db
 #############
 vendor/
 *.lock
+doc/
