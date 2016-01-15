@@ -15,11 +15,11 @@
  */
 namespace Hipay\Fullservice\Mapper;
 
-use Hipay\Fullservice\Request\AbstractRequest;
+
+use Hipay\Fullservice\Model\AbstractModel;
 /**
  * Mapper Interface
- * Apply validation on fields to publish
- * and publish the to called format
+ * Map Model Response object
  * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -31,31 +31,8 @@ use Hipay\Fullservice\Request\AbstractRequest;
 interface MapperInterface {
 	
 	/**
-	 * Return all mapping value
-	 * Validate and filter methods must called first
-	 * @return array
-	 * @throws \Exception
+	 * Return object mapped
+	 * @return AbstractModel
 	 */
-	public function toArray();
-	
-	/**
-	 * Return if object request if valid or not
-	 * @return bool
-	 */
-	public function isValid();
-	
-	/**
-	 * Return request object
-	 * Validation and mapping are applied on this object
-	 * @return AbstractRequest $requestObject
-	 */
-	public function getRequestObject();
-	
-	/**
-	 * Return a hashed array with key is field to treat
-	 * and value is validator to apply
-	 * @retur array
-	 */
-	public function getMapping();
-	
+	public function getModelObject();
 }

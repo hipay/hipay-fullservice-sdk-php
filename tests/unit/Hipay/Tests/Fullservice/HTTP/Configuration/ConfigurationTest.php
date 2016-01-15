@@ -16,7 +16,6 @@
 namespace Hipay\Tests\Fullservice\HTTP\Configuration;
 
 use Hipay\Fullservice\HTTP\Configuration\Configuration;
-use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use Hipay\Tests\TestCase;
 /**
  * @category    Hipay
@@ -106,7 +105,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456");
 	
-		$this->assertInstanceOf(ConfigurationInterface::class, $conf);
+		$this->assertInstanceOf(Configuration::class, $conf);
 	
 		return $conf;
 	
@@ -119,7 +118,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456",Configuration::API_ENV_STAGE);
 	
-		$this->assertInstanceOf(ConfigurationInterface::class, $conf);
+		$this->assertInstanceOf(Configuration::class, $conf);
 	
 		return $conf;
 	
@@ -132,7 +131,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456",Configuration::API_ENV_PRODUCTION,'application/json');
 		
-		$this->assertInstanceOf(ConfigurationInterface::class, $conf);
+		$this->assertInstanceOf(Configuration::class, $conf);
 		
 		return $conf;
 	

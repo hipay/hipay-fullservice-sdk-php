@@ -30,22 +30,4 @@ namespace Hipay\Fullservice\Request;
 interface RequestInterface{
 	
 	
-	/**
-	 * Returns data to send
-	 * @return array
-	 */
-	public function getParams();
-	
-	/**
-	 * Return HTTP method for current request
-	 * @return string http method
-	 */
-	public function getMethod();
-	
-	/**
-	 * Return Request enpoint
-	 * @return string Request Endpoint
-	 */
-	public function getEndpoint();
-	
 }

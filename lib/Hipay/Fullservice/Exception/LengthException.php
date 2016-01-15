@@ -13,13 +13,13 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Gateway\Request;
+namespace Hipay\Fullservice\Exception;
 
+use Hipay\Fullservice\Exception\ExceptionInterface;
 
-use Hipay\Fullservice\Request\AbstractRequest;
 /**
- * Order request class.
- *
+ *Exception thrown if a length is invalid.
+ * 
  * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
@@ -27,7 +27,6 @@ use Hipay\Fullservice\Request\AbstractRequest;
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
- * */
-class OrderRequest extends AbstractRequest {
-	
+ */
+class LengthException extends \LengthException implements ExceptionInterface {
 }

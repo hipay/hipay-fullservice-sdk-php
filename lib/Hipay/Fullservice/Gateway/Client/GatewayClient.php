@@ -21,6 +21,7 @@ use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
 use Hipay\Fullservice\Validator\RespectValidator;
 use Hipay\Fullservice\Gateway\Model\Transaction;
+use Hipay\Fullservice\Request\RequestSerializer;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -34,12 +35,17 @@ use Hipay\Fullservice\Gateway\Model\Transaction;
  */
 class GatewayClient implements GatewayClientInterface{
 	
+    
+    const ENDPOINT_NEW_ORDER = '/rest/v1/order';
+    const METHOD_NEW_ORDER = 'POST';
 	
 	/**
 	 *
 	 * @var ClientProvider $_clientProvider
 	 */
 	protected $_clientProvider;
+	
+	
 	
 	
 	/**
@@ -58,10 +64,13 @@ class GatewayClient implements GatewayClientInterface{
 	 */
 	public function requestNewOrder(OrderRequest $orderRequest) {
 		
-		//Execute Mapper to validate request and retrieve params
-		$params = (new OrderMapper($orderRequest, new RespectValidator()))->toArray();
+		//Instanciate serializer object
+		$serializer = new RequestSerializer($orderRequest);
+		
+		//Get params array from serializer
+		$params = $serializer->toArray();
 		//send request
-		$response = $this->getClientProvider()->request($orderRequest->getMethod(), $orderRequest->getEndpoint(),$params);
+		$response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER,self::ENDPOINT_NEW_ORDER,$params);
 		
 		//Transform response to Transaction Model
 		$transaction = new Transaction($response->getBody());
