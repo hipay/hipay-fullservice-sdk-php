@@ -18,6 +18,10 @@ namespace Hipay\Fullservice\Model;
 use Hipay\Fullservice\Model\ModelInterface;
 
 /**
+ * Model abstract class
+ * 
+ * Created for futhers features.
+ * Not used for the moment but extended
  * 
  * @category    Hipay
  * @package     Hipay\Fullservice
@@ -25,8 +29,6 @@ use Hipay\Fullservice\Model\ModelInterface;
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
- *
  */
 abstract class AbstractModel implements ModelInterface {
 }

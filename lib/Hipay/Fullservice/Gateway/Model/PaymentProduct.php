@@ -13,12 +13,12 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Validator;
+namespace Hipay\Fullservice\Gateway\Model;
 
-use Hipay\Fullservice\Mapper\AbstractMapper;
+use Hipay\Fullservice\Model\AbstractModel;
+
 /**
- * Validator Interface
- * Apply validation on fields to publish
+ * Payment product model
  * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -27,14 +27,6 @@ use Hipay\Fullservice\Mapper\AbstractMapper;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface ValidatorInterface {
-	
-	/**
-	 * Validate an object mapper
-	 * @param AbstractMapper $mapper
-	 * @return bool
-	 * @throws \Exception
-	 */
-	public function validate(AbstractMapper $mapper);
-	
+class PaymentProduct extends AbstractModel
+{
 }

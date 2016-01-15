@@ -13,38 +13,18 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Validator;
+namespace Hipay\Fullservice\Enum;
 
-use Hipay\Fullservice\Mapper\AbstractMapper;
 /**
- * Validator Abstract
- * Apply validation on fields to publish
+ * Abstratc Enum class
  * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
-abstract class AbstractValidator {
-	
-	/**
-	 *
-	 * {@inheritDoc}
-	 *
-	 * @see ValidatorInterface::validate()
-	 */
-	public function validate(AbstractMapper $mapper){
-		$this->doValidate($mapper);
-	}
-	
-	/**
-	 * Validate request object.
-	 * Validation is based on mapping property of object $mapper
-	 * And Values to validate are retrieved from getRequestObject
-	 * @param AbstractMapper $mapper
-	 */
-	protected function doValidate(AbstractMapper $mapper);
-	
+abstract class AbstractEnum
+{
+    
 }

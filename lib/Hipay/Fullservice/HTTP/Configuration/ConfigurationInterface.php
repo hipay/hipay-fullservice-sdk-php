@@ -17,62 +17,73 @@ namespace Hipay\Fullservice\HTTP\Configuration;
 
 /**
  * Client configuration interface.
- * this contains Hipay username, password, environment
- * and others utils configuration
  * 
- * @category    Hipay
+ * This contains needed get methods.
+ * Get methods are used by HTTP client to do authentication and know which endpoint to use
+ * 
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
 interface ConfigurationInterface {
 	
+    /**
+     * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
+     */
 	const API_ENV_STAGE = 'stage';
+	
+	/**
+	 * 
+	 * @var string API_ENV_PRODUCTION Production environment. Used in real payment process
+	 */
 	const API_ENV_PRODUCTION = 'production';
 	
 	
 	/**
-	 * Get merchant api username
-	 * @return string
+	 * Return merchant api username
+	 * @return string Username for authentication
 	 */
 	public function getApiUsername();
 	
 	/**
-	 * Get merchant api password
-	 * @return string
+	 * Return merchant api password
+	 * @return string Password for authentication
 	 */
 	public function getApiPassword();
 	
 	/**
-	 * Get API Environment (Stage or Production)
-	 * @return string
+	 * Return API Environment
+	 * @return string *stage* or *prodcution*
 	 */
 	public function getApiEnv();
 	
 	/**
 	 * Return production api endpoint
-	 * @return string $_apiEndpointProd prod api endpoint
+	 * @return string $_apiEndpointProd Production api endpoint
 	 */
 	public function getApiEndpointProd();
 	
 	/**
 	 * Return stage api endpoint
-	 * @return string $_apiEndpointStage stage api endpoint
+	 * @return string $_apiEndpointStage Stage api endpoint
 	 */
 	public function getApiEndpointStage();
 	
 	/**
 	 * Return api endpoint based on API_ENV
-	 * @return string API_ENDPOINT api endpoint
+	 * 
+	 * If API_ENV is equals to *stage*, we return value of API_ENDPOINT_STAGE
+	 * else we return value of API_ENDPOINT_PRODUCTION
+	 * 
+	 * @return string API_ENDPOINT Final api endpoint
 	 */
 	public function getApiEndpoint();
 	
 	/**
-	 * Return Header Accept value. Default: application/json
-	 * @return string $_apiHTTPHeaderAccept 
+	 * Return Header Accept.
+	 * @return string $_apiHTTPHeaderAccept Header Accept value (Default: application/json)
 	 */
 	public function getApiHTTPHeaderAccept();
 	

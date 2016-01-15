@@ -21,11 +21,11 @@
 	},
 	"require" : {
 		"php" : ">=5.4.0",
-		"guzzlehttp/guzzle" : "^6.1",
-		"respect/validation": "^1.0"
+		"guzzlehttp/guzzle" : "^6.1"
 	},
 	"require-dev" : {
-		"phpunit/phpunit" : "4.8.x@stable"
+		"phpunit/phpunit" : "4.8.x@stable",
+		"phpdocumentor/phpdocumentor": "^2.8"
 	},
 	"autoload" : {
 		"psr-4" : {

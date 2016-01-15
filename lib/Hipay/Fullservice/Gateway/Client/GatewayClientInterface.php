@@ -15,8 +15,9 @@
 */
 namespace Hipay\Fullservice\Gateway\Client;
 
-use Hipay\Fullservice\Gateway\Request\OrderRequest;
 use Hipay\Fullservice\Gateway\Model\Transaction;
+use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
+use Hipay\Fullservice\HTTP\ClientProvider;
 
 
 /**
@@ -37,18 +38,27 @@ interface GatewayClientInterface {
 	 * @param OrderRequest $orderRequest
 	 * @return Transaction $transaction
 	 */
-	function requestNewOrder(OrderRequest $orderRequest);
+	public function requestNewOrder(OrderRequest $orderRequest);
 	
-
-	function requestMaintenanceTransaction();
-
-	function requestHostedPaymentPage();
-
-	function requestTransactionInformation();
+    /**
+     * Request Maintenance transaction
+     */
+	public function requestMaintenanceTransaction();
+    
+	/**
+	 * Request Hosted Payment Page
+	 */
+	public function requestHostedPaymentPage();
+    
+	/**
+	 * Get Transaction information
+	 */
+	public function requestTransactionInformation();
 	
 	/**
 	 * Return current HTTP client provider
+	 * @return ClientProvider The current client provider
 	 */
-	function getClientProvider();
+	public function getClientProvider();
 
 }
