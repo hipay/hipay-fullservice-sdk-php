@@ -19,6 +19,7 @@ use Hipay\Fullservice\HTTP\ClientProvider;
 use Hipay\Fullservice\Gateway\Model\Transaction;
 use Hipay\Fullservice\Request\RequestSerializer;
 use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
+use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -41,9 +42,6 @@ class GatewayClient implements GatewayClientInterface{
 	 */
 	protected $_clientProvider;
 	
-	
-	
-	
 	/**
 	 * Construct gateway client with an HTTP client 
 	 * @param ClientProvider $clientProvider
@@ -65,11 +63,13 @@ class GatewayClient implements GatewayClientInterface{
 		
 		//Get params array from serializer
 		$params = $serializer->toArray();
+		
 		//send request
 		$response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER,self::ENDPOINT_NEW_ORDER,$params);
 		
-		//Transform response to Transaction Model
-		$transaction = new Transaction($response->getBody());
+		//Transform response to Transaction Model with OrderMapper
+		$orderMapper = new OrderMapper($response->getBody());
+		$transaction = $orderMapper->getModelObject();
 		
 		return $transaction;
 		

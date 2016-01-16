@@ -17,6 +17,7 @@ namespace Hipay\Fullservice\Gateway\Model;
 
 use Hipay\Fullservice\Model\AbstractModel;
 
+
 /**
  * Payment product model
  * 
@@ -29,4 +30,48 @@ use Hipay\Fullservice\Model\AbstractModel;
  */
 class PaymentProduct extends AbstractModel
 {
+    
+    public function __construct($productCode,$brandName,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = ''){
+        
+        $this->_productCode = $productCode;
+        $this->_brandName = $brandName;
+        $this->_can3ds = $can3ds;
+        $this->_canRefund = $canRefund;
+        $this->_canRecurring = $canRecurring;
+        $this->_comment = $comment;
+        
+    }
+    
+    /**
+     * @var string $_productCode Product code (cd,mastercard,visa etc ...)
+     */
+    private $_productCode;
+    
+    /**
+     * @var string $_brandName Human readable value
+     */
+    private $_brandName;
+    
+    /**
+     * @var bool $_can3ds If can process 3ds payment
+     */
+    private $_can3ds = false;
+    
+    /**
+     * 
+     * @var bool $_canRefund Payment product accept refunds
+     */
+    private $_canRefund = false;
+    
+    /**
+     * 
+     * @var $_canRecurring Payment product accept refunds
+     */
+    private $_canRecurring = false;
+    
+    /**
+     * @var string $_comment A short brand description
+     */
+    private  $_comment = '';
+    
 }
