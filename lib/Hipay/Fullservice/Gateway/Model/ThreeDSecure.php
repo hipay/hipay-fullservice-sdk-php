@@ -15,6 +15,7 @@
  */
 namespace Hipay\Fullservice\Gateway\Model;
 
+use Hipay\Fullservice\Model\AbstractModel;
 /**
  * 3d secure model
  * 
@@ -30,7 +31,7 @@ namespace Hipay\Fullservice\Gateway\Model;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class ThreeDSecure extends AbstractTransaction
+class ThreeDSecure extends AbstractModel
 {
     /**
      * @var int $_eci The 3-D Secure (3DS) electronic commerce indicator.

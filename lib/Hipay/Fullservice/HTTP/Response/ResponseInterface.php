@@ -15,6 +15,8 @@
  */
 namespace Hipay\Fullservice\HTTP\Response;
 
+use Hipay\Fullservice\Exception\OutOfBoundsException;
+use Hipay\Fullservice\Exception\UnexpectedValueException;
 /**
  * Simple Object Response Data
  * 
@@ -42,6 +44,16 @@ interface ResponseInterface {
 	 * Get response headers
 	 * @return array All response headers
 	 */
-	public function getResponseHeaders();
+	public function getHeaders();
+	
+	/**
+	 * Test if response body is JSON format
+	 * If it is, we return an array result of json_decode function
+	 * 
+	 * @throws OutOfBoundsException Invalid Key in response header
+	 * @throws UnexpectedValueException Missing value or json_decode not work
+	 * @return array Array return by json_decode
+	 */
+	public function toArray();
 	
 }

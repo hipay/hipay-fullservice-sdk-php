@@ -15,6 +15,7 @@
  */
 namespace Hipay\Fullservice\Gateway\Model;
 
+use Hipay\Fullservice\Model\AbstractModel;
 /**
  * Fraud Screening model
  * 
@@ -30,7 +31,7 @@ namespace Hipay\Fullservice\Gateway\Model;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class FraudScreening extends AbstractTransaction
+class FraudScreening extends AbstractModel
 {
     /**
      * @var int $_scoring Total score assigned to the transaction (main risk indicator).

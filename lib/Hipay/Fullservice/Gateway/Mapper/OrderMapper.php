@@ -28,4 +28,42 @@ use Hipay\Fullservice\Mapper\AbstractMapper;
  * @api
  */
 class OrderMapper extends AbstractMapper {
+    
+    protected $_modelClassName;
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \Hipay\Fullservice\Mapper\AbstractMapper::mapResponseToModel()
+     */
+    protected function mapResponseToModel()
+    {
+        // TODO: Auto-generated method stub
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \Hipay\Fullservice\Mapper\AbstractMapper::validate()
+     */
+    protected function validate()
+    {
+        return $this;
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \Hipay\Fullservice\Mapper\AbstractMapper::getModelClassName()
+     */
+    protected function getModelClassName()
+    {
+        return '\Hipay\Fullservice\Gateway\Model\Transaction';
+    }
+
+
+
 }

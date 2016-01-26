@@ -13,8 +13,11 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
+
+namespace Hipay\Tests\Fullservice\Request;
+
 use Hipay\Tests\TestCase;
-use Hipay\Fullservice\Gateway\Request\OrderRequest;
+use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 
 /**
  *
@@ -51,7 +54,7 @@ class OrderRequestTest extends TestCase
         
         $o->foo = array('bar'=>'foobar');
         
-        $o->obj = new stdClass();
+        $o->obj = new \stdClass();
         $o->obj->p1 = 'value1';
         
         $this->assertAttributeEquals('7', 'eci', $o);
@@ -59,7 +62,7 @@ class OrderRequestTest extends TestCase
         $this->assertAttributeEquals('Sale', 'operation', $o);
         
         $this->assertAttributeEquals(array('bar'=>'foobar'),'foo', $o);
-        $toCompare = new stdClass();
+        $toCompare = new \stdClass();
         $toCompare->p1 = 'value1';
         $this->assertAttributeEquals($toCompare,'obj', $o);
         

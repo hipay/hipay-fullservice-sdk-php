@@ -16,68 +16,57 @@
 namespace Hipay\Fullservice\Gateway\Model;
 
 use Hipay\Fullservice\Model\AbstractModel;
-
 /**
- * Customer's Personnal Informations Model
+ * Payment method model
+ * 
+ * Informations about payment method (Card expiry, issuer, country etc ...)
  * 
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - Hipay
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
- *       @api
+ * @api
  */
-class PersonalInformation extends AbstractModel
+class PaymentMethod extends AbstractModel
 {
     /**
-     * @var string $_firstname Customer first name
+     * @var string $_token
      */
-    private $_firstname;
+    private $_token;
     
     /**
-     * @var string $_lastname Customer last name
+     * @var string $_brand
      */
-    private $_lastname;
+    private $_brand;
     
     /**
-     * @var string $_streetAddress Street Address
+     * @var string $_pan
      */
-    private $_streetAddress;
+    private $_pan;
     
     /**
-     * @var string $_locality $locality
+     * @var string $_cardHolder
      */
-    private $_locality;
+    private $_cardHolder;
     
     /**
-     * @var string $_postalCode zipcode
+     * @var string $_cardExpiryMonth
      */
-    private $_postalCode;
+    private $_cardExpiryMonth;
     
     /**
-     * @var string $_country country
+     * @var string $_cardExpiryYear
+     */
+    private $_cardExpiryYear;
+    
+    /**
+     * @var string $_issuer
+     */
+    private $_issuer;
+    
+    /**
+     * @var string $_country
      */
     private $_country;
-    
-    /**
-     * @var string $_msisdn Msisdn
-     */
-    private $_msisdn;
-    
-    /**
-     * @var string $_phone Phone number
-     */
-    private $_phone;
-    
-    /**
-     * @var string $_phoneOperator Telecom operator
-     */
-    private $_phoneOperator;
-    
-    /**
-     * @var string $_email Customer email
-     */
-    private $_email;
-    
-    
 }

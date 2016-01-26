@@ -38,13 +38,9 @@ class AbstractMapperTest extends TestCase
 	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\Mapper\AbstractMapper::__construct() must be of the type array, null given
      */
     public function testCannotBeConstructUsingInvalidArgument(){
-        $mock = $this->getMockBuilder($this->_abstractName)
-                            ->disableOriginalConstructor()
-                            ->getMockForAbstractClass();
+        $mock = $this->getAbstractMock($this->_abstractName);
         
-        $reflectedClass = new \ReflectionClass($this->_abstractName);
-        $constructor = $reflectedClass->getConstructor();
-        $constructor->invoke($mock,null);
+        $this->getClassConstructor($this->_abstractName)->invoke($mock,null);
     }
     
     /**
@@ -52,26 +48,16 @@ class AbstractMapperTest extends TestCase
      * @expectedException Hipay\Fullservice\Exception\LengthException
      */
     public function testCannotBeConstructWithEmptyArray(){
-        $mock = $this->getMockBuilder($this->_abstractName)
-        ->disableOriginalConstructor()
-        ->getMockForAbstractClass();
-        
-        $reflectedClass = new \ReflectionClass($this->_abstractName);
-        $constructor = $reflectedClass->getConstructor();
-        $constructor->invoke($mock,array());
+         $mock = $this->getAbstractMock($this->_abstractName);
+        $this->getClassConstructor($this->_abstractName)->invoke($mock,array());
     }
     
     /**
      * @cover Hipay\Fullservice\Mapper\AbstractMapper::__construct 
      */
     public function testCanConstructUsingValidArgument(){
-        $mock = $this->getMockBuilder($this->_abstractName)
-        ->disableOriginalConstructor()
-        ->getMockForAbstractClass();
-        
-        $reflectedClass = new \ReflectionClass($this->_abstractName);
-        $constructor = $reflectedClass->getConstructor();
-        $constructor->invoke($mock,array('foo'=>'bar','other_foo'=>array('barfoo'=>'foo')));
+        $mock = $this->getAbstractMock($this->_abstractName);
+        $this->getClassConstructor($this->_abstractName)->invoke($mock,array('foo'=>'bar','other_foo'=>array('barfoo'=>'foo')));
         
         $this->assertInstanceOf($this->_abstractName, $mock);
         

@@ -101,7 +101,7 @@ class Transaction extends AbstractTransaction
     
     /**
      * @var string $_paymentMethod Payment method name
-     *  @see \Hipay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
+     * @see \Hipay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
      */
     private $_paymentMethod;
     

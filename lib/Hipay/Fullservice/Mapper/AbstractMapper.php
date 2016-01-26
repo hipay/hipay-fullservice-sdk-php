@@ -41,6 +41,7 @@ abstract class AbstractMapper implements MapperInterface{
      */
     protected $_source;
     
+    
     /**
      * Construct a new mapper
      * 
@@ -72,6 +73,15 @@ abstract class AbstractMapper implements MapperInterface{
     }
     
     /**
+     * Return source to map
+     * @see AbstractMapper:::_construct
+     * @return array Local source
+     */
+    protected  function _getSource(){
+        return $this->_source;
+    }
+    
+    /**
      * Map array response to corresponding model 
      * 
      * In this method, you must create a conform model and populate it
@@ -86,6 +96,12 @@ abstract class AbstractMapper implements MapperInterface{
      * @throws \Exception
      */
     abstract protected function validate();
+    
+    /**
+     * Model Class name to map
+     * @return string Name of the class to return mapped
+     */
+    abstract protected function getModelClassName();
 
 	
 	

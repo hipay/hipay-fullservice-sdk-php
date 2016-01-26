@@ -27,4 +27,32 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase{
 		parent::__construct( $name, $data , $dataName);
 	}
 	
+	/**
+	 * Method factory for abstract class test
+	 * 
+	 * @param string $abstractName
+	 * @param string $disableOriginalConstructor
+	 * @return \Object Abstract class instance
+	 */
+	protected function getAbstractMock($abstractName,$disableOriginalConstructor = true){
+	    
+	    $mock = $this->getMockBuilder($abstractName);
+	    if($disableOriginalConstructor){
+	        $mock->disableOriginalConstructor();
+	    }
+	    return $mock->getMockForAbstractClass();
+	    
+	}
+	
+	/**
+	 * Method factory for return a class constructor as ReflectionMethod Object
+	 * 
+	 * @param string $className
+	 * @return \ReflectionMethod $constructor
+	 */
+	protected function getClassConstructor($className){
+	       
+	    $reflectedClass = new \ReflectionClass($className);
+	    return  $reflectedClass->getConstructor();
+	}
 }

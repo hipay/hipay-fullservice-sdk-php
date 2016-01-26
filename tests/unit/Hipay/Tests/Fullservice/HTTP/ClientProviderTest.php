@@ -34,22 +34,6 @@ class ClientProviderTest extends TestCase{
 	
     protected $_abstractName = 'Hipay\Fullservice\HTTP\ClientProvider';
     
-    protected function getAbstractMock(){
-        // Get mock, without the constructor being called
-        $mock = $this->getMockBuilder($this->_abstractName)
-        ->disableOriginalConstructor()
-        // ->setMethods(array('setDoors'))
-        ->getMockForAbstractClass();
-        
-        //$mock->expects($this->once())
-        //	       ->method('__construct')
-        //	       ->with($this->isNull())
-        //	       ->will($this->returnSelf())
-        ;
-        
-        return $mock;
-    }
-    
 	/**
 	 * @cover Hipay\Fullservice\HTTP\ClientProvider::__construct
 	 * @expectedException PHPUnit_Framework_Error
@@ -57,10 +41,10 @@ class ClientProviderTest extends TestCase{
 	 */
 	public function testCannotBeConstructUsingNoArgument(){
 	    
+	    $mock = $this->getAbstractMock($this->_abstractName);
+	    
 	    // now call the constructor
-	    $reflectedClass = new \ReflectionClass($this->_abstractName);
-	    $constructor = $reflectedClass->getConstructor();
-	    $constructor->invoke($this->getAbstractMock());
+	    $this->getClassConstructor($this->_abstractName)->invoke($mock);
 	    
 	}
 	
@@ -71,10 +55,10 @@ class ClientProviderTest extends TestCase{
 	 */
 	public function testCannotBeConstructUsingInvalidArgument(){	    
 	    
-       // now call the constructor
-       $reflectedClass = new \ReflectionClass($this->_abstractName);
-       $constructor = $reflectedClass->getConstructor();
-       $constructor->invoke($this->getAbstractMock(), null);
+       $mock = $this->getAbstractMock($this->_abstractName);
+	    
+	    // now call the constructor
+	    $this->getClassConstructor($this->_abstractName)->invoke($mock,null);
 		  
 	}
 	
@@ -84,17 +68,15 @@ class ClientProviderTest extends TestCase{
 	 * @uses  Hipay\Fullservice\HTTP\Configuration
 	 */
 	public function testCanBeConstructUsingConfiguration(){
-	   $mock = $this->getAbstractMock();
+	   $mock = $this->getAbstractMock($this->_abstractName);
 	   
 	   $conf = new Configuration("username", "123456");
-	   // now call the constructor
-       $reflectedClass = new \ReflectionClass($this->_abstractName);
-       $constructor = $reflectedClass->getConstructor();
-       $constructor->invoke($mock, $conf);
+
+       $this->getClassConstructor($this->_abstractName)->invoke($mock,$conf);
        
 	   $this->assertInstanceOf(ClientProvider::class, $mock);
 	
-	    return $mock;
+	   return $mock;
 	
 	}
 	

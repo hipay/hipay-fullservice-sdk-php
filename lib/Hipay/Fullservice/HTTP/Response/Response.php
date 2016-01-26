@@ -27,4 +27,14 @@ use Hipay\Fullservice\HTTP\Response\AbstractResponse;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  */
 class Response extends AbstractResponse {
+    
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \Hipay\Fullservice\HTTP\Response\AbstractResponse::__construct()
+     */
+    public function __construct($body, $statusCode, array $headers){
+        parent::__construct($body, $statusCode, $headers);
+    }
 }

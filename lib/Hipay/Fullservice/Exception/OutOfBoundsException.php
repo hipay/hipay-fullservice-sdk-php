@@ -13,35 +13,20 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Tests\Fullservice\Gateway\Client;
+namespace Hipay\Fullservice\Exception;
 
-use Hipay\Tests\TestCase;
+use Hipay\Fullservice\Exception\ExceptionInterface;
 
 /**
- * Client Test class for all request send to TPP Fullservice.
- *
+ * Exception thrown if a value is not a valid key. 
+ * This represents errors that cannot be detected at compile time.
+ * 
  * @category    Hipay
- * @package     Hipay\Tests
+ * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
  */
-class GatewayClientTest extends TestCase{
-    
-    protected function setUp()
-    {
-    
-        $this->markTestSkipped(
-            'Gateway client is not implement yet!'
-            );
-    
-    }
-    
-    public function testRequestOrder(){
-        
-    }
-
-	
+class OutOfBoundsException extends RuntimeException implements ExceptionInterface {
 }

@@ -18,8 +18,7 @@ namespace Hipay\Fullservice\Exception;
 use Hipay\Fullservice\Exception\ExceptionInterface;
 
 /**
- * Exception that is raised when invalid (scalar) arguments
- * are passed to a method.
+ * Exception that is raised when invalid (scalar) arguments are passed to a method.
  * 
  * @category    Hipay
  * @package     Hipay\Fullservice
