@@ -31,5 +31,6 @@
 		"psr-4" : {
 			"Hipay\\Fullservice\\" : "lib/Hipay/Fullservice/"
 		}
-	}
+	},
+	"minimum-stability": "alpha"
 }
