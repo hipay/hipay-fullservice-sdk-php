@@ -18,6 +18,8 @@ namespace Hipay\Fullservice\Gateway\Client;
 use Hipay\Fullservice\Gateway\Model\Transaction;
 use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 use Hipay\Fullservice\HTTP\ClientProvider;
+use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
+use Hipay\Fullservice\Gateway\Model\HostedPaymentPage;
 
 
 /**
@@ -47,6 +49,8 @@ interface GatewayClientInterface {
     
 	/**
 	 * Request Hosted Payment Page
+	 * @param HostedPaymentPageRequest $hppRequest
+	 * @return HostedPaymentPage $hpp
 	 */
 	public function requestHostedPaymentPage();
     

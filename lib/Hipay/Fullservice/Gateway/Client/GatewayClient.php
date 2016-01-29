@@ -20,6 +20,8 @@ use Hipay\Fullservice\Gateway\Model\Transaction;
 use Hipay\Fullservice\Request\RequestSerializer;
 use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
+use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
+use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPage;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -36,6 +38,9 @@ class GatewayClient implements GatewayClientInterface{
     
     const ENDPOINT_NEW_ORDER = '/rest/v1/order';
     const METHOD_NEW_ORDER = 'POST';
+    
+    const ENDPOINT_HOSTED_PAYMENT_PAGE = '/rest/v1/hpayment';
+    const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
 	
 	/**
 	 * @var ClientProvider $_clientProvider HTTP client provider
@@ -68,8 +73,8 @@ class GatewayClient implements GatewayClientInterface{
 		$response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER,self::ENDPOINT_NEW_ORDER,$params);
 		
 		//Transform response to Transaction Model with OrderMapper
-		$orderMapper = new OrderMapper($response->getBody());
-		$transaction = $orderMapper->getModelObject();
+		$orderMapper = new OrderMapper($response->toArray());
+		$transaction = $orderMapper->getModelObjectMapped();
 		
 		return $transaction;
 		
@@ -80,9 +85,24 @@ class GatewayClient implements GatewayClientInterface{
 	 * {@inheritDoc}
 	 *
 	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestHostedPaymentPage()
+	 * @return \Hipay\Fullservice\Gateway\Model\HostedPaymentPage
 	 */
-	public function requestHostedPaymentPage() {
-		// TODO: Auto-generated method stub
+	public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest) {
+		
+		//Instanciate serializer object
+		$serializer = new RequestSerializer($pageRequest);
+	
+		//Get params array from serializer
+		$params = $serializer->toArray();
+		
+		//send request
+		$response = $this->getClientProvider()->request(self::METHOD_HOSTED_PAYMENT_PAGE,self::ENDPOINT_HOSTED_PAYMENT_PAGE,$params);
+		
+		//Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
+		$hpp = new HostedPaymentPage($response->toArray());
+		$hostedPagePayment = $hpp->getModelObjectMapped();
+		
+		return $hostedPagePayment;
 	}
 	
 	/**

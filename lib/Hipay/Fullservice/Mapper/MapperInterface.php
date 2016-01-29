@@ -35,5 +35,5 @@ interface MapperInterface {
 	 * 
 	 * @return AbstractModel Model object filled with Client Response
 	 */
-	public function getModelObject();
+	public function getModelObjectMapped();
 }

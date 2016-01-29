@@ -13,25 +13,32 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Model;
+namespace Hipay\Fullservice\Gateway\Request\Order;
 
-use Hipay\Fullservice\Model\ModelInterface;
-use Hipay\Fullservice\Exception\UnexpectedValueException;
 
 /**
- * Model abstract class
+ * Payment Page request class.
+ * Based on Hipay\Fullservice\Gateway\Request\Order\OrderRequest
  * 
- * Created for futhers features.
- * Not used for the moment but extended
- * 
+ * @see \Hipay\Fullservice\Gateway\Request\Order\OrderRequest
  * @category    Hipay
  * @package     Hipay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - Hipay
  * @license     http://opensource.org/licenses/mit-license.php MIT License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
- */
-abstract class AbstractModel implements ModelInterface {
-	
-	
+ * @api
+ * */
+class HostedPaymentPageRequest extends OrderRequest {
+    
+   
+    public $payment_product_list;
+    
+    public $payment_product_category_list;
+    
+    public $css;
+    
+    public $template;
+
+    
 }

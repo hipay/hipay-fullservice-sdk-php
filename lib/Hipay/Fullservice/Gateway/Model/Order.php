@@ -29,6 +29,37 @@ use Hipay\Fullservice\Model\AbstractModel;
  */
 class Order extends AbstractModel
 {
+	
+	public function __construct(
+			$id,
+			$customerId,
+			$amount,
+			$tax,			
+			$shipping,
+			$dateCreated,
+			$attempts,
+			$currency,
+			$decimals,
+			$gender,
+			$language,
+			PersonalInformation $shippingAddress
+			){
+		
+				$this->_id = $id;
+				$this->_customerId = $customerId;
+				$this->_amount = $amount;
+				$this->_tax =$tax;
+				$this->_shipping = $shipping;
+				$this->_dateCreated = $dateCreated;
+				$this->_attempts = $attempts;
+				$this->_currency = $currency;
+				$this->_decimals = $decimals;
+				$this->_gender = $gender;
+				$this->_language  = $language;
+				$this->_shippingAddress= $shippingAddress;
+		
+	}
+	
     /**
      * 
      * @var string $_id Order ID
@@ -101,6 +132,103 @@ class Order extends AbstractModel
      * @var PersonalInformation $_shippingAddress Customer Shipping address informations
      */
     private $_shippingAddress;
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getId() {
+		return $this->_id;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getDateCreated() {
+		return $this->_dateCreated;
+	}
+	
+	/**
+	 *
+	 * @return the int
+	 */
+	public function getAttempts() {
+		return $this->_attempts;
+	}
+	
+	/**
+	 *
+	 * @return the float
+	 */
+	public function getAmount() {
+		return $this->_amount;
+	}
+	
+	/**
+	 *
+	 * @return the float
+	 */
+	public function getShipping() {
+		return $this->_shipping;
+	}
+	
+	/**
+	 *
+	 * @return the float
+	 */
+	public function getTax() {
+		return $this->_tax;
+	}
+	
+	/**
+	 *
+	 * @return the int
+	 */
+	public function getDecimals() {
+		return $this->_decimals;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getCurrency() {
+		return $this->_currency;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getCustomerId() {
+		return $this->_customerId;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getLanguage() {
+		return $this->_language;
+	}
+	
+	/**
+	 *
+	 * @return the string
+	 */
+	public function getGender() {
+		return $this->_gender;
+	}
+	
+	/**
+	 *
+	 * @return the PersonalInformation
+	 */
+	public function getShippingAddress() {
+		return $this->_shippingAddress;
+	}
+	
     
     
 }

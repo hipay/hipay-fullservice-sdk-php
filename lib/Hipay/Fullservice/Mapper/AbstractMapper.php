@@ -64,10 +64,11 @@ abstract class AbstractMapper implements MapperInterface{
      *
      * {@inheritDoc}
      *
-     * @see \Hipay\Fullservice\Mapper\MapperInterface::getModelObject()
+     * @see \Hipay\Fullservice\Mapper\MapperInterface::getModelObjectMapped()
      */
-    public function getModelObject()
+    public function getModelObjectMapped()
     {
+    	$this->validate();
         $this->mapResponseToModel();
         return $this->_modelObject;
     }

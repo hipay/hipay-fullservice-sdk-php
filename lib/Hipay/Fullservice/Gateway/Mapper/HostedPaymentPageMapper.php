@@ -16,10 +16,10 @@
 namespace Hipay\Fullservice\Gateway\Mapper;
 
 use Hipay\Fullservice\Mapper\AbstractMapper;
-use Hipay\Fullservice\Gateway\Model\Order;
+use Hipay\Fullservice\Gateway\Model\HostedPaymentPage;
 
 /**
- * Mapper for Order Model Object
+ * Mapper for Hosted Payment Page Model Object
  *  
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -28,7 +28,12 @@ use Hipay\Fullservice\Gateway\Model\Order;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class OrderMapper extends AbstractMapper {
+class HostedPaymentPage extends AbstractMapper {
+	
+	/**
+	 * @var HostedPaymentPage $_modelObject Model object to populate
+	 */
+	protected $_modelObject;
     
     protected $_modelClassName;
 
@@ -41,21 +46,34 @@ class OrderMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $id = isset($source['id']) ?: null;
-        $customerId = isset($source['customerId']) ?: null;
-        $amount = isset($source['amount']) ?: null;
-        $tax = isset($source['tax']) ?: null;
-        $shipping = isset($source['shipping']) ?: null;
-        $dateCreated = isset($source['dateCreated']) ?: null;
-        $attempts = isset($source['attempts']) ?: null;
-        $currency = isset($source['currency']) ?: null;
-        $decimals = isset($source['decimals']) ?: null;
-        $gender = isset($source['gender']) ?: null;
-        $language = isset($source['language']) ?: null;
-        $shippingAddress = isset($source['shippingAddress']) ? new PersonalInformation($source['shippingAddress']): null;
-
-        $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
-        
+        $mid = isset($source['mid']) ?: null;
+        $forwardUrl = isset($source['forwardUrl']) ?: null;
+        $order = isset($source['order']) ? new OrderMapper($source['order']) : null;
+        $cdata1 = isset($source['cdata1']) ?: null;
+        $cdata2 = isset($source['cdata2']) ?: null;
+        $cdata3 = isset($source['cdata3']) ?: null;
+        $cdata4 = isset($source['cdata4']) ?: null;
+        $cdata5 = isset($source['cdata5']) ?: null;
+        $cdata6 = isset($source['cdata6']) ?: null;
+        $cdata7 = isset($source['cdata7']) ?: null;
+        $cdata8 = isset($source['cdata8']) ?: null;
+        $cdata9 = isset($source['cdata9']) ?: null;
+        $cdata10 = isset($source['cdata10']) ?: null;
+        $this->_modelObject = new HostedPaymentPage($mid, 
+        		$forwardUrl, 
+        		$order,
+        		$cdata1,
+        		$cdata2,
+        		$cdata3,
+        		$cdata4,
+        		$cdata5,
+        		$cdata6,
+        		$cdata7,
+        		$cdata8,
+        		$cdata9,
+        		$cdata10
+        		) ;
+ 			
     }
 
     /**
@@ -77,7 +95,7 @@ class OrderMapper extends AbstractMapper {
      */
     protected function getModelClassName()
     {
-        return '\Hipay\Fullservice\Gateway\Model\Order';
+        return '\Hipay\Fullservice\Gateway\Model\HostedPaymentPage';
     }
 
 

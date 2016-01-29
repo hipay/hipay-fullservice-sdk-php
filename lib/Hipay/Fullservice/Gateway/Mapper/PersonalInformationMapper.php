@@ -17,9 +17,10 @@ namespace Hipay\Fullservice\Gateway\Mapper;
 
 use Hipay\Fullservice\Mapper\AbstractMapper;
 use Hipay\Fullservice\Gateway\Model\Order;
+use Hipay\Fullservice\Gateway\Model\PersonalInformation;
 
 /**
- * Mapper for Order Model Object
+ * Mapper for Personal Informations Model Object
  *  
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -28,7 +29,7 @@ use Hipay\Fullservice\Gateway\Model\Order;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class OrderMapper extends AbstractMapper {
+class PersonalInformation extends AbstractMapper {
     
     protected $_modelClassName;
 
@@ -41,20 +42,18 @@ class OrderMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $id = isset($source['id']) ?: null;
-        $customerId = isset($source['customerId']) ?: null;
-        $amount = isset($source['amount']) ?: null;
-        $tax = isset($source['tax']) ?: null;
-        $shipping = isset($source['shipping']) ?: null;
-        $dateCreated = isset($source['dateCreated']) ?: null;
-        $attempts = isset($source['attempts']) ?: null;
-        $currency = isset($source['currency']) ?: null;
-        $decimals = isset($source['decimals']) ?: null;
-        $gender = isset($source['gender']) ?: null;
-        $language = isset($source['language']) ?: null;
-        $shippingAddress = isset($source['shippingAddress']) ? new PersonalInformation($source['shippingAddress']): null;
+        $firstname = isset($source['firstname']) ?: null;
+        $lastname = isset($source['lastname']) ?: null;
+        $streetAddress = isset($source['streetAddress']) ?: null;
+        $locality = isset($source['locality']) ?: null;
+        $postalCode = isset($source['postalCode']) ?: null;
+        $country = isset($source['country']) ?: null;
+        $msisdn = isset($source['msisdn']) ?: null;
+        $phone = isset($source['phone']) ?: null;
+        $phoneOperator = isset($source['phoneOperator']) ?: null;
+        $email = isset($source['email']) ?: null;
 
-        $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
+        $this->_modelObject = new PersonalInformation($firstname, $lastname, $streetAddress, $locality, $postalCode, $country, $msisdn, $phone, $phoneOperator, $email);
         
     }
 
@@ -77,7 +76,7 @@ class OrderMapper extends AbstractMapper {
      */
     protected function getModelClassName()
     {
-        return '\Hipay\Fullservice\Gateway\Model\Order';
+        return '\Hipay\Fullservice\Gateway\Model\PersonalInformation';
     }
 
 
