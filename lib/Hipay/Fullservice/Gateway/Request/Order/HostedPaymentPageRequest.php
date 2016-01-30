@@ -39,6 +39,7 @@ class HostedPaymentPageRequest extends OrderRequest {
     public $css;
     
     public $template;
-
+    
+    public $display_selector;
     
 }

@@ -29,7 +29,7 @@ use Hipay\Fullservice\Gateway\Model\PersonalInformation;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PersonalInformation extends AbstractMapper {
+class PersonalInformationMapper extends AbstractMapper {
     
     protected $_modelClassName;
 
@@ -42,16 +42,16 @@ class PersonalInformation extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $firstname = isset($source['firstname']) ?: null;
-        $lastname = isset($source['lastname']) ?: null;
-        $streetAddress = isset($source['streetAddress']) ?: null;
-        $locality = isset($source['locality']) ?: null;
-        $postalCode = isset($source['postalCode']) ?: null;
-        $country = isset($source['country']) ?: null;
-        $msisdn = isset($source['msisdn']) ?: null;
-        $phone = isset($source['phone']) ?: null;
-        $phoneOperator = isset($source['phoneOperator']) ?: null;
-        $email = isset($source['email']) ?: null;
+        $firstname = $source['firstname'] ?: null;
+        $lastname = $source['lastname'] ?: null;
+        $streetAddress = $source['streetAddress'] ?: null;
+        $locality = $source['locality'] ?: null;
+        $postalCode = $source['postalCode'] ?: null;
+        $country = $source['country'] ?: null;
+        $msisdn = $source['msisdn'] ?: null;
+        $phone = $source['phone'] ?: null;
+        $phoneOperator = $source['phoneOperator'] ?: null;
+        $email = $source['email'] ?: null;
 
         $this->_modelObject = new PersonalInformation($firstname, $lastname, $streetAddress, $locality, $postalCode, $country, $msisdn, $phone, $phoneOperator, $email);
         

@@ -41,18 +41,18 @@ class OrderMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $id = isset($source['id']) ?: null;
-        $customerId = isset($source['customerId']) ?: null;
-        $amount = isset($source['amount']) ?: null;
-        $tax = isset($source['tax']) ?: null;
-        $shipping = isset($source['shipping']) ?: null;
-        $dateCreated = isset($source['dateCreated']) ?: null;
-        $attempts = isset($source['attempts']) ?: null;
-        $currency = isset($source['currency']) ?: null;
-        $decimals = isset($source['decimals']) ?: null;
-        $gender = isset($source['gender']) ?: null;
-        $language = isset($source['language']) ?: null;
-        $shippingAddress = isset($source['shippingAddress']) ? new PersonalInformation($source['shippingAddress']): null;
+        $id = $source['id'] ?: null;
+        $customerId = $source['customerId'] ?: null;
+        $amount = $source['amount'] ?: null;
+        $tax = $source['tax'] ?: null;
+        $shipping = $source['shipping'] ?: null;
+        $dateCreated = $source['dateCreated'] ?: null;
+        $attempts = $source['attempts'] ?: null;
+        $currency = $source['currency'] ?: null;
+        $decimals = $source['decimals'] ?: null;
+        $gender = isset($source['gender']) ? $source['gender'] : null;
+        $language = $source['language'] ?: null;
+        $shippingAddress = isset($source['shippingAddress']) ? (new PersonalInformationMapper($source['shippingAddress']))->getModelObjectMapped(): null;
 
         $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
         

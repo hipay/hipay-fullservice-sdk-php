@@ -21,7 +21,7 @@ use Hipay\Fullservice\Request\RequestSerializer;
 use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
 use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
-use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPage;
+use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPageMapper;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -36,10 +36,10 @@ use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPage;
 class GatewayClient implements GatewayClientInterface{
 	
     
-    const ENDPOINT_NEW_ORDER = 'rest/v1/order';
+    const ENDPOINT_NEW_ORDER = 'order';
     const METHOD_NEW_ORDER = 'POST';
     
-    const ENDPOINT_HOSTED_PAYMENT_PAGE = 'rest/v1/hpayment';
+    const ENDPOINT_HOSTED_PAYMENT_PAGE = 'hpayment';
     const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
 	
 	/**
@@ -99,8 +99,8 @@ class GatewayClient implements GatewayClientInterface{
 		$response = $this->getClientProvider()->request(self::METHOD_HOSTED_PAYMENT_PAGE,self::ENDPOINT_HOSTED_PAYMENT_PAGE,$params);
 		
 		//Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
-		$hpp = new HostedPaymentPage($response->toArray());
-		$hostedPagePayment = $hpp->getModelObjectMapped();
+		$mapper = new HostedPaymentPageMapper($response->toArray());
+		$hostedPagePayment = $mapper->getModelObjectMapped();
 		
 		return $hostedPagePayment;
 	}

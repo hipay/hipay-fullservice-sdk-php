@@ -88,8 +88,8 @@ class RequestSerializer
          */
         foreach ($properties as $p=>$v){
             if(is_object($v) && $v instanceof AbstractRequest){
-                $params[$p] = array();
-                $this->prepareParams($v,$params[$p]);
+                
+                $this->prepareParams($v,$params);
             }
             if(is_scalar($v)){
                 $params[$p] = $v;

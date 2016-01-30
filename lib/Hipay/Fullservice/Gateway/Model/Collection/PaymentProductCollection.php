@@ -36,15 +36,15 @@ class PaymentProductCollection extends AbstractModel
      * @return PaymentProduct[] Collection of payment products available
      */
     public static function getItems(){
-        $jsonArr = json_decode(self::_JSON);
+        $jsonArr = json_decode(self::$_JSON,true);
         $collection = array();
         foreach ($jsonArr as $item){
             $collection[] = new PaymentProduct($item['productCode'],
                                                 $item['brandName'],
+            									$item['category'],
                                                 $item['can3ds'],
                                                 $item['canRefund'],
                                                 $item['canRecurring'],
-                                                $item['category'],
                                                 $item['comment']);
         }
         

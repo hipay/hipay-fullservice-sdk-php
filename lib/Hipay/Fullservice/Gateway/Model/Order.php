@@ -42,7 +42,7 @@ class Order extends AbstractModel
 			$decimals,
 			$gender,
 			$language,
-			PersonalInformation $shippingAddress
+			$shippingAddress
 			){
 		
 				$this->_id = $id;

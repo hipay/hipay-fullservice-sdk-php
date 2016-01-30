@@ -31,10 +31,11 @@ use Hipay\Fullservice\Model\AbstractModel;
 class PaymentProduct extends AbstractModel
 {
     
-    public function __construct($productCode,$brandName,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = ''){
+    public function __construct($productCode,$brandName,$category,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = ''){
         
         $this->_productCode = $productCode;
         $this->_brandName = $brandName;
+        $this->_category = $category;
         $this->_can3ds = $can3ds;
         $this->_canRefund = $canRefund;
         $this->_canRecurring = $canRecurring;
@@ -70,8 +71,39 @@ class PaymentProduct extends AbstractModel
     private $_canRecurring = false;
     
     /**
+     * 
+     * @var $_category Brand's category
+     */
+    private $_category;
+    
+    /**
      * @var string $_comment A short brand description
      */
     private  $_comment = '';
+    
+    
+	public function getProductCode() {
+		return $this->_productCode;
+	}
+	public function getBrandName() {
+		return $this->_brandName;
+	}
+	public function getCan3ds() {
+		return $this->_can3ds;
+	}
+	public function getCanRefund() {
+		return $this->_canRefund;
+	}
+	public function getCanRecurring() {
+		return $this->_canRecurring;
+	}
+	public function getComment() {
+		return $this->_comment;
+	}
+	public function getCategory() {
+		return $this->_category;
+	}
+	
+	
     
 }
