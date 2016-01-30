@@ -37,7 +37,7 @@ class ClientProviderTest extends TestCase{
 	/**
 	 * @cover Hipay\Fullservice\HTTP\ClientProvider::__construct
 	 * @expectedException PHPUnit_Framework_Error
-	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\HTTP\ClientProvider::__construct() must be an instance of Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given
+	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\HTTP\ClientProvider::__construct() must implement interface Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given
 	 */
 	public function testCannotBeConstructUsingNoArgument(){
 	    
@@ -51,7 +51,7 @@ class ClientProviderTest extends TestCase{
 	/**
 	 * @cover Hipay\Fullservice\HTTP\ClientProvider::__construct
 	 * @expectedException PHPUnit_Framework_Error
-	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\HTTP\ClientProvider::__construct() must be an instance of Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
+	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\HTTP\ClientProvider::__construct() must implement interface Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
 	 */
 	public function testCannotBeConstructUsingInvalidArgument(){	    
 	    

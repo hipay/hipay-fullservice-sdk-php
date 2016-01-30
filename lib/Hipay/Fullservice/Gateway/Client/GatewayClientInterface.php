@@ -52,7 +52,7 @@ interface GatewayClientInterface {
 	 * @param HostedPaymentPageRequest $hppRequest
 	 * @return HostedPaymentPage $hpp
 	 */
-	public function requestHostedPaymentPage();
+	public function requestHostedPaymentPage(HostedPaymentPageRequest $hppRequest);
     
 	/**
 	 * Get Transaction information

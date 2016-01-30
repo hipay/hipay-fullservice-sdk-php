@@ -36,10 +36,10 @@ use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPage;
 class GatewayClient implements GatewayClientInterface{
 	
     
-    const ENDPOINT_NEW_ORDER = '/rest/v1/order';
+    const ENDPOINT_NEW_ORDER = 'rest/v1/order';
     const METHOD_NEW_ORDER = 'POST';
     
-    const ENDPOINT_HOSTED_PAYMENT_PAGE = '/rest/v1/hpayment';
+    const ENDPOINT_HOSTED_PAYMENT_PAGE = 'rest/v1/hpayment';
     const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
 	
 	/**
