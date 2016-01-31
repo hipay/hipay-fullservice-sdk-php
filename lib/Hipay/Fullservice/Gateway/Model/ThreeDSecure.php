@@ -33,6 +33,28 @@ use Hipay\Fullservice\Model\AbstractModel;
  */
 class ThreeDSecure extends AbstractModel
 {
+	
+	public function __construct(
+			$eci,
+			$enrollmentStatus,
+			$enrollmentMessage,
+			$authenticationStatus,
+			$authenticationMessage,
+			$authenticationToken,
+			$xid
+			){
+		
+				
+				$this->_eci = $eci;
+				$this->_enrollmentStatus = $enrollmentStatus;
+				$this->_enrollmentMessage = $enrollmentMessage;
+				$this->_authenticationStatus = $authenticationStatus;
+				$this->_authenticationMessage = $authenticationMessage;
+				$this->_authenticationToken = $authenticationToken;
+				$this->_xid = $xid;
+		
+	}
+	
     /**
      * @var int $_eci The 3-D Secure (3DS) electronic commerce indicator.
      */
@@ -78,5 +100,27 @@ class ThreeDSecure extends AbstractModel
     * @var string $_xid Unique transaction identifier
     */
    private $_xid;
+	public function getEci() {
+		return $this->_eci;
+	}
+	public function getEnrollmentStatus() {
+		return $this->_enrollmentStatus;
+	}
+	public function getEnrollmentMessage() {
+		return $this->_enrollmentMessage;
+	}
+	public function getAuthenticationStatus() {
+		return $this->_authenticationStatus;
+	}
+	public function getAuthenticationMessage() {
+		return $this->_authenticationMessage;
+	}
+	public function getAuthenticationToken() {
+		return $this->_authenticationToken;
+	}
+	public function getXid() {
+		return $this->_xid;
+	}
+	
     
 }

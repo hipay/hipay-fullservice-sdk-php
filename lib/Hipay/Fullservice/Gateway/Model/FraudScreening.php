@@ -33,6 +33,20 @@ use Hipay\Fullservice\Model\AbstractModel;
  */
 class FraudScreening extends AbstractModel
 {
+	
+	
+	public function __construct(
+			$scoring,
+			$result,
+			$review
+			){
+		
+				$this->_scoring = $scoring;
+				$this->_result = $result;
+				$this->_review = $review;
+		
+	}
+	
     /**
      * @var int $_scoring Total score assigned to the transaction (main risk indicator).
      */
@@ -63,5 +77,15 @@ class FraudScreening extends AbstractModel
      * @see \Hipay\Fullservice\Enum\Transaction\FraudScreening
      */
     private $_review;
+	public function getScoring() {
+		return $this->_scoring;
+	}
+	public function getResult() {
+		return $this->_result;
+	}
+	public function getReview() {
+		return $this->_review;
+	}
+	
     
 }

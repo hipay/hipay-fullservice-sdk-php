@@ -27,6 +27,83 @@ namespace Hipay\Fullservice\Gateway\Model;
  */
 class Transaction extends AbstractTransaction
 {
+	
+	
+	public function __construct(
+			$mid, 
+			$authorizationCode,
+			$transactionReference, 
+			$dateCreated, 
+			$dateUpdated, 
+			$dateAuthorized,
+			$status, 
+			$state, 
+			$message, 
+			$authorizedAmount,
+			$capturedAmount, 
+			$refundedAmount,
+			$decimals, 
+			$currency,
+			$reason,
+			$forwardUrl,
+			$attemptId,
+			$referenceToPay,
+			$ipAddress,
+			$ipCountry,
+			$deviceId,
+			$avsResult,
+			$cvcResult,
+			$eci,
+			$paymentProduct,
+			$paymentMethod,
+			$threeDSecure,
+			$fraudScreenig,
+			$order,
+			$debitAgreement,
+			$cdata1 = "",
+			$cdata2 = "",
+			$cdata3 = "",
+			$cdata4 = "",
+			$cdata5 = "",
+			$cdata6 = "",
+			$cdata7 = "",
+			$cdata8 = "",
+			$cdata9 = "",
+			$cdata10 = ""
+		){
+		parent::__construct($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated, 
+				$dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount, $decimals, $currency);
+		
+		$this->_reason = $reason;
+		$this->_forwardUrl = $forwardUrl;
+		$this->_attemptId = $attemptId;
+		$this->_referenceToPay = $referenceToPay;
+		$this->_ipAddress = $ipAddress;
+		$this->_ipCountry = $ipCountry;
+		$this->_deviceId = $deviceId;
+		$this->_avsResult = $avsResult;
+		$this->_cvcResult = $cvcResult;
+		$this->_eci = $eci;
+		$this->_paymentMethod = $paymentMethod;
+		$this->_paymentProduct = $paymentProduct;
+		$this->_threeDSecure = $threeDSecure;
+		$this->_fraudScreening = $fraudScreenig;
+		$this->_order = $order;
+		$this->_debitAgreement = $debitAgreement;
+		
+		$this->_cdata1 = $cdata1;
+		$this->_cdata2 = $cdata2;
+		$this->_cdata3 = $cdata3;
+		$this->_cdata4 = $cdata4;
+		$this->_cdata5 = $cdata5;
+		$this->_cdata6 = $cdata6;
+		$this->_cdata7 = $cdata7;
+		$this->_cdata8 = $cdata8;
+		$this->_cdata9 = $cdata9;
+		$this->_cdata10 = $cdata10;
+		
+	}
+	
     /**
      * @var string $_reason Reason why transaction was declined. Optional.
      */
@@ -100,8 +177,9 @@ class Transaction extends AbstractTransaction
     private $_paymentProduct;
     
     /**
-     * @var string $_paymentMethod Payment method name
+     * @var \Hipay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object 
      * @see \Hipay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
+     * @see \Hipay\Fullservice\Gateway\Model\PaymentMethod
      */
     private $_paymentMethod;
     
@@ -133,7 +211,86 @@ class Transaction extends AbstractTransaction
      * 
      * @var string $_cdata1 Custom data 1.
      */
-    private $_cdata1,$_cdata2,$_cdata3,$_cdata3,$_cdata5,$_cdata6,$_cdata7,$_cdata8,$_cdata9,$_cdata10;
+    private $_cdata1,$_cdata2,$_cdata3,$_cdata4,$_cdata5,$_cdata6,$_cdata7,$_cdata8,$_cdata9,$_cdata10;
+	public function getReason() {
+		return $this->_reason;
+	}
+	public function getForwardUrl() {
+		return $this->_forwardUrl;
+	}
+	public function getAttemptId() {
+		return $this->_attemptId;
+	}
+	public function getReferenceToPay() {
+		return $this->_referenceToPay;
+	}
+	public function getIpAddress() {
+		return $this->_ipAddress;
+	}
+	public function getIpCountry() {
+		return $this->_ipCountry;
+	}
+	public function getDeviceId() {
+		return $this->_deviceId;
+	}
+	public function getAvsResult() {
+		return $this->_avsResult;
+	}
+	public function getCvcResult() {
+		return $this->_cvcResult;
+	}
+	public function getEci() {
+		return $this->_eci;
+	}
+	public function getPaymentProduct() {
+		return $this->_paymentProduct;
+	}
+	public function getPaymentMethod() {
+		return $this->_paymentMethod;
+	}
+	public function getThreeDSecure() {
+		return $this->_threeDSecure;
+	}
+	public function getFraudScreening() {
+		return $this->_fraudScreening;
+	}
+	public function getOrder() {
+		return $this->_order;
+	}
+	public function getDebitAgreement() {
+		return $this->_debitAgreement;
+	}
+	public function getCdata1() {
+		return $this->_cdata1;
+	}
+	public function getCdata2() {
+		return $this->_cdata2;
+	}
+	public function getCdata3() {
+		return $this->_cdata3;
+	}
+	public function getCdata4() {
+		return $this->_cdata4;
+	}
+	public function getCdata5() {
+		return $this->_cdata5;
+	}
+	public function getCdata6() {
+		return $this->_cdata6;
+	}
+	public function getCdata7() {
+		return $this->_cdata7;
+	}
+	public function getCdata8() {
+		return $this->_cdata8;
+	}
+	public function getCdata9() {
+		return $this->_cdata9;
+	}
+	public function getCdata10() {
+		return $this->_cdata10;
+	}
+	
     
     
     

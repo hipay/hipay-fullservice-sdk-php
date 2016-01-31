@@ -18,6 +18,7 @@ namespace Hipay\Fullservice\Mapper;
 use Hipay\Fullservice\Mapper\MapperInterface;
 use Hipay\Fullservice\Model\AbstractModel;
 use Hipay\Fullservice\Exception\LengthException;
+use Hipay\Fullservice\Helper\Convert;
 
 /**
  * Abstract Mapper class
@@ -58,6 +59,7 @@ abstract class AbstractMapper implements MapperInterface{
         }
         
         $this->_source = $source;
+        $this->uniformizeSourceKeys();
     }
 
     /**
@@ -71,6 +73,11 @@ abstract class AbstractMapper implements MapperInterface{
     	$this->validate();
         $this->mapResponseToModel();
         return $this->_modelObject;
+    }
+    
+    protected function uniformizeSourceKeys(){
+    	
+    	$this->_source = Convert::arrayKeysToCamelCase($this->_source);
     }
     
     /**
