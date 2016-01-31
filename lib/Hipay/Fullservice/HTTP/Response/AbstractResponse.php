@@ -130,8 +130,8 @@ abstract class AbstractResponse implements ResponseInterface {
         
         //Check if Content-Type header is 'application/json'
         //And throw an exception if not
-        if(!in_array('application/json', $headers['Content-Type']) ){
-            $message = sprintf("Content-Type header is not valid. Expected 'application/json' but found %s",implode(",", $headers['Content-Type']));
+        if(!in_array('application/json; encoding=UTF-8', $headers['Content-Type']) ){
+            $message = sprintf("Content-Type header is not valid. Expected 'application/json; encoding=UTF-8' but found '%s'",implode(",", $headers['Content-Type']));
             throw new UnexpectedValueException($message);
         }
         
