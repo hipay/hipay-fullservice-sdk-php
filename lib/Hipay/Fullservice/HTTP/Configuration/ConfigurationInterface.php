@@ -29,17 +29,6 @@ namespace Hipay\Fullservice\HTTP\Configuration;
  */
 interface ConfigurationInterface {
 	
-    /**
-     * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
-     */
-	const API_ENV_STAGE = 'stage';
-	
-	/**
-	 * 
-	 * @var string API_ENV_PRODUCTION Production environment. Used in real payment process
-	 */
-	const API_ENV_PRODUCTION = 'production';
-	
 	
 	/**
 	 * Return merchant api username

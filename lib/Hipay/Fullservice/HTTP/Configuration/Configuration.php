@@ -34,6 +34,29 @@ use Hipay\Fullservice\Exception\UnexpectedValueException;
 class Configuration implements ConfigurationInterface {
 	
 	/**
+	 *
+	 * @var string API_ENDPOINT_PROD API Endpoint for production
+	 */
+	const API_ENDPOINT_PROD = "https://secure-gateway.hipay-tpp.com/rest/v1/";
+	
+	/**
+	 *
+	 * @var string API_ENDPOINT_STAGE API Endpoint for test
+	 */
+	const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/v1/";
+	
+	/**
+	 * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
+	 */
+	const API_ENV_STAGE = 'stage';
+	
+	/**
+	 *
+	 * @var string API_ENV_PRODUCTION Production environment. Used in real payment process
+	 */
+	const API_ENV_PRODUCTION = 'production';
+	
+	/**
 	 * @var string $_apiUsername API Username provided by Hipay
 	 */
 	private $_apiUsername;
@@ -47,18 +70,6 @@ class Configuration implements ConfigurationInterface {
 	 * @var string $_apiEnv API Environment can be *stage* or *production* 
 	 */
 	private $_apiEnv = self::API_ENV_STAGE;
-	
-	/**
-	 *
-	 * @var string $_apiEndpointStage API Endpoint for test
-	 */
-	private $_apiEndpointStage = 'https://stage-secure-gateway.hipay-tpp.com/rest/v1/';
-	
-	/**
-	 *
-	 * @var string $_apiEndpointProd API Endpoint for production
-	 */
-	private $_apiEndpointProd = 'https://secure-gateway.hipay-tpp.com/rest/v1/';
 	
 	/**
 	 * @var string $_apiHTTPHeaderAccept HTTP header Accept's value
@@ -154,7 +165,7 @@ class Configuration implements ConfigurationInterface {
 	 * @see \Hipay\Fullservice\Client\Configuration\ConfigurationInterface::getApiEndpointProd()
 	 */
 	public function getApiEndpointProd() {
-		return $this->_apiEndpointProd;
+		return self::API_ENDPOINT_PROD;
 	}
 	
 	/**
@@ -164,7 +175,7 @@ class Configuration implements ConfigurationInterface {
 	 * @see \Hipay\Fullservice\Client\Configuration\ConfigurationInterface::getApiEndpointStage()
 	 */
 	public function getApiEndpointStage() {
-		return $this->_apiEndpointStage;
+		return self::API_ENDPOINT_STAGE;
 	}
 	
 	/**

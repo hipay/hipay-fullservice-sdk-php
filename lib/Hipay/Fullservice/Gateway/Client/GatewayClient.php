@@ -114,13 +114,14 @@ class GatewayClient implements GatewayClientInterface{
 	 * {@inheritDoc}
 	 *
 	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
+	 * @return \Hipay\Fullservice\Gateway\Model\Operation
 	 */
-	public function requestMaintenanceOperation($operationType,$amount,$transactionReference) {
+	public function requestMaintenanceOperation($operationType,$amount,$transactionReference,$operationId=null) {
 		
 		
 		$response = $this->getClientProvider()
 							->request(str_replace('{transaction}',$transactionReference,self::METHOD_MAINTENANCE_OPERATION),
-													self::ENDPOINT_MAINTENANCE_OPERATION,['operation'=>$operationType,'amount'=>$amount]);
+													self::ENDPOINT_MAINTENANCE_OPERATION,['operation'=>$operationType,'amount'=>$amount,'operation_id'=>$operationId]);
 		
 		
 		return (new OperationMapper($response->toArray()))->getModelObjectMapped();
