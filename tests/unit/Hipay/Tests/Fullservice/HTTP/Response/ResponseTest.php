@@ -104,7 +104,7 @@ class ResponseTest extends TestCase
      */
     public function testToArrayCannotBeRetrievedUsingInvalidContentTypeHeader(){
         
-        $response = new Response('some string',200,array('Content-Type'=>'application/xml'));
+        $response = new Response('some string',200,array('Content-Type'=>array('application/xml')));
         $response->toArray();
     }
     
@@ -114,7 +114,7 @@ class ResponseTest extends TestCase
      */
     public function testToArrayCannotBeRetrievedUsingInvalidJsonBody(){
     
-        $response = new Response('some string',200,array('Content-Type'=>'application/json'));
+        $response = new Response('some string',200,array('Content-Type'=>array('application/json; encoding=UTF-8')));
         $response->toArray();
     }
     
@@ -122,7 +122,7 @@ class ResponseTest extends TestCase
      * @covers \Hipay\Fullservice\HTTP\Response\Response::toArray
      */
     public function testCanBeConvertedJsonBodyToArrayAndRetrieveIt(){
-        $response = new Response('{"foo":"bar"}',200,array('Content-Type'=>'application/json'));
+        $response = new Response('{"foo":"bar"}',200,array('Content-Type'=>array('application/json; encoding=UTF-8')));
 
         $array = $response->toArray();
         $this->assertTrue(is_array($array));

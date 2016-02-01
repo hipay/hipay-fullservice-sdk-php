@@ -47,6 +47,7 @@ interface GatewayClientInterface {
      * Request Maintenance operation on a transaction
      */
 	public function requestMaintenanceOperation($operationType,$amount,$transactionReference);
+
     
 	/**
 	 * Request Hosted Payment Page

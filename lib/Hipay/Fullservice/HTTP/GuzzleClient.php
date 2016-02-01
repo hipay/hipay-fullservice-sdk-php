@@ -66,7 +66,7 @@ class GuzzleClient extends ClientProvider{
 		 */
 		$options['headers'] = array(
 				'Accept'=>$this->getConfiguration()->getApiHTTPHeaderAccept(),
-				'User-Agent'=> $_SERVER['HTTP_USER_AGENT'] ?: 'HipayFullservice/1.0 (SDK PHP)',
+				'User-Agent'=> isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HipayFullservice/1.0 (SDK PHP)',
 		);
 		
 		//Set params to send
