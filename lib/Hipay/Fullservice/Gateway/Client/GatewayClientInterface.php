@@ -20,6 +20,7 @@ use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 use Hipay\Fullservice\HTTP\ClientProvider;
 use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use Hipay\Fullservice\Gateway\Model\HostedPaymentPage;
+use Hipay\Fullservice\Gateway\Model\Operation;
 
 
 /**
@@ -43,9 +44,9 @@ interface GatewayClientInterface {
 	public function requestNewOrder(OrderRequest $orderRequest);
 	
     /**
-     * Request Maintenance transaction
+     * Request Maintenance operation on a transaction
      */
-	public function requestMaintenanceTransaction();
+	public function requestMaintenanceOperation($operationType,$amount,$transactionReference);
     
 	/**
 	 * Request Hosted Payment Page
@@ -56,6 +57,11 @@ interface GatewayClientInterface {
     
 	/**
 	 * Get Transaction information
+	 * 
+	 * @param string $operationType
+	 * @param float $amount
+	 * @param string $transactionReference
+	 * @return Operation Operation Model
 	 */
 	public function requestTransactionInformation();
 	
