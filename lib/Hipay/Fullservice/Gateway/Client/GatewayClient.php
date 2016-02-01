@@ -22,6 +22,7 @@ use Hipay\Fullservice\Gateway\Request\Order\OrderRequest;
 use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
 use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPageMapper;
+use Hipay\Fullservice\Gateway\Mapper\OperationMapper;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -41,6 +42,9 @@ class GatewayClient implements GatewayClientInterface{
     
     const ENDPOINT_HOSTED_PAYMENT_PAGE = 'hpayment';
     const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
+    
+    const ENDPOINT_MAINTENANCE_OPERATION = 'maintenance/{transaction}';
+    const METHOD_MAINTENANCE_OPERATION = 'POST';
 	
 	/**
 	 * @var ClientProvider $_clientProvider HTTP client provider
@@ -111,8 +115,16 @@ class GatewayClient implements GatewayClientInterface{
 	 *
 	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
 	 */
-	public function requestMaintenanceTransaction() {
-		// TODO: Auto-generated method stub
+	public function requestMaintenanceOperation($operationType,$amount,$transactionReference) {
+		
+		
+		$response = $this->getClientProvider()
+							->request(str_replace('{transaction}',$transactionReference,self::METHOD_MAINTENANCE_OPERATION),
+													self::ENDPOINT_MAINTENANCE_OPERATION,['operation'=>$operationType,'amount'=>$amount]);
+		
+		
+		return (new OperationMapper($response->toArray()))->getModelObjectMapped();
+		
 	}
 	
 	
