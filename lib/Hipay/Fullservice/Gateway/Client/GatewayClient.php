@@ -23,6 +23,8 @@ use Hipay\Fullservice\Gateway\Mapper\OrderMapper;
 use Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use Hipay\Fullservice\Gateway\Mapper\HostedPaymentPageMapper;
 use Hipay\Fullservice\Gateway\Mapper\OperationMapper;
+use Hipay\Fullservice\Request\AbstractRequest;
+use Hipay\Fullservice\Exception\InvalidArgumentException;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -37,13 +39,40 @@ use Hipay\Fullservice\Gateway\Mapper\OperationMapper;
 class GatewayClient implements GatewayClientInterface{
 	
     
+	/**
+	 * 
+	 * @var string ENDPOINT_NEW_ORDER endpoint to create a new transaction order
+	 */
     const ENDPOINT_NEW_ORDER = 'order';
+    
+    /**
+     *
+     * @var string METHOD_NEW_ORDER http method to create a new transaction order
+     */
     const METHOD_NEW_ORDER = 'POST';
     
+    /**
+     *
+     * @var string ENDPOINT_HOSTED_PAYMENT_PAGE endpoint to call Hosted payment page
+     */
     const ENDPOINT_HOSTED_PAYMENT_PAGE = 'hpayment';
+    
+    /**
+     *
+     * @var string METHOD_HOSTED_PAYMENT_PAGE http method to call Hosted payment page
+     */
     const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
     
+    /**
+     *
+     * @var string ENDPOINT_MAINTENANCE_OPERATION http method to do a maintenance operation (capture,refund,accept,deby etc ...)
+     */
     const ENDPOINT_MAINTENANCE_OPERATION = 'maintenance/{transaction}';
+    
+    /**
+     *
+     * @var string METHOD_MAINTENANCE_OPERATION http method to do a maintenance operation
+     */
     const METHOD_MAINTENANCE_OPERATION = 'POST';
 	
 	/**
@@ -67,11 +96,8 @@ class GatewayClient implements GatewayClientInterface{
 	 */
 	public function requestNewOrder(OrderRequest $orderRequest) {
 		
-		//Instanciate serializer object
-		$serializer = new RequestSerializer($orderRequest);
-		
 		//Get params array from serializer
-		$params = $serializer->toArray();
+		$params = $this->_serializeRequestToArray($orderRequest);
 		
 		//send request
 		$response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER,self::ENDPOINT_NEW_ORDER,$params);
@@ -89,15 +115,11 @@ class GatewayClient implements GatewayClientInterface{
 	 * {@inheritDoc}
 	 *
 	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestHostedPaymentPage()
-	 * @return \Hipay\Fullservice\Gateway\Model\HostedPaymentPage
 	 */
 	public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest) {
-		
-		//Instanciate serializer object
-		$serializer = new RequestSerializer($pageRequest);
 	
 		//Get params array from serializer
-		$params = $serializer->toArray();
+		$params = $this->_serializeRequestToArray($pageRequest);
 		
 		//send request
 		$response = $this->getClientProvider()->request(self::METHOD_HOSTED_PAYMENT_PAGE,self::ENDPOINT_HOSTED_PAYMENT_PAGE,$params);
@@ -110,18 +132,41 @@ class GatewayClient implements GatewayClientInterface{
 	}
 	
 	/**
+	 * Serialize to array an object request
+	 * @param AbstractRequest $request
+	 * @return []
+	 */
+	protected function _serializeRequestToArray(AbstractRequest $request){
+		$serializer = new RequestSerializer($request);
+		return $serializer->toArray();
+	}
+	
+	/**
 	 *
 	 * {@inheritDoc}
 	 *
 	 * @see \Hipay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
-	 * @return \Hipay\Fullservice\Gateway\Model\Operation
 	 */
-	public function requestMaintenanceOperation($operationType,$amount,$transactionReference,$operationId=null) {
+	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null) {
+	
+		$payload = ['operation'=>$operationType];
 		
+		if(!is_null($amount)){
+			if(!is_float($amount) && !($amount > 0.01)){
+				throw new InvalidArgumentException("Amount must be a float type and greater than 0.01");
+			}
+			else{
+				$payload['amount'] = $amount;
+			}
+		}
+		
+		if(!is_null($operationId)){
+			$payload['operation_id'] = $operationId;
+		}
 		
 		$response = $this->getClientProvider()
 							->request(str_replace('{transaction}',$transactionReference,self::METHOD_MAINTENANCE_OPERATION),
-													self::ENDPOINT_MAINTENANCE_OPERATION,['operation'=>$operationType,'amount'=>$amount,'operation_id'=>$operationId]);
+													self::ENDPOINT_MAINTENANCE_OPERATION,$payload);
 		
 		
 		return (new OperationMapper($response->toArray()))->getModelObjectMapped();

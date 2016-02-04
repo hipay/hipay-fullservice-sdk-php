@@ -29,10 +29,25 @@ use Hipay\Fullservice\Model\AbstractModel;
  */
 class HostedPaymentPage extends AbstractModel
 {
-	
+	/**
+	 * 
+	 * @param string $mid
+	 * @param string $forwardUrl
+	 * @param Order|null $order
+	 * @param string $cdata1
+	 * @param string $cdata2
+	 * @param string $cdata3
+	 * @param string $cdata4
+	 * @param string $cdata5
+	 * @param string $cdata6
+	 * @param string $cdata7
+	 * @param string $cdata8
+	 * @param string $cdata9
+	 * @param string $cdata10
+	 */
 	public function __construct($mid,
 								$forwardUrl,
-								Order $order,
+								$order,
 								$cdata1 = "",
 								$cdata2 = "",
 								$cdata3 = "",

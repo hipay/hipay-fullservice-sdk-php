@@ -45,6 +45,12 @@ interface GatewayClientInterface {
 	
     /**
      * Request Maintenance operation on a transaction
+     * Because this api call is simple, we don't use an object request as method parameter
+     * 
+     * @param string $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
+     * @param float $amount Amount to process
+     * @param string $transactionReference Transaction ID related to customer order
+     * @return Operation
      */
 	public function requestMaintenanceOperation($operationType,$amount,$transactionReference);
 
