@@ -53,14 +53,14 @@ class OperationMapper extends AbstractMapper {
         $dateUpdated = $source['dateUpdated'] ?: null;
         $dateAuthorized = $source['dateAuthorized'] ?: null;
         $status = ((int)$source['status']) ?: null;
-        $state = $source['state'] ?: null;
+        $state = null;
         $message = $source['message'] ?: null;
         $authorizedAmount = $source['authorizedAmount'] ?: null;
         $capturedAmount = $source['capturedAmount'] ?: null;
         $refundedAmount = $source['refundedAmount'] ?: null;
         $decimals = $source['decimals'] ?: null;
         $currency = $source['currency'] ?: null;
-        $reason = isset($source['reason']) ? $source['reason'] : null;       
+        $reason =  null;       
         $operation = isset($source['operation']) ? $source['operation'] : null;;
         
         $this->_modelObject = new Operation(

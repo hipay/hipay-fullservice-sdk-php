@@ -67,7 +67,7 @@ class GatewayClient implements GatewayClientInterface{
      *
      * @var string ENDPOINT_MAINTENANCE_OPERATION http method to do a maintenance operation (capture,refund,accept,deby etc ...)
      */
-    const ENDPOINT_MAINTENANCE_OPERATION = 'maintenance/{transaction}';
+    const ENDPOINT_MAINTENANCE_OPERATION = 'maintenance/transaction/{transaction}';
     
     /**
      *
@@ -165,8 +165,9 @@ class GatewayClient implements GatewayClientInterface{
 		}
 		
 		$response = $this->getClientProvider()
-							->request(str_replace('{transaction}',$transactionReference,self::METHOD_MAINTENANCE_OPERATION),
-													self::ENDPOINT_MAINTENANCE_OPERATION,$payload);
+							->request(self::METHOD_MAINTENANCE_OPERATION,
+									str_replace('{transaction}',$transactionReference,self::ENDPOINT_MAINTENANCE_OPERATION),
+									$payload);
 		
 		
 		return (new OperationMapper($response->toArray()))->getModelObjectMapped();
