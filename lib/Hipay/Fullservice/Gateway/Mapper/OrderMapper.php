@@ -41,17 +41,17 @@ class OrderMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $id = $source['id'] ?: null;
-        $customerId = $source['customerId'] ?: null;
-        $amount = $source['amount'] ?: null;
-        $tax = $source['tax'] ?: null;
-        $shipping = $source['shipping'] ?: null;
-        $dateCreated = $source['dateCreated'] ?: null;
-        $attempts = $source['attempts'] ?: null;
-        $currency = $source['currency'] ?: null;
-        $decimals = $source['decimals'] ?: null;
+        $id = isset($source['id']) ? $source['id'] : null;
+        $customerId = isset($source['customerId']) ? $source['customerId'] : null;
+        $amount = isset($source['amount']) ? $source['amount'] : null;
+        $tax = isset($source['tax']) ? $source['tax'] : null;
+        $shipping = isset($source['shipping']) ? $source['shipping'] : null;
+        $dateCreated = isset($source['dateCreated']) ? $source['dateCreated'] : null;
+        $attempts = isset($source['attempts']) ? $source['attempts'] : null;
+        $currency = isset($source['currency']) ? $source['currency'] : null;
+        $decimals = isset($source['decimals']) ? $source['decimals'] : null;
         $gender = isset($source['gender']) ? $source['gender'] : null;
-        $language = $source['language'] ?: null;
+        $language = isset($source['language']) ? $source['language'] : null;
         $shippingAddress = isset($source['shippingAddress']) ? (new PersonalInformationMapper($source['shippingAddress']))->getModelObjectMapped(): null;
 
         $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
