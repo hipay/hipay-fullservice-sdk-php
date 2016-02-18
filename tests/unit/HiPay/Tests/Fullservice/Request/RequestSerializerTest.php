@@ -1,0 +1,104 @@
+<?php
+/*
+ * HiPay fullservice SDK
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @copyright      Copyright (c) 2016 - HiPay
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ *
+ */
+namespace HiPay\Tests\Fullservice\Request;
+
+use HiPay\Tests\TestCase;
+use HiPay\Fullservice\Request\RequestSerializer;
+use HiPay\Fullservice\Request\AbstractRequest;
+
+/**
+ *
+ * @package HiPay\Tests
+ * @author Kassim Belghait <kassim@sirateck.com>
+ * @copyright Copyright (c) 2016 - HiPay
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @link https://github.com/hipay/hipay-fullservice-sdk-php
+ *       @api
+ */
+class RequestSerializerTest extends TestCase
+{
+    
+    
+    /**
+     * @cover HiPay\Fullservice\Request\RequestSerializer::__construct
+     * @uses HiPay\Tests\Fullservice\Request\AbstractRequest
+     */
+    public function testCanBeConstructUsingAbstractRequest(){
+    
+        $req = $this->getMockBuilder('HiPay\Fullservice\Request\AbstractRequest')->getMock();
+        $req->eci = '7';
+        $req->orderId = '123456';
+        $req->operation = 'Sale';
+    
+        $req->foo = array('bar'=>'foobar');
+    
+        $req->obj = new \stdClass();
+        $req->obj->p1 = 'value1';
+        
+        $rs = new RequestSerializer($req);
+        $this->assertInstanceOf("HiPay\Fullservice\Request\RequestSerializer", $rs);
+    
+        return $rs;
+    }
+    
+    /**
+     * @cover HiPay\Fullservice\Request\RequestSerializer::toArray
+     * @depends testCanBeConstructUsingAbstractRequest
+     */
+    public function testRequestCanBeRetrieveToArray(RequestSerializer $rs){      
+         
+        $params = $rs->toArray();
+        
+        $this->assertInternalType('array', $params);
+        
+        $this->assertArrayHasKey('eci', $params);
+        $this->assertEquals('7', $params['eci']);
+        
+        $this->assertArrayHasKey('orderId', $params);
+        $this->assertEquals('123456', $params['orderId']);
+        
+        $this->assertArrayHasKey('operation', $params);
+        $this->assertEquals('Sale', $params['operation']);
+        
+        return $params;
+        
+    }
+    
+    
+    /**
+     * @cover HiPay\Fullservice\Gateway\Request\RequestSerializer::toArray
+     * @depends testRequestCanBeRetrieveToArray
+     */
+    public function testOnlyScalarParamsCanBeRetrieved($params){
+    
+        $this->assertArrayNotHasKey('foo', $params);
+        $this->assertArrayNotHasKey('obj', $params);
+    
+    
+    }
+    
+    /**
+     * @cover HiPay\Fullservice\Gateway\Request\RequestSerializer::toJson
+     * @depends testCanBeConstructUsingAbstractRequest
+     */
+    public function testRequestCanBeRetrieveToJson(RequestSerializer $rs){
+        
+        $array = json_decode($rs->toJson(),true);
+        
+        $this->assertNotNull($array);
+        
+    }
+}

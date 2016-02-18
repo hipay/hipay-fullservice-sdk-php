@@ -11,14 +11,14 @@
     </php>
 
     <testsuites>
-        <testsuite name="Hipay Fullservice Unit Test Suite">
-            <directory >./Hipay/Tests/Fullservice/</directory>
+        <testsuite name="HiPay Fullservice Unit Test Suite">
+            <directory >./HiPay/Tests/Fullservice/</directory>
         </testsuite>
     </testsuites>
 
     <!-- <filter>
         <whitelist>
-            <directory>./lib/Hipay/</directory>
+            <directory>./lib/HiPay/</directory>
         </whitelist>
     </filter> -->
     <logging>

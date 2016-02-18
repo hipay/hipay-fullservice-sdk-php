@@ -13,24 +13,24 @@ Require php 5.3.0 minimum.
 
 You need to instanciate 4 objects to make a request:  
 
-- A configuration object who implements [ConfigurationInterface](lib/Hipay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
-- A client provider inherit from abstract class [\Hipay\Fullservice\HTTP\ClientProvider](lib/Hipay/Fullservice/HTTP/ClientProvider.php)
-- A [SecureVault](lib/Hipay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](lib/Hipay/Fullservice/Gateway/Client/GatewayClient.php) client 
+- A configuration object who implements [ConfigurationInterface](lib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
+- A client provider inherit from abstract class [\HiPay\Fullservice\HTTP\ClientProvider](lib/HiPay/Fullservice/HTTP/ClientProvider.php)
+- A [SecureVault](lib/HiPay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client 
 
 #### Gateway example:
 
 ```php
 //Create configuration object
-$config = new \Hipay\Fullservice\HTTP\Configuration\Configuration("username","password");
+$config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
 
 //Instanciate client Provider with configuration object
-$clientProvider = new \Hipay\Fullservice\HTTP\SimpleHTTPClient($config);
+$clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
 
 //Finally create your gateway client
-$gatewayClient = new \Hipay\Fullservice\Gateway\Client\GatewayClient($clientProvider);
+$gatewayClient = new \HiPay\Fullservice\Gateway\Client\GatewayClient($clientProvider);
 
 //Object request
-$orderRequest = new \Hipay\Fullservice\Gateway\Request\Order\OrderRequest();
+$orderRequest = new \HiPay\Fullservice\Gateway\Request\Order\OrderRequest();
 $orderRequest->orderid = "123456";
 $orderRequest->operation = "Sale";
 //etc ...
@@ -44,16 +44,16 @@ $gatewayClient->requestNewOrder($orderRequest);
 
 ```php
 //Create configuration object
-$config = new \Hipay\Fullservice\HTTP\Configuration\Configuration("username","password");
+$config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
 
 //Instanciate client Provider with configuration object
-$clientProvider = new \Hipay\Fullservice\HTTP\SimpleHTTPClient($config);
+$clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
 
 //Finally create your gateway client
-$vaultClient = new \Hipay\Fullservice\SecureVault\Client\SecureVaultClient($clientProvider);
+$vaultClient = new \HiPay\Fullservice\SecureVault\Client\SecureVaultClient($clientProvider);
 
 //Object request
-$generateTokenRequest = new \Hipay\Fullservice\SecureVault\Request\GenerateTokenRequest();
+$generateTokenRequest = new \HiPay\Fullservice\SecureVault\Request\GenerateTokenRequest();
 $generateTokenRequest->card_number = "4111111111111111";
 $generateTokenRequest->card_expiry_month = "02";
 $generateTokenRequest->card_expiry_year = "2017";

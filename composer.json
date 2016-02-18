@@ -1,7 +1,7 @@
 {
 	"name" : "hipay/hipay-fullservice-sdk-php",
 	"type" : "library",
-	"description" : "The Hipay FullService PHP SDK",
+	"description" : "The HiPay FullService PHP SDK",
 	"keywords" : [
 		"hipay",
 		"payment",
@@ -28,7 +28,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Hipay\\Fullservice\\" : "lib/Hipay/Fullservice/"
+			"HiPay\\Fullservice\\" : "lib/HiPay/Fullservice/"
 		}
 	},
 	"minimum-stability": "alpha"

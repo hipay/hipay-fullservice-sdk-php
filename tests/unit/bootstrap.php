@@ -5,6 +5,6 @@ if (!$loader = @include __DIR__.'/../../vendor/autoload.php') {
 			'php composer.phar install'.PHP_EOL);
 }
 
-$loader->add('Hipay\\', __DIR__ );
+$loader->add('HiPay\\', __DIR__ );
 //echo(print_r($loader->getPrefixes(),true).chr(10));
 //die(print_r($loader->getPrefixesPsr4(),true).chr(10));
