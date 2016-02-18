@@ -45,7 +45,7 @@ class CardTokenPaymentMethod extends AbstractRequest
      * The ECI indicates the security level at which the payment information is processed etween the cardholder and merchant.  
      * Possible values:
      * - 1 = MO/TO (Card Not Present)
-     * - 2 = MO/TO ‚Is Recurring
+     * - 2 = MO/TO Is Recurring
      * - 7 = E-commerce with SSL/TLS Encryption 
      * - 9 = Recurring E-commerce
      * 
@@ -55,7 +55,7 @@ class CardTokenPaymentMethod extends AbstractRequest
      * @var int $eci Electronic Commerce Indicator (ECI)
      * @length 1
      * @type options
-     * @values 1|MO/TO (Card Not Present),2|MO/TO ‚Is Recurring,7|,E-commerce with SSL/TLS Encryption,9|Recurring E-commerce
+     * @values 1|MO/TO (Card Not Present),2|MO/TO Is Recurring,7|,E-commerce with SSL/TLS Encryption,9|Recurring E-commerce
      */
     public $eci;
     

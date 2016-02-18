@@ -65,7 +65,7 @@ class GatewayClient implements GatewayClientInterface{
     
     /**
      *
-     * @var string ENDPOINT_MAINTENANCE_OPERATION http method to do a maintenance operation (capture,refund,accept,deby etc ...)
+     * @var string ENDPOINT_MAINTENANCE_OPERATION endpoint to do a maintenance operation (capture,refund,accept,deby etc ...)
      */
     const ENDPOINT_MAINTENANCE_OPERATION = 'maintenance/transaction/{transaction}';
     

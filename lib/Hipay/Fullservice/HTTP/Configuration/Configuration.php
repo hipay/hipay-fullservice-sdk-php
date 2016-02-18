@@ -46,6 +46,18 @@ class Configuration implements ConfigurationInterface {
 	const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/v1/";
 	
 	/**
+	 *
+	 * @var string SECURE_VAULT_ENDPOINT_PROD Secure Vault Endpoint for production
+	 */
+	const SECURE_VAULT_ENDPOINT_PROD = "https://secure-vault.hipay-tpp.com/rest/v1/";
+	
+	/**
+	 *
+	 * @var string SECURE_VAULT_ENDPOINT_STAGE Secure Vault Endpoint for test
+	 */
+	const SECURE_VAULT_ENDPOINT_STAGE = "https://stage-secure-vault.hipay-tpp.com/rest/v1/";
+	
+	/**
 	 * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
 	 */
 	const API_ENV_STAGE = 'stage';

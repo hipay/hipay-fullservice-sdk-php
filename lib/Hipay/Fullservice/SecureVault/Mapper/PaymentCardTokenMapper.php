@@ -13,13 +13,13 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\Gateway\Mapper;
+namespace Hipay\Fullservice\SecureVault\Mapper;
 
 use Hipay\Fullservice\Mapper\AbstractMapper;
-use Hipay\Fullservice\Gateway\Model\PaymentMethod;
+use Hipay\Fullservice\SecureVault\Model\PaymentCardToken;
 
 /**
- * Mapper for Payment Method Model Object
+ * Mapper for Payment Card Token Model Object
  *  
  * @package Hipay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -28,7 +28,7 @@ use Hipay\Fullservice\Gateway\Model\PaymentMethod;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PaymentMethodMapper extends AbstractMapper {
+class PaymentCardTokenMapper extends AbstractMapper {
 	
 	/**
 	 * @var PaymentMethod $_modelObject Model object to populate
@@ -54,8 +54,10 @@ class PaymentMethodMapper extends AbstractMapper {
         $cardExpiryYear = isset($source['cardExpiryYear']) ? $source['cardExpiryYear'] : null;
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
+        $requestId =  isset($source['requestId']) ? $source['requestId'] : null;
+        $domesticNetwork = isset($source['domesticNetwork']) ? $source['domesticNetwork'] : null;
         
-        $this->_modelObject = new PaymentMethod($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country);
+        $this->_modelObject = new PaymentCardToken($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country, $requestId, $domesticNetwork);
         
  			
     }
@@ -79,7 +81,7 @@ class PaymentMethodMapper extends AbstractMapper {
      */
     protected function getModelClassName()
     {
-        return '\Hipay\Fullservice\Gateway\Model\PaymentMethod';
+        return '\Hipay\Fullservice\SecureVault\Model\PaymentCardToken';
     }
 
 
