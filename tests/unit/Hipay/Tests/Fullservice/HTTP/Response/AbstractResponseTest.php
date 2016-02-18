@@ -43,7 +43,6 @@ class AbstractResponseTest extends TestCase
     /**
      * @covers \Hipay\Fullservice\HTTP\Response\AbstractResponse::__construct
      * @expectedException PHPUnit_Framework_Error
-	 * @expectedExceptionMessage  Argument 3 passed to Hipay\Fullservice\HTTP\Response\AbstractResponse::__construct() must be of the type array, string given
      */
     public function testCannotBeConstructFromNonArrayValue(){
     
