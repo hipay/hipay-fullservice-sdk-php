@@ -59,7 +59,7 @@ class GatewayClientTest extends TestCase{
     							->disableOriginalConstructor()
     							->getMock();
     	$this->_clientProvider = $this->getMockBuilder('\Hipay\Fullservice\HTTP\ClientProvider')
-    							->setConstructorArgs([$this->_config])
+    							->setConstructorArgs(array($this->_config))
     							->getMock();
     	
 		$this->_response = $this->getMockBuilder('\Hipay\Fullservice\HTTP\Response\AbstractResponse')
@@ -94,7 +94,7 @@ class GatewayClientTest extends TestCase{
     				->willReturn($this->_response);
     	
     	
-    	$gateway = $this->getMock('\Hipay\Fullservice\Gateway\Client\GatewayClient',['_serializeRequestToArray'],[$this->_clientProvider]) ;//new GatewayClient($this->_clientProvider);
+    	$gateway = $this->getMock('\Hipay\Fullservice\Gateway\Client\GatewayClient',array('_serializeRequestToArray'),array($this->_clientProvider)) ;//new GatewayClient($this->_clientProvider);
     	$gateway->method('_serializeRequestToArray')->willReturn($request);
     	
     	$hpp = $this->getMock('\Hipay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest');
@@ -110,9 +110,10 @@ class GatewayClientTest extends TestCase{
     
     public function requestHostedPaymentPageDataProvider()
     {
-    	return [
-    			[
-    					[
+    	
+    	return array(
+    			array(
+    					array(
     							"orderid" => "200000173",
     							"description" => "Commande 200000173 example@test.com",
     							"long_description" =>"",
@@ -138,7 +139,7 @@ class GatewayClientTest extends TestCase{
     							"lastname" => "Doe",
     							"recipientinfo" => "My Company",
     							"streetaddress" => "Business Open Space",
-    							"streetaddress2" => "3 allŽe Champlain",
+    							"streetaddress2" => "3 allÃ©e Champlain",
     							"city" => "Sevran",
     							"zipcode" => "93270",
     							"country" => "FR",
@@ -146,7 +147,7 @@ class GatewayClientTest extends TestCase{
     							"shipto_lastname" => "Doe",
     							"shipto_recipientinfo" => "my company",
     							"shipto_streetaddress" => "Business Open Space",
-    							"shipto_streetaddress2" => "3 allŽe Champlain",
+    							"shipto_streetaddress2" => "3 allÃ©e Champlain",
     							"shipto_city" => "Sevran",
     							"shipto_zipcode" => "93270",
     							"shipto_country" => "FR",
@@ -158,40 +159,39 @@ class GatewayClientTest extends TestCase{
     							"display_selector" => "1",
     							"payment_product_list" => "visa,mastercard,maestro",
     							"payment_product_category_list" => "credit-card",
-    					],
-    					[
-						 	"forwardUrl" => "https://stage-secure-gateway.allopass.com/payment/web/pay/9eb3c963-907a-42af-8bc3-0b30b6149779",
-						    "test" => true,
-						    "mid" => "00001326593",
-						    "cdata1" => "http://magento1910.sirateck.com/index.php/admin/admin/sales_order/view/order_id/370/",
-						    "cdata2" => "",
-						    "cdata3" => "",
-						    "cdata4" => "",
-						    "cdata5" => "",
-						    "cdata6" => "",
-						    "cdata7" => "",
-						    "cdata8" => "",
-						    "cdata9" => "",
-						    "cdata10" => "",
-						    "order" => [
-						            "id" => "200000173",
-						            "dateCreated" => "2016-01-12T15:20:43+0000",
-						            "attempts" => "0",
-						            "amount" => "165.00",
-						            "shipping" => "5.00",
-						            "tax" => "0.00",
-						            "decimals" => "2",
-						            "currency" => "EUR",
-						            "customerId" => "142",
-						            "language" => "fr_FR",
-						            "email" => "example@test.com",
-						        ]
-    							
-    						
-    					]
-    					
-    			],
-    	];
+    					),
+    					array(
+    							"forwardUrl" => "https://stage-secure-gateway.allopass.com/payment/web/pay/9eb3c963-907a-42af-8bc3-0b30b6149779",
+    							"test" => true,
+    							"mid" => "00001326593",
+    							"cdata1" => "http://magento1910.sirateck.com/index.php/admin/admin/sales_order/view/order_id/370/",
+    							"cdata2" => "",
+    							"cdata3" => "",
+    							"cdata4" => "",
+    							"cdata5" => "",
+    							"cdata6" => "",
+    							"cdata7" => "",
+    							"cdata8" => "",
+    							"cdata9" => "",
+    							"cdata10" => "",
+    							"order" => array(
+    									"id" => "200000173",
+    									"dateCreated" => "2016-01-12T15:20:43+0000",
+    									"attempts" => "0",
+    									"amount" => "165.00",
+    									"shipping" => "5.00",
+    									"tax" => "0.00",
+    									"decimals" => "2",
+    									"currency" => "EUR",
+    									"customerId" => "142",
+    									"language" => "fr_FR",
+    									"email" => "example@test.com",
+    							)
+    					)
+    			)
+    	);
+    	
+    	
     }
 
 	

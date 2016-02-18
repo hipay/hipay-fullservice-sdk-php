@@ -10,7 +10,7 @@ class Convert {
 	}
 	
 	static function arrayKeysToCamelCase($array){
-		$newArray = [];
+		$newArray = array();
 		foreach ($array as $key => $value) {
 			if (is_array($value) && !self::_isSimpleSequentialArray($value)) {
 				$value = self::arrayKeysToCamelCase($value);

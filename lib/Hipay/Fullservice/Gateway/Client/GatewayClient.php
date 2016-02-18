@@ -134,7 +134,7 @@ class GatewayClient implements GatewayClientInterface{
 	/**
 	 * Serialize to array an object request
 	 * @param AbstractRequest $request
-	 * @return []
+	 * @return array
 	 */
 	protected function _serializeRequestToArray(AbstractRequest $request){
 		$serializer = new RequestSerializer($request);
@@ -149,7 +149,7 @@ class GatewayClient implements GatewayClientInterface{
 	 */
 	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null) {
 	
-		$payload = ['operation'=>$operationType];
+		$payload = array('operation'=>$operationType);
 		
 		if(!is_null($amount)){
 			if(!is_float($amount) && !($amount > 0.01)){

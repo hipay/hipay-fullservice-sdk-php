@@ -109,7 +109,7 @@ abstract class ClientProvider implements Client{
 	 * @throws InvalidArgumentException
      * @return AbstractResponse
 	 */
-	abstract protected function doRequest($method, $endpoint, array $params = []);
+	abstract protected function doRequest($method, $endpoint, array $params = array());
 	
 	/**
 	 * Create local http client object used in doRequest method

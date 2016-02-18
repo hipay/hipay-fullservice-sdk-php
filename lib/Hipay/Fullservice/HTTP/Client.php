@@ -46,6 +46,6 @@ interface Client{
 	 * @throws InvalidArgumentException
      * @return AbstractResponse
      */
-    public function request($method, $endpoint, array $params = []);
+    public function request($method, $endpoint, array $params = array());
 
 }
