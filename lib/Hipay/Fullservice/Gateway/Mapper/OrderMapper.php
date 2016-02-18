@@ -52,7 +52,12 @@ class OrderMapper extends AbstractMapper {
         $decimals = isset($source['decimals']) ? $source['decimals'] : null;
         $gender = isset($source['gender']) ? $source['gender'] : null;
         $language = isset($source['language']) ? $source['language'] : null;
-        $shippingAddress = isset($source['shippingAddress']) ? (new PersonalInformationMapper($source['shippingAddress']))->getModelObjectMapped(): null;
+        $shippingAddress = null;
+        if(isset($source['shippingAddress'])){
+        	$pim = new PersonalInformationMapper($source['shippingAddress']);
+        	$shippingAddress = $pim->getModelObjectMapped();
+        }
+        
 
         $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
         

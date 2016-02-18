@@ -71,10 +71,31 @@ class TransactionMapper extends AbstractMapper {
         $cvcResult = isset($source['cvcResult']) ? $source['cvcResult'] : null; 
         $eci = $source['eci'] ?: null;
         $paymentProduct = $source['paymentProduct'] ?: null;
-        $paymentMethod = (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) ? (new PaymentMethodMapper($source['paymentMethod']))->getModelObjectMapped() : null;
-        $threeDSecure = (isset($source['threeDSecure']) && is_array($source['threeDSecure'])) ? (new ThreeDSecureMapper($source['threeDSecure']))->getModelObjectMapped() : null;
-        $fraudScreenig = (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) ? (new FraudScreeningMapper($source['fraudScreening']))->getModelObjectMapped() : null;
-        $order = isset($source['order']) ? (new OrderMapper($source['order']))->getModelObjectMapped() : null;
+        
+        $paymentMethod = null;
+        if(isset($source['paymentMethod']) && is_array($source['paymentMethod'])){
+        	$pmm = new PaymentMethodMapper($source['paymentMethod']);
+        	$paymentMethod = $pmm->getModelObjectMapped();
+        }
+        
+        $threeDSecure = null;
+        if(isset($source['threeDSecure']) && is_array($source['threeDSecure'])){
+        	$tdsm = new ThreeDSecureMapper($source['threeDSecure']);
+        	$threeDSecure = $tdsm->getModelObjectMapped();
+        }
+        
+        $fraudScreenig = null;
+        if(isset($source['fraudScreening']) && is_array($source['fraudScreening'])){
+        	$fsm = new FraudScreeningMapper($source['fraudScreening']);
+        	$fraudScreenig = $fsm->getModelObjectMapped();
+        }
+        
+        $order = null;
+        if(isset($source['order'])){
+        	$om = new OrderMapper($source['order']);
+        	$order = $om->getModelObjectMapped();
+        }
+        
         $debitAgreement = isset($source['debitAgreement']) ? $source['debitAgreement'] : null;
         $cdata1 = isset($source['cdata1'] )? $source['cdata1'] : null;
         $cdata2 = isset($source['cdata2'] )? $source['cdata2'] : null;

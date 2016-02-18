@@ -169,8 +169,8 @@ class GatewayClient implements GatewayClientInterface{
 									str_replace('{transaction}',$transactionReference,self::ENDPOINT_MAINTENANCE_OPERATION),
 									$payload);
 		
-		
-		return (new OperationMapper($response->toArray()))->getModelObjectMapped();
+		$om = new OperationMapper($response->toArray());
+		return $om->getModelObjectMapped();
 		
 	}
 	
