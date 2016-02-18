@@ -37,7 +37,7 @@ class ConfigurationInterfaceTest extends TestCase {
 	
 		$conf = $this->getMockBuilder('Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface')->getMock();
 	   
-		$this->assertInstanceOf(ConfigurationInterface::class, $conf);
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface", $conf);
 	
     	return $conf;
 	}

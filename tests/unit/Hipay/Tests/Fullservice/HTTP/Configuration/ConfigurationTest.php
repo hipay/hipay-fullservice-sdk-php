@@ -105,7 +105,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456");
 	
-		$this->assertInstanceOf(Configuration::class, $conf);
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\Configuration", $conf);
 	
 		return $conf;
 	
@@ -118,7 +118,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456",Configuration::API_ENV_STAGE);
 	
-		$this->assertInstanceOf(Configuration::class, $conf);
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\Configuration", $conf);
 	
 		return $conf;
 	
@@ -131,7 +131,7 @@ class ConfigurationTest extends TestCase {
 	
 		$conf = new Configuration("username", "123456",Configuration::API_ENV_PRODUCTION,'application/json');
 		
-		$this->assertInstanceOf(Configuration::class, $conf);
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\Configuration", $conf);
 		
 		return $conf;
 	

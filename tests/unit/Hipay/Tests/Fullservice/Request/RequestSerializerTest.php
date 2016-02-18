@@ -49,7 +49,7 @@ class RequestSerializerTest extends TestCase
         $req->obj->p1 = 'value1';
         
         $rs = new RequestSerializer($req);
-        $this->assertInstanceOf(RequestSerializer::class, $rs);
+        $this->assertInstanceOf("Hipay\Fullservice\Request\RequestSerializer", $rs);
     
         return $rs;
     }

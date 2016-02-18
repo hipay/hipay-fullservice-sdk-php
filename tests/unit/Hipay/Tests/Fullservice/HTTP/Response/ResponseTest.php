@@ -47,7 +47,7 @@ class ResponseTest extends TestCase
      * @covers \Hipay\Fullservice\HTTP\Response\Response::__construct
      */
     public function testObjectBanBeConstructFromNumericStatusCodeArgument(){
-        $this->assertInstanceOf(Response::class, new Response('some string','500',array()));   
+        $this->assertInstanceOf("Hipay\Fullservice\HTTP\Response\Response", new Response('some string','500',array()));   
     }
     
     /**
@@ -55,7 +55,7 @@ class ResponseTest extends TestCase
      */
     public function testObjectBanBeConstructUsingValidArguments(){
         $response = new Response('some string',200,array());
-        $this->assertInstanceOf(Response::class, $response);
+        $this->assertInstanceOf("Hipay\Fullservice\HTTP\Response\Response", $response);
         return $response;
     }
     

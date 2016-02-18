@@ -39,7 +39,7 @@ class AbstractRequestTest extends TestCase {
     
         $req = $this->getMockBuilder('Hipay\Fullservice\Request\AbstractRequest')->getMock();
     
-        $this->assertInstanceOf(AbstractRequest::class, $req);
+        $this->assertInstanceOf("Hipay\Fullservice\Request\AbstractRequest", $req);
     
         return $req;
     }

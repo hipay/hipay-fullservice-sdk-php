@@ -74,7 +74,7 @@ class ClientProviderTest extends TestCase{
 
        $this->getClassConstructor($this->_abstractName)->invoke($mock,$conf);
        
-	   $this->assertInstanceOf(ClientProvider::class, $mock);
+	   $this->assertInstanceOf("Hipay\Fullservice\HTTP\ClientProvider", $mock);
 	
 	   return $mock;
 	
@@ -87,7 +87,7 @@ class ClientProviderTest extends TestCase{
 	 */
 	public function testConfigurationCanBeRetrieved(ClientProvider $client){
 	
-	    $this->assertInstanceOf(Configuration::class, $client->getConfiguration());
+	    $this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\Configuration", $client->getConfiguration());
 	
 	}
 	
@@ -100,7 +100,7 @@ class ClientProviderTest extends TestCase{
 	    $conf = new Configuration("username2", "654321");
 	    $client->setConfiguration($conf);
 	
-	    $this->assertInstanceOf(Configuration::class, $client->getConfiguration());
+	    $this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\Configuration", $client->getConfiguration());
 	    $this->assertEquals("username2", $client->getConfiguration()->getApiUsername());
 	
 	}

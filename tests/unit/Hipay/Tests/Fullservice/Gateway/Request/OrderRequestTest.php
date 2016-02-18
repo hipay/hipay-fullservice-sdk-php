@@ -38,7 +38,7 @@ class OrderRequestTest extends TestCase
         
         $o = new OrderRequest();
         
-        $this->assertInstanceOf(OrderRequest::class, $o);
+        $this->assertInstanceOf("Hipay\Fullservice\Gateway\Request\Order\OrderRequest", $o);
         
         return $o;
     }

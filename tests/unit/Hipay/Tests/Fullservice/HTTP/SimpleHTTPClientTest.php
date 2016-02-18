@@ -54,7 +54,7 @@ class SimpleHTTPClientTest extends TestCase {
 		
 		$conf = new Configuration("username", "123456");
 		$client = new SimpleHTTPClient($conf);
-		$this->assertInstanceOf(SimpleHTTPClient::class, $client);
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\SimpleHTTPClient", $client);
 		
 		return $client;
 		
@@ -66,7 +66,7 @@ class SimpleHTTPClientTest extends TestCase {
 	 */
 	public function testConfigurationCanBeRetrieved(ClientProvider $client){
 		
-		$this->assertInstanceOf(ConfigurationInterface::class, $client->getConfiguration());
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface", $client->getConfiguration());
 		
 	}
 	
@@ -79,7 +79,7 @@ class SimpleHTTPClientTest extends TestCase {
 		$conf = new Configuration("username2", "654321");
 		$client->setConfiguration($conf);
 		
-		$this->assertInstanceOf(ConfigurationInterface::class, $client->getConfiguration());
+		$this->assertInstanceOf("Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface", $client->getConfiguration());
 		$this->assertEquals("username2", $client->getConfiguration()->getApiUsername());
 	
 	}

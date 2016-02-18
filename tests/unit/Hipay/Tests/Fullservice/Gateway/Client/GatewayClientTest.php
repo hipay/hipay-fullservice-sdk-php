@@ -75,7 +75,7 @@ class GatewayClientTest extends TestCase{
     	
     	$gateway = new GatewayClient($this->_clientProvider);
     	
-    	$this->assertInstanceOf(GatewayClient::class, $gateway);
+    	$this->assertInstanceOf("Hipay\Fullservice\Gateway\Client\GatewayClient", $gateway);
     	
     	return $gateway;
     }
