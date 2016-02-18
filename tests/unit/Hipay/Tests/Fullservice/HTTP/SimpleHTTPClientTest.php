@@ -13,9 +13,13 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace Hipay\Fullservice\HTTP;
+namespace Hipay\Tests\Fullservice\HTTP;
 
 use Hipay\Tests\TestCase;
+use Hipay\Fullservice\HTTP\SimpleHTTPClient;
+use Hipay\Fullservice\HTTP\ClientProvider;
+use Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface;
+use Hipay\Fullservice\HTTP\Configuration\Configuration;
 
 
 /**
@@ -29,18 +33,103 @@ use Hipay\Tests\TestCase;
  */
 class SimpleHTTPClientTest extends TestCase {
 
-	protected function setUp()
-	{
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::__construct()
+	 * @uses  Hipay\Fullservice\HTTP\Configuration
+	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedExceptionMessage  Argument 1 passed to Hipay\Fullservice\HTTP\ClientProvider::__construct() must implement interface Hipay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
+	 */
+	public function testCannotBeConstructFromInvalidArgument() {
+	
+		$client = new SimpleHTTPClient(null);
 
-		$this->markTestSkipped(
-				'Simple HTTP client is not implement yet!'
-				);
-
+		
 	}
 	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::__construct
+	 * @uses  Hipay\Fullservice\HTTP\Configuration
+	 */
+	public function testCanBeConstructUsingConfiguration(){
+		
+		$conf = new Configuration("username", "123456");
+		$client = new SimpleHTTPClient($conf);
+		$this->assertInstanceOf(SimpleHTTPClient::class, $client);
+		
+		return $client;
+		
+	}
 	
-	public function testCannotBeConstructFromInvalidArgument(){
-	    
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::getConfiguration
+	 * @depends testCanBeConstructUsingConfiguration
+	 */
+	public function testConfigurationCanBeRetrieved(ClientProvider $client){
+		
+		$this->assertInstanceOf(ConfigurationInterface::class, $client->getConfiguration());
+		
+	}
+	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::setConfiguration
+	 * @depends testCanBeConstructUsingConfiguration
+	 */
+	public function testConfigurationCanBeSetted(ClientProvider $client){
+	
+		$conf = new Configuration("username2", "654321");
+		$client->setConfiguration($conf);
+		
+		$this->assertInstanceOf(ConfigurationInterface::class, $client->getConfiguration());
+		$this->assertEquals("username2", $client->getConfiguration()->getApiUsername());
+	
+	}
+	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::getHttpClient
+	 * @depends testCanBeConstructUsingConfiguration
+	 */
+	public function testHttpClientCanBeRetrieved(ClientProvider $client){
+	
+		$this->assertNotEmpty($client->getHttpClient());
+		$this->assertEquals(true,is_resource($client->getHttpClient()));
+	
+	}
+	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::request
+	 * @depends testCanBeConstructUsingConfiguration
+	 * @expectedException PHPUnit_Framework_Error
+	 */
+	public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client){
+		
+		$client->request('GETTED', "1234",1234);
+		
+	}
+	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::request
+	 * @depends testCanBeConstructUsingConfiguration
+	 * @expectedException Hipay\Fullservice\Exception\InvalidArgumentException
+	 */
+	public function testRequestCannotBeExcutedFromRequiredInvalidArguments(ClientProvider $client){
+	
+		$this->markTestSkipped(
+				'HTTP method and Uri validator not implemented yet :-( '
+				);
+		
+		//$client->request('GETTED', "1234");
+	
+	}
+	
+	/**
+	 * @cover Hipay\Fullservice\HTTP\SimpleHTTPClient::request
+	 * @depends testCanBeConstructUsingConfiguration
+	 * @expectedException Hipay\Fullservice\Exception\RuntimeException
+	 */
+	public function testRuntimeExecptionIsRaisedForNetworkFailure(ClientProvider $client){
+	
+		$client->request('GETTED', "1234");
+	
 	}
 	
 
