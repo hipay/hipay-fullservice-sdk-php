@@ -36,7 +36,7 @@ class SimpleHTTPClient extends ClientProvider {
 	 * {@inheritDoc}
 	 * @see \HiPay\Fullservice\HTTP\ClientProvider::doRequest()
 	 */
-	protected function doRequest( $method, $endpoint,array $params=array() ){ 
+	protected function doRequest( $method, $endpoint,array $params=array(),$isVault=false ){ 
 		if(	empty($method) || !is_string($method)){
 			throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
 		}
@@ -47,10 +47,16 @@ class SimpleHTTPClient extends ClientProvider {
 		
 		$credentials = $this->getConfiguration()->getApiUsername() . ':' . $this->getConfiguration()->getApiPassword();
 		
+		$url = $this->getConfiguration()->getApiEndpoint();
+		if($isVault){
+			$url = $this->getConfiguration()->getSecureVaultEndpoint();
+		}
+		
+		$finalUrl = $url . $endpoint;
 		
 		// set appropriate options
 		$options = array(
-				 CURLOPT_URL => $this->getConfiguration()->getApiEndpoint() . $endpoint,
+				 CURLOPT_URL => $finalUrl,
 				 CURLOPT_USERPWD => $credentials,
 				 CURLOPT_HTTPHEADER => array('Accept'=>$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent'=> isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HiPayFullservice/1.0 (SDK PHP)'),
 				 CURLOPT_RETURNTRANSFER => true,

@@ -102,7 +102,7 @@ class SimpleHTTPClientTest extends TestCase {
 	 */
 	public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client){
 		
-		$client->request('GETTED', "1234",1234);
+		$client->request('GETTED', "1234","foo",1234);
 		
 	}
 	

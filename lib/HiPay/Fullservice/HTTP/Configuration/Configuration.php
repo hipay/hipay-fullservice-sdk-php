@@ -204,9 +204,41 @@ class Configuration implements ConfigurationInterface {
 	 *
 	 * {@inheritDoc}
 	 *
+	 * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpointProd()
+	 */
+	public function getSecureVaultEndpointProd() {
+		return self::SECURE_VAULT_ENDPOINT_PROD;
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpointStage()
+	 */
+	public function getSecureVaultEndpointStage() {
+		return self::SECURE_VAULT_ENDPOINT_STAGE;
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpoint()
+	 */
+	public function getSecureVaultEndpoint() {
+		return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getSecureVaultEndpointProd() : $this->getSecureVaultEndpointStage();
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
 	 * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getApiHTTPHeaderAccept()
 	 */
 	public function getApiHTTPHeaderAccept() {
 		return $this->_apiHTTPHeaderAccept;
 	}
+
+
 }

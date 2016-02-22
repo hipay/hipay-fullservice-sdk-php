@@ -69,8 +69,8 @@ abstract class ClientProvider implements Client{
 	 *
 	 * @see \HiPay\Fullservice\HTTP\Client::request()
 	 */
-	public function request($method, $endpoint, array $params = array()) {
-		return $this->doRequest($method, $endpoint,$params);
+	public function request($method, $endpoint ,array $params = array(), $isVault=false) {
+		return $this->doRequest($method, $endpoint,$params,$isVault);
 	}
 	
 	/**
@@ -104,12 +104,13 @@ abstract class ClientProvider implements Client{
 	 * @param string $method HTTP method
 	 * @param string $endpoint Endpoint
 	 * @param array $params Params to send
+	 * @param bool $isVault Secure vault action
 	 * 
 	 * @throws RuntimeException
 	 * @throws InvalidArgumentException
      * @return AbstractResponse
 	 */
-	abstract protected function doRequest($method, $endpoint, array $params = array());
+	abstract protected function doRequest($method, $endpoint, array $params = array(),$isVault=false);
 	
 	/**
 	 * Create local http client object used in doRequest method

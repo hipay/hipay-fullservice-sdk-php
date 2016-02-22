@@ -97,7 +97,7 @@ class SecureVaultClient implements SecureVaultClientInterface{
 		$params = $this->_serializeRequestToArray($generateTokenRequest);
 		
 		//send request
-		$response = $this->getClientProvider()->request(self::METHOD_GENERATE_TOKEN,self::ENDPOINT_GENERATE_TOKEN,$params);
+		$response = $this->getClientProvider()->request(self::METHOD_GENERATE_TOKEN,self::ENDPOINT_GENERATE_TOKEN,$params,true);
 		
 		//Transform response to Transaction Model with OrderMapper
 		$pctMapper = new PaymentCardTokenMapper($response->toArray());
@@ -119,7 +119,7 @@ class SecureVaultClient implements SecureVaultClientInterface{
 		$params = $this->_serializeRequestToArray($updateTokenRequest);
 	
 		//send request
-		$response = $this->getClientProvider()->request(self::METHOD_UPDATE_TOKEN,self::ENDPOINT_UPDATE_TOKEN,$params);
+		$response = $this->getClientProvider()->request(self::METHOD_UPDATE_TOKEN,self::ENDPOINT_UPDATE_TOKEN,$params,true);
 	
 		//Transform response to Transaction Model with OrderMapper
 		$pctMapper = new PaymentCardTokenMapper($response->toArray());
@@ -147,7 +147,7 @@ class SecureVaultClient implements SecureVaultClientInterface{
 		$response = $this->getClientProvider()
 							->request(self::METHOD_LOOKUP_TOKEN,
 									str_replace('{token}',$token,self::ENDPOINT_LOOKUP_TOKEN),
-									$payload);
+									$payload,true);
 		
 		$pctMapper = new PaymentCardTokenMapper($response->toArray());
 		return $pctMapper->getModelObjectMapped();
