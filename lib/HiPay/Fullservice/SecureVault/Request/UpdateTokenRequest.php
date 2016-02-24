@@ -32,26 +32,26 @@ class UpdateTokenRequest extends AbstractRequest
 	
 	/**
 	 * 
-	 * @var int $card_expiry_month The card expiry month. Expressed with two digits (e.g., 01).
+	 * @var int $cardExpiryMonth The card expiry month. Expressed with two digits (e.g., 01).
 	 * @length 2
 	 * @required
 	 */
-	public $card_expiry_month;
+	public $cardExpiryMonth;
 	
 	/**
 	 * 
-	 * @var int $card_expiry_year The card expiry year. Expressed with four digits (e.g., 2014).
+	 * @var int $cardExpiryYear The card expiry year. Expressed with four digits (e.g., 2014).
 	 * @length 4
 	 * @required
 	 */
-	public $card_expiry_year;
+	public $cardExpiryYear;
 	
 	/**
 	 * 
-	 * @var string $card_holder The cardholder name as it appears on the card (up to 25 chars).
+	 * @var string $cardHolder The cardholder name as it appears on the card (up to 25 chars).
 	 * @length 25
 	 */
-	public $card_holder;
+	public $cardHolder;
 	
 	/**
 	 * 

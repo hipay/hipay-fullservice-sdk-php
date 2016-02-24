@@ -31,34 +31,34 @@ class GenerateTokenRequest extends AbstractRequest
 {
 	/**
 	 * 
-	 * @var int $card_number The card number. The length is from 12 to 19 digits.
+	 * @var int $cardNumber The card number. The length is from 12 to 19 digits.
 	 * @length 19
 	 * @required
 	 */
-	public $card_number;
+	public $cardNumber;
 	
 	/**
 	 * 
-	 * @var int $card_expiry_month The card expiry month. Expressed with two digits (e.g., 01).
+	 * @var int $cardExpiryMonth The card expiry month. Expressed with two digits (e.g., 01).
 	 * @length 2
 	 * @required
 	 */
-	public $card_expiry_month;
+	public $cardExpiryMonth;
 	
 	/**
 	 * 
-	 * @var int $card_expiry_year The card expiry year. Expressed with four digits (e.g., 2014).
+	 * @var int $cardExpiryYear The card expiry year. Expressed with four digits (e.g., 2014).
 	 * @length 4
 	 * @required
 	 */
-	public $card_expiry_year;
+	public $cardExpiryYear;
 	
 	/**
 	 * 
-	 * @var string $card_holder The cardholder name as it appears on the card (up to 25 chars).
+	 * @var string $cardHolder The cardholder name as it appears on the card (up to 25 chars).
 	 * @length 25
 	 */
-	public $card_holder;
+	public $cardHolder;
 	
 	/**
 	 * 
@@ -72,10 +72,10 @@ class GenerateTokenRequest extends AbstractRequest
 	 * Possible values:
      * - 1 = Generate a multi-use token
      * - 0 = Generate a single-use token
-	 * @var int $multi_use single-use or a multi-use.
+	 * @var int $multiUse single-use or a multi-use.
 	 * @length 1
 	 */
-	public $multi_use;
+	public $multiUse;
     
 
 }

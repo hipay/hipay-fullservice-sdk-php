@@ -51,14 +51,14 @@ class SimpleHTTPClient extends ClientProvider {
 		if($isVault){
 			$url = $this->getConfiguration()->getSecureVaultEndpoint();
 		}
-		
+		$userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HiPayFullservice/1.0 (SDK PHP)';
 		$finalUrl = $url . $endpoint;
 		
 		// set appropriate options
 		$options = array(
 				 CURLOPT_URL => $finalUrl,
 				 CURLOPT_USERPWD => $credentials,
-				 CURLOPT_HTTPHEADER => array('Accept'=>$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent'=> isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HiPayFullservice/1.0 (SDK PHP)'),
+				 CURLOPT_HTTPHEADER => array('Accept: '.$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent: ' . $userAgent),
 				 CURLOPT_RETURNTRANSFER => true,
 				 CURLOPT_FAILONERROR => false,
 				 CURLOPT_HEADER => true,
@@ -90,7 +90,13 @@ class SimpleHTTPClient extends ClientProvider {
 			$httpResponse = json_decode($body);
 				
 			if (floor($status/100) != 2) {
-				throw new RuntimeException($httpResponse->message, $httpResponse->code);
+				$message = $body;
+				$code = $status;
+				if(is_object($httpResponse)){
+					$message = $httpResponse->message;
+					$code = $httpResponse->code;
+				}
+				throw new RuntimeException($message, $code);
 			}
 
 			

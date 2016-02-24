@@ -106,7 +106,7 @@ class Configuration implements ConfigurationInterface {
 	 * @param string $apiUsername Merchant API Username
 	 * @param string $apiPassword Merchant API Password
 	 * @param string $apiEnv API environment. Value between 'stage' or 'production'
-	 * @param string $apiHTTPHeaderAccept HTTP header Accept's value. default: application/json  
+	 * @param string $apiHTTPHeaderAccept HTTP header Accept's value. 
 	 * @throws InvalidArgumentException
 	 * @throws UnexpectedValueException
 	 * @see HiPay\Fullservice\HTTP\ClientProvider::__construct Used for http client configuration (credentials,env etc ...)
