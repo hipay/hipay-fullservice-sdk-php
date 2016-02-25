@@ -35,7 +35,7 @@ class GenerateTokenRequest extends AbstractRequest
 	 * @length 19
 	 * @required
 	 */
-	public $cardNumber;
+	public $card_number;
 	
 	/**
 	 * 
@@ -43,7 +43,7 @@ class GenerateTokenRequest extends AbstractRequest
 	 * @length 2
 	 * @required
 	 */
-	public $cardExpiryMonth;
+	public $card_expiry_month;
 	
 	/**
 	 * 
@@ -51,14 +51,14 @@ class GenerateTokenRequest extends AbstractRequest
 	 * @length 4
 	 * @required
 	 */
-	public $cardExpiryYear;
+	public $card_expiry_year;
 	
 	/**
 	 * 
 	 * @var string $cardHolder The cardholder name as it appears on the card (up to 25 chars).
 	 * @length 25
 	 */
-	public $cardHolder;
+	public $card_holder;
 	
 	/**
 	 * 
@@ -75,7 +75,7 @@ class GenerateTokenRequest extends AbstractRequest
 	 * @var int $multiUse single-use or a multi-use.
 	 * @length 1
 	 */
-	public $multiUse;
+	public $multi_use;
     
 
 }

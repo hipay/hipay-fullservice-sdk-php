@@ -18,6 +18,7 @@ namespace HiPay\Fullservice\HTTP;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Exception\RuntimeException;
+use HiPay\Fullservice\HTTP\Response\Response;
 
 
 /**
@@ -61,7 +62,7 @@ class SimpleHTTPClient extends ClientProvider {
 				 CURLOPT_HTTPHEADER => array('Accept: '.$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent: ' . $userAgent),
 				 CURLOPT_RETURNTRANSFER => true,
 				 CURLOPT_FAILONERROR => false,
-				 CURLOPT_HEADER => true,
+				 CURLOPT_HEADER => false,
 				 CURLOPT_POST => (strtolower($method) == 'post') ?: false,
 				 CURLOPT_POSTFIELDS => http_build_query($params) );
 		
@@ -82,9 +83,9 @@ class SimpleHTTPClient extends ClientProvider {
 				throw new RuntimeException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
 			}
 			
-			$header_size = curl_getinfo($this->_httpClient, CURLINFO_HEADER_SIZE);
+			//$header_size = curl_getinfo($this->_httpClient, CURLINFO_HEADER_SIZE);
 			//$header = substr($result, 0, $header_size); @TODO transform headers to array
-			$body = substr($result, $header_size);
+			$body = $result; //substr($result, $header_size);
 					
 			$status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
 			$httpResponse = json_decode($body);
@@ -108,7 +109,7 @@ class SimpleHTTPClient extends ClientProvider {
 		
 		
 		//Return a simple response object
-		return new Response((string)$result, $status, array('Content-Type'=>array('application/json; encoding=UTF-8')));
+		return new Response((string)$body, $status, array('Content-Type'=>array('application/json; encoding=UTF-8')));
 	}
 
 	/**

@@ -144,7 +144,7 @@ abstract class AbstractResponse implements ResponseInterface {
         // We Can't return a diffent value of array
         // So,we throw an exception
         if(is_null($responseArray) || !is_array($responseArray)){
-            throw new UnexpectedValueException("Unable to convert json response to a valid array.");
+            throw new UnexpectedValueException(sprintf("Unable to convert json response to a valid array. Response: %s",$this->getBody()));
         }
 	    
 	    return $responseArray;
