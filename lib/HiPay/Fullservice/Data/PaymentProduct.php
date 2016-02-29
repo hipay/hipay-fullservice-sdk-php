@@ -13,13 +13,11 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace HiPay\Fullservice\Gateway\Model;
-
-use HiPay\Fullservice\Model\AbstractModel;
+namespace HiPay\Fullservice\Data;
 
 
 /**
- * Payment product model
+ * Payment product object
  * 
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -28,7 +26,7 @@ use HiPay\Fullservice\Model\AbstractModel;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PaymentProduct extends AbstractModel
+class PaymentProduct
 {
     
     public function __construct($productCode,$brandName,$category,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = ''){

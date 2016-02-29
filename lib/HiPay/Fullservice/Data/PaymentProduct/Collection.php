@@ -13,13 +13,12 @@
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  *
  */
-namespace HiPay\Fullservice\Gateway\Model\Collection;
+namespace HiPay\Fullservice\Data\PaymentProduct;
 
-use HiPay\Fullservice\Model\AbstractModel;
-use HiPay\Fullservice\Gateway\Model\PaymentProduct;
+use HiPay\Fullservice\Data\PaymentProduct;
 
 /**
- * Payment product model collection
+ * Payments product collection
  * 
  * Collection loaded with Json content
  * 
@@ -30,25 +29,37 @@ use HiPay\Fullservice\Gateway\Model\PaymentProduct;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PaymentProductCollection extends AbstractModel
+class Collection 
 {
+  
+    
     /**
-     * @return PaymentProduct[] Collection of payment products available
+     * @param null|string|array $categories
+     * @return PaymentProduct[] Collection of payment products filtered by category
      */
-    public static function getItems(){
-        $jsonArr = json_decode(self::$_JSON,true);
-        $collection = array();
-        foreach ($jsonArr as $item){
-            $collection[] = new PaymentProduct($item['productCode'],
-                                                $item['brandName'],
-            									$item['category'],
-                                                $item['can3ds'],
-                                                $item['canRefund'],
-                                                $item['canRecurring'],
-                                                $item['comment']);
-        }
-        
-        return $collection;
+    public static function getItems($categories = null){
+    	
+    	if(!is_null($categories) && !is_array($categories)){
+    		$categories = array($categories);
+    	}
+    	
+    	$jsonArr = json_decode(self::$_JSON,true);
+    	$collection = array();
+    	foreach ($jsonArr as $item){
+    		
+    		if(!is_null($categories) && !in_array( $item['category'], $categories ))
+    			continue;
+    		
+    		$collection[] = new PaymentProduct($item['productCode'],
+    				$item['brandName'],
+    				$item['category'],
+    				$item['can3ds'],
+    				$item['canRefund'],
+    				$item['canRecurring'],
+    				$item['comment']);
+    	}
+    
+    	return $collection;
     }
     
     /**

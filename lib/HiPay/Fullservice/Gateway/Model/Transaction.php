@@ -172,7 +172,7 @@ class Transaction extends AbstractTransaction
     
     /**
      * @var string $_paymentProduct Payment product used to complete the transaction.
-     * @see \HiPay\Fullservice\Gateway\Model\PaymentProduct
+     * @see \HiPay\Fullservice\Data\PaymentProduct
      */
     private $_paymentProduct;
     
@@ -196,7 +196,7 @@ class Transaction extends AbstractTransaction
     
     /**
      * 
-     * @var Order $_order Model Result Orde (customer, order informations...)
+     * @var Order $_order Model Result Order (customer, order informations...)
      */
     private $_order;
     
