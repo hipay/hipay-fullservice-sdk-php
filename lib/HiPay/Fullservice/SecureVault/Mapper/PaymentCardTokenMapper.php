@@ -49,13 +49,13 @@ class PaymentCardTokenMapper extends AbstractMapper {
         $token = isset($source['token']) ? $source['token'] : null;
         $brand = isset($source['brand']) ? $source['brand'] : null;
         $pan = isset($source['pan']) ? $source['pan'] : null;
-        $cardHolder = isset($source['card_holder']) ? $source['card_holder'] : null;
-        $cardExpiryMonth = isset($source['card_expiry_month']) ? $source['card_expiry_month'] : null;
-        $cardExpiryYear = isset($source['card_expiry_year']) ? $source['card_expiry_year'] : null;
+        $cardHolder = isset($source['cardHolder']) ? $source['cardHolder'] : null;
+        $cardExpiryMonth = isset($source['cardExpiryMonth']) ? sprintf('%02d',$source['cardExpiryMonth'] ): null;
+        $cardExpiryYear = isset($source['cardExpiryYear']) ? $source['cardExpiryYear'] : null;
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
-        $requestId =  isset($source['request_id']) ? $source['request_id'] : null;
-        $domesticNetwork = isset($source['domestic_network']) ? $source['domestic_network'] : null;
+        $requestId =  isset($source['requestId']) ? $source['requestId'] : null;
+        $domesticNetwork = isset($source['domesticNetwork']) ? $source['domesticNetwork'] : null;
         
         $this->_modelObject = new PaymentCardToken($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country, $requestId, $domesticNetwork);
         

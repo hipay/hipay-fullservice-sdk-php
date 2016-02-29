@@ -16,7 +16,6 @@
 namespace HiPay\Fullservice\Model;
 
 use HiPay\Fullservice\Model\ModelInterface;
-use HiPay\Fullservice\Exception\UnexpectedValueException;
 
 /**
  * Model abstract class
@@ -33,5 +32,42 @@ use HiPay\Fullservice\Exception\UnexpectedValueException;
  */
 abstract class AbstractModel implements ModelInterface {
 	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \HiPay\Fullservice\Model\ModelInterface::toArray()
+	 */
+	public function toArray() {
+		
+		$array = array();
+		
+		$classRef = new \ReflectionClass(__CLASS__);
+		foreach ($classRef->getMethods() as $method) {
+			if (substr($method->name, 0, 3) == 'get') {
+				//clean key name
+				$key = lcfirst(substr($method->name, 3));
+				
+				//Call getter to get the value
+				$array[$key] = $method->invoke($this);
+			}
+		}
+		
+		return $array;
+		
+		
+	}
+	
+	/**
+	 *
+	 * {@inheritDoc}
+	 *
+	 * @see \HiPay\Fullservice\Model\ModelInterface::toJson()
+	 */
+	public function toJson() {
+		return json_encode($this->toArray());
+	}
+
+
 	
 }
