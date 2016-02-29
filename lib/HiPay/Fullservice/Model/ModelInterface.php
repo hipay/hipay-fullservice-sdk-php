@@ -33,16 +33,12 @@ interface ModelInterface {
 	 * Return Json representation of public attributes
 	 * @return string Json representation
 	 */
-	public function toJson(){
-		
-	}
+	public function toJson();
 	
 	/**
 	 * Return public attributes accessible by getter in ARRAY format
 	 * @return array public attributes array
 	 */
-	public function toArray(){
-		
-	}
+	public function toArray();
 	
 }
