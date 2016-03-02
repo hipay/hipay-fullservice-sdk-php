@@ -42,7 +42,7 @@ abstract class AbstractModel implements ModelInterface {
 		
 		$array = array();
 		
-		$classRef = new \ReflectionClass(__CLASS__);
+		$classRef = new \ReflectionClass(get_class($this));
 		foreach ($classRef->getMethods() as $method) {
 			if (substr($method->name, 0, 3) == 'get') {
 				//clean key name
