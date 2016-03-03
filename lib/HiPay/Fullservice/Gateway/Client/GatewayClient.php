@@ -19,12 +19,12 @@ use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Request\RequestSerializer;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
-use HiPay\Fullservice\Gateway\Mapper\OrderMapper;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Mapper\HostedPaymentPageMapper;
 use HiPay\Fullservice\Gateway\Mapper\OperationMapper;
 use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
+use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -102,9 +102,9 @@ class GatewayClient implements GatewayClientInterface{
 		//send request
 		$response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER,self::ENDPOINT_NEW_ORDER,$params);
 		
-		//Transform response to Transaction Model with OrderMapper
-		$orderMapper = new OrderMapper($response->toArray());
-		$transaction = $orderMapper->getModelObjectMapped();
+		//Transform response to Transaction Model with TransactionMapper
+		$transactionMapper = new TransactionMapper($response->toArray());
+		$transaction = $transactionMapper->getModelObjectMapped();
 		
 		return $transaction;
 		
