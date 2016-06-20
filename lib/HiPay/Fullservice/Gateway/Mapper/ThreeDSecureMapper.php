@@ -46,13 +46,13 @@ class ThreeDSecureMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $eci = $source['eci'] ?: null;
-        $enrollmentStatus = $source['enrollmentStatus'] ?: null;
-        $enrollmentMessage = $source['enrollmentMessage'] ?: null;
-        $authenticationStatus = $source['authenticationStatus'] ?: null;
-        $authenticationMessage = $source['authenticationMessage'] ?: null;
-        $authenticationToken = $source['authenticationToken'] ?: null;
-        $xid = $source['xid'] ?: null;
+        $eci = isset($source['eci']) ? $source['eci'] : null;
+        $enrollmentStatus = isset($source['enrollmentStatus']) ? $source['enrollmentStatus'] : null;
+        $enrollmentMessage = isset($source['enrollmentMessage']) ? $source['enrollmentMessage'] : null;
+        $authenticationStatus = isset($source['authenticationStatus']) ? $source['authenticationStatus'] : null;
+        $authenticationMessage = isset($source['authenticationMessage']) ? $source['authenticationMessage'] : null;
+        $authenticationToken = isset($source['authenticationToken']) ? $source['authenticationToken'] : null;
+        $xid = isset($source['xid']) ? $source['xid'] : null;
         
         $this->_modelObject = new ThreeDSecure($eci, $enrollmentStatus, $enrollmentMessage, $authenticationStatus, $authenticationMessage, $authenticationToken, $xid);
         
