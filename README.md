@@ -2,66 +2,35 @@
 
 [![Circle CI](https://circleci.com/gh/hipay/hipay-fullservice-sdk-php.svg?style=svg&circle-token=65d5d22b23e308ffc54b2884809b7b871a41bc8e)](https://circleci.com/gh/hipay/hipay-fullservice-sdk-php)
 
+The HiPay Fullservice SDK PHP is library for developers who want to integrate HiPay Fullservice to any php platforms (symfony,module CMS,custom website etc ...).
 
-## Requirements
+## Getting started
 
-#### PHP
+Read the **[project documentation][doc-home]** for comprehensive information about the requirements, general workflow and installation procedure.
+ 
 
-Require php 5.3.0 minimum.
+## Resources
+- [Full project documentation][doc-home] — To have a comprehensive understanding of the workflow and get the installation procedure
+- [HiPay Support Center][hipay-help] — To get technical help from HiPay
+- [Issues][project-issues] — To report issues, submit pull requests and get involved (see [Apache 2.0 License][project-license])
+- [Change log][project-changelog] — To check the changes of the latest versions
+- [Contributing guidelines][project-contributing] — To contribute to our source code
 
-## How to use
+## Features
 
-You need to instanciate 4 objects to make a request:  
+- Compatibility with Composer
+- Secure vault API
+- Credit Card API Mode
+- Hosted Mode
 
-- A configuration object who implements [ConfigurationInterface](lib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
-- A client provider inherit from abstract class [\HiPay\Fullservice\HTTP\ClientProvider](lib/HiPay/Fullservice/HTTP/ClientProvider.php)
-- A [SecureVault](lib/HiPay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client 
+## License
 
-#### Gateway example:
-
-```php
-//Create configuration object
-$config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
-
-//Instanciate client Provider with configuration object
-$clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
-
-//Finally create your gateway client
-$gatewayClient = new \HiPay\Fullservice\Gateway\Client\GatewayClient($clientProvider);
-
-//Object request
-$orderRequest = new \HiPay\Fullservice\Gateway\Request\Order\OrderRequest();
-$orderRequest->orderid = "123456";
-$orderRequest->operation = "Sale";
-//etc ...
-
-//Do a request
-$gatewayClient->requestNewOrder($orderRequest);
-
-```
-
-#### Secure Vault example:
-
-```php
-//Create configuration object
-$config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
-
-//Instanciate client Provider with configuration object
-$clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
-
-//Finally create your gateway client
-$vaultClient = new \HiPay\Fullservice\SecureVault\Client\SecureVaultClient($clientProvider);
-
-//Object request
-$generateTokenRequest = new \HiPay\Fullservice\SecureVault\Request\GenerateTokenRequest();
-$generateTokenRequest->card_number = "4111111111111111";
-$generateTokenRequest->card_expiry_month = "02";
-$generateTokenRequest->card_expiry_year = "2017";
-//etc ...
-
-//Do a request
-$vaultClient->requestGenerateToken($generateTokenRequest);
-
-```
+The **HiPay Fullservice SDK PHP** is available under the **Apache 2.0 License**. Check out the [license file][project-license] for more information.
 
 
+[doc-home]: https://github.com/hipay/hipay-fullservice-sdk-php/wiki
+[hipay-help]: http://help.hipay.com
+[project-issues]: https://github.com/hipay/hipay-fullservice-sdk-php/issues
+[project-license]: LICENSE.md
+[project-changelog]: CHANGELOG.md
+[project-contributing]: CONTRIBUTING.md

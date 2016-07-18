@@ -1,18 +1,18 @@
 <?php
-/*
- * HiPay fullservice SDK
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the MIT License
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/mit-license.php
-*
-* @copyright      Copyright (c) 2016 - HiPay
-* @license        http://opensource.org/licenses/mit-license.php MIT License
-*
-*/ 
+/**
+ * HiPay Fullservice SDK PHP
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Apache 2.0 Licence
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * @copyright      Copyright (c) 2016 - HiPay
+ * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
+ *
+ */
 namespace HiPay\Fullservice\HTTP;
 
 
@@ -24,7 +24,7 @@ use HiPay\Fullservice\HTTP\Response\AbstractResponse;
  * @package     HiPay\Fullservice
  * @author 		Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
- * @license     http://opensource.org/licenses/mit-license.php MIT License
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  */
 interface Client{

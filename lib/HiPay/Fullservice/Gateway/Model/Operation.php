@@ -9,7 +9,7 @@ use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
- * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  *       @api
  */
