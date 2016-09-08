@@ -1,7 +1,3 @@
-machine:
-  php:
-    version: 5.3.3
-    
 test:
   override:
     - phpunit -c tests/unit/phpunit.xml
