@@ -1,8 +1,8 @@
-# HiPay Fullservice PHP SDK
+# HiPay Fullservice SDK for PHP
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/hipay/hipay-fullservice-sdk-php/master/LICENSE.md)
 [![Circle CI](https://circleci.com/gh/hipay/hipay-fullservice-sdk-php.svg?style=shield&circle-token=65d5d22b23e308ffc54b2884809b7b871a41bc8e)](https://circleci.com/gh/hipay/hipay-fullservice-sdk-php)
 
-The HiPay Fullservice PHP SDK is a library for developers who want to integrate HiPay Fullservice payment methods to any PHP platform (Symfony, CMS module, custom website...).
+The HiPay Fullservice SDK for PHP is a library for developers who want to integrate HiPay Fullservice payment methods to any PHP platform (Symfony, CMS module, custom website...).
 
 ## Getting started
 
@@ -25,7 +25,7 @@ Read the **[project documentation][doc-home]** for comprehensive information abo
 
 ## License
 
-The **HiPay Fullservice PHP SDK** is available under the **Apache 2.0 License**. Check out the [license file][project-license] for more information.
+The **HiPay Fullservice SDK for PHP** is available under the **Apache 2.0 License**. Check out the [license file][project-license] for more information.
 
 
 [doc-home]: https://github.com/hipay/hipay-fullservice-sdk-php/wiki
