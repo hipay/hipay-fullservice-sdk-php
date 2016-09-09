@@ -64,7 +64,12 @@ class ECI extends AbstractEnum
      * The merchant has the customer's card within easy reach. The card details are manually entered; 
      * the card is not swiped through a machine.
      * 
-     * @var int MANUALLT_KEYED_CARD_PRESENT Manually Keyed (Card Present)
+     * @var int MANUALLY_KEYED_CARD_PRESENT Manually Keyed (Card Present)
+     */
+    const MANUALLY_KEYED_CARD_PRESENT = 4;
+    
+    /**
+     * @deprecated Replaced by ECI::MANUALLY_KEYED_CARD_PRESENT
      */
     const MANUALLT_KEYED_CARD_PRESENT = 4;
     
@@ -90,3 +95,4 @@ class ECI extends AbstractEnum
     const RECURRING_ECOMMERCE = 9;
     
 }
+
