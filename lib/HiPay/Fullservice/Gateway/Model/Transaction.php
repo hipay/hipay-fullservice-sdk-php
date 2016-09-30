@@ -90,7 +90,8 @@ class Transaction extends AbstractTransaction
 		$this->_fraudScreening = $fraudScreenig;
 		$this->_order = $order;
 		$this->_debitAgreement = $debitAgreement;
-		
+		$this->_transactionReference = $transactionReference;
+
 		$this->_cdata1 = $cdata1;
 		$this->_cdata2 = $cdata2;
 		$this->_cdata3 = $cdata3;
@@ -104,6 +105,11 @@ class Transaction extends AbstractTransaction
 		
 	}
 	
+    /**
+     * @var string $_transactionReference Transaction unique ID.
+     */
+    private $_transactionReference;
+    
     /**
      * @var string $_reason Reason why transaction was declined. Optional.
      */
@@ -212,6 +218,9 @@ class Transaction extends AbstractTransaction
      * @var string $_cdata1 Custom data 1.
      */
     private $_cdata1,$_cdata2,$_cdata3,$_cdata4,$_cdata5,$_cdata6,$_cdata7,$_cdata8,$_cdata9,$_cdata10;
+	public function getTransactionReference() {
+		return $this->_transactionReference;
+	}
 	public function getReason() {
 		return $this->_reason;
 	}
