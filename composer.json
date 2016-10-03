@@ -2,20 +2,19 @@
 	"name" : "hipay/hipay-fullservice-sdk-php",
 	"type" : "library",
 	"minimum-stability": "stable",
-	"description" : "The HiPay Fullservice PHP SDK is a library for developers who want to integrate HiPay Fullservice payment methods to any PHP platform.",
+	"description" : "The HiPay Fullservice SDK for PHP is a library for developers who want to integrate HiPay Fullservice payment methods to any PHP platform.",
 	"keywords" : [
 		"hipay",
 		"payment",
 		"payment method"
 	],
 	"homepage" : "http://www.hipayfullservice.com/",
-	"version" : "1.0.4",
+	"version" : "1.1.0",
 	"license" : "Apache 2.0",
 	"authors" : [{
-			"name" : "Kassim Belghait",
-			"homepage" : "http://www.sirateck.com",
-			"email" : "kassim@sirateck.com",
-			"role" : "Developer"
+			"name" : "HiPay",
+			"homepage" : "http://www.hipay.com",
+			"email" : "support.tpp@hipay.com"
 		}
 	],
 	"support" : {
