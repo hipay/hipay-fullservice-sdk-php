@@ -1,3 +1,6 @@
+# Version 1.1.0
+Adds a *transaction reference* getter in the `Transaction` model class
+
 # Version 1.0.4
 Fix - update the name of the const MANUALLY_KEYED_CARD_PRESENT in ECI class
 
