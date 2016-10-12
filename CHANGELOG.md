@@ -1,3 +1,6 @@
+# Version 1.1.1
+Update documentation URL to the HiPay portal developer
+
 # Version 1.1.0
 Adds a *transaction reference* getter in the `Transaction` model class
 
