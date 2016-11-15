@@ -9,7 +9,7 @@
 		"payment method"
 	],
 	"homepage" : "http://www.hipayfullservice.com/",
-	"version" : "1.1.1",
+	"version" : "1.1.2",
 	"license" : "Apache 2.0",
 	"authors" : [{
 			"name" : "HiPay",

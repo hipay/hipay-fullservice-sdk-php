@@ -1,3 +1,7 @@
+# Version 1.1.2
+New optional vault param generate_request_id when creating a token
+Fix - missing response fields (domesticNetwork + requestId)
+
 # Version 1.1.1
 Update documentation URL to the HiPay portal developer
 
