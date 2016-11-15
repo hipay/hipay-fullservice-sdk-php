@@ -134,5 +134,13 @@ class PaymentCardToken extends AbstractModel
 	public function getCountry() {
 		return $this->_country;
 	}
+    public function getRequestId()
+    {
+        return $this->_requestId;
+    }
+    public function getDomesticNetwork()
+    {
+        return $this->_domesticNetwork;
+    }
 	
 }

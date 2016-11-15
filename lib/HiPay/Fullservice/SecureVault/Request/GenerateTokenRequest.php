@@ -76,6 +76,15 @@ class GenerateTokenRequest extends AbstractRequest
 	 * @length 1
 	 */
 	public $multi_use;
-    
+
+    /**
+     * Indicates if a request ID should be generated.
+     * Possible values:
+     * - 1 = Generate a request ID
+     * - 0 = return the default one (0)
+     * @var int $generateRequestId generate request ID or not.
+     * @length 1
+     */
+    public $generate_request_id;
 
 }
