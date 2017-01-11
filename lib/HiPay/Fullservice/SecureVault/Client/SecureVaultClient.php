@@ -138,13 +138,11 @@ class SecureVaultClient implements SecureVaultClientInterface{
 	 *
 	 * @see \HiPay\Fullservice\SecureVault\Client\SecureVaultClientInterface::requestLookupToken()
 	 */
-	public function requestLookupToken($token,$requestId = null) {
+	public function requestLookupToken($token,$requestId = '0') {
 
 	    $endPoint = str_replace('{token}',$token,self::ENDPOINT_LOOKUP_TOKEN);
-	    if ($requestId) {
-	        $endPoint .= '?request_id=' . $requestId;
-        }
-	
+        $endPoint .= '?request_id=' . $requestId;
+
 		$response = $this->getClientProvider()
             ->request(self::METHOD_LOOKUP_TOKEN,
                 $endPoint,
