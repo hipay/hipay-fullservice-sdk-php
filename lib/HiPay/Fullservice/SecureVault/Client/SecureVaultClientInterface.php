@@ -55,7 +55,7 @@ interface SecureVaultClientInterface {
 	 * @param string $requestId 
 	 * @return PaymentCardToken Informations about token updated
 	 */
-	public function requestLookupToken($token,$requestId);
+	public function requestLookupToken($token,$requestId = null);
 	
 	/**
 	 * Return current HTTP client provider
