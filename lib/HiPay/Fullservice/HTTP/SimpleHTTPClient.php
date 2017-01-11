@@ -57,15 +57,22 @@ class SimpleHTTPClient extends ClientProvider {
 		
 		// set appropriate options
 		$options = array(
-				 CURLOPT_URL => $finalUrl,
-				 CURLOPT_USERPWD => $credentials,
-				 CURLOPT_HTTPHEADER => array('Accept: '.$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent: ' . $userAgent),
-				 CURLOPT_RETURNTRANSFER => true,
-				 CURLOPT_FAILONERROR => false,
-				 CURLOPT_HEADER => false,
-				 CURLOPT_POST => (strtolower($method) == 'post') ?: false,
-				 CURLOPT_POSTFIELDS => http_build_query($params) );
-		
+		    CURLOPT_URL => $finalUrl,
+            CURLOPT_USERPWD => $credentials,
+            CURLOPT_HTTPHEADER => array('Accept: '.$this->getConfiguration()->getApiHTTPHeaderAccept(),'User-Agent: ' . $userAgent),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FAILONERROR => false,
+            CURLOPT_HEADER => false,
+        );
+
+		// add post parameters
+		if (strtolower($method) == 'post') {
+            $options[CURLOPT_POST] = true;
+            $options[CURLOPT_POSTFIELDS] = http_build_query($params);
+        } else {
+            $options[CURLOPT_POST] = false;
+        }
+
 		try {
 			
 			/**
