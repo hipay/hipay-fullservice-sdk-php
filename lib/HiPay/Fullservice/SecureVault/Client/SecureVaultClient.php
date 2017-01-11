@@ -141,6 +141,8 @@ class SecureVaultClient implements SecureVaultClientInterface{
 	public function requestLookupToken($token,$requestId = '0') {
 
 	    $endPoint = str_replace('{token}',$token,self::ENDPOINT_LOOKUP_TOKEN);
+
+	    // Add request_id on end point url
         $endPoint .= '?request_id=' . $requestId;
 
 		$response = $this->getClientProvider()
