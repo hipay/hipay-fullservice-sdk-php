@@ -138,16 +138,18 @@ class SecureVaultClient implements SecureVaultClientInterface{
 	 *
 	 * @see \HiPay\Fullservice\SecureVault\Client\SecureVaultClientInterface::requestLookupToken()
 	 */
-	public function requestLookupToken($token,$requestId) {
-	
-		$payload = array('token'=>$token,
-						'request_id'=>$requestId
-		);
-		
+	public function requestLookupToken($token,$requestId = '0') {
+
+	    $endPoint = str_replace('{token}',$token,self::ENDPOINT_LOOKUP_TOKEN);
+
+	    // Add request_id on end point url
+        $endPoint .= '?request_id=' . $requestId;
+
 		$response = $this->getClientProvider()
-							->request(self::METHOD_LOOKUP_TOKEN,
-									str_replace('{token}',$token,self::ENDPOINT_LOOKUP_TOKEN),
-									$payload,true);
+            ->request(self::METHOD_LOOKUP_TOKEN,
+                $endPoint,
+                array(),
+                true);
 		
 		$pctMapper = new PaymentCardTokenMapper($response->toArray());
 		return $pctMapper->getModelObjectMapped();
