@@ -1,3 +1,6 @@
+# Version 1.1.3
+Fix - Set request_id parameter optional, add to end point url and set curl post parameters only for POST method
+
 # Version 1.1.2
 New optional vault param generate_request_id when creating a token
 Fix - missing response fields (domesticNetwork + requestId)
