@@ -182,5 +182,13 @@ class OrderRequest extends AbstractRequest {
      * @var string $custom_data Custom data (JSON).
      */
     public $custom_data;
+
+    /**
+     *  Technical parameter to track the source of request. For exemple the version of your CMS.
+     *  Eg. {"source":"CMS","brand":"magento","brand_version":"1.9.2.3","integration_version":"1.5.0"}
+     *
+     * @var string $source (JSON).
+     */
+    public $source;
     
 }
