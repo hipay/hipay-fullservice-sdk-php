@@ -156,8 +156,8 @@ class OrderRequest extends AbstractRequest {
      */
     public $customerBillingInfo,$customerShippingInfo;
 
-    
     /**
+     * @deprecated
      * You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications.
      * Example: You can use these parameters to get back session data, order content or user info.
      * 
@@ -173,6 +173,22 @@ class OrderRequest extends AbstractRequest {
      * @var string $cdata10 Custom data 10.
      */
     public $cdata1,$cdata2,$cdata3,$cdata4,$cdata5,$cdata6,$cdata7,$cdata8,$cdata9,$cdata10;
-    
+
+    /**
+     * You can use these parameters to submit custom values you wish to show in HiPay back office transaction details,
+     * receive back in the API response messages, in the notifications or to activate specific FPS rules.
+     * Example: {"shipping_method":"click and collect", "first_order":"0", "products_list":"First product, Second product, Third product"}
+     *
+     * @var string $custom_data Custom data (JSON).
+     */
+    public $custom_data;
+
+    /**
+     *  Technical parameter to track the source of request. For exemple the version of your CMS.
+     *  Eg. {"source":"CMS","brand":"magento","brand_version":"1.9.2.3","integration_version":"1.5.0"}
+     *
+     * @var string $source (JSON).
+     */
+    public $source;
     
 }
