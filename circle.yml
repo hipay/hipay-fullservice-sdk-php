@@ -2,7 +2,7 @@ dependencies:
   post:
     - wget https://phar.phpunit.de/phpunit-5.6.1.phar
     - chmod +x phpunit-5.6.1.phar
-    - mv -f phpunit-5.6.1.phar /usr/local/bin/phpunit
+    - sudo mv -f phpunit-5.6.1.phar /usr/local/bin/phpunit
     - phpunit --version
 test:
   override:
