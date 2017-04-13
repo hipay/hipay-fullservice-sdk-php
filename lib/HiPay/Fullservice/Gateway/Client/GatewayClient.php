@@ -239,9 +239,16 @@ class GatewayClient implements GatewayClientInterface{
         }
 
         $transactions = array();
-        foreach ($data['transaction'] as $transaction) {
-            $transactionMapper = new TransactionMapper($transaction);
+
+        // Single transaction response
+        if (!empty($data['transaction']['state'])) {
+            $transactionMapper = new TransactionMapper($data['transaction']);
             $transactions[] = $transactionMapper->getModelObjectMapped();
+        } else { // Array of transactions
+            foreach ($data['transaction'] as $transaction) {
+                $transactionMapper = new TransactionMapper($transaction);
+                $transactions[] = $transactionMapper->getModelObjectMapped();
+            }
         }
 
         return $transactions;
