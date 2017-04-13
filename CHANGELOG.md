@@ -1,3 +1,9 @@
+# Version 1.2.0
+New - Add 2 methods to get transaction details + order's transactions
+Fix - Delete git index .idea and composer.lock
+Fix - PHPUNIT for CircleCI
+Fix - PHPDoc return tags
+
 # Version 1.1.3
 Fix - Set request_id parameter optional, add to end point url and set curl post parameters only for POST method
 
