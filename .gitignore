@@ -3,6 +3,7 @@
 .buildpath
 .settings
 .project
+.idea/*
 
 # Compiled source #
 ###################
