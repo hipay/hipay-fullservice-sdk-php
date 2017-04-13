@@ -112,7 +112,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the Order
+	 * @return Order
 	 */
 	public function getOrder() {
 		return $this->_order;
@@ -120,7 +120,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getForwardUrl() {
 		return $this->_forwardUrl;
@@ -128,7 +128,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getMid() {
 		return $this->_mid;
@@ -136,7 +136,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata1() {
 		return $this->_cdata1;
@@ -144,7 +144,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata2() {
 		return $this->_cdata2;
@@ -152,7 +152,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata3() {
 		return $this->_cdata3;
@@ -160,7 +160,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata4() {
 		return $this->_cdata4;
@@ -168,7 +168,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata5() {
 		return $this->_cdata5;
@@ -176,7 +176,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata6() {
 		return $this->_cdata6;
@@ -184,7 +184,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata7() {
 		return $this->_cdata7;
@@ -192,7 +192,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata8() {
 		return $this->_cdata8;
@@ -200,7 +200,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata9() {
 		return $this->_cdata9;
@@ -208,7 +208,7 @@ class HostedPaymentPage extends AbstractModel
 	
 	/**
 	 *
-	 * @return the string
+	 * @return string
 	 */
 	public function getCdata10() {
 		return $this->_cdata10;

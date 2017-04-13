@@ -65,12 +65,18 @@ interface GatewayClientInterface {
 	/**
 	 * Get Transaction information
 	 * 
-	 * @param string $operationType
-	 * @param float $amount
 	 * @param string $transactionReference
-	 * @return Operation Operation Model
+	 * @return Transaction|null Transaction Model
 	 */
-	public function requestTransactionInformation();
+	public function requestTransactionInformation($transactionReference);
+
+    /**
+     * Get order Transaction information
+     *
+     * @param string $orderId
+     * @return Transaction[] Transaction Model
+     */
+    public function requestOrderTransactionInformation($orderId);
 	
 	/**
 	 * Return current HTTP client provider

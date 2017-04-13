@@ -74,6 +74,26 @@ class GatewayClient implements GatewayClientInterface{
      * @var string METHOD_MAINTENANCE_OPERATION http method to do a maintenance operation
      */
     const METHOD_MAINTENANCE_OPERATION = 'POST';
+
+    /**
+     * @var string ENDPOINT_TRANSACTION_DETAILS endpoint to call transaction information
+     */
+    const ENDPOINT_TRANSACTION_INFORMATION = 'transaction/{transaction}';
+
+    /**
+     * @var string METHOD_TRANSACTION_DETAILS http method to call transaction information
+     */
+    const METHOD_TRANSACTION_INFORMATION = 'GET';
+
+    /**
+     * @var string ENDPOINT_ORDER_TRANSACTION_INFORMATION endpoint to call transaction information
+     */
+    const ENDPOINT_ORDER_TRANSACTION_INFORMATION = 'transaction';
+
+    /**
+     * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
+     */
+    const METHOD_ORDER_TRANSACTION_INFORMATION = 'GET';
 	
 	/**
 	 * @var ClientProvider $_clientProvider HTTP client provider
@@ -181,9 +201,51 @@ class GatewayClient implements GatewayClientInterface{
 	 *
 	 * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestTransactionInformation()
 	 */
-	public function requestTransactionInformation() {
-		// TODO: Auto-generated method stub
-	}
+	public function requestTransactionInformation($transactionReference) {
+
+        $response = $this->getClientProvider()->request(
+            self::METHOD_TRANSACTION_INFORMATION,
+            str_replace('{transaction}', $transactionReference, self::ENDPOINT_TRANSACTION_INFORMATION)
+        );
+
+        $data = $response->toArray();
+
+        if (empty($data['transaction'])) {
+            return null;
+        }
+
+        $transactionMapper = new TransactionMapper($data['transaction']);
+
+        return $transactionMapper->getModelObjectMapped();
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestOrderTransactionInformation()
+     */
+    public function requestOrderTransactionInformation($orderId) {
+
+        $response = $this->getClientProvider()->request(
+            self::METHOD_ORDER_TRANSACTION_INFORMATION,
+            self::ENDPOINT_ORDER_TRANSACTION_INFORMATION.'?orderid='.$orderId
+        );
+
+        $data = $response->toArray();
+
+        if (empty($data['transaction'])) {
+            return array();
+        }
+
+        $transactions = array();
+        foreach ($data['transaction'] as $transaction) {
+            $transactionMapper = new TransactionMapper($transaction);
+            $transactions[] = $transactionMapper->getModelObjectMapped();
+        }
+
+        return $transactions;
+    }
 	
 	/**
 	 *
