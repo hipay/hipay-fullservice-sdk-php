@@ -1,4 +1,5 @@
-
+# Version 1.2.1
+Fix - Get order transaction info with single transaction response
 
 # Version 1.2.0
 New - Add 2 methods to get transaction details + order's transactions
