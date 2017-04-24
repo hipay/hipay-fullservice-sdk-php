@@ -146,8 +146,8 @@ class OrderRequest extends AbstractRequest {
     public $language;
     
     /**
-     * @var AbstractRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...) 
-     */
+         * @var AbstractRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
+         */
     public $paymentMethod;
     
     /**

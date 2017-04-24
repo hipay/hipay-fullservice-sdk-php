@@ -275,6 +275,114 @@ class Collection
                 "canRecurring":"0",
                 "category":"ewallet",
                 "comment":""
+            },
+            {
+                "productCode":"postfinance-card",
+                "brandName":"PostFinance Card",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":""
+            },
+            {
+                "productCode":"postfinance-efinance",
+                "brandName":"PostFinance E-Finance",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":""
+            },
+            {
+                "productCode":"ing-homepay",
+                "brandName":"ING Home'Pay",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":""
+            },
+            {
+                "productCode":"aura",
+                "brandName":"Aura",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
+            },
+            {
+                "productCode":"banamex",
+                "brandName":"Banamex",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency."
+            },
+            {
+                "productCode":"banco-do-brasil",
+                "brandName":"Banco do brazil",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency."
+            },
+            {
+                "productCode":"bbva-bancomer",
+                "brandName":"BBVA Bancomer",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency."
+            },
+            {
+                "productCode":"boleto-bancario",
+                "brandName":"Boleto bancario",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
+            },
+            {
+                "productCode":"bradesco",
+                "brandName":"Bradesco",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
+            },
+            {
+                "productCode":"caixa",
+                "brandName":"Caïxa",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
+            },
+            {
+                "productCode":"itau",
+                "brandName":"Itau",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
+            },
+            {
+                "productCode":"itau",
+                "brandName":"Itau",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency."
             }
         ]
         

@@ -19,7 +19,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
 
 /**
  * SEPA Direct Debit Payment Method
- * Data related to payment with qiwi wallet system
+ *
  * 
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -50,4 +50,36 @@ class SEPADirectDebitPaymentMethod extends AbstractRequest
     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
     */
    public $recurring_payment;
+
+    /**
+     * Issuer Bank Name
+     *
+     * @var string
+     */
+   public $bank_name;
+
+    /**
+     * @var string
+     */
+   public $iban;
+
+    /**
+     * @var string
+     */
+   public $issuer_bank_id;
+
+    /**
+     * @var string
+     */
+    public $firstname;
+
+    /**
+     * @var string
+     */
+    public $lastname;
+
+    /**
+     * @var string
+     */
+    public $gender;
 }
