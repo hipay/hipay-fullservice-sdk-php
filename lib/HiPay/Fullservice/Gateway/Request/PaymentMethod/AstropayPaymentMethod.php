@@ -21,7 +21,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * Astropay Payment Method
  *
  * Data related to payment with astropay
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -31,11 +31,15 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class AstropayPaymentMethod extends AbstractRequest
 {
-   /**
-    * The national Identification Number
-    * 
+    /**
+    *  The national Identification Number
+    *
+    *  For Mexican identification use CPF CURP
+    *  For Brazilan identification use CPN
+    *
     * @var string CPN or CPF
+    * @values Ex CPN : 621.413.068-76 or CPF (Curp) SSS230202HASDDD04
     * @required
-    */ 
+    */
    public $national_identification_number;
 }

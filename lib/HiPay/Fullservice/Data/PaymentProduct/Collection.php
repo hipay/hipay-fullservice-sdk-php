@@ -376,13 +376,31 @@ class Collection
                 "comment":"Available only in BRL currency."
             },
             {
-                "productCode":"itau",
-                "brandName":"Itau",
+                "productCode":"oxxo",
+                "brandName":"Oxxo",
                 "can3ds":"0",
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":"Available only in BRL currency."
+                "comment":"Available only in MXN currency."
+            },
+            {
+                "productCode":"santander-home-banking",
+                "brandName":"Santander HomeBanking",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency."
+            },
+            {
+                "productCode":"santander-cash",
+                "brandName":"Santander Cash",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency."
             }
         ]
         
