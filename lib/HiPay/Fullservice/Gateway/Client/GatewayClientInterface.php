@@ -16,6 +16,7 @@
 namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Model\Transaction;
+use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
@@ -48,13 +49,16 @@ interface GatewayClientInterface {
      * Because this api call is simple, we don't use an object request as method parameter
      * 
      * @param string $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
-     * @param float $amount Amount to process
      * @param string $transactionReference Transaction ID related to customer order
+     * @param string $amount Amount to process
+     * @param string $operationId Operation ID
+     * @param MaintenanceRequest $maintenanceRequest
+     * @deprecated
      * @return Operation
      */
-	public function requestMaintenanceOperation($operationType,$amount,$transactionReference);
+	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null,MaintenanceRequest $maintenanceRequest = null);
 
-    
+
 	/**
 	 * Request Hosted Payment Page
 	 * @param HostedPaymentPageRequest $hppRequest

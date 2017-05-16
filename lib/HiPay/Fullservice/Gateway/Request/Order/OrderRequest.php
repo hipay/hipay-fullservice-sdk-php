@@ -16,9 +16,11 @@
 namespace HiPay\Fullservice\Gateway\Request\Order;
 
 
-use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerBillingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
+use HiPay\Fullservice\Gateway\Request\CommonRequest;
+use HiPay\Fullservice\Gateway\Request\Info\DeliveryShippingInfoRequest;
+
 /**
  * Order request class.
  * Base order informations to send
@@ -31,7 +33,7 @@ use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  * */
-class OrderRequest extends AbstractRequest {
+class OrderRequest extends CommonRequest {
     
     /**
      * @var string $orderid  Unique order id
@@ -157,6 +159,11 @@ class OrderRequest extends AbstractRequest {
     public $customerBillingInfo,$customerShippingInfo;
 
     /**
+     * @var DeliveryShippingInfoRequest $delivery_information
+     */
+    public $delivery_information;
+
+    /**
      * @deprecated
      * You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications.
      * Example: You can use these parameters to get back session data, order content or user info.
@@ -174,21 +181,4 @@ class OrderRequest extends AbstractRequest {
      */
     public $cdata1,$cdata2,$cdata3,$cdata4,$cdata5,$cdata6,$cdata7,$cdata8,$cdata9,$cdata10;
 
-    /**
-     * You can use these parameters to submit custom values you wish to show in HiPay back office transaction details,
-     * receive back in the API response messages, in the notifications or to activate specific FPS rules.
-     * Example: {"shipping_method":"click and collect", "first_order":"0", "products_list":"First product, Second product, Third product"}
-     *
-     * @var string $custom_data Custom data (JSON).
-     */
-    public $custom_data;
-
-    /**
-     *  Technical parameter to track the source of request. For exemple the version of your CMS.
-     *  Eg. {"source":"CMS","brand":"magento","brand_version":"1.9.2.3","integration_version":"1.5.0"}
-     *
-     * @var string $source (JSON).
-     */
-    public $source;
-    
 }

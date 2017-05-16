@@ -29,7 +29,7 @@ namespace HiPay\Fullservice\Data;
 class PaymentProduct
 {
     
-    public function __construct($productCode,$brandName,$category,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = ''){
+    public function __construct($productCode,$brandName,$category,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = '',$basketRequired = false){
         
         $this->_productCode = $productCode;
         $this->_brandName = $brandName;
@@ -38,6 +38,7 @@ class PaymentProduct
         $this->_canRefund = $canRefund;
         $this->_canRecurring = $canRecurring;
         $this->_comment = $comment;
+        $this->_basketRequired = $basketRequired;
         
     }
     
@@ -64,7 +65,7 @@ class PaymentProduct
     
     /**
      * 
-     * @var $_canRecurring Payment product accept refunds
+     * @var bool $_canRecurring Payment product accept refunds
      */
     private $_canRecurring = false;
     
@@ -78,30 +79,69 @@ class PaymentProduct
      * @var string $_comment A short brand description
      */
     private  $_comment = '';
-    
-    
+
+    /**
+     * @var boolean Cart items is required for the payment method
+     */
+    private  $_basketRequired = false;
+
+
+    /**
+     * @return string
+     */
 	public function getProductCode() {
 		return $this->_productCode;
 	}
+
+    /**
+     * @return string
+     */
 	public function getBrandName() {
 		return $this->_brandName;
 	}
+
+    /**
+     * @return bool
+     */
 	public function getCan3ds() {
 		return $this->_can3ds;
 	}
+
+    /**
+     * @return bool
+     */
 	public function getCanRefund() {
 		return $this->_canRefund;
 	}
+
+    /**
+     * @return bool|Payment
+     */
 	public function getCanRecurring() {
 		return $this->_canRecurring;
 	}
+
+    /**
+     * @return string
+     */
 	public function getComment() {
 		return $this->_comment;
 	}
+
+    /**
+     * @return Brand
+     */
 	public function getCategory() {
 		return $this->_category;
 	}
-	
-	
-    
+
+    /**
+     * @return bool
+     */
+    public function getBasketRequired()
+    {
+        return $this->_basketRequired;
+    }
+
+
 }
