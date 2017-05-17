@@ -19,8 +19,8 @@ use HiPay\Fullservice\Request\AbstractRequest;
 
 /**
  * SEPA Direct Debit Payment Method
- * Data related to payment with qiwi wallet system
- * 
+ *
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -30,24 +30,68 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class SEPADirectDebitPaymentMethod extends AbstractRequest
 {
-   /**
+    /**
     * If recurring payment the agreement ID returned on first transaction.
-    * 
-    * @var int $debit_agreement_id Agreement ID returned on first transaction 
-    */ 
+    *
+    * @var int $debit_agreement_id Agreement ID returned on first transaction
+    */
    public $debit_agreement_id;
    
    /**
     * Indicates if the debit agreement will be created for a single-use or a multi-use.
-    * 
+    *
     * Possible values:
     * - 0 = Single use
     * - 1 = Multi use
-    * 
+    *
     * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
     * @length 1
     * @type options
     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
     */
    public $recurring_payment;
+
+    /**
+     * Issuer Bank Name
+     *
+     * @var string
+     */
+   public $bank_name;
+
+    /**
+     * Issuer Iban
+     *
+     * @var string
+     */
+   public $iban;
+
+    /**
+     *  Issuer bank
+     *
+     * @var string
+     */
+   public $issuer_bank_id;
+
+    /**
+     *  Issuer Firstname
+     *
+     * @var string
+     */
+    public $firstname;
+
+    /**
+     * Issuer Lastname
+     *
+     * @var string
+     */
+    public $lastname;
+
+    /**
+     * Issuer gender
+     *
+     * @var string
+     * @length 1
+     * @values M|Male,F|Female,U|Unknown see HiPay\Fullservice\Enum\AbstractEnum\Gender
+     */
+    public $gender;
 }
