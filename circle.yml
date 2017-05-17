@@ -1,6 +1,10 @@
 machine:
+  timezone:
+    Europe/Paris
+  services:
+    - docker
   php:
-    version: 5.6.21
+    version: 5.6.17
 test:
   override:
     - phpunit -c tests/unit/phpunit.xml
