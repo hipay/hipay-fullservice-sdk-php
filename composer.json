@@ -9,7 +9,7 @@
 		"payment method"
 	],
 	"homepage" : "https://hipay.com/product-enterprise/",
-	"version" : "1.2.1",
+	"version" : "1.3.0",
 	"license" : "Apache 2.0",
 	"authors" : [{
 			"name" : "HiPay",
