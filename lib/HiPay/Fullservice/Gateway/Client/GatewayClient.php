@@ -15,6 +15,7 @@
  */
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Request\RequestSerializer;
@@ -25,6 +26,8 @@ use HiPay\Fullservice\Gateway\Mapper\OperationMapper;
 use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
+use Magento\Review\Block\Adminhtml\Main;
+
 /**
  * Client class for all request send to TPP Fullservice.
  *
@@ -167,27 +170,29 @@ class GatewayClient implements GatewayClientInterface{
 	 *
 	 * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
 	 */
-	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null) {
-	
-		$payload = array('operation'=>$operationType);
+	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null,MaintenanceRequest $maintenanceRequest = null) {
+        $maintenanceRequest->operation = $operationType;
 		
 		if(!is_null($amount)){
 			if(!is_float($amount) && !($amount > 0.01)){
 				throw new InvalidArgumentException("Amount must be a float type and greater than 0.01");
 			}
 			else{
-				$payload['amount'] = $amount;
+                $maintenanceRequest->amount = $amount;
 			}
 		}
 		
 		if(!is_null($operationId)){
-			$payload['operation_id'] = $operationId;
+            $maintenanceRequest->operation_id = $operationId;
 		}
+
+        //Get params array from serializer
+        $params = $this->_serializeRequestToArray($maintenanceRequest);
 		
 		$response = $this->getClientProvider()
 							->request(self::METHOD_MAINTENANCE_OPERATION,
-									str_replace('{transaction}',$transactionReference,self::ENDPOINT_MAINTENANCE_OPERATION),
-									$payload);
+                                str_replace('{transaction}',$transactionReference,self::ENDPOINT_MAINTENANCE_OPERATION),
+                                $params);
 		
 		$om = new OperationMapper($response->toArray());
 		return $om->getModelObjectMapped();

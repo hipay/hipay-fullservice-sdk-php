@@ -31,7 +31,30 @@ use HiPay\Fullservice\Data\PaymentProduct;
  */
 class Collection 
 {
-  
+
+    /**
+     *  Get a Payment Product item with a code
+     *
+     * @param string $product_code
+     * @return null|PaymentProduct
+     */
+    public static function getItem($product_code){
+        $jsonArr = json_decode(self::$_JSON,true);
+
+        foreach ($jsonArr as $item) {
+            if ($item['productCode'] == $product_code) {
+                return new PaymentProduct($item['productCode'],
+                $item['brandName'],
+                $item['category'],
+                $item['can3ds'],
+                $item['canRefund'],
+                $item['canRecurring'],
+                $item['comment'],
+                $item['basketRequired']);
+             break;
+            }
+        }
+    }
     
     /**
      * @param null|string|array $categories
@@ -56,7 +79,8 @@ class Collection
     				$item['can3ds'],
     				$item['canRefund'],
     				$item['canRecurring'],
-    				$item['comment']);
+    				$item['comment'],
+                    $item['basketRequired']);
     	}
     
     	return $collection;
@@ -76,7 +100,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"1",
                 "category":"credit-card",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
             {
                 "productCode":"cb",
@@ -85,7 +110,9 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"1",
                 "category":"credit-card",
-                "comment":"Accepted cards: Visa, MasterCard. Available only in France."
+                "comment":"Accepted cards: Visa, MasterCard. Available only in France.",
+                "basketRequired":"0"
+                
             },
             {
                 "productCode":"mastercard",
@@ -94,7 +121,9 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"1",
                 "category":"credit-card",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
+                
             },
             {
                 "productCode":"visa",
@@ -103,7 +132,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"1",
                 "category":"credit-card",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
             {
                 "productCode":"3xcb",
@@ -112,7 +142,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"credit-card",
-                "comment":"Available only in France."
+                "comment":"Available only in France.",
+                "basketRequired":"1"
             },
             {
                 "productCode":"4xcb",
@@ -121,7 +152,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"credit-card",
-                "comment":"Available only in France."
+                "comment":"Available only in France.",
+                "basketRequired":"1"
             },
             {
                 "productCode":"3xcb-no-fees",
@@ -130,7 +162,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"credit-card",
-                "comment":"Available only in France."
+                "comment":"Available only in France.",
+                "basketRequired":"1"
             },
             {
                 "productCode":"4xcb-no-fees",
@@ -139,7 +172,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"credit-card",
-                "comment":"Available only in France."
+                "comment":"Available only in France.",
+                "basketRequired":"1"
             },
             {
                 "productCode":"bcmc",
@@ -148,7 +182,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"debit-card",
-                "comment":"Available only in Belgium."
+                "comment":"Available only in Belgium.",
+                "basketRequired":"0"
             },
             {
                 "productCode":"maestro",
@@ -157,7 +192,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"debit-card",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"bank-transfert",
@@ -166,7 +202,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"dexia-directnet",
@@ -175,7 +212,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"giropay",
@@ -184,7 +222,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":"Available only in Germany."
+                "comment":"Available only in Germany.",
+                "basketRequired":"0"
             },
              {
                 "productCode":"ideal",
@@ -193,7 +232,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"klarna",
@@ -202,7 +242,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"1"
             },
              {
                 "productCode":"przelewy24",
@@ -211,7 +252,8 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":"Available only in PLN currency."
+                "comment":"Available only in PLN currency.",
+                "basketRequired":"0"
             },
              {
                 "productCode":"sisal",
@@ -220,7 +262,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":"Max amount 1000 EUR."
+                "comment":"Max amount 1000 EUR.",
+                "basketRequired":"0"
             },
              {
                 "productCode":"sofort-uberweisung",
@@ -229,7 +272,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"sdd",
@@ -238,7 +282,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"1",
                 "category":"realtime-banking",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
             },
              {
                 "productCode":"qiwi-wallet",
@@ -247,7 +292,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"ewallet",
-                "comment":"Available only in RUB currency."
+                "comment":"Available only in RUB currency.",
+                "basketRequired":"0"
             },
             {
                 "productCode":"webmoney-transfert",
@@ -256,7 +302,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"ewallet",
-                "comment":"Available only in RUB currency."
+                "comment":"Available only in RUB currency.",
+                "basketRequired":"0"
             },
             {
                 "productCode":"yandex",
@@ -265,7 +312,8 @@ class Collection
                 "canRefund":"0",
                 "canRecurring":"0",
                 "category":"ewallet",
-                "comment":"Available only in RUB currency."
+                "comment":"Available only in RUB currency.",
+                "basketRequired":"0"
             },
             {
                 "productCode":"paypal",
@@ -274,7 +322,148 @@ class Collection
                 "canRefund":"1",
                 "canRecurring":"0",
                 "category":"ewallet",
-                "comment":""
+                "comment":"",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"postfinance-card",
+                "brandName":"PostFinance Card",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"postfinance-efinance",
+                "brandName":"PostFinance E-Finance",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"ing-homepay",
+                "brandName":"ING Home'Pay",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"aura",
+                "brandName":"Aura",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"banamex",
+                "brandName":"Banamex",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"banco-do-brasil",
+                "brandName":"Banco do brazil",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"bbva-bancomer",
+                "brandName":"BBVA Bancomer",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"boleto-bancario",
+                "brandName":"Boleto bancario",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"bradesco",
+                "brandName":"Bradesco",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"caixa",
+                "brandName":"Caïxa",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"itau",
+                "brandName":"Itau",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in BRL currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"oxxo",
+                "brandName":"Oxxo",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"santander-home-banking",
+                "brandName":"Santander HomeBanking",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
+            },
+            {
+                "productCode":"santander-cash",
+                "brandName":"Santander Cash",
+                "can3ds":"0",
+                "canRefund":"0",
+                "canRecurring":"0",
+                "category":"realtime-banking",
+                "comment":"Available only in MXN currency.",
+                "basketRequired":"0"
             }
         ]
         
