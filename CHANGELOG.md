@@ -1,3 +1,9 @@
+# Version 1.3.0
+New - Add 2 methods to get transaction details + order's transactions
+New - Improvements for support of basket in Order and Maintenance Request
+Fix circle CI
+Fix order transaction info with single transaction response 
+
 # Version 1.2.1
 Fix - Get order transaction info with single transaction response
 
