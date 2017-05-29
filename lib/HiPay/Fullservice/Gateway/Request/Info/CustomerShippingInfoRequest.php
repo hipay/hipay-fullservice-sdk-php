@@ -46,6 +46,14 @@ class CustomerShippingInfoRequest extends AbstractRequest
      * @var string $shipto_recipientinfo Additional information about the order recipient (Quality or function, company name, department, etc...).
      */
     public $shipto_recipientinfo;
+
+    /**
+     * @var string $shipto_house_number House number for some payment method ( Per default the house number is in $shipto_streetaddress)
+     * @comment This parameter is specific to the 3x and 4x Carte Bancaire payment products.
+     */
+    public $shipto_house_number;
+
+
     
     /**
      * @var string $shipto_streetaddress  Street address to which the order is to be shipped.
@@ -82,5 +90,26 @@ class CustomerShippingInfoRequest extends AbstractRequest
      * @length 2
      */
     public $shipto_country;
-    
+
+    /**
+     * @var string $shipto_phone The customer's ship-to phone number.
+     * @comment This parameter is specific to the 3x and 4x Carte Bancaire payment products.
+     */
+    public $shipto_phone;
+
+    /**
+     * @var string $shipto_msisdn The customer's ship-to mobile phone number.
+     * @comment This parameter is specific to the 3x and 4x Carte Bancaire payment products.
+     */
+    public $shipto_msisdn;
+
+    /**
+     * @var string $shipto_gender
+     * @comment This parameter is specific to the 3x and 4x Carte Bancaire payment products.
+     * @type options
+     * @values M|Male,F|Female,U|Unknown
+     * @length 1
+     *
+     */
+    public $shipto_gender;
 }
