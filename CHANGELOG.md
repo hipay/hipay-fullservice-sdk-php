@@ -1,3 +1,6 @@
+# Version 1.4.0
+New - Add new fields for 3x/4x payment
+
 # Version 1.3.0
 New - Add 2 methods to get transaction details + order's transactions
 New - Improvements for support of basket in Order and Maintenance Request
