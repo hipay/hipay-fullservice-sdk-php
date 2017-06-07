@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -16,7 +17,6 @@
 
 namespace HiPay\Fullservice\Data;
 
-
 /**
  * Category object
  *
@@ -27,16 +27,24 @@ namespace HiPay\Fullservice\Data;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class Category
-{
+class Category {
+
+    CONST DEFAULT_LANG_ISO_CODE = "EN";
+
     /**
      * @var int $_code Technical code
      */
     private $_code;
+
     /**
      * @var string $_name Human readable value
      */
     private $_name;
+
+    /**
+     * @var array $_locals translations
+     */
+    private $_locals;
 
     /**
      * Category constructor.
@@ -44,26 +52,44 @@ class Category
      * @param $code
      * @param $name
      */
-    public function __construct($code, $name)
-    {
+    public function __construct($code, $name, $locals) {
 
         $this->_code = $code;
         $this->_name = $name;
+        $this->_locals = $locals;
     }
 
     /**
      * @return int
      */
-    public function getCode()
-    {
+    public function getCode() {
         return $this->_code;
     }
 
     /**
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->_name;
     }
+
+    /**
+     * @return string
+     */
+    public function getLocal($langIsoCode = Category::DEFAULT_LANG_ISO_CODE) {
+
+        if (isset($this->_locals[$langIsoCode])) {
+            return $this->_locals[$langIsoCode];
+        }
+
+        return $this->_locals[Category::DEFAULT_LANG_ISO_CODE];
+    }
+
+    /**
+     * @param array $locals
+     */
+    public function setLocals($locals) {
+        $this->_locals = $locals;
+    }
+
 }
