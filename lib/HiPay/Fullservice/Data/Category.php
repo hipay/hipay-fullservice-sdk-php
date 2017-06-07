@@ -76,7 +76,7 @@ class Category {
     /**
      * @return string
      */
-    public function getLocal($langIsoCode = DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE) {
+    public function getLocal($langIsoCode = Category::DEFAULT_LANG_ISO_CODE) {
 
         if (isset($this->_locals[$langIsoCode])) {
             return $this->_locals[$langIsoCode];
