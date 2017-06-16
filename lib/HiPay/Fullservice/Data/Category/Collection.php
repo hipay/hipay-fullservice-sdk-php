@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -30,8 +31,7 @@ use HiPay\Fullservice\Data\Category;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class Collection
-{
+class Collection {
 
     /**
      *
@@ -42,99 +42,171 @@ class Collection
         [
             {
                 "categoryCode":1,
-                "categoryName":"Home & Gardening"
+                "categoryName":"Home & Gardening",
+                "locals" : {
+                    "EN" : "Home & Gardening"
+                }
             },
             {
                 "categoryCode":2,
-                "categoryName":"Clothing & Accessories"
+                "categoryName":"Clothing & Accessories",
+                "locals" : {
+                    "EN" : "Clothing & Accessories"
+                }
             },
             {
                 "categoryCode":3,
-                "categoryName":"Home appliances"
+                "categoryName":"Home appliances",
+                "locals" : {
+                    "EN" : "Home appliances"
+                }
             },
             {
                 "categoryCode":4,
-                "categoryName":"Sports & Recreations"
+                "categoryName":"Sports & Recreations",
+                "locals" : {
+                    "EN" : "Sports & Recreations"
+                }
             },
             {
                 "categoryCode":5,
-                "categoryName":"Babies & Children"
+                "categoryName":"Babies & Children",
+                "locals" : {
+                    "EN" : "Babies & Children"
+                }
             },
             {
                 "categoryCode":6,
-                "categoryName":"Hi-Fi, Photo & Video equipment"
+                "categoryName":"Hi-Fi, Photo & Video equipment",
+                "locals" : {
+                    "EN" : "Hi-Fi, Photo & Video equipment"
+                }
             },
             {
                 "categoryCode":7,
-                "categoryName":"IT equipment"
+                "categoryName":"IT equipment",
+                "locals" : {
+                    "EN" : "IT equipment"
+                }
             },
             {
                 "categoryCode":8,
-                "categoryName":"Phone & Internet services"
+                "categoryName":"Phone & Internet services",
+                "locals" : {
+                    "EN" : "Phone & Internet services"
+                }
             },
             {
                 "categoryCode":9,
-                "categoryName":"Physical goods : Books, Media, Music & Movies"
+                "categoryName":"Physical goods : Books, Media, Music & Movies",
+                "locals" : {
+                    "EN" : "Physical goods : Books, Media, Music & Movies"
+                }
             },
             {
                 "categoryCode":10,
-                "categoryName":"Digital goods : Books, Media, Music & Movies"
+                "categoryName":"Digital goods : Books, Media, Music & Movies",
+                "locals" : {
+                    "EN" : "Digital goods : Books, Media, Music & Movies"
+                }
             },
              {
                 "categoryCode":11,
-                "categoryName":"Consoles & Video games"
+                "categoryName":"Consoles & Video games",
+                "locals" : {
+                    "EN" : "Consoles & Video games"
+                }
             },
              {
                 "categoryCode":12,
-                "categoryName":"Gifts & Flowers"
+                "categoryName":"Gifts & Flowers",
+                "locals" : {
+                    "EN" : "Gifts & Flowers"
+                }
             },
              {
                 "categoryCode":13,
-                "categoryName":"Health & Beauty"
+                "categoryName":"Health & Beauty",
+                "locals" : {
+                    "EN" : "Health & Beauty"
+                }
             },
              {
                 "categoryCode":14,
-                "categoryName":"Car & Motorcycle"
+                "categoryName":"Car & Motorcycle",
+                "locals" : {
+                    "EN" : "Car & Motorcycle"
+                }
             },
              {
                "categoryCode":15,
-               "categoryName":"Traveling"
+               "categoryName":"Traveling",
+                "locals" : {
+                    "EN" : "Traveling"
+                }
             },
              {
                "categoryCode":16,
-               "categoryName":"Food & Gastronomy"
+               "categoryName":"Food & Gastronomy",
+                "locals" : {
+                    "EN" : "Food & Gastronomy"
+                }
             },
              {
                "categoryCode":17,
-               "categoryName":"Auctions & Group buying"
+               "categoryName":"Auctions & Group buying",
+               "locals" : {
+                    "EN" : "Auctions & Group buying"
+                }
             },
              {
                "categoryCode":18,
-               "categoryName":"Services to professionals"
+               "categoryName":"Services to professionals",
+               "locals" : {
+                    "EN" : "Services to professionals"
+                }
             },
              {
                "categoryCode":19,
-               "categoryName":"Services to individuals"
+               "categoryName":"Services to individuals",
+               "locals" : {
+                    "EN" : "Services to individuals"
+                }
             },
              {
                "categoryCode":20,
-               "categoryName":"Culture & Entertainment"
+               "categoryName":"Culture & Entertainment",
+               "locals" : {
+                    "EN" : "Culture & Entertainment"
+                }
             },
             {
                "categoryCode":21,
-               "categoryName":"Games (digital goods)"
+               "categoryName":"Games (digital goods)",
+               "locals" : {
+                    "EN" : "Games (digital goods)"
+                }
             },
             {
                "categoryCode":22,
-               "categoryName":"Games (physical goods)"
+               "categoryName":"Games (physical goods)",
+               "locals" : {
+                    "EN" : "Games (physical goods)"
+                }
             },
             {
                "categoryCode":23,
-               "categoryName":"Ticketing"
+               "categoryName":"Ticketing",
+               "locals" : {
+                    "EN" : "Ticketing"
+                }
             },
             {
                "categoryCode":24,
-               "categoryName":"Opticians, Opticians Goods and Eyeglasses"               
+               "categoryName":"Opticians, Opticians Goods and Eyeglasses",
+               "locals" : {
+                    "EN" : "Opticians, Opticians Goods and Eyeglasses"
+                }               
             }
         ]
         
@@ -143,17 +215,14 @@ EOT;
     /**
      * @return Category[] Collection of Categrory
      */
-    public static function getItems()
-    {
+    public static function getItems() {
         $jsonArr = json_decode(self::$_JSON, true);
         $collection = array();
         foreach ($jsonArr as $item) {
-            $collection[] = new Category($item['categoryCode'],
-                $item['categoryName']);
+            $collection[] = new Category($item['categoryCode'], $item['categoryName'], $item['locals']);
         }
 
         return $collection;
     }
-
 
 }
