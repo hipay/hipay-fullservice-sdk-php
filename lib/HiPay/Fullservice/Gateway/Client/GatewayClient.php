@@ -171,7 +171,9 @@ class GatewayClient implements GatewayClientInterface{
 	 * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
 	 */
 	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null,MaintenanceRequest $maintenanceRequest = null) {
-        $maintenanceRequest->operation = $operationType;
+		if ($maintenanceRequest == null)
+			$maintenanceRequest = new MaintenanceRequest();
+        	$maintenanceRequest->operation = $operationType;
 		
 		if(!is_null($amount)){
 			if(!is_float($amount) && !($amount > 0.01)){
