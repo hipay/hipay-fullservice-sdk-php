@@ -5,6 +5,10 @@
 .project
 .idea/*
 
+#Netbeans IDE#
+##############################
+/nbproject/
+
 # Compiled source #
 ###################
 *.com
@@ -48,3 +52,4 @@ Thumbs.db
 vendor/
 doc/
 .idea
+/nbproject/private/
