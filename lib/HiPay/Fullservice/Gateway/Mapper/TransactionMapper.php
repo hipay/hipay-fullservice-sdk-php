@@ -1,5 +1,4 @@
 <?php
-
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -17,12 +16,12 @@
 
 namespace HiPay\Fullservice\Gateway\Mapper;
 
-use HiPay\Fullservice\Mapper\AbstractMapper;
 use HiPay\Fullservice\Gateway\Model\Transaction;
+use HiPay\Fullservice\Mapper\AbstractMapper;
 
 /**
  * Mapper for Transaction Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -30,12 +29,14 @@ use HiPay\Fullservice\Gateway\Model\Transaction;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class TransactionMapper extends AbstractMapper {
+class TransactionMapper extends AbstractMapper
+{
 
     /**
      * @var Transaction $_modelObject Model object to populate
      */
     protected $_modelObject;
+
     protected $_modelClassName;
 
     /**
@@ -44,33 +45,34 @@ class TransactionMapper extends AbstractMapper {
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::mapResponseToModel()
      */
-    protected function mapResponseToModel() {
+    protected function mapResponseToModel()
+    {
         $source = $this->_getSource();
-        $mid = $source['mid'] ? : null;
-        $authorizationCode = $source['authorizationCode'] ? : null;
-        $transactionReference = $source['transactionReference'] ? : null;
-        $dateCreated = $source['dateCreated'] ? : null;
-        $dateUpdated = $source['dateUpdated'] ? : null;
-        $dateAuthorized = $source['dateAuthorized'] ? : null;
-        $status = ((int) $source['status']) ? : null;
-        $state = $source['state'] ? : null;
-        $message = $source['message'] ? : null;
-        $authorizedAmount = $source['authorizedAmount'] ? : null;
-        $capturedAmount = $source['capturedAmount'] ? : null;
-        $refundedAmount = $source['refundedAmount'] ? : null;
-        $decimals = $source['decimals'] ? : null;
-        $currency = $source['currency'] ? : null;
+        $mid = $source['mid'] ?: null;
+        $authorizationCode = $source['authorizationCode'] ?: null;
+        $transactionReference = $source['transactionReference'] ?: null;
+        $dateCreated = $source['dateCreated'] ?: null;
+        $dateUpdated = $source['dateUpdated'] ?: null;
+        $dateAuthorized = $source['dateAuthorized'] ?: null;
+        $status = ((int)$source['status']) ?: null;
+        $state = $source['state'] ?: null;
+        $message = $source['message'] ?: null;
+        $authorizedAmount = $source['authorizedAmount'] ?: null;
+        $capturedAmount = $source['capturedAmount'] ?: null;
+        $refundedAmount = $source['refundedAmount'] ?: null;
+        $decimals = $source['decimals'] ?: null;
+        $currency = $source['currency'] ?: null;
         $reason = isset($source['reason']) ? $source['reason'] : null;
         $forwardUrl = isset($source['forwardUrl']) ? $source['forwardUrl'] : null;
-        $attemptId = $source['attemptId'] ? : null;
+        $attemptId = $source['attemptId'] ?: null;
         $referenceToPay = isset($source['referenceToPay']) ? $source['referenceToPay'] : null;
-        $ipAddress = $source['ipAddress'] ? : null;
-        $ipCountry = $source['ipCountry'] ? : null;
+        $ipAddress = $source['ipAddress'] ?: null;
+        $ipCountry = $source['ipCountry'] ?: null;
         $deviceId = isset($source['deviceId']) ? $source['deviceId'] : null;
         $avsResult = isset($source['avsResult']) ? $source['avsResult'] : null;
         $cvcResult = isset($source['cvcResult']) ? $source['cvcResult'] : null;
-        $eci = $source['eci'] ? : null;
-        $paymentProduct = $source['paymentProduct'] ? : null;
+        $eci = $source['eci'] ?: null;
+        $paymentProduct = $source['paymentProduct'] ?: null;
 
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
@@ -96,6 +98,12 @@ class TransactionMapper extends AbstractMapper {
             $order = $om->getModelObjectMapped();
         }
 
+        $operation = null;
+        if (isset($source['operation'])) {
+            $orm = new OperationResponseMapper($source['operation']);
+            $operation = $orm->getModelObjectMapped();
+        }
+
         $debitAgreement = isset($source['debitAgreement']) ? $source['debitAgreement'] : null;
         $cdata1 = isset($source['cdata1']) ? $source['cdata1'] : null;
         $cdata2 = isset($source['cdata2']) ? $source['cdata2'] : null;
@@ -110,7 +118,52 @@ class TransactionMapper extends AbstractMapper {
 
         $basket = isset($source['basket']) ? $source['basket'] : null;
 
-        $this->_modelObject = new Transaction($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated, $dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount, $decimals, $currency, $reason, $forwardUrl, $attemptId, $referenceToPay, $ipAddress, $ipCountry, $deviceId, $avsResult, $cvcResult, $eci, $paymentProduct, $paymentMethod, $threeDSecure, $fraudScreenig, $order, $debitAgreement, $cdata1, $cdata2, $cdata3, $cdata4, $cdata5, $cdata6, $cdata7, $cdata8, $cdata9, $cdata10, $basket);
+        $this->_modelObject = new Transaction(
+            $mid,
+            $authorizationCode,
+            $transactionReference,
+            $dateCreated,
+            $dateUpdated,
+            $dateAuthorized,
+            $status,
+            $state,
+            $message,
+            $authorizedAmount,
+            $capturedAmount,
+            $refundedAmount,
+            $decimals,
+            $currency,
+            $reason,
+            $forwardUrl,
+            $attemptId,
+            $referenceToPay,
+            $ipAddress,
+            $ipCountry,
+            $deviceId,
+            $avsResult,
+            $cvcResult,
+            $eci,
+            $paymentProduct,
+            $paymentMethod,
+            $threeDSecure,
+            $fraudScreenig,
+            $order,
+            $debitAgreement,
+            $cdata1,
+            $cdata2,
+            $cdata3,
+            $cdata4,
+            $cdata5,
+            $cdata6,
+            $cdata7,
+            $cdata8,
+            $cdata9,
+            $cdata10,
+            $basket,
+            $operation
+        );
+
+
     }
 
     /**
@@ -119,7 +172,8 @@ class TransactionMapper extends AbstractMapper {
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::validate()
      */
-    protected function validate() {
+    protected function validate()
+    {
         return $this;
     }
 
@@ -129,7 +183,8 @@ class TransactionMapper extends AbstractMapper {
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::getModelClassName()
      */
-    protected function getModelClassName() {
+    protected function getModelClassName()
+    {
         return '\HiPay\Fullservice\Gateway\Model\Transaction';
     }
 
