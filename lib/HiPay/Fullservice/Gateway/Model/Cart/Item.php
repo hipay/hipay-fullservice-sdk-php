@@ -166,7 +166,7 @@ class Item extends AbstractModel
      */
     public function __construct()
     {
-        $this->_european_article_numbering = "";
+        $this->_european_article_numbering = null;
         $this->_product_reference = "";
         $this->_type = "";
         $this->_name = "";

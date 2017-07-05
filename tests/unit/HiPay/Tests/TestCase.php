@@ -16,7 +16,7 @@ namespace HiPay\Tests;
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-abstract class TestCase extends \PHPUnit_Framework_TestCase{
+abstract class TestCase extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * {@inheritDoc}

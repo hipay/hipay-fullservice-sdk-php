@@ -42,7 +42,7 @@ class AbstractResponseTest extends TestCase
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct
-     * @expectedException PHPUnit_Framework_Error
+     * @expectedException TypeError
      */
     public function testCannotBeConstructFromNonArrayValue(){
     
@@ -57,16 +57,18 @@ class AbstractResponseTest extends TestCase
     public function testObjectBanBeConstructFromNumericStatusCodeArgument(){
         $mock = $this->getAbstractMock($this->_abstractName);
         $this->getClassConstructor($this->_abstractName)->invoke($mock,'some string','500',array());
+        $this->assertEquals('500', $mock->getStatusCode());
     }
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct
      */
     public function testObjectBanBeConstructUsingValidArguments(){
-        $mock = $this->getMockBuilder($this->_abstractName)->setConstructorArgs(array('body'=>'some string','statusCode'=>200,'headers'=>array()))->getMock();
+        $mock = $this->getMockBuilder($this->_abstractName)->
+            setConstructorArgs(array('body'=>'some string','statusCode'=>200,'headers'=>array()))->getMock();
         //$mock = $this->getAbstractMock($this->_abstractName);
-        //$this->getClassConstructor($this->_abstractName)->invoke($mock,'some string',200,array());
-            
+        $this->getClassConstructor($this->_abstractName)->invoke($mock,'some string',200,array());
+        $this->assertEquals(null, $mock->getStatusCode());
         return $mock;
     }
  

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -19,7 +18,7 @@ namespace HiPay\Fullservice\Gateway\Model;
 
 /**
  * Transaction model
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -27,10 +26,58 @@ namespace HiPay\Fullservice\Gateway\Model;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class Transaction extends AbstractTransaction {
+class Transaction extends AbstractTransaction
+{
 
-    public function __construct($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated, $dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount, $decimals, $currency, $reason, $forwardUrl, $attemptId, $referenceToPay, $ipAddress, $ipCountry, $deviceId, $avsResult, $cvcResult, $eci, $paymentProduct, $paymentMethod, $threeDSecure, $fraudScreenig, $order, $debitAgreement, $cdata1 = "", $cdata2 = "", $cdata3 = "", $cdata4 = "", $cdata5 = "", $cdata6 = "", $cdata7 = "", $cdata8 = "", $cdata9 = "", $cdata10 = "", $basket = null) {
-        parent::__construct($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated, $dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount, $decimals, $currency);
+
+    public function __construct(
+        $mid,
+        $authorizationCode,
+        $transactionReference,
+        $dateCreated,
+        $dateUpdated,
+        $dateAuthorized,
+        $status,
+        $state,
+        $message,
+        $authorizedAmount,
+        $capturedAmount,
+        $refundedAmount,
+        $decimals,
+        $currency,
+        $reason,
+        $forwardUrl,
+        $attemptId,
+        $referenceToPay,
+        $ipAddress,
+        $ipCountry,
+        $deviceId,
+        $avsResult,
+        $cvcResult,
+        $eci,
+        $paymentProduct,
+        $paymentMethod,
+        $threeDSecure,
+        $fraudScreenig,
+        $order,
+        $debitAgreement,
+        $cdata1 = "",
+        $cdata2 = "",
+        $cdata3 = "",
+        $cdata4 = "",
+        $cdata5 = "",
+        $cdata6 = "",
+        $cdata7 = "",
+        $cdata8 = "",
+        $cdata9 = "",
+        $cdata10 = "",
+        $basket = null,
+        $operation
+    )
+    {
+        parent::__construct($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated,
+            $dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount,
+            $decimals, $currency);
 
         $this->_reason = $reason;
         $this->_forwardUrl = $forwardUrl;
@@ -49,9 +96,8 @@ class Transaction extends AbstractTransaction {
         $this->_order = $order;
         $this->_debitAgreement = $debitAgreement;
         $this->_transactionReference = $transactionReference;
-
+        $this->_operation = $operation;
         $this->_basket = $basket;
-
         $this->_cdata1 = $cdata1;
         $this->_cdata2 = $cdata2;
         $this->_cdata3 = $cdata3;
@@ -62,6 +108,7 @@ class Transaction extends AbstractTransaction {
         $this->_cdata8 = $cdata8;
         $this->_cdata9 = $cdata9;
         $this->_cdata10 = $cdata10;
+
     }
 
     /**
@@ -75,7 +122,7 @@ class Transaction extends AbstractTransaction {
     private $_reason;
 
     /**
-     * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL. 
+     * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
      * @type url
      */
     private $_forwardUrl;
@@ -86,8 +133,8 @@ class Transaction extends AbstractTransaction {
     private $_attemptId;
 
     /**
-     * Reference to pay 
-     * 
+     * Reference to pay
+     *
      * In some payment methods the customer can
      * receive a reference to pay, at this point, the
      * customer has the option to physically paying with
@@ -95,7 +142,7 @@ class Transaction extends AbstractTransaction {
      * processors such as drugstores, supermarkets or
      * post offices, or paying electronically at an electronic
      * banking point.
-     * 
+     *
      * @var string $_referenceToPay Reference to pay
      */
     private $_referenceToPay;
@@ -118,8 +165,8 @@ class Transaction extends AbstractTransaction {
     private $_deviceId;
 
     /**
-     * @var string Result of the Address Verification Service (AVS).  
-     * @see \HiPay\Fullservice\Enum\Transaction\AVSResult     
+     * @var string Result of the Address Verification Service (AVS).
+     * @see \HiPay\Fullservice\Enum\Transaction\AVSResult
      */
     private $_avsResult;
 
@@ -130,7 +177,7 @@ class Transaction extends AbstractTransaction {
     private $_cvcResult;
 
     /**
-     * @var string $_eci  Electronic Commerce Indicator (ECI).
+     * @var string $_eci Electronic Commerce Indicator (ECI).
      * @see \HiPay\Fullservice\Gateway\Request\PaymentMethod\CardTokenPaymentMethod::$eci
      */
     private $_eci;
@@ -142,7 +189,7 @@ class Transaction extends AbstractTransaction {
     private $_paymentProduct;
 
     /**
-     * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object 
+     * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object
      * @see \HiPay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
      * @see \HiPay\Fullservice\Gateway\Model\PaymentMethod
      */
@@ -154,13 +201,13 @@ class Transaction extends AbstractTransaction {
     private $_threeDSecure;
 
     /**
-     * 
-     * @var FraudScreening $_fraudScreening  Model Result of the fraud screening
+     *
+     * @var FraudScreening $_fraudScreening Model Result of the fraud screening
      */
     private $_fraudScreening;
 
     /**
-     * 
+     *
      * @var Order $_order Model Result Order (customer, order informations...)
      */
     private $_order;
@@ -171,129 +218,160 @@ class Transaction extends AbstractTransaction {
     private $_debitAgreement;
 
     /**
+     *
+     * @var OperationResponse $_operation Result Operation ( Operation ID, reference ... )
+     */
+    private $_operation;
+
+    /**
      * You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications.
      * You can use these parameters to get back session data, order content or user info.
-     * 
+     *
      * @var string $_cdata1 Custom data 1.
      */
     private $_cdata1, $_cdata2, $_cdata3, $_cdata4, $_cdata5, $_cdata6, $_cdata7, $_cdata8, $_cdata9, $_cdata10;
 
-    /**
-     *
-     * @var string (json) 
-     */
-    private $_basket;
-
-    public function getTransactionReference() {
+    public function getTransactionReference()
+    {
         return $this->_transactionReference;
     }
 
-    public function getReason() {
+    public function getReason()
+    {
         return $this->_reason;
     }
 
-    public function getForwardUrl() {
+    public function getForwardUrl()
+    {
         return $this->_forwardUrl;
     }
 
-    public function getAttemptId() {
+    public function getAttemptId()
+    {
         return $this->_attemptId;
     }
 
-    public function getReferenceToPay() {
+    public function getReferenceToPay()
+    {
         return $this->_referenceToPay;
     }
 
-    public function getIpAddress() {
+    public function getIpAddress()
+    {
         return $this->_ipAddress;
     }
 
-    public function getIpCountry() {
+    public function getIpCountry()
+    {
         return $this->_ipCountry;
     }
 
-    public function getDeviceId() {
+    public function getDeviceId()
+    {
         return $this->_deviceId;
     }
 
-    public function getAvsResult() {
+    public function getAvsResult()
+    {
         return $this->_avsResult;
     }
 
-    public function getCvcResult() {
+    public function getCvcResult()
+    {
         return $this->_cvcResult;
     }
 
-    public function getEci() {
+    public function getEci()
+    {
         return $this->_eci;
     }
 
-    public function getPaymentProduct() {
+    public function getPaymentProduct()
+    {
         return $this->_paymentProduct;
     }
 
-    public function getPaymentMethod() {
+    public function getPaymentMethod()
+    {
         return $this->_paymentMethod;
     }
 
-    public function getThreeDSecure() {
+    public function getThreeDSecure()
+    {
         return $this->_threeDSecure;
     }
 
-    public function getFraudScreening() {
+    public function getFraudScreening()
+    {
         return $this->_fraudScreening;
     }
 
-    public function getOrder() {
+    public function getOrder()
+    {
         return $this->_order;
     }
 
-    public function getDebitAgreement() {
+    public function getDebitAgreement()
+    {
         return $this->_debitAgreement;
     }
 
-    public function getCdata1() {
+    public function getCdata1()
+    {
         return $this->_cdata1;
     }
 
-    public function getCdata2() {
+    public function getCdata2()
+    {
         return $this->_cdata2;
     }
 
-    public function getCdata3() {
+    public function getCdata3()
+    {
         return $this->_cdata3;
     }
 
-    public function getCdata4() {
+    public function getCdata4()
+    {
         return $this->_cdata4;
     }
 
-    public function getCdata5() {
+    public function getCdata5()
+    {
         return $this->_cdata5;
     }
 
-    public function getCdata6() {
+    public function getCdata6()
+    {
         return $this->_cdata6;
     }
 
-    public function getCdata7() {
+    public function getCdata7()
+    {
         return $this->_cdata7;
     }
 
-    public function getCdata8() {
+    public function getCdata8()
+    {
         return $this->_cdata8;
     }
 
-    public function getCdata9() {
+    public function getCdata9()
+    {
         return $this->_cdata9;
     }
 
-    public function getCdata10() {
+    public function getCdata10()
+    {
         return $this->_cdata10;
+    }
+
+    public function getOperation()
+    {
+        return $this->_operation;
     }
 
     public function getBasket() {
         return $this->_basket;
     }
-
 }

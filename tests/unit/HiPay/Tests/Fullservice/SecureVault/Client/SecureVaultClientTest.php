@@ -60,6 +60,7 @@ class SecureVaultClientTest extends TestCase{
     							->disableOriginalConstructor()
     							->getMock();
     	$this->_clientProvider = $this->getMockBuilder('\HiPay\Fullservice\HTTP\ClientProvider')
+                                ->setMethods(array('getHttpClient','doRequest','createHttpClient'))
     							->setConstructorArgs(array($this->_config))
     							->getMock();
     	

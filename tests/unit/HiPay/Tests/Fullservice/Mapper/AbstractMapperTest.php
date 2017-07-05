@@ -34,7 +34,7 @@ class AbstractMapperTest extends TestCase
     
     /**
      * @cover HiPay\Fullservice\Mapper\AbstractMapper::__construct
-     * @expectedException PHPUnit_Framework_Error
+     * @expectedException TypeError
      */
     public function testCannotBeConstructUsingInvalidArgument(){
         $mock = $this->getAbstractMock($this->_abstractName);

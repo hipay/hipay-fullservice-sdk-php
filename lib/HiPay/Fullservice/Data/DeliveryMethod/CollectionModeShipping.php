@@ -34,7 +34,7 @@ use HiPay\Fullservice\Data\DeliveryMethodAttribute;
 class CollectionModeShipping {
 
     /**
-     * @return DeliveryMode[] and DeliveryShipping[] Collection 
+     * @return DeliveryMode[] and DeliveryShipping[] Collection
      */
     public static function getItems() {
 
@@ -98,7 +98,6 @@ class CollectionModeShipping {
         ]
         
 EOT;
-    
 
     /**
      *
