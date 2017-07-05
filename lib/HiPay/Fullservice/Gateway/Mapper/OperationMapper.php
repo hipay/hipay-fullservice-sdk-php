@@ -61,7 +61,7 @@ class OperationMapper extends AbstractMapper {
         $decimals = $source['decimals'] ?: null;
         $currency = $source['currency'] ?: null;
         $reason =  null;       
-        $operation = isset($source['operation']) ? $source['operation'] : null;;
+        $operation = isset($source['operation']) ? $source['operation'] : null;
         
         $this->_modelObject = new Operation(
         		$mid, 
