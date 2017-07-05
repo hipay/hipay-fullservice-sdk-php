@@ -1,3 +1,8 @@
+# Version 1.5.0
+New - Operation response in transaction object (id, reference...)
+New - Basket in transaction object
+New - Add translation in category collection
+
 # Version 1.4.0
 New - Add new fields for 3x/4x payment
 

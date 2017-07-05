@@ -36,7 +36,7 @@ class ClientProviderTest extends TestCase{
     
 	/**
 	 * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given
 	 */
 	public function testCannotBeConstructUsingNoArgument(){
@@ -50,7 +50,7 @@ class ClientProviderTest extends TestCase{
 	
 	/**
 	 * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
 	 */
 	public function testCannotBeConstructUsingInvalidArgument(){	    
@@ -112,12 +112,6 @@ class ClientProviderTest extends TestCase{
 	 * @depends testCanBeConstructUsingConfiguration
 	 */
 	public function testHttpClientCanBeRetrieved(ClientProvider $client){
-	       
-
-	    $client->expects($this->once())
-	    	       ->method('getHttpClient')
-	       	       ->will($this->returnValue(null));
-	    
 	    $this->assertNull($client->getHttpClient());
 	
 	}

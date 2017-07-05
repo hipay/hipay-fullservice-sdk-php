@@ -36,7 +36,7 @@ class SimpleHTTPClientTest extends TestCase {
 	/**
 	 * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::__construct()
 	 * @uses  HiPay\Fullservice\HTTP\Configuration
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
 	 */
 	public function testCannotBeConstructFromInvalidArgument() {
@@ -98,7 +98,7 @@ class SimpleHTTPClientTest extends TestCase {
 	/**
 	 * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
 	 * @depends testCanBeConstructUsingConfiguration
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 */
 	public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client){
 		
