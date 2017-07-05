@@ -94,10 +94,14 @@ class GatewayClientTest extends TestCase{
     				->willReturn($this->_response);
     	
     	
-    	$gateway = $this->getMock('\HiPay\Fullservice\Gateway\Client\GatewayClient',array('_serializeRequestToArray'),array($this->_clientProvider)) ;//new GatewayClient($this->_clientProvider);
+    	$gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
+            ->setConstructorArgs(array($this->_clientProvider))
+            ->setMethods(array('_serializeRequestToArray'))
+            ->getMock() ;//new GatewayClient($this->_clientProvider);
+
     	$gateway->method('_serializeRequestToArray')->willReturn($request);
     	
-    	$hpp = $this->getMock('\HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest');
+    	$hpp = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest')->getMock();
     	
     	$model = $gateway->requestHostedPaymentPage($hpp);
     	

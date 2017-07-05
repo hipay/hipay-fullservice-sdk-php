@@ -36,7 +36,7 @@ class ResponseTest extends TestCase
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::__construct
-     * @expectedException PHPUnit_Framework_Error
+     * @expectedException TypeError
      */
     public function testCannotBeConstructFromNonArrayValue(){
         new Response('some string',500,'Content-Type: application/json');
