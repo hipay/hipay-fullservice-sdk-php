@@ -13,9 +13,8 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
+namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
 /**
  * SEPA Direct Debit Payment Method
@@ -28,49 +27,42 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class SEPADirectDebitPaymentMethod extends AbstractRequest
+class SEPADirectDebitPaymentMethod extends IssuerBankIDPaymentMethod
 {
     /**
-    * If recurring payment the agreement ID returned on first transaction.
-    *
-    * @var int $debit_agreement_id Agreement ID returned on first transaction
-    */
-   public $debit_agreement_id;
-   
-   /**
-    * Indicates if the debit agreement will be created for a single-use or a multi-use.
-    *
-    * Possible values:
-    * - 0 = Single use
-    * - 1 = Multi use
-    *
-    * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
-    * @length 1
-    * @type options
-    * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
-    */
-   public $recurring_payment;
+     * If recurring payment the agreement ID returned on first transaction.
+     *
+     * @var int $debit_agreement_id Agreement ID returned on first transaction
+     */
+    public $debit_agreement_id;
+
+    /**
+     * Indicates if the debit agreement will be created for a single-use or a multi-use.
+     *
+     * Possible values:
+     * - 0 = Single use
+     * - 1 = Multi use
+     *
+     * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
+     * @length 1
+     * @type options
+     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
+     */
+    public $recurring_payment;
 
     /**
      * Issuer Bank Name
      *
      * @var string
      */
-   public $bank_name;
+    public $bank_name;
 
     /**
      * Issuer Iban
      *
      * @var string
      */
-   public $iban;
-
-    /**
-     *  Issuer bank
-     *
-     * @var string
-     */
-   public $issuer_bank_id;
+    public $iban;
 
     /**
      *  Issuer Firstname
@@ -94,4 +86,5 @@ class SEPADirectDebitPaymentMethod extends AbstractRequest
      * @values M|Male,F|Female,U|Unknown see HiPay\Fullservice\Enum\AbstractEnum\Gender
      */
     public $gender;
+
 }
