@@ -16,18 +16,26 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
+use HiPay\Fullservice\Request\AbstractRequest;
+
 /**
- * IDeal Payment Method
- * Data related to payment with IDeal system
+ * Issuer Bank ID Payment Method
+ * Data related to payment with issuer bank id (generic method)
  *
  * @package HiPay\Fullservice
- * @author Kassim Belghait <kassim@sirateck.com>
+ * @author Etienne Landais <elandais@hipay.com>
  * @copyright Copyright (c) 2016 - HiPay
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class IDealPaymentMethod extends IssuerBankIDPaymentMethod
+class IssuerBankIDPaymentMethod extends AbstractRequest
 {
+    /**
+     * Issuers’ bank Id listF
+     * @var string $issuer_bank_id Issuers’ bank Id
+     * @required
+     */
+    public $issuer_bank_id;
 
 }
