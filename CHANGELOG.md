@@ -1,3 +1,7 @@
+# Version 1.5.1
+
+- Fix : Invert payment method and billing adress in  OrderRequest
+
 # Version 1.5.0
 New - Operation response in transaction object (id, reference...)
 New - Basket in transaction object

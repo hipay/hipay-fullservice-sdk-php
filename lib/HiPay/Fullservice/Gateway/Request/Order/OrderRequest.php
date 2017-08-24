@@ -146,17 +146,17 @@ class OrderRequest extends CommonRequest {
      * @var string $language Locale code of your customer (Default to en_GB – English – Great Britain).
      */
     public $language;
-    
-    /**
-         * @var AbstractRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
-         */
-    public $paymentMethod;
-    
+
     /**
      * @var CustomerBillingInfoRequest $customerBillingInfo Customer Billing informations
      * @var CustomerShippingInfoRequest $customerShippingInfo Customer Shipping informations
      */
     public $customerBillingInfo,$customerShippingInfo;
+
+    /**
+     * @var AbstractRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
+     */
+    public $paymentMethod;
 
     /**
      * @var DeliveryShippingInfoRequest $delivery_information
