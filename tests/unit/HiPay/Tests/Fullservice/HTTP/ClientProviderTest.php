@@ -37,7 +37,7 @@ class ClientProviderTest extends TestCase{
 	/**
 	 * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
 	 * @expectedException TypeError
-	 * @expectedExceptionMessage  Too few arguments to function HiPay\Fullservice\HTTP\ClientProvider::__construct(), 0 passed and exactly 1 expected
+	 * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given
 	 */
 	public function testCannotBeConstructUsingNoArgument(){
 	    
