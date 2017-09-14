@@ -53,32 +53,11 @@ class HostedPaymentPageMapper extends AbstractMapper {
         	$om = new OrderMapper($source['order']);
         	$order = $om->getModelObjectMapped();
         }
-        
-        $cdata1 = isset($source['cdata1']) ? $source['cdata1'] : null;
-        $cdata2 = isset($source['cdata2']) ? $source['cdata2'] : null;
-        $cdata3 = isset($source['cdata3']) ? $source['cdata3'] : null;
-        $cdata4 = isset($source['cdata4']) ? $source['cdata4'] : null;
-        $cdata5 = isset($source['cdata5']) ? $source['cdata5'] : null;
-        $cdata6 = isset($source['cdata6']) ? $source['cdata6'] : null;
-        $cdata7 = isset($source['cdata7']) ? $source['cdata7'] : null;
-        $cdata8 = isset($source['cdata8']) ? $source['cdata8'] : null;
-        $cdata9 = isset($source['cdata9']) ? $source['cdata9'] : null;
-        $cdata10 = isset($source['cdata10']) ? $source['cdata10'] : null;
-        
+
         $this->_modelObject = new HostedPaymentPage($mid, 
         		$forwardUrl, 
-        		$order,
-        		$cdata1,
-        		$cdata2,
-        		$cdata3,
-        		$cdata4,
-        		$cdata5,
-        		$cdata6,
-        		$cdata7,
-        		$cdata8,
-        		$cdata9,
-        		$cdata10
-        		) ;
+        		$order
+        ) ;
         
  			
     }
