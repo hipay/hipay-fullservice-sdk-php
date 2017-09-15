@@ -111,15 +111,15 @@ class SimpleHTTPClientTest extends TestCase {
 	 * @depends testCanBeConstructUsingConfiguration
 	 * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
 	 */
-	//public function testRequestCannotBeExcutedFromRequiredInvalidArguments(ClientProvider $client){
+	public function testRequestCannotBeExcutedFromRequiredInvalidArguments(ClientProvider $client){
 	
-		//$this->markTestSkipped(
-		//		'HTTP method and Uri validator not implemented yet :-( '
-		//		);
+		$this->markTestSkipped(
+				'HTTP method and Uri validator not implemented yet :-( '
+				);
 		
-		//$client->request('GETTED', "1234");
+		$client->request('GETTED', "1234");
 	
-	//}
+	}
 	
 	/**
 	 * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
