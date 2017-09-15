@@ -163,22 +163,4 @@ class OrderRequest extends CommonRequest {
      */
     public $delivery_information;
 
-    /**
-     * @deprecated
-     * You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications.
-     * Example: You can use these parameters to get back session data, order content or user info.
-     * 
-     * @var string $cdata1 Custom data 1.
-     * @var string $cdata2 Custom data 2.
-     * @var string $cdata3 Custom data 3.
-     * @var string $cdata4 Custom data 4.
-     * @var string $cdata5 Custom data 5.
-     * @var string $cdata6 Custom data 6.
-     * @var string $cdata7 Custom data 7.
-     * @var string $cdata8 Custom data 8.
-     * @var string $cdata9 Custom data 9.
-     * @var string $cdata10 Custom data 10.
-     */
-    public $cdata1,$cdata2,$cdata3,$cdata4,$cdata5,$cdata6,$cdata7,$cdata8,$cdata9,$cdata10;
-
 }
