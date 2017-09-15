@@ -163,6 +163,8 @@ class GatewayClientTest extends TestCase{
     							"display_selector" => "1",
     							"payment_product_list" => "visa,mastercard,maestro",
     							"payment_product_category_list" => "credit-card",
+                                "time_limit_to_pay" => "1800"
+
     					),
     					array(
     							"forwardUrl" => "https://stage-secure-gateway.allopass.com/payment/web/pay/9eb3c963-907a-42af-8bc3-0b30b6149779",
