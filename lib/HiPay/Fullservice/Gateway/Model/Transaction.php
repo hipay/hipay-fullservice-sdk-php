@@ -61,16 +61,6 @@ class Transaction extends AbstractTransaction
         $fraudScreenig,
         $order,
         $debitAgreement,
-        $cdata1 = "",
-        $cdata2 = "",
-        $cdata3 = "",
-        $cdata4 = "",
-        $cdata5 = "",
-        $cdata6 = "",
-        $cdata7 = "",
-        $cdata8 = "",
-        $cdata9 = "",
-        $cdata10 = "",
         $basket = null,
         $operation
     )
@@ -98,17 +88,6 @@ class Transaction extends AbstractTransaction
         $this->_transactionReference = $transactionReference;
         $this->_operation = $operation;
         $this->_basket = $basket;
-        $this->_cdata1 = $cdata1;
-        $this->_cdata2 = $cdata2;
-        $this->_cdata3 = $cdata3;
-        $this->_cdata4 = $cdata4;
-        $this->_cdata5 = $cdata5;
-        $this->_cdata6 = $cdata6;
-        $this->_cdata7 = $cdata7;
-        $this->_cdata8 = $cdata8;
-        $this->_cdata9 = $cdata9;
-        $this->_cdata10 = $cdata10;
-
     }
 
     /**
@@ -223,13 +202,6 @@ class Transaction extends AbstractTransaction
      */
     private $_operation;
 
-    /**
-     * You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications.
-     * You can use these parameters to get back session data, order content or user info.
-     *
-     * @var string $_cdata1 Custom data 1.
-     */
-    private $_cdata1, $_cdata2, $_cdata3, $_cdata4, $_cdata5, $_cdata6, $_cdata7, $_cdata8, $_cdata9, $_cdata10;
 
     public function getTransactionReference()
     {
@@ -314,56 +286,6 @@ class Transaction extends AbstractTransaction
     public function getDebitAgreement()
     {
         return $this->_debitAgreement;
-    }
-
-    public function getCdata1()
-    {
-        return $this->_cdata1;
-    }
-
-    public function getCdata2()
-    {
-        return $this->_cdata2;
-    }
-
-    public function getCdata3()
-    {
-        return $this->_cdata3;
-    }
-
-    public function getCdata4()
-    {
-        return $this->_cdata4;
-    }
-
-    public function getCdata5()
-    {
-        return $this->_cdata5;
-    }
-
-    public function getCdata6()
-    {
-        return $this->_cdata6;
-    }
-
-    public function getCdata7()
-    {
-        return $this->_cdata7;
-    }
-
-    public function getCdata8()
-    {
-        return $this->_cdata8;
-    }
-
-    public function getCdata9()
-    {
-        return $this->_cdata9;
-    }
-
-    public function getCdata10()
-    {
-        return $this->_cdata10;
     }
 
     public function getOperation()
