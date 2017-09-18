@@ -117,7 +117,7 @@ class SimpleHTTPClientTest extends TestCase {
 				'HTTP method and Uri validator not implemented yet :-( '
 				);
 		
-		//$client->request('GETTED', "1234");
+		$client->request('GETTED', "1234");
 	
 	}
 	
