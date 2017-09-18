@@ -1,3 +1,9 @@
+# Version 1.6.0
+
+- Add time_limit_to_pay in HostedPaymentPageRequest
+- Remove CDATA parameters ( Use custom_data now )
+
+
 # Version 1.5.1
 
 - Fix : Invert payment method and billing adress in  OrderRequest
