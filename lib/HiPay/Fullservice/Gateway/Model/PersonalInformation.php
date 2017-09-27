@@ -47,7 +47,7 @@ class PersonalInformation extends AbstractModel
 				$this->_lastname = $lastname;
 				$this->_streetAddress = $streetAddress;
 				$this->_locality = $locality;
-				$this->_postaleCode = $postalCode;
+				$this->_postalCode = $postalCode;
 				$this->_country = $country;
 				$this->_msisdn = $msisdn;
 				$this->_phone = $phone;

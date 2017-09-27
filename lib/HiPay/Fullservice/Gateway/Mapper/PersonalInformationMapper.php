@@ -13,15 +13,15 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
-use HiPay\Fullservice\Mapper\AbstractMapper;
-use HiPay\Fullservice\Gateway\Model\Order;
 use HiPay\Fullservice\Gateway\Model\PersonalInformation;
+use HiPay\Fullservice\Mapper\AbstractMapper;
 
 /**
  * Mapper for Personal Informations Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,8 +29,8 @@ use HiPay\Fullservice\Gateway\Model\PersonalInformation;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PersonalInformationMapper extends AbstractMapper {
-    
+class PersonalInformationMapper extends AbstractMapper
+{
     protected $_modelClassName;
 
     /**
@@ -42,19 +42,29 @@ class PersonalInformationMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $firstname = $source['firstname'] ?: null;
-        $lastname = $source['lastname'] ?: null;
-        $streetAddress = $source['streetAddress'] ?: null;
-        $locality = $source['locality'] ?: null;
-        $postalCode = $source['postalCode'] ?: null;
-        $country = $source['country'] ?: null;
-        $msisdn = $source['msisdn'] ?: null;
-        $phone = $source['phone'] ?: null;
-        $phoneOperator = $source['phoneOperator'] ?: null;
-        $email = $source['email'] ?: null;
+        $firstname = isset($source['firstname']) ?: null;
+        $lastname = isset($source['lastname']) ?: null;
+        $streetAddress = isset($source['streetAddress']) ?: null;
+        $locality = isset($source['locality']) ?: null;
+        $postalCode = isset($source['postalCode']) ?: null;
+        $country = isset($source['country']) ?: null;
+        $msisdn = isset($source['msisdn']) ?: null;
+        $phone = isset($source['phone']) ?: null;
+        $phoneOperator = isset($source['phoneOperator']) ?: null;
+        $email = isset($source['email']) ?: null;
 
-        $this->_modelObject = new PersonalInformation($firstname, $lastname, $streetAddress, $locality, $postalCode, $country, $msisdn, $phone, $phoneOperator, $email);
-        
+        $this->_modelObject = new PersonalInformation(
+            $firstname,
+            $lastname,
+            $streetAddress,
+            $locality,
+            $postalCode,
+            $country,
+            $msisdn,
+            $phone,
+            $phoneOperator,
+            $email
+        );
     }
 
     /**
@@ -78,7 +88,4 @@ class PersonalInformationMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\PersonalInformation';
     }
-
-
-
 }
