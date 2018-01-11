@@ -1,3 +1,7 @@
+# Version 1.6.1
+
+- [#27](https://github.com/hipay/hipay-fullservice-sdk-php/pull/27) Fixes Undefined index: msisdn (#27) (@legithubdeaymeric)
+
 # Version 1.6.0
 
 - [#26](https://github.com/hipay/hipay-fullservice-sdk-php/pull/26) Add time_limit_to_pay in HostedPaymentPageRequest (#26) (@legithubdeaymeric)
