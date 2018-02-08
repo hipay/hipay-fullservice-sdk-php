@@ -69,4 +69,19 @@ class HostedPaymentPageRequest extends OrderRequest
      *
      */
     public $time_limit_to_pay;
+
+    /**
+     * Indicates the tokenization module whether the payment card token
+     * should be generated either for a single-use or a multi-use. Possible values:
+     *
+     * 1: Generates a multi-use token
+     * 0: Generates a single-use token While a single-use token is typically generated for a short time and for
+     * processing a single transaction, multi-use tokens are generally generated for recurrent payments.
+     *
+     * @var int $multi_use
+     * @length 1
+     * @type options
+     * @values 0|Generate a single-use token,1|Generate a multi-use token
+     */
+    public $multi_use;
 }

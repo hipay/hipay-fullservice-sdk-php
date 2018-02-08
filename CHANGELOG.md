@@ -1,3 +1,7 @@
+# Version 1.7.0
+
+- [#31](https://github.com/hipay/hipay-fullservice-sdk-php/pull/31) Add multi_use field for Hpayment (#31)
+
 # Version 1.6.1
 
 - [#27](https://github.com/hipay/hipay-fullservice-sdk-php/pull/27) Fixes Undefined index: msisdn (#27) (@legithubdeaymeric)
@@ -24,7 +28,7 @@ New - Add new fields for 3x/4x payment
 New - Add 2 methods to get transaction details + order's transactions
 New - Improvements for support of basket in Order and Maintenance Request
 Fix circle CI
-Fix order transaction info with single transaction response 
+Fix order transaction info with single transaction response
 
 # Version 1.2.1
 Fix - Get order transaction info with single transaction response
