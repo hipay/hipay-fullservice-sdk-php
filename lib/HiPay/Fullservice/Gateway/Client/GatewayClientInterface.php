@@ -29,25 +29,26 @@ use HiPay\Fullservice\Gateway\Model\Operation;
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface GatewayClientInterface {
+interface GatewayClientInterface
+{
 
-	/**
-	 * Request a new order
-	 * @param OrderRequest $orderRequest
-	 * @return Transaction $transaction
-	 */
-	public function requestNewOrder(OrderRequest $orderRequest);
-	
+    /**
+     * Request a new order
+     * @param OrderRequest $orderRequest
+     * @return Transaction $transaction
+     */
+    public function requestNewOrder(OrderRequest $orderRequest);
+
     /**
      * Request Maintenance operation on a transaction
      * Because this api call is simple, we don't use an object request as method parameter
-     * 
+     *
      * @param string $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
      * @param string $transactionReference Transaction ID related to customer order
      * @param string $amount Amount to process
@@ -56,23 +57,29 @@ interface GatewayClientInterface {
      * @deprecated
      * @return Operation
      */
-	public function requestMaintenanceOperation($operationType,$transactionReference,$amount=null,$operationId=null,MaintenanceRequest $maintenanceRequest = null);
+    public function requestMaintenanceOperation(
+        $operationType,
+        $transactionReference,
+        $amount = null,
+        $operationId = null,
+        MaintenanceRequest $maintenanceRequest = null
+    );
 
 
-	/**
-	 * Request Hosted Payment Page
-	 * @param HostedPaymentPageRequest $hppRequest
-	 * @return HostedPaymentPage $hpp
-	 */
-	public function requestHostedPaymentPage(HostedPaymentPageRequest $hppRequest);
-    
-	/**
-	 * Get Transaction information
-	 * 
-	 * @param string $transactionReference
-	 * @return Transaction|null Transaction Model
-	 */
-	public function requestTransactionInformation($transactionReference);
+    /**
+     * Request Hosted Payment Page
+     * @param HostedPaymentPageRequest $hppRequest
+     * @return HostedPaymentPage $hpp
+     */
+    public function requestHostedPaymentPage(HostedPaymentPageRequest $hppRequest);
+
+    /**
+     * Get Transaction information
+     *
+     * @param string $transactionReference
+     * @return Transaction|null Transaction Model
+     */
+    public function requestTransactionInformation($transactionReference);
 
     /**
      * Get order Transaction information
@@ -81,11 +88,18 @@ interface GatewayClientInterface {
      * @return Transaction[] Transaction Model
      */
     public function requestOrderTransactionInformation($orderId);
-	
-	/**
-	 * Return current HTTP client provider
-	 * @return ClientProvider The current client provider
-	 */
-	public function getClientProvider();
+
+    /**
+     * Get security settings 
+     * 
+     * @return mixed
+     */
+    public function requestSecuritySettings();
+    
+    /**
+     * Return current HTTP client provider
+     * @return ClientProvider The current client provider
+     */
+    public function getClientProvider();
 
 }
