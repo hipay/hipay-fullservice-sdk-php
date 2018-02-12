@@ -21,46 +21,46 @@ use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 use HiPay\Fullservice\SecureVault\Request\UpdateTokenRequest;
 
 
-
 /**
  * Client interface for vault request send to TPP Fullservice.
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-interface SecureVaultClientInterface {
+interface SecureVaultClientInterface
+{
 
-	/**
-	 * Request a new token
-	 * @param GenerateTokenRequest $generateTokenRequest
-	 * @return PaymentCardToken Informations about token generated
-	 */
-	public function requestGenerateToken(GenerateTokenRequest $generateTokenRequest);
-	
-	/**
-	 * Request update token
-	 * @param UpdateTokenRequest $updateTokenRequest
-	 * @return PaymentCardToken Informations about token updated
-	 */
-	public function requestUpdateToken(UpdateTokenRequest $updateTokenRequest);
-	
-	/**
-	 * Request lookup for a token
-	 * @param string $token
-	 * @param string $requestId 
-	 * @return PaymentCardToken Informations about token updated
-	 */
-	public function requestLookupToken($token,$requestId = '0');
-	
-	/**
-	 * Return current HTTP client provider
-	 * @return ClientProvider The current client provider
-	 */
-	public function getClientProvider();
+    /**
+     * Request a new token
+     * @param GenerateTokenRequest $generateTokenRequest
+     * @return PaymentCardToken Informations about token generated
+     */
+    public function requestGenerateToken(GenerateTokenRequest $generateTokenRequest);
+
+    /**
+     * Request update token
+     * @param UpdateTokenRequest $updateTokenRequest
+     * @return PaymentCardToken Informations about token updated
+     */
+    public function requestUpdateToken(UpdateTokenRequest $updateTokenRequest);
+
+    /**
+     * Request lookup for a token
+     * @param string $token
+     * @param string $requestId
+     * @return PaymentCardToken Informations about token updated
+     */
+    public function requestLookupToken($token, $requestId = '0');
+
+    /**
+     * Return current HTTP client provider
+     * @return ClientProvider The current client provider
+     */
+    public function getClientProvider();
 
 }
