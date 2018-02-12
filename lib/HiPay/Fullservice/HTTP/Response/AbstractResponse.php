@@ -78,7 +78,6 @@ abstract class AbstractResponse implements ResponseInterface
             throw new InvalidArgumentException("Response headers must be an array");
         }
 
-
         $this->_body = $body;
         $this->_statusCode = $statusCode;
         $this->_headers = $headers;
@@ -142,7 +141,6 @@ abstract class AbstractResponse implements ResponseInterface
             );
             throw new UnexpectedValueException($message);
         }
-
 
         //Set response body to json_decode
         //Set true to $assoc param because it's more logic to loop on an array

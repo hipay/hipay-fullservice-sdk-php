@@ -20,7 +20,7 @@ use HiPay\Fullservice\Gateway\Model\SecuritySettings;
 
 /**
  * Mapper for Security Settings Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Etienne Landais <elandais@hipay.com>
  * @copyright Copyright (c) 2018 - HiPay
@@ -28,13 +28,14 @@ use HiPay\Fullservice\Gateway\Model\SecuritySettings;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class SecuritySettingsMapper extends AbstractMapper {
-	
-	/**
-	 * @var Operation $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
-    
+class SecuritySettingsMapper extends AbstractMapper
+{
+
+    /**
+     * @var Operation $_modelObject Model object to populate
+     */
+    protected $_modelObject;
+
     protected $_modelClassName;
 
     /**
@@ -72,7 +73,6 @@ class SecuritySettingsMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\SecuritySettings';
     }
-
 
 
 }
