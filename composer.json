@@ -2,7 +2,7 @@
 	"name" : "hipay/hipay-fullservice-sdk-php",
 	"type" : "library",
 	"minimum-stability": "stable",
-	"description" : "The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform.",
+	"description" : " The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform.",
 	"keywords" : [
 		"hipay",
 		"payment",
