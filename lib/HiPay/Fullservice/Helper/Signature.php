@@ -15,6 +15,8 @@
  */
 namespace HiPay\Fullservice\Helper;
 
+use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
+
 /**
  *  Class Signature validator
  *
@@ -39,20 +41,21 @@ class Signature
 {
 
     /**
-     * @param string $secretPassphrase
+     * @param $secretPassPhrase
+     * @param string $hashAlgorithm
      * @return bool
      */
-    static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = 'sha1')
+    static public function isValidHttpSignature($secretPassPhrase, $hashAlgorithm = HashAlgorithm::SHA1)
     {
-        switch (strtolower($hashAlgorithm)) {
-            case 'sha256':
-                $computedSignature = hash('sha256', static::getStringToCompute($secretPassphrase));
+        switch ($hashAlgorithm) {
+            case HashAlgorithm::SHA256:
+                $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassPhrase));
                 break;
-            case 'sha512' :
-                $computedSignature = hash('sha512', static::getStringToCompute($secretPassphrase));
+            case HashAlgorithm::SHA512 :
+                $computedSignature = hash(HashAlgorithm::SHA512, static::getStringToCompute($secretPassPhrase));
                 break;
             default:
-                $computedSignature = sha1(static::getStringToCompute($secretPassphrase));
+                $computedSignature = sha1(static::getStringToCompute($secretPassPhrase));
                 break;
         }
 
@@ -90,19 +93,19 @@ class Signature
         return file_get_contents("php://input");
     }
 
-    static protected function getStringToCompute($secretPassphrase)
+    static protected function getStringToCompute($secretPassPhrase)
     {
         $string2compute = "";
         if (static::isRedirection()) {
 
             foreach (static::getParameters() as $name => $value) {
                 if (strlen($value) > 0) {
-                    $string2compute .= $name . $value . $secretPassphrase;
+                    $string2compute .= $name . $value . $secretPassPhrase;
                 }
             }
         } else {
 
-            $string2compute = static::getRawPostData() . $secretPassphrase;
+            $string2compute = static::getRawPostData() . $secretPassPhrase;
         }
 
         return $string2compute;
