@@ -42,18 +42,17 @@ class Signature
      * @param string $secretPassphrase
      * @return bool
      */
-    static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = 'sha256')
+    static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = 'sha1')
     {
-
         switch (strtolower($hashAlgorithm)) {
-            case 'sha1':
-                $computedSignature = sha1(static::getStringToCompute($secretPassphrase));
+            case 'sha256':
+                $computedSignature = hash('sha256', static::getStringToCompute($secretPassphrase));
                 break;
             case 'sha512' :
                 $computedSignature = hash('sha512', static::getStringToCompute($secretPassphrase));
                 break;
             default:
-                $computedSignature = hash('sha256', static::getStringToCompute($secretPassphrase));
+                $computedSignature = sha1(static::getStringToCompute($secretPassphrase));
                 break;
         }
 
