@@ -49,13 +49,13 @@ class Signature
     {
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:
-                $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassPhrase));
+                $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassphrase));
                 break;
             case HashAlgorithm::SHA512 :
-                $computedSignature = hash(HashAlgorithm::SHA512, static::getStringToCompute($secretPassPhrase));
+                $computedSignature = hash(HashAlgorithm::SHA512, static::getStringToCompute($secretPassphrase));
                 break;
             default:
-                $computedSignature = sha1(static::getStringToCompute($secretPassPhrase));
+                $computedSignature = sha1(static::getStringToCompute($secretPassphrase));
                 break;
         }
 
