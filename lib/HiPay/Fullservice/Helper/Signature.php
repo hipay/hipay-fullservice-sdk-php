@@ -45,7 +45,7 @@ class Signature
      * @param string $hashAlgorithm
      * @return bool
      */
-    static public function isValidHttpSignature($secretPassPhrase, $hashAlgorithm = HashAlgorithm::SHA1)
+    static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
     {
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:
