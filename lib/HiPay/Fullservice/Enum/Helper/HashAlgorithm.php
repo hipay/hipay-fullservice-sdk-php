@@ -34,17 +34,17 @@ class HashAlgorithm extends AbstractEnum
     /**
      * @var string  Hashing SHA-1
      */
-    const SHA1 = 'sha1';
+    const SHA1 = 'SHA1';
 
     /**
      * @var string  Hashing SHA-256
      */
-    const SHA256 = 'sha256';
+    const SHA256 = 'SHA256';
 
     /**
      * @var string  Hashing SHA-512
      */
-    const SHA512 = 'sha512';
+    const SHA512 = 'SHA512';
 
 }
 
