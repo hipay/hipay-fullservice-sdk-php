@@ -47,6 +47,23 @@ class Signature
      */
     static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
     {
+		if (static::getComputedSignature($secretPassphrase, $hashAlgorithm) == static::getSignature()) {
+			return true;
+		} 
+		
+		return false;
+    }
+    
+    /**
+     *  Compute signature according to hash and passphrase
+     *
+     * @param string $secretPassphrase
+     * @param string $hashAlgorithm
+     *
+     * @return string
+     */
+	static protected function getComputedSignature($secretPassphrase, $hashAlgorithm)
+    {
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:
                 $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassphrase));
@@ -59,7 +76,20 @@ class Signature
                 break;
         }
 
-        if ($computedSignature == static::getSignature()) {
+        return $computedSignature;
+    }
+
+    /**
+     *  Detects is same hash algorithm is used for signature
+     *
+     * @param string $secretPassphrase
+     * @param string $hashAlgorithm
+     *
+     * @return boolean
+     */
+    static public function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
+    {
+        if (strlen(static::getComputedSignature($secretPassphrase, $hashAlgorithm)) == strlen(static::getSignature())) {
             return true;
         }
 
