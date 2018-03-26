@@ -20,7 +20,7 @@ use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 
 /**
  * Mapper for Payment Card Token Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,13 +28,14 @@ use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PaymentCardTokenMapper extends AbstractMapper {
-	
-	/**
-	 * @var PaymentMethod $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
-    
+class PaymentCardTokenMapper extends AbstractMapper
+{
+
+    /**
+     * @var PaymentMethod $_modelObject Model object to populate
+     */
+    protected $_modelObject;
+
     protected $_modelClassName;
 
     /**
@@ -50,16 +51,27 @@ class PaymentCardTokenMapper extends AbstractMapper {
         $brand = isset($source['brand']) ? $source['brand'] : null;
         $pan = isset($source['pan']) ? $source['pan'] : null;
         $cardHolder = isset($source['cardHolder']) ? $source['cardHolder'] : null;
-        $cardExpiryMonth = isset($source['cardExpiryMonth']) ? sprintf('%02d',$source['cardExpiryMonth'] ): null;
+        $cardExpiryMonth = isset($source['cardExpiryMonth']) ? sprintf('%02d', $source['cardExpiryMonth']) : null;
         $cardExpiryYear = isset($source['cardExpiryYear']) ? $source['cardExpiryYear'] : null;
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
-        $requestId =  isset($source['requestId']) ? $source['requestId'] : null;
+        $requestId = isset($source['requestId']) ? $source['requestId'] : null;
         $domesticNetwork = isset($source['domesticNetwork']) ? $source['domesticNetwork'] : null;
-        
-        $this->_modelObject = new PaymentCardToken($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country, $requestId, $domesticNetwork);
-        
- 			
+
+        $this->_modelObject = new PaymentCardToken(
+            $token,
+            $brand,
+            $pan,
+            $cardHolder,
+            $cardExpiryMonth,
+            $cardExpiryYear,
+            $issuer,
+            $country,
+            $requestId,
+            $domesticNetwork
+        );
+
+
     }
 
     /**
@@ -83,7 +95,6 @@ class PaymentCardTokenMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\SecureVault\Model\PaymentCardToken';
     }
-
 
 
 }

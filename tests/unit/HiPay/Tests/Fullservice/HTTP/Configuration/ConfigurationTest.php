@@ -188,7 +188,7 @@ class ConfigurationTest extends TestCase {
 	 */
 	public function testApiEndpointProdCanBeRetrieved(Configuration $conf){
 		
-		$this->assertEquals("https://secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpointProd());
+		$this->assertEquals("https://secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointProd());
 	}
 	
 	/**
@@ -198,7 +198,7 @@ class ConfigurationTest extends TestCase {
 	 */
 	public function testApiEndpointStageCanBeRetrieved(Configuration $conf){
 	
-		$this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpointStage());
+		$this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointStage());
 	}
 	
 	/**
@@ -208,7 +208,7 @@ class ConfigurationTest extends TestCase {
 	 */
 	public function testApiEndpointCanBeRetrieved(Configuration $conf){
 
-		$this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpoint());
+		$this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpoint());
 		$this->assertEquals(Configuration::API_ENV_STAGE, $conf->getApiEnv());
 	}
 	

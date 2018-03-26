@@ -42,16 +42,16 @@ class PersonalInformationMapper extends AbstractMapper
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $firstname = isset($source['firstname']) ?: null;
-        $lastname = isset($source['lastname']) ?: null;
-        $streetAddress = isset($source['streetAddress']) ?: null;
-        $locality = isset($source['locality']) ?: null;
-        $postalCode = isset($source['postalCode']) ?: null;
-        $country = isset($source['country']) ?: null;
-        $msisdn = isset($source['msisdn']) ?: null;
-        $phone = isset($source['phone']) ?: null;
-        $phoneOperator = isset($source['phoneOperator']) ?: null;
-        $email = isset($source['email']) ?: null;
+        $firstname = isset($source['firstname']) ? $source['firstname'] : null;
+        $lastname = isset($source['lastname']) ? $source['lastname'] : null;
+        $streetAddress = isset($source['streetAddress']) ? $source['streetAddress'] : null;
+        $locality = isset($source['locality']) ? $source['locality'] : null;
+        $postalCode = isset($source['postalCode']) ? $source['postalCode'] : null;
+        $country = isset($source['country']) ? $source['country'] : null;
+        $msisdn = isset($source['msisdn']) ? $source['msisdn'] : null;
+        $phone = isset($source['phone']) ? $source['phone'] : null;
+        $phoneOperator = isset($source['phoneOperator']) ? $source['phoneOperator'] : null;
+        $email = isset($source['email']) ? $source['email'] : null;
 
         $this->_modelObject = new PersonalInformation(
             $firstname,
