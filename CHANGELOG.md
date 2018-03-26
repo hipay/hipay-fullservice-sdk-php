@@ -1,3 +1,9 @@
+# Version 1.8.0
+
+- [#35](https://github.com/hipay/hipay-fullservice-sdk-php/pull/35) Fix issue #34 (#35)
+- [#33](https://github.com/hipay/hipay-fullservice-sdk-php/pull/33) Add Notification Url (#33)
+- [#32](https://github.com/hipay/hipay-fullservice-sdk-php/pull/32) Add security settings api call & Change signature helper (#32)
+
 # Version 1.7.0
 
 - [#31](https://github.com/hipay/hipay-fullservice-sdk-php/pull/31) Add multi_use field for Hpayment (#31)
