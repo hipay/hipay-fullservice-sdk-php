@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
@@ -144,7 +145,6 @@ class GatewayClient implements GatewayClientInterface
         $transaction = $transactionMapper->getModelObjectMapped();
 
         return $transaction;
-
     }
 
     /**
@@ -215,7 +215,6 @@ class GatewayClient implements GatewayClientInterface
 
         $om = new OperationMapper($response->toArray());
         return $om->getModelObjectMapped();
-
     }
 
     /**
@@ -226,7 +225,6 @@ class GatewayClient implements GatewayClientInterface
      */
     public function requestTransactionInformation($transactionReference)
     {
-
         $response = $this->getClientProvider()->request(
             self::METHOD_TRANSACTION_INFORMATION,
             str_replace('{transaction}', $transactionReference, self::ENDPOINT_TRANSACTION_INFORMATION)
@@ -252,7 +250,6 @@ class GatewayClient implements GatewayClientInterface
      */
     public function requestOrderTransactionInformation($orderId)
     {
-
         $response = $this->getClientProvider()->request(
             self::METHOD_ORDER_TRANSACTION_INFORMATION,
             self::ENDPOINT_ORDER_TRANSACTION_INFORMATION . '?orderid=' . $orderId
@@ -286,7 +283,8 @@ class GatewayClient implements GatewayClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestSecuritySettings()
      */
-    public function requestSecuritySettings(){
+    public function requestSecuritySettings()
+    {
 
         //send request
         $response = $this->getClientProvider()->request(
@@ -319,5 +317,4 @@ class GatewayClient implements GatewayClientInterface
         $serializer = new RequestSerializer($request);
         return $serializer->toArray();
     }
-
 }
