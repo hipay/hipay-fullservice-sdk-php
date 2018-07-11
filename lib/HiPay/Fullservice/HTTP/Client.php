@@ -13,21 +13,24 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\HTTP;
 
 
 use HiPay\Fullservice\HTTP\Response\AbstractResponse;
+
 /**
  * Client interface for construct and send request.
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
-interface Client{
+interface Client
+{
 
     /**
      * Create and send an HTTP request.
@@ -39,15 +42,15 @@ interface Client{
      * - $params Array with key/value pairs of data to send
      * - $isVault If true, perform request on secure vault endpoint
      *
-     * @param string $method  HTTP method
+     * @param string $method HTTP method
      * @param string $endpoint Api Endpoint for this request. Base url is determined by Configuration Object
-     * @param array  $params  Request params to apply.
+     * @param array $params Request params to apply.
      * @param bool $isVault If true, perform request on secure vault endpoint
      *
-	 * @throws RuntimeException
-	 * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws InvalidArgumentException
      * @return AbstractResponse
      */
-    public function request($method, $endpoint, array $params = array(),$isVault = false);
+    public function request($method, $endpoint, array $params = array(), $isVault = false);
 
 }
