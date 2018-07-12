@@ -1,0 +1,23 @@
+image: hipay/gitlab-ci-base:jessie
+
+stages:
+ - test
+ - sync
+
+phpunit:
+  stage: test
+  before_script:
+    - composer install
+  script:
+    - phpunit -c tests/unit/phpunit.xml
+  allow_failure: false
+  tags:
+    - pi-ecommerce
+
+sync:
+  stage: sync
+  script:
+  - git clone --mirror https://$GITLAB_USER:$GITLAB_PASSWORD@gitlab.hipay.org/pi-ecommerce/hipay-fullservice-sdk-php.git
+  - cd hipay-fullservice-sdk-php.git
+  - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/hipay/hipay-fullservice-sdk-php.git
+  allow_failure: true
