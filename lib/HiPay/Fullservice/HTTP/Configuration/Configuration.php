@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\HTTP\Configuration;
 
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
@@ -90,16 +91,26 @@ class Configuration implements ConfigurationInterface
     private $_apiHTTPHeaderAccept = 'application/json';
 
     /**
+     * @var array proxy configuration
+     */
+    private $proxy = array();
+
+    /**
      * @var string[] $_validHTPPHeaders Allowed HTTP header Accept's values
      */
     protected $_validHTPPHeaders = array("application/json");
 
     /**
+     * @var array Allowed proxy array key's values
+     */
+    private $validProxyKeys = array("host", "port", "user", "password");
+
+    /**
      * Contruct configuration object.
      *
      * Configuration Object is used by HTTP client.
-     * It must be instanciate with HiPay Fullservice TPP, Process Environment.
-     * Optionaly, you can change the header HTTP *Accept* by another one on this:
+     * It must be instantiate with HiPay Fullservice TPP, Process Environment.
+     * Optionally, you can change the header HTTP *Accept* by another one on this:
      * - `application/json` (Default one)
      * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
      * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
@@ -108,12 +119,18 @@ class Configuration implements ConfigurationInterface
      * @param string $apiPassword Merchant API Password
      * @param string $apiEnv API environment. Value between 'stage' or 'production'
      * @param string $apiHTTPHeaderAccept HTTP header Accept's value.
+     * @param array $proxy proxy configuration.
      * @throws InvalidArgumentException
      * @throws UnexpectedValueException
      * @see HiPay\Fullservice\HTTP\ClientProvider::__construct Used for http client configuration (credentials,env etc ...)
      */
-    public function __construct($apiUsername, $apiPassword, $apiEnv = self::API_ENV_STAGE, $apiHTTPHeaderAccept = null)
-    {
+    public function __construct(
+        $apiUsername,
+        $apiPassword,
+        $apiEnv = self::API_ENV_STAGE,
+        $apiHTTPHeaderAccept = null,
+        $proxy = array()
+    ) {
 
         if (empty($apiUsername) || !is_string($apiUsername)) {
             throw new InvalidArgumentException("Api username can't be emtpy and must be a string");
@@ -147,6 +164,16 @@ class Configuration implements ConfigurationInterface
             $this->_apiHTTPHeaderAccept = $apiHTTPHeaderAccept;
         }
 
+        if (!empty($proxy) && !empty(array_diff(array_keys($proxy), $this->validProxyKeys))) {
+            throw new UnexpectedValueException(
+                sprintf(
+                    "Proxy config array keys should be: %s",
+                    implode(",", $this->validProxyKeys)
+                )
+            );
+        }
+
+        $this->proxy = $proxy;
     }
 
     /**
@@ -212,8 +239,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getApiEndpoint()
     {
-        return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getApiEndpointProd(
-        ) : $this->getApiEndpointStage();
+        return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getApiEndpointProd() : $this->getApiEndpointStage();
     }
 
     /**
@@ -260,4 +286,14 @@ class Configuration implements ConfigurationInterface
         return $this->_apiHTTPHeaderAccept;
     }
 
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getProxy()
+     */
+    public function getProxy()
+    {
+        return $this->proxy;
+    }
 }

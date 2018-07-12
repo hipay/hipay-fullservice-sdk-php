@@ -1,3 +1,8 @@
+# Version 1.9.0
+
+- Add proxy support to Curl request
+
+
 # Version 1.8.0
 
 - [#35](https://github.com/hipay/hipay-fullservice-sdk-php/pull/35) Fix issue #34 (#35)
