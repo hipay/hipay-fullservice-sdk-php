@@ -120,17 +120,47 @@ class SimpleHTTPClientTest extends TestCase {
 		$client->request('GETTED', "1234");
 	
 	}
-	
-	/**
-	 * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
-	 * @depends testCanBeConstructUsingConfiguration
-	 * @expectedException HiPay\Fullservice\Exception\RuntimeException
-	 */
-	public function testRuntimeExecptionIsRaisedForNetworkFailure(ClientProvider $client){
-	
-		$client->request('GETTED', "1234");
-	
-	}
-	
 
+    /**
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
+     * @expectedException HiPay\Fullservice\Exception\CurlException
+     * @expectedExceptionMessage Could not resolve host
+     */
+    public function testCurlExceptionIsRaisedForNetworkFailure()
+    {
+        $mock = $this->createMock(Configuration::class);
+        $mock->method('getApiEndpoint')->willReturn('http://domain.invalid');
+        $client = new SimpleHTTPClient($mock);
+        $client->request('GET', "/");
+    }
+
+    /**
+     * http://www.mocky.io/v2/5b80129d3400005400dc0727 mocks an API error json response
+     *
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
+     * @expectedException HiPay\Fullservice\Exception\ApiErrorException
+     * @expectedExceptionCode 123123123
+     */
+    public function testApiErrorExceptionIsRaisedForParsableHttpResponse()
+    {
+        $mock = $this->createMock(Configuration::class);
+        $mock->method('getApiEndpoint')->willReturn('http://www.mocky.io');
+        $client = new SimpleHTTPClient($mock);
+        $client->request('GET', "/v2/5b80129d3400005400dc0727");
+    }
+
+    /**
+     * http://www.mocky.io/v2/5b8013903400007700dc072b mocks a not parsable HTTP 500 error
+     *
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
+     * @expectedException HiPay\Fullservice\Exception\HttpErrorException
+     * @expectedExceptionCode 500
+     */
+    public function testHttpErrorExceptionIsRaisedForNotParsableHttpResponse()
+    {
+        $mock = $this->createMock(Configuration::class);
+        $mock->method('getApiEndpoint')->willReturn('http://www.mocky.io');
+        $client = new SimpleHTTPClient($mock);
+        $client->request('GET', "/v2/5b8013903400007700dc072b");
+    }
 }
