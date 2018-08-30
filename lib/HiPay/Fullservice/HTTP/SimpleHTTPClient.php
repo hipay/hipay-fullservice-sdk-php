@@ -21,7 +21,6 @@ use HiPay\Fullservice\Exception\CurlException;
 use HiPay\Fullservice\Exception\HttpErrorException;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
-use HiPay\Fullservice\Exception\RuntimeException;
 use HiPay\Fullservice\HTTP\Response\Response;
 
 
@@ -105,9 +104,7 @@ class SimpleHTTPClient extends ClientProvider
             throw new CurlException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
         }
 
-        //$header_size = curl_getinfo($this->_httpClient, CURLINFO_HEADER_SIZE);
-        //$header = substr($result, 0, $header_size); @TODO transform headers to array
-        $body = $result; //substr($result, $header_size);
+        $body = $result;
 
         $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
         $httpResponse = json_decode($body);
