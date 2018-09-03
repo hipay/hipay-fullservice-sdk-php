@@ -111,7 +111,8 @@ class SimpleHTTPClient extends ClientProvider
 
         if (floor($status / 100) != 2) {
             if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
-                throw new ApiErrorException($httpResponse->message, $httpResponse->code);
+                $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
+                throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
             } else {
                 throw new HttpErrorException($body, $status);
             }

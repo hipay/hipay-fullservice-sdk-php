@@ -13,17 +13,35 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Exception;
+
+use Throwable;
 
 /**
  * Exception thrown if the Hipay API returns a specific error.
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
-class ApiErrorException extends \RuntimeException {
+class ApiErrorException extends \RuntimeException
+{
+
+    /**
+     * ApiErrorException constructor.
+     * @param string $message
+     * @param $description
+     * @param int $code
+     * @param Throwable|null $previous
+     */
+    public function __construct($message = "", $code = 0, $description = "", Throwable $previous = null)
+    {
+        $text = $message . PHP_EOL . $description;
+
+        parent::__construct($text, $code, $previous);
+    }
 }

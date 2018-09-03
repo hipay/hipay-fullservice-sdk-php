@@ -25,5 +25,5 @@ namespace HiPay\Fullservice\Exception;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  */
-class CurlException extends HttpClientException {
+class HttpClientException extends \RuntimeException {
 }
