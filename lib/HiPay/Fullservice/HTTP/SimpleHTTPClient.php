@@ -16,9 +16,11 @@
 
 namespace HiPay\Fullservice\HTTP;
 
+use HiPay\Fullservice\Exception\ApiErrorException;
+use HiPay\Fullservice\Exception\CurlException;
+use HiPay\Fullservice\Exception\HttpErrorException;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
-use HiPay\Fullservice\Exception\RuntimeException;
 use HiPay\Fullservice\HTTP\Response\Response;
 
 
@@ -87,42 +89,33 @@ class SimpleHTTPClient extends ClientProvider
             $options[CURLOPT_PROXYUSERPWD] = $proxyConfiguration["user"] . ":" . $proxyConfiguration["password"];
         }
 
-        try {
+        /**
+         * Send a new request
+         * $method can be any valid HTTP METHOD (GET, POST etc ...)
+         * $uri The url/endpoint to request
+         * $options Needed configuration
+         */
+        foreach ($options as $option => $value) {
+            curl_setopt($this->_httpClient, $option, $value);
+        }
 
-            /**
-             * Send a new request
-             * $method can be any valid HTTP METHOD (GET, POST etc ...)
-             * $uri The url/endpoint to request
-             * $options Needed configuration
-             */
-            foreach ($options as $option => $value) {
-                curl_setopt($this->_httpClient, $option, $value);
+        // execute the given cURL session
+        if (false === ($result = curl_exec($this->_httpClient))) {
+            throw new CurlException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
+        }
+
+        $body = $result;
+
+        $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
+        $httpResponse = json_decode($body);
+
+        if (floor($status / 100) != 2) {
+            if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
+                $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
+                throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
+            } else {
+                throw new HttpErrorException($body, $status);
             }
-
-            // execute the given cURL session
-            if (false === ($result = curl_exec($this->_httpClient))) {
-                throw new RuntimeException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
-            }
-
-            //$header_size = curl_getinfo($this->_httpClient, CURLINFO_HEADER_SIZE);
-            //$header = substr($result, 0, $header_size); @TODO transform headers to array
-            $body = $result; //substr($result, $header_size);
-
-            $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
-            $httpResponse = json_decode($body);
-
-            if (floor($status / 100) != 2) {
-                $message = $body;
-                $code = $status;
-                if (is_object($httpResponse)) {
-                    $message = $httpResponse->message;
-                    $code = $httpResponse->code;
-                }
-                throw new RuntimeException($message, $code);
-            }
-
-        } catch (\Exception $e) {
-            throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
 
         //Return a simple response object

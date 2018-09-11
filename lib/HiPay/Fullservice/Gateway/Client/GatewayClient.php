@@ -189,10 +189,17 @@ class GatewayClient implements GatewayClientInterface
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();
         }
-        $maintenanceRequest->operation = $operationType;
+
+        if ($operationType !== null) {
+            $maintenanceRequest->operation = $operationType;
+        } elseif ($maintenanceRequest->operation === null) {
+            throw new InvalidArgumentException(
+                'You must specify an Operation Type in  $operationType or $maintenanceRequest->operation'
+            );
+        }
 
         if (!is_null($amount)) {
-            if (!is_float($amount) && !($amount > 0.01)) {
+            if (!is_float($amount) || $amount < 0.01) {
                 throw new InvalidArgumentException("Amount must be a float type and greater than 0.01");
             } else {
                 $maintenanceRequest->amount = $amount;
