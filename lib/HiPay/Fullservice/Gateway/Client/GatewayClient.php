@@ -199,8 +199,8 @@ class GatewayClient implements GatewayClientInterface
         }
 
         if (!is_null($amount)) {
-            if (!is_float($amount) || $amount < 0.01) {
-                throw new InvalidArgumentException("Amount must be a float type and greater than 0.01");
+            if (is_float($amount) && $amount < 0.01) {
+                throw new InvalidArgumentException("Amount must be a greater than 0.01");
             } else {
                 $maintenanceRequest->amount = $amount;
             }
