@@ -38,7 +38,7 @@ class Cart extends AbstractModel
      *
      * @var array HiPay\Fullservice\Gateway\Model\CartCategories\Item
      */
-    private $_items;
+    protected $_items;
 
     /**
      * Cart model constructor.
@@ -78,7 +78,8 @@ class Cart extends AbstractModel
      *
      * @return array
      */
-    public function getAllItems(){
+    public function getAllItems()
+    {
         return $this->_items;
     }
 }

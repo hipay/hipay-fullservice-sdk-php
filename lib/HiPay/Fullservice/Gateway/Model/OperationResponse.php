@@ -19,33 +19,33 @@ class OperationResponse extends AbstractModel
     /**
      * @var string $_type Type of maintenance operation
      */
-    private $_type;
+    protected $_type;
 
     /**
      * @var string $_id
      */
-    private $_id;
+    protected $_id;
 
     /**
      * @var string
      */
-    private $_reference;
+    protected $_reference;
 
     /**
      * @var float $_amount
      */
-    private $_amount;
+    protected $_amount;
 
     /**
      * @var string $_currency
      * @type currency
      */
-    private $_currency;
+    protected $_currency;
 
     /**
      * @var string $_dateAuthorized
      */
-    private $_dateAuthorized;
+    protected $_dateAuthorized;
 
     /**
      *
@@ -59,8 +59,8 @@ class OperationResponse extends AbstractModel
         $reference,
         $amount,
         $currency,
-        $dateAuthorized)
-    {
+        $dateAuthorized
+    ) {
         $this->_type = $type;
         $this->_id = $id;
         $this->_reference = $reference;
@@ -164,5 +164,4 @@ class OperationResponse extends AbstractModel
     {
         $this->_dateAuthorized = $dateAuthorized;
     }
-
 }

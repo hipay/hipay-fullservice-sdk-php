@@ -19,7 +19,7 @@ class Operation extends AbstractTransaction
     /**
      * @var string $_operation Type of maintenance operation
      */
-    private $_operation;
+    protected $_operation;
 
     /**
      *
@@ -70,5 +70,4 @@ class Operation extends AbstractTransaction
     {
         return $this->_operation;
     }
-
 }
