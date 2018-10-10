@@ -1,3 +1,9 @@
+# Version 1.10.1
+
+- Fix of amount which is not a float type in api maintenance
+
+
+
 # Version 1.10.0
 
 - [#39](https://github.com/hipay/hipay-fullservice-sdk-php/pull/39) Merge pull request #39 (#39)
