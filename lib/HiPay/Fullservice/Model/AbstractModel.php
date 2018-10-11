@@ -54,8 +54,6 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable {
 		}
 		
 		return $array;
-		
-		
 	}
 
     /**
