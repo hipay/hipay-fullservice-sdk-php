@@ -40,13 +40,13 @@ class Item extends AbstractModel
      * @var string
      * @format EAN
      */
-    private $_european_article_numbering;
+    protected $_european_article_numbering;
     /**
      *  Internal Product Reference
      *
      * @var string $_product_reference
      */
-    private $_product_reference;
+    protected $_product_reference;
 
     /**
      * The value must be a member of the following list:
@@ -59,7 +59,7 @@ class Item extends AbstractModel
      * @required
      *
      */
-    private $_type;
+    protected $_type;
 
     /**
      *  Product description
@@ -67,98 +67,98 @@ class Item extends AbstractModel
      * @var string $_name
      *
      */
-    private $_name;
+    protected $_name;
 
     /**
      *  Product Quantity
      *
      * @var int $_quantity Must be positive
      */
-    private $_quantity;
+    protected $_quantity;
 
     /**
      * Product Unit Price
      *
      * @var float(12,3) $_unit_price
      */
-    private $_unit_price;
+    protected $_unit_price;
 
     /**
      * Tax rate applied on product
      *
      * @var float $_tax_rate
      */
-    private $_tax_rate;
+    protected $_tax_rate;
 
     /**
      * Amount of discount applied to the line
      *
      * @var float(5,2) $_discount
      */
-    private $_discount;
+    protected $_discount;
 
     /**
      * Total amount to the line
      *
      * @var float(12,3) $_discount
      */
-    private $_total_amount;
+    protected $_total_amount;
 
     /**
      * Discount description
      *
      * @var string
      */
-    private $_discount_description;
+    protected $_discount_description;
 
     /**
      *
      * @var string
      */
-    private $_product_description;
+    protected $_product_description;
 
     /**
      * Delivery Method
      *
      * @var string
      */
-    private $_delivery_method;
+    protected $_delivery_method;
 
     /**
      * Delivery Company
      *
      * @var string
      */
-    private $_delivery_company;
+    protected $_delivery_company;
 
     /**
      * Delivery Delay
      *
      * @var string
      */
-    private $_delivery_delay;
+    protected $_delivery_delay;
 
     /**
      * Delivery Number
      *
      * @var string
      */
-    private $_delivery_number;
+    protected $_delivery_number;
 
     /**
      * Id Category
      *
      * @var int
-     * @value 
+     * @value
      */
-    private $_product_category;
+    protected $_product_category;
 
     /**
      * Id Merchant from HiPay BO ( Only for Marketplace)
      *
      * @var string
      */
-    private $_shop_id;
+    protected $_shop_id;
 
     /**
      * Item constructor
@@ -197,14 +197,15 @@ class Item extends AbstractModel
      * @param float $total_amount
      * @return \HiPay\Fullservice\Gateway\Model\Cart\Item
      */
-    public static function buildItemTypeDiscount($product_reference,
-                                                 $name,
-                                                 $unit_price,
-                                                 $tax_rate,
-                                                 $discount,
-                                                 $discount_description,
-                                                 $total_amount)
-    {
+    public static function buildItemTypeDiscount(
+        $product_reference,
+        $name,
+        $unit_price,
+        $tax_rate,
+        $discount,
+        $discount_description,
+        $total_amount
+    ) {
         return self::initInternalItem($product_reference,
             $name,
             1,
@@ -230,16 +231,17 @@ class Item extends AbstractModel
      * @param string $type
      * @return \HiPay\Fullservice\Gateway\Model\Cart\Item
      */
-    private static function initInternalItem($product_reference,
-                                             $name,
-                                             $quantity,
-                                             $unit_price,
-                                             $tax_rate,
-                                             $discount,
-                                             $total_amount,
-                                             $type,
-                                             $discount_description = null)
-    {
+    private static function initInternalItem(
+        $product_reference,
+        $name,
+        $quantity,
+        $unit_price,
+        $tax_rate,
+        $discount,
+        $total_amount,
+        $type,
+        $discount_description = null
+    ) {
         $cartItem = new Item();
         $cartItem->setProductReference($product_reference)
             ->setName($name)
@@ -268,13 +270,14 @@ class Item extends AbstractModel
      * @param float $total_amount
      * @return \HiPay\Fullservice\Gateway\Model\Cart\Item
      */
-    public static function buildItemTypeFees($product_reference,
-                                             $name,
-                                             $unit_price,
-                                             $tax_rate,
-                                             $discount,
-                                             $total_amount)
-    {
+    public static function buildItemTypeFees(
+        $product_reference,
+        $name,
+        $unit_price,
+        $tax_rate,
+        $discount,
+        $total_amount
+    ) {
         return self::initInternalItem($product_reference,
             $name,
             1,
@@ -326,8 +329,7 @@ class Item extends AbstractModel
         $product_category,
         $shop_id
 
-    )
-    {
+    ) {
         $this->_european_article_numbering = $european_article_numbering;
         $this->_product_reference = $product_reference;
         $this->_type = $type;

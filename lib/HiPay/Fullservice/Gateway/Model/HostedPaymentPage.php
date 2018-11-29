@@ -13,13 +13,14 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Model;
 
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
  * Hosted Page Payment Model
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,72 +30,65 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class HostedPaymentPage extends AbstractModel
 {
-	/**
-	 * 
-	 * @param string $mid
-	 * @param string $forwardUrl
-	 * @param Order|null $order
-	 * @param string $cdata1
-	 * @param string $cdata2
-	 * @param string $cdata3
-	 * @param string $cdata4
-	 * @param string $cdata5
-	 * @param string $cdata6
-	 * @param string $cdata7
-	 * @param string $cdata8
-	 * @param string $cdata9
-	 * @param string $cdata10
-	 */
-	public function __construct($mid,
-								$forwardUrl,
-								$order
-			){
-		
-				$this->_mid = $mid;
-				$this->_forwardUrl = $forwardUrl;
-				$this->_order = $order;
-	}
-	
-	/**
-	 * 
-	 * @var \HiPay\Fullservice\Model\Order $_order
-	 */
-	private $_order;
-	
-	/**
-	 * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
-	 * @type url
-	 */
-	private $_forwardUrl;
-	
-	/**
-	 * @var string $_mid Your merchant account number
-	 */
-	private $_mid;
+    /**
+     *
+     * @param string $mid
+     * @param string $forwardUrl
+     * @param Order|null $order
+     */
+    public function __construct(
+        $mid,
+        $forwardUrl,
+        $order
+    ) {
+
+        $this->_mid = $mid;
+        $this->_forwardUrl = $forwardUrl;
+        $this->_order = $order;
+    }
+
+    /**
+     *
+     * @var \HiPay\Fullservice\Model\Order $_order
+     */
+    protected $_order;
+
+    /**
+     * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
+     * @type url
+     */
+    protected $_forwardUrl;
+
+    /**
+     * @var string $_mid Your merchant account number
+     */
+    protected $_mid;
 
 
-	/**
-	 *
-	 * @return Order
-	 */
-	public function getOrder() {
-		return $this->_order;
-	}
+    /**
+     *
+     * @return Order
+     */
+    public function getOrder()
+    {
+        return $this->_order;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getForwardUrl() {
-		return $this->_forwardUrl;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getForwardUrl()
+    {
+        return $this->_forwardUrl;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getMid() {
-		return $this->_mid;
-	}
-
+    /**
+     *
+     * @return string
+     */
+    public function getMid()
+    {
+        return $this->_mid;
+    }
 }
