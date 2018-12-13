@@ -30,7 +30,7 @@ use HiPay\Fullservice\Model\ModelInterface;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
  */
-abstract class AbstractModel implements ModelInterface {
+abstract class AbstractModel implements ModelInterface, \JsonSerializable {
 	
 	/**
 	 *
@@ -54,20 +54,23 @@ abstract class AbstractModel implements ModelInterface {
 		}
 		
 		return $array;
-		
-		
 	}
-	
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
+
 	/**
-	 *
+	 *a
 	 * {@inheritDoc}
 	 *
 	 * @see \HiPay\Fullservice\Model\ModelInterface::toJson()
 	 */
 	public function toJson() {
-		return json_encode($this->toArray());
+		return json_encode($this);
 	}
-
-
-	
 }

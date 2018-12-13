@@ -73,28 +73,6 @@ interface ConfigurationInterface
     public function getApiEndpoint();
 
     /**
-     * Return production secure vault endpoint
-     * @return string $_secureVaultEndpointProd Production vault endpoint
-     */
-    public function getSecureVaultEndpointProd();
-
-    /**
-     * Return stage vault endpoint
-     * @return string $_secureVaultEndpointStage Stage vault endpoint
-     */
-    public function getSecureVaultEndpointStage();
-
-    /**
-     * Return vault endpoint based on API_ENV
-     *
-     * If API_ENV is equals to *stage*, we return value of SECURE_VAULT_ENDPOINT_STAGE
-     * else we return value of SECURE_VAULT_ENDPOINT_PRODUCTION
-     *
-     * @return string SECURE_VAULT_ENDPOINT Final vault endpoint
-     */
-    public function getSecureVaultEndpoint();
-
-    /**
      * Return Header Accept.
      * @return string $_apiHTTPHeaderAccept Header Accept value (Default: application/json)
      */
