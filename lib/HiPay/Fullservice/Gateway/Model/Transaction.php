@@ -62,7 +62,8 @@ class Transaction extends AbstractTransaction
         $order,
         $debitAgreement,
         $basket = null,
-        $operation
+        $operation,
+        $customData = null
     ) {
         parent::__construct(
             $mid,
@@ -100,6 +101,7 @@ class Transaction extends AbstractTransaction
         $this->_transactionReference = $transactionReference;
         $this->_operation = $operation;
         $this->_basket = $basket;
+        $this->_customData = $customData;
     }
 
     /**
@@ -213,6 +215,19 @@ class Transaction extends AbstractTransaction
      * @var OperationResponse $_operation Result Operation ( Operation ID, reference ... )
      */
     protected $_operation;
+
+    /**
+     *
+     * @var array
+     */
+    private $_customData;
+
+
+    public function getCustomData()
+    {
+        return $this->_customData;
+    }
+
 
 
     public function getTransactionReference()

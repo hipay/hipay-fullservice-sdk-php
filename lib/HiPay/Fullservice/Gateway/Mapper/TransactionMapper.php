@@ -108,6 +108,8 @@ class TransactionMapper extends AbstractMapper
 
         $basket = isset($source['basket']) ? $source['basket'] : null;
 
+        $customData = isset($source['customData']) ? $source['customData'] : null;
+
         $this->_modelObject = new Transaction(
             $mid,
             $authorizationCode,
@@ -140,7 +142,8 @@ class TransactionMapper extends AbstractMapper
             $order,
             $debitAgreement,
             $basket,
-            $operation
+            $operation,
+            $customData
         );
 
 
