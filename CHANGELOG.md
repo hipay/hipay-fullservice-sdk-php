@@ -1,3 +1,6 @@
+# Version 2.0.1
+- Add transaction mapper for custom data
+
 # Version 2.0.0
 
 - Remove Tokenization
