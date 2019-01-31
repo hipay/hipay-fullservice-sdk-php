@@ -62,12 +62,25 @@ class Transaction extends AbstractTransaction
         $order,
         $debitAgreement,
         $basket = null,
-        $operation
-    )
-    {
-        parent::__construct($mid, $authorizationCode, $transactionReference, $dateCreated, $dateUpdated,
-            $dateAuthorized, $status, $state, $message, $authorizedAmount, $capturedAmount, $refundedAmount,
-            $decimals, $currency);
+        $operation,
+        $customData = null
+    ) {
+        parent::__construct(
+            $mid,
+            $authorizationCode,
+            $transactionReference,
+            $dateCreated,
+            $dateUpdated,
+            $dateAuthorized,
+            $status,
+            $state,
+            $message,
+            $authorizedAmount,
+            $capturedAmount,
+            $refundedAmount,
+            $decimals,
+            $currency
+        );
 
         $this->_reason = $reason;
         $this->_forwardUrl = $forwardUrl;
@@ -88,28 +101,29 @@ class Transaction extends AbstractTransaction
         $this->_transactionReference = $transactionReference;
         $this->_operation = $operation;
         $this->_basket = $basket;
+        $this->_customData = $customData;
     }
 
     /**
      * @var string $_transactionReference Transaction unique ID.
      */
-    private $_transactionReference;
+    protected $_transactionReference;
 
     /**
      * @var string $_reason Reason why transaction was declined. Optional.
      */
-    private $_reason;
+    protected $_reason;
 
     /**
      * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
      * @type url
      */
-    private $_forwardUrl;
+    protected $_forwardUrl;
 
     /**
      * @var string $_attemptId Attempt id of the payment.
      */
-    private $_attemptId;
+    protected $_attemptId;
 
     /**
      * Reference to pay
@@ -124,83 +138,96 @@ class Transaction extends AbstractTransaction
      *
      * @var string $_referenceToPay Reference to pay
      */
-    private $_referenceToPay;
+    protected $_referenceToPay;
 
     /**
      * @var string $_ipAddress The IP address of the customer making the purchase
      * @type ip
      */
-    private $_ipAddress;
+    protected $_ipAddress;
 
     /**
      * @var string $_ipCountry Country code associated to the customer's IP address.
      * @type ip
      */
-    private $_ipCountry;
+    protected $_ipCountry;
 
     /**
      * @var string $_deviceId Unique identifier assigned to device (the customer's browser) by HiPay TPP.
      */
-    private $_deviceId;
+    protected $_deviceId;
 
     /**
      * @var string Result of the Address Verification Service (AVS).
      * @see \HiPay\Fullservice\Enum\Transaction\AVSResult
      */
-    private $_avsResult;
+    protected $_avsResult;
 
     /**
      * @var string $_cvcResult Result of the CVC (Card Verification Code) check
      * @see \HiPay\Fullservice\Enum\Transaction\CVCResult
      */
-    private $_cvcResult;
+    protected $_cvcResult;
 
     /**
      * @var string $_eci Electronic Commerce Indicator (ECI).
      * @see \HiPay\Fullservice\Gateway\Request\PaymentMethod\CardTokenPaymentMethod::$eci
      */
-    private $_eci;
+    protected $_eci;
 
     /**
      * @var string $_paymentProduct Payment product used to complete the transaction.
      * @see \HiPay\Fullservice\Data\PaymentProduct
      */
-    private $_paymentProduct;
+    protected $_paymentProduct;
 
     /**
      * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object
      * @see \HiPay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
      * @see \HiPay\Fullservice\Gateway\Model\PaymentMethod
      */
-    private $_paymentMethod;
+    protected $_paymentMethod;
 
     /**
      * @var ThreeDSecure $_threeDSecure Model 3ds secure enrollment and authentication result
      */
-    private $_threeDSecure;
+    protected $_threeDSecure;
 
     /**
      *
      * @var FraudScreening $_fraudScreening Model Result of the fraud screening
      */
-    private $_fraudScreening;
+    protected $_fraudScreening;
 
     /**
      *
      * @var Order $_order Model Result Order (customer, order informations...)
      */
-    private $_order;
+    protected $_order;
 
     /**
      * @var array $_debitAgreement Information about the debit agreement created
      */
-    private $_debitAgreement;
+    protected $_debitAgreement;
 
     /**
      *
      * @var OperationResponse $_operation Result Operation ( Operation ID, reference ... )
      */
-    private $_operation;
+    protected $_operation;
+
+    /**
+     *
+     * @var array
+     */
+    private $_customData;
+
+
+    public function getCustomData()
+    {
+        return $this->_customData;
+    }
+
 
 
     public function getTransactionReference()
@@ -293,7 +320,8 @@ class Transaction extends AbstractTransaction
         return $this->_operation;
     }
 
-    public function getBasket() {
+    public function getBasket()
+    {
         return $this->_basket;
     }
 }

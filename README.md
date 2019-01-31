@@ -1,5 +1,5 @@
 # HiPay Enterprise SDK for PHP
-[![Build Status](https://hook.hipay.org/badge-ci/build/pi-ecommerce/hipay-fullservice-sdk-php/master)]()
+[![Build Status](https://hook.hipay.org/badge-ci/build/pi-ecommerce/hipay-fullservice-sdk-php/develop?service=github)]()
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/hipay/hipay-fullservice-sdk-php/master/LICENSE.md)
 
 

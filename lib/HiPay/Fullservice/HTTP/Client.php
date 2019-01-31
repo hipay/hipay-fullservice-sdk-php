@@ -40,17 +40,15 @@ interface Client
      *   Ex. To query an order, you assign '/rest/v1/order' to $endpoint
      *   Base Url is already know by Configuration object used in constructor
      * - $params Array with key/value pairs of data to send
-     * - $isVault If true, perform request on secure vault endpoint
      *
      * @param string $method HTTP method
      * @param string $endpoint Api Endpoint for this request. Base url is determined by Configuration Object
      * @param array $params Request params to apply.
-     * @param bool $isVault If true, perform request on secure vault endpoint
      *
      * @throws RuntimeException
      * @throws InvalidArgumentException
      * @return AbstractResponse
      */
-    public function request($method, $endpoint, array $params = array(), $isVault = false);
+    public function request($method, $endpoint, array $params = array());
 
 }

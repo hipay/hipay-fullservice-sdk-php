@@ -1,8 +1,14 @@
+# Version 2.0.1
+- Add transaction mapper for custom data
+
+# Version 2.0.0
+
+- Remove Tokenization
+- Fix: toJson method
+
 # Version 1.10.1
 
 - Fix of amount which is not a float type in api maintenance
-
-
 
 # Version 1.10.0
 
@@ -31,7 +37,6 @@
 
 - [#26](https://github.com/hipay/hipay-fullservice-sdk-php/pull/26) Add time_limit_to_pay in HostedPaymentPageRequest (#26) (@legithubdeaymeric)
 - [#25](https://github.com/hipay/hipay-fullservice-sdk-php/pull/25) Remove CDATA parameters ( Use custom_data now )(#25) (@legithubdeaymeric)
-
 
 # Version 1.5.1
 

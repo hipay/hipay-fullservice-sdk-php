@@ -48,18 +48,6 @@ class Configuration implements ConfigurationInterface
     const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
 
     /**
-     *
-     * @var string SECURE_VAULT_ENDPOINT_PROD Secure Vault Endpoint for production
-     */
-    const SECURE_VAULT_ENDPOINT_PROD = "https://secure-vault.hipay-tpp.com/rest/";
-
-    /**
-     *
-     * @var string SECURE_VAULT_ENDPOINT_STAGE Secure Vault Endpoint for test
-     */
-    const SECURE_VAULT_ENDPOINT_STAGE = "https://stage-secure-vault.hipay-tpp.com/rest/";
-
-    /**
      * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
      */
     const API_ENV_STAGE = 'stage';
@@ -239,40 +227,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getApiEndpoint()
     {
-        return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getApiEndpointProd() : $this->getApiEndpointStage();
-    }
-
-    /**
-     *
-     * {@inheritDoc}
-     *
-     * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpointProd()
-     */
-    public function getSecureVaultEndpointProd()
-    {
-        return self::SECURE_VAULT_ENDPOINT_PROD;
-    }
-
-    /**
-     *
-     * {@inheritDoc}
-     *
-     * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpointStage()
-     */
-    public function getSecureVaultEndpointStage()
-    {
-        return self::SECURE_VAULT_ENDPOINT_STAGE;
-    }
-
-    /**
-     *
-     * {@inheritDoc}
-     *
-     * @see \HiPay\Fullservice\Client\Configuration\ConfigurationInterface::getSecureVaultEndpoint()
-     */
-    public function getSecureVaultEndpoint()
-    {
-        return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getSecureVaultEndpointProd() : $this->getSecureVaultEndpointStage();
+        return $this->getApiEnv() === self::API_ENV_PRODUCTION ? $this->getApiEndpointProd(
+        ) : $this->getApiEndpointStage();
     }
 
     /**

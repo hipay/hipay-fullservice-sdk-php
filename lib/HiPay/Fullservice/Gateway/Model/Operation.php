@@ -15,12 +15,6 @@ use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
  */
 class Operation extends AbstractTransaction
 {
-
-    /**
-     * @var string $_operation Type of maintenance operation
-     */
-    private $_operation;
-
     /**
      *
      * {@inheritDoc}
@@ -70,5 +64,4 @@ class Operation extends AbstractTransaction
     {
         return $this->_operation;
     }
-
 }
