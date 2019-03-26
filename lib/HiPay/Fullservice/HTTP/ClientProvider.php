@@ -9,17 +9,14 @@
  * It is also available through the world-wide-web at this URL:
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * @copyright      Copyright (c) 2016 - HiPay
+ * @copyright      Copyright (c) 2019 - HiPay
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
- *
  */
 
 namespace HiPay\Fullservice\HTTP;
 
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use HiPay\Fullservice\HTTP\Client;
-use HiPay\Fullservice\HTTP\Response\AbstractResponse;
-use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
 
 /**
@@ -27,8 +24,8 @@ use HiPay\Fullservice\HTTP\Configuration\Configuration;
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author        Kassim Belghait <kassim@sirateck.com>
- * @copyright   Copyright (c) 2016 - HiPay
+ * @author      HiPay <support.tpp@hipay.com>
+ * @copyright   Copyright (c) 2019 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
@@ -37,19 +34,18 @@ abstract class ClientProvider implements Client
 {
 
     /**
-     *
      * @var ConfigurationInterface $configuration Configuration object used for authentication and endpoints
      */
     protected $_configuration;
 
     /**
-     *
      * @var object $httpClient Client used to execute HTTP request
      */
     protected $_httpClient;
 
     /**
      * Contruct HTTP client with Confuration Object
+     *
      * @param ConfigurationInterface $configuration
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface
      * @throws \Exception
@@ -59,7 +55,7 @@ abstract class ClientProvider implements Client
 
         $this->_configuration = $configuration;
 
-        /*
+        /**
          * Force http client instantiation
          * This ensure the availability of http client object
          */
@@ -67,14 +63,13 @@ abstract class ClientProvider implements Client
     }
 
     /**
-     *
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Client::request()
      */
-    public function request($method, $endpoint, array $params = array())
+    public function request($method, $endpoint, array $params = array(), $isVault = false)
     {
-        return $this->doRequest($method, $endpoint, $params);
+        return $this->doRequest($method, $endpoint, $params, $isVault);
     }
 
     /**
@@ -111,16 +106,17 @@ abstract class ClientProvider implements Client
      * @param string $method HTTP method
      * @param string $endpoint Endpoint
      * @param array $params Params to send
+     * @param bool $isVault Secure vault action
      *
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
-     * @return AbstractResponse
+     * @throws \HiPay\Fullservice\Exception\RuntimeException
+     * @throws \HiPay\Fullservice\Exception\InvalidArgumentException
+     * @return \HiPay\Fullservice\HTTP\Response\AbstractResponse
      */
-    abstract protected function doRequest($method, $endpoint, array $params = array());
+    abstract protected function doRequest($method, $endpoint, array $params = array(), $isVault = false);
 
     /**
      * Create local http client object used in doRequest method
-     * Called in contructor
+     * Called in constructor
      *
      * @throws \Exception
      */
