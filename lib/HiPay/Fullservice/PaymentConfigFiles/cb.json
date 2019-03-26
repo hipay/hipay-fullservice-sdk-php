@@ -1,0 +1,21 @@
+{
+  "productCode": "cb",
+  "brandName": "Carte Bancaire",
+  "category": "credit-card",
+  "comment": "Accepted cards: Visa, MasterCard. Available only in France",
+  "can3ds": 1,
+  "canRecurring": 1,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "FR"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

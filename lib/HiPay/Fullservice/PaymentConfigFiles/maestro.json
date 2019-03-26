@@ -1,0 +1,17 @@
+{
+  "productCode": "maestro",
+  "brandName": "Maestro",
+  "category": "debit-card",
+  "comment": "",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [],
+  "countries": [],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

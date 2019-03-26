@@ -1,0 +1,21 @@
+{
+  "productCode": "bcmc",
+  "brandName": "Bancontact / Mister Cash",
+  "category": "debit-card",
+  "comment": "Available only in Belgium.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "BE"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

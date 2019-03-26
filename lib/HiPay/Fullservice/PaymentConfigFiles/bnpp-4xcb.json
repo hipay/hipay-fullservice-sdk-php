@@ -1,0 +1,24 @@
+{
+  "productCode": "bnpp-4xcb",
+  "brandName": "4x Carte Bancaire - BNP Personal Finance",
+  "category": "credit-consumption",
+  "comment": "",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 1,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "FR"
+  ],
+  "checkoutFieldsMandatory": [
+    "phone",
+    "gender"
+  ],
+  "additionalFields": {}
+}

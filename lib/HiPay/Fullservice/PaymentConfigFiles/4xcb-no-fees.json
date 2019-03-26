@@ -1,0 +1,21 @@
+{
+  "productCode": "4xcb-no-fees",
+  "brandName": "4x Carte Bancaire sans frais - Oney",
+  "category": "credit-card",
+  "comment": "Available only in France.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 1,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "FR"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

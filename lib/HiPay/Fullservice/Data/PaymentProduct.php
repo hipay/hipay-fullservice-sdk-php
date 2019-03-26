@@ -13,12 +13,13 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Data;
 
 
 /**
  * Payment product object
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,120 +29,214 @@ namespace HiPay\Fullservice\Data;
  */
 class PaymentProduct
 {
-    
-    public function __construct($productCode,$brandName,$category,$can3ds = false,$canRefund = false,$canRecurring = false ,$comment = '',$basketRequired = false){
-        
-        $this->_productCode = $productCode;
-        $this->_brandName = $brandName;
-        $this->_category = $category;
-        $this->_can3ds = $can3ds;
-        $this->_canRefund = $canRefund;
-        $this->_canRecurring = $canRecurring;
-        $this->_comment = $comment;
-        $this->_basketRequired = $basketRequired;
-        
+
+    /**
+     * PaymentProduct constructor.
+     *
+     * @param $paymentProductData
+     */
+    public function __construct($paymentProductData)
+    {
+
+        foreach ($paymentProductData as $key => $data) {
+            if (property_exists($this, $key)) {
+                $this->{$key} = $data;
+            }
+        }
     }
-    
+
     /**
-     * @var string $_productCode Product code (cd,mastercard,visa etc ...)
+     * @var string $productCode Product code (cd,mastercard,visa etc ...)
      */
-    private $_productCode;
-    
+    private $productCode;
+
     /**
-     * @var string $_brandName Human readable value
+     * @var string $brandName Human readable value
      */
-    private $_brandName;
-    
+    private $brandName;
+
     /**
-     * @var bool $_can3ds If can process 3ds payment
+     * @var $category Brand's category
      */
-    private $_can3ds = false;
-    
+    private $category;
+
     /**
-     * 
-     * @var bool $_canRefund Payment product accept refunds
+     * @var string $comment A short brand description
      */
-    private $_canRefund = false;
-    
+    private $comment = '';
+
     /**
-     * 
-     * @var bool $_canRecurring Payment product accept refunds
+     * @var bool $can3ds If can process 3ds payment
      */
-    private $_canRecurring = false;
-    
+    private $can3ds = false;
+
     /**
-     * 
-     * @var $_category Brand's category
+     * @var bool $canRecurring Payment product accept refunds
      */
-    private $_category;
-    
+    private $canRecurring = false;
+
     /**
-     * @var string $_comment A short brand description
+     * @var bool $canManualCapture Payment product accept manual capture
      */
-    private  $_comment = '';
+    private $canManualCapture = false;
+
+    /**
+     * @var bool $canManualCapturePartially Payment product accept partial manual capture
+     */
+    private $canManualCapturePartially = false;
+
+    /**
+     * @var bool $canRefund Payment product accept refunds
+     */
+    private $canRefund = false;
+
+    /**
+     * @var bool $canRefundPartially ayment product accept partial refunds
+     */
+    private $canRefundPartially = false;
 
     /**
      * @var boolean Cart items is required for the payment method
      */
-    private  $_basketRequired = false;
+    private $basketRequired = false;
 
+    /**
+     * @var array $currencies currencies accepted by the payment method, no restriction if empty
+     */
+    private $currencies = array();
+
+    /**
+     * @var array $countries countries accepted by the payment method, no restriction if empty
+     */
+    private $countries = array();
+
+    /**
+     * @var array $checkoutFieldsMandatory mandatory information to provide when requesting a new transaction
+     */
+    private $checkoutFieldsMandatory = array();
+
+    /**
+     * @var array $additionalFields information about payment method specific fields, no specific fields if empty
+     */
+    private $additionalFields = array();
 
     /**
      * @return string
      */
-	public function getProductCode() {
-		return $this->_productCode;
-	}
+    public function getProductCode()
+    {
+        return $this->productCode;
+    }
 
     /**
      * @return string
      */
-	public function getBrandName() {
-		return $this->_brandName;
-	}
+    public function getBrandName()
+    {
+        return $this->brandName;
+    }
 
     /**
      * @return bool
      */
-	public function getCan3ds() {
-		return $this->_can3ds;
-	}
+    public function getCan3ds()
+    {
+        return (bool)$this->can3ds;
+    }
 
     /**
      * @return bool
      */
-	public function getCanRefund() {
-		return $this->_canRefund;
-	}
+    public function getCanRefund()
+    {
+        return (bool)$this->canRefund;
+    }
 
     /**
-     * @return bool|Payment
+     * @return bool
      */
-	public function getCanRecurring() {
-		return $this->_canRecurring;
-	}
+    public function getCanRecurring()
+    {
+        return (bool)$this->canRecurring;
+    }
 
     /**
      * @return string
      */
-	public function getComment() {
-		return $this->_comment;
-	}
+    public function getComment()
+    {
+        return $this->comment;
+    }
 
     /**
-     * @return Brand
+     * @return string
      */
-	public function getCategory() {
-		return $this->_category;
-	}
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
     /**
      * @return bool
      */
     public function getBasketRequired()
     {
-        return $this->_basketRequired;
+        return (bool)$this->basketRequired;
     }
 
+    /**
+     * @return bool
+     */
+    public function getCanManualCapture()
+    {
+        return (bool)$this->canManualCapture;
+    }
 
+    /**
+     * @return bool
+     */
+    public function getCanManualCapturePartially()
+    {
+        return (bool)$this->canManualCapturePartially;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getCanRefundPartially()
+    {
+        return (bool)$this->canRefundPartially;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCurrencies()
+    {
+        return $this->currencies;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCountries()
+    {
+        return $this->countries;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCheckoutFieldsMandatory()
+    {
+        return $this->checkoutFieldsMandatory;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdditionalFields()
+    {
+        return $this->additionalFields;
+    }
 }

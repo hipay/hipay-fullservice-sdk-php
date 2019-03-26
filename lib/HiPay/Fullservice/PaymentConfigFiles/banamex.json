@@ -1,0 +1,35 @@
+{
+  "productCode": "banamex",
+  "brandName": "Banamex",
+  "category": "realtime-banking",
+  "comment": "Available only in MXN currency.",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [
+    "MXN"
+  ],
+  "countries": [
+    "MX"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\AstropayPaymentMethod",
+    "defaultFieldsValue": {},
+    "formFields": {
+      "national_identification_number": {
+        "label":  {
+          "en": "CURP/CPN",
+          "fr": "CURP/CPN"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "curp-cpn"
+      }
+    }
+  }
+}
