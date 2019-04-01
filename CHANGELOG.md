@@ -1,3 +1,6 @@
+# Version 2.1.0
+- Add payment token lookup method
+
 # Version 2.0.1
 - Add transaction mapper for custom data
 
