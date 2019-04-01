@@ -9,7 +9,7 @@
  * It is also available through the world-wide-web at this URL:
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * @copyright      Copyright (c) 2016 - HiPay
+ * @copyright      Copyright (c) 2019 - HiPay
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
@@ -23,13 +23,13 @@ use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\HTTP\Response\Response;
 
-
 /**
  * Simple HTTP client
  *
+ * @category    HiPay
  * @package     HiPay\Fullservice
- * @author        Kassim Belghait <kassim@sirateck.com>
- * @copyright   Copyright (c) 2016 - HiPay
+ * @author      HiPay <support.tpp@hipay.com>
+ * @copyright   Copyright (c) 2019 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
@@ -39,9 +39,10 @@ class SimpleHTTPClient extends ClientProvider
 
     /**
      * {@inheritDoc}
+     *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::doRequest()
      */
-    protected function doRequest($method, $endpoint, array $params = array())
+    protected function doRequest($method, $endpoint, array $params = array(), $isVault = false)
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
@@ -54,6 +55,10 @@ class SimpleHTTPClient extends ClientProvider
         $credentials = $this->getConfiguration()->getApiUsername() . ':' . $this->getConfiguration()->getApiPassword();
 
         $url = $this->getConfiguration()->getApiEndpoint();
+
+        if ($isVault) {
+            $url = $this->getConfiguration()->getSecureVaultEndpoint();
+        }
 
         $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HiPayFullservice/1.0 (SDK PHP)';
         $finalUrl = $url . $endpoint;
