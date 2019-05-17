@@ -1,0 +1,21 @@
+{
+  "productCode": "3xcb",
+  "brandName": "3x Carte Bancaire - Oney",
+  "category": "credit-card",
+  "comment": "Available only in France.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 1,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "FR"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

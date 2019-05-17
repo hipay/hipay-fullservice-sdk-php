@@ -1,0 +1,35 @@
+{
+  "productCode": "itau",
+  "brandName": "Itau",
+  "category": "realtime-banking",
+  "comment": "Available only in BRL currency.",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [
+    "BRL"
+  ],
+  "countries": [
+    "BR"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\AstropayPaymentMethod",
+    "defaultFieldsValue": {},
+    "formFields": {
+      "national_identification_number": {
+        "label": {
+          "en": "CPF",
+          "fr": "CPF"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "cpf"
+      }
+    }
+  }
+}

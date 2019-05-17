@@ -1,0 +1,35 @@
+{
+  "productCode": "ideal",
+  "brandName": "IDEAL",
+  "category": "realtime-banking",
+  "comment": "",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [
+    "EUR"
+  ],
+  "countries": [
+    "NL"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\IssuerBankIDPaymentMethod",
+    "defaultFieldsValue": {},
+    "formFields": {
+      "issuer_bank_id": {
+        "label": {
+          "en": "Business Identifier Code (BIC)",
+          "fr": "Business Identifier Code (BIC)"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "bic"
+      }
+    }
+  }
+}

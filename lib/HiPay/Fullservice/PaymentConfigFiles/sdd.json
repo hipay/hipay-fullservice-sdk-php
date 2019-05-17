@@ -1,0 +1,78 @@
+{
+  "productCode": "sdd",
+  "brandName": "SEPA Direct Debit",
+  "category": "realtime-banking",
+  "comment": "",
+  "can3ds": 0,
+  "canRecurring": 1,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [],
+  "countries": [],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\SEPADirectDebitPaymentMethod",
+    "defaultFieldsValue": {
+      "recurring_payment": 0
+    },
+    "formFields": {
+      "gender": {
+        "label": {
+          "en": "Gender",
+          "fr": "Civilité"
+        },
+        "type": "gender",
+        "required": true,
+        "controlType": false
+      },
+      "firstname": {
+        "label": {
+          "en": "Firstname",
+          "fr": "Prénom"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": false
+      },
+      "lastname": {
+        "label": {
+          "en": "Lastname",
+          "fr": "Nom"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": false
+      },
+      "bank_name": {
+        "label": {
+          "en": "Bank name",
+          "fr": "Nom de la banque"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": false
+      },
+      "iban": {
+        "label": {
+          "en": "IBAN",
+          "fr": "IBAN"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "iban"
+      },
+      "issuer_bank_id": {
+        "label": {
+          "en": "BIC",
+          "fr": "BIC"
+        },
+        "type": "text",
+        "required": false,
+        "controlType": "bic"
+      }
+    }
+  }
+}
