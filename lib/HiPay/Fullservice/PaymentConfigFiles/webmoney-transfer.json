@@ -1,0 +1,21 @@
+{
+  "productCode": "webmoney-transfer",
+  "brandName": "WebMoney Transfer",
+  "category": "ewallet",
+  "comment": "Available only in RUB currency",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [
+    "RUB"
+  ],
+  "countries": [
+    "RU"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}

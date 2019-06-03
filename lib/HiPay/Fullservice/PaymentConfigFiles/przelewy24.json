@@ -1,0 +1,21 @@
+{
+  "productCode": "przelewy24",
+  "brandName": "Przelewy24",
+  "category": "realtime-banking",
+  "comment": "Available only in PLN currency",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [
+    "PLN"
+  ],
+  "countries": [
+    "PL"
+  ],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {}
+}
