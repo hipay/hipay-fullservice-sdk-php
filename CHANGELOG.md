@@ -1,3 +1,6 @@
+# Version 2.2.0
+- Update payment product collection
+
 # Version 2.1.0
 - Add payment token lookup method
 
