@@ -31,10 +31,9 @@ use HiPay\Fullservice\Model\AbstractModel;
 class HostedPaymentPage extends AbstractModel
 {
     /**
-     *
      * @param string $mid
      * @param string $forwardUrl
-     * @param Order|null $order
+     * @param Order | null $order
      */
     public function __construct(
         $mid,
@@ -48,14 +47,12 @@ class HostedPaymentPage extends AbstractModel
     }
 
     /**
-     *
-     * @var \HiPay\Fullservice\Model\Order $_order
+     * @var Order $_order
      */
     protected $_order;
 
     /**
      * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
-     * @type url
      */
     protected $_forwardUrl;
 
@@ -66,7 +63,6 @@ class HostedPaymentPage extends AbstractModel
 
 
     /**
-     *
      * @return Order
      */
     public function getOrder()
@@ -75,7 +71,6 @@ class HostedPaymentPage extends AbstractModel
     }
 
     /**
-     *
      * @return string
      */
     public function getForwardUrl()
@@ -84,7 +79,6 @@ class HostedPaymentPage extends AbstractModel
     }
 
     /**
-     *
      * @return string
      */
     public function getMid()

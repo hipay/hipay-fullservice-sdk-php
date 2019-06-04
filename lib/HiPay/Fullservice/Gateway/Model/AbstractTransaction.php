@@ -67,8 +67,7 @@ abstract class AbstractTransaction extends AbstractModel
         $refundedAmount,
         $decimals,
         $currency
-    )
-    {
+    ) {
 
         $this->_mid = $mid;
         $this->_authorizationCode = $authorizationCode;
@@ -106,21 +105,18 @@ abstract class AbstractTransaction extends AbstractModel
 
     /**
      * @var string $_dateCreated Time when transaction was created (yyyy-mm-ddTH:i:sZ).
-     * @type date
      * @format yyyy-mm-ddTH:i:sZ
      */
     protected $_dateCreated;
 
     /**
      * @var string $_dateUpdated Time when transaction was last updated (yyyy-mm-ddTH:i:sZ).
-     * @type date
      * @format yyyy-mm-ddTH:i:sZ
      */
     protected $_dateUpdated;
 
     /**
      * @var string $_dateAuthorized Time when transaction was authorized (yyyy-mm-ddTH:i:sZ).
-     * @type date
      * @format yyyy-mm-ddTH:i:sZ
      */
     protected $_dateAuthorized;
@@ -148,7 +144,7 @@ abstract class AbstractTransaction extends AbstractModel
     protected $_authorizedAmount;
 
     /**
-     * @var flaot $_capturedAmount The captured amount
+     * @var float $_capturedAmount The captured amount
      */
     protected $_capturedAmount;
 
@@ -164,7 +160,6 @@ abstract class AbstractTransaction extends AbstractModel
 
     /**
      * @var string $_currency Base currency for this transaction. This three-character currency code complies with ISO 4217.
-     * @type currency
      */
     protected $_currency;
 

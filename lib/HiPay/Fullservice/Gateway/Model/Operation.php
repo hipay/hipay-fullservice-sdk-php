@@ -2,8 +2,6 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
-use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
-
 /**
  *
  * @package HiPay\Fullservice
@@ -57,7 +55,6 @@ class Operation extends AbstractTransaction
         );
 
         $this->_operation = $operation;
-
     }
 
     public function getOperation()

@@ -33,7 +33,6 @@ use HiPay\Fullservice\Request\AbstractRequest;
 class CommonRequest extends AbstractRequest
 {
 
-
     /**
      * You can use these parameters to submit custom values you wish to show in HiPay back office transaction details,
      * receive back in the API response messages, in the notifications or to activate specific FPS rules.
@@ -44,7 +43,7 @@ class CommonRequest extends AbstractRequest
     public $custom_data;
 
     /**
-     *  Technical parameter to track the source of request. For exemple the version of your CMS.
+     *  Technical parameter to track the source of request. For example the version of your CMS.
      *  Eg. {"source":"CMS","brand":"magento","brand_version":"1.9.2.3","integration_version":"1.5.0"}
      *
      * @var string $source (JSON).

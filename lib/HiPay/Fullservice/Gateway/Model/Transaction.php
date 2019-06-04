@@ -29,7 +29,6 @@ namespace HiPay\Fullservice\Gateway\Model;
 class Transaction extends AbstractTransaction
 {
 
-
     public function __construct(
         $mid,
         $authorizationCode,
@@ -58,7 +57,7 @@ class Transaction extends AbstractTransaction
         $paymentProduct,
         $paymentMethod,
         $threeDSecure,
-        $fraudScreenig,
+        $fraudScreening,
         $order,
         $debitAgreement,
         $basket = null,
@@ -95,7 +94,7 @@ class Transaction extends AbstractTransaction
         $this->_paymentMethod = $paymentMethod;
         $this->_paymentProduct = $paymentProduct;
         $this->_threeDSecure = $threeDSecure;
-        $this->_fraudScreening = $fraudScreenig;
+        $this->_fraudScreening = $fraudScreening;
         $this->_order = $order;
         $this->_debitAgreement = $debitAgreement;
         $this->_transactionReference = $transactionReference;
@@ -116,7 +115,6 @@ class Transaction extends AbstractTransaction
 
     /**
      * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.
-     * @type url
      */
     protected $_forwardUrl;
 
@@ -142,13 +140,11 @@ class Transaction extends AbstractTransaction
 
     /**
      * @var string $_ipAddress The IP address of the customer making the purchase
-     * @type ip
      */
     protected $_ipAddress;
 
     /**
      * @var string $_ipCountry Country code associated to the customer's IP address.
-     * @type ip
      */
     protected $_ipCountry;
 
@@ -201,7 +197,7 @@ class Transaction extends AbstractTransaction
 
     /**
      *
-     * @var Order $_order Model Result Order (customer, order informations...)
+     * @var Order $_order Model Result Order (customer, order information...)
      */
     protected $_order;
 
@@ -217,17 +213,20 @@ class Transaction extends AbstractTransaction
     protected $_operation;
 
     /**
-     *
      * @var array
      */
-    private $_customData;
+    protected $_customData;
+
+    /**
+     * @var array
+     */
+    protected $_basket;
 
 
     public function getCustomData()
     {
         return $this->_customData;
     }
-
 
 
     public function getTransactionReference()

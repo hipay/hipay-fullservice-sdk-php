@@ -31,10 +31,10 @@ use HiPay\Fullservice\Data\Category;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class Collection {
+class Collection
+{
 
     /**
-     *
      * @var string $_JSON Json collection
      */
     private static $_JSON = <<<EOT
@@ -213,9 +213,10 @@ class Collection {
 EOT;
 
     /**
-     * @return Category[] Collection of Categrory
+     * @return Category[] Collection of Category
      */
-    public static function getItems() {
+    public static function getItems()
+    {
         $jsonArr = json_decode(self::$_JSON, true);
         $collection = array();
         foreach ($jsonArr as $item) {

@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -32,14 +33,13 @@ class SecuritySettingsMapper extends AbstractMapper
 {
 
     /**
-     * @var Operation $_modelObject Model object to populate
+     * @var SecuritySettings $_modelObject Model object to populate
      */
     protected $_modelObject;
 
     protected $_modelClassName;
 
     /**
-     *
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::mapResponseToModel()
@@ -73,6 +73,4 @@ class SecuritySettingsMapper extends AbstractMapper
     {
         return '\HiPay\Fullservice\Gateway\Model\SecuritySettings';
     }
-
-
 }

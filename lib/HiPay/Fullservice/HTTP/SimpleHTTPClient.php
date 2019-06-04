@@ -19,7 +19,6 @@ namespace HiPay\Fullservice\HTTP;
 use HiPay\Fullservice\Exception\ApiErrorException;
 use HiPay\Fullservice\Exception\CurlException;
 use HiPay\Fullservice\Exception\HttpErrorException;
-use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\HTTP\Response\Response;
 

@@ -32,7 +32,7 @@ interface Client
      * Create and send an HTTP request.
      *
      * - $method must be a valid HTTP METHOD (POST,GET,PUT etc ...)
-     * - $endpoint is only enpoint of wanted action.
+     * - $endpoint is only endpoint of wanted action.
      *   Ex. To query an order, you assign '/rest/v1/order' to $endpoint
      *   Base Url is already know by Configuration object used in constructor
      * - $params Array with key/value pairs of data to send

@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Request\Info;
 
 use HiPay\Fullservice\Request\AbstractRequest;
@@ -21,7 +22,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * Delivery shipping information
  *
  * Specific for ONEY FACILY PAY
- * 
+ *
  * @package HiPay\Fullservice
  * @author Aymeric Berthelot <aberthelot@hipay.com>
  * @copyright Copyright (c) 2017 - HiPay
@@ -31,7 +32,6 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class DeliveryShippingInfoRequest extends AbstractRequest
 {
-      
     /**
      * Estimated date for the delivery
      *
@@ -46,7 +46,7 @@ class DeliveryShippingInfoRequest extends AbstractRequest
      * Delivery Method from HiPay\Fullservice\Data\DeliveryMethod\Collection
      * Eg "{"mode":"STORE","shipping":"STANDARD"}'"
      *
-     * @var $sring $delivery_method
+     * @var $string $delivery_method
      * @format JSON
      * @required Only for ONEY FACILY PAY
      */

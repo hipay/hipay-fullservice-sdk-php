@@ -38,7 +38,6 @@ class OperationResponse extends AbstractModel
 
     /**
      * @var string $_currency
-     * @type currency
      */
     protected $_currency;
 

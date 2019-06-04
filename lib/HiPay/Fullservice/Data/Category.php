@@ -27,7 +27,8 @@ namespace HiPay\Fullservice\Data;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class Category {
+class Category
+{
 
     CONST DEFAULT_LANG_ISO_CODE = "EN";
 
@@ -51,8 +52,10 @@ class Category {
      *
      * @param $code
      * @param $name
+     * @param $locals
      */
-    public function __construct($code, $name, $locals) {
+    public function __construct($code, $name, $locals)
+    {
 
         $this->_code = $code;
         $this->_name = $name;
@@ -62,21 +65,25 @@ class Category {
     /**
      * @return int
      */
-    public function getCode() {
+    public function getCode()
+    {
         return $this->_code;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_name;
     }
 
     /**
-     * @return string
+     * @param string $langIsoCode
+     * @return mixed
      */
-    public function getLocal($langIsoCode = Category::DEFAULT_LANG_ISO_CODE) {
+    public function getLocal($langIsoCode = Category::DEFAULT_LANG_ISO_CODE)
+    {
 
         if (isset($this->_locals[$langIsoCode])) {
             return $this->_locals[$langIsoCode];
@@ -88,8 +95,8 @@ class Category {
     /**
      * @param array $locals
      */
-    public function setLocals($locals) {
+    public function setLocals($locals)
+    {
         $this->_locals = $locals;
     }
-
 }

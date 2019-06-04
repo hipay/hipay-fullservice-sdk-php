@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
 use HiPay\Fullservice\Request\AbstractRequest;
@@ -20,7 +21,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
 /**
  * Astropay Payment Method
  *
- * Data related to payment with astropay
+ * Data related to payment with Astropay
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -32,14 +33,14 @@ use HiPay\Fullservice\Request\AbstractRequest;
 class AstropayPaymentMethod extends AbstractRequest
 {
     /**
-    *  The national Identification Number
-    *
-    *  For Mexican identification use CPF CURP
-    *  For Brazilan identification use CPN
-    *
-    * @var string CPN or CPF
-    * @values Ex CPN : 621.413.068-76 or CPF (Curp) SSS230202HASDDD04
-    * @required
-    */
-   public $national_identification_number;
+     *  The national Identification Number
+     *
+     *  For Mexican identification use CPF CURP
+     *  For Brazilian identification use CPN
+     *
+     * @var string CPN or CPF
+     * @values Ex CPN : 621.413.068-76 or CPF (Curp) SSS230202HASDDD04
+     * @required
+     */
+    public $national_identification_number;
 }

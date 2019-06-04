@@ -45,7 +45,6 @@ class SEPADirectDebitPaymentMethod extends IssuerBankIDPaymentMethod
      *
      * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
      * @length 1
-     * @type options
      * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
      */
     public $recurring_payment;
@@ -86,5 +85,4 @@ class SEPADirectDebitPaymentMethod extends IssuerBankIDPaymentMethod
      * @values M|Male,F|Female,U|Unknown see HiPay\Fullservice\Enum\AbstractEnum\Gender
      */
     public $gender;
-
 }

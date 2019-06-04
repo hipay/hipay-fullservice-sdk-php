@@ -13,28 +13,29 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-namespace HiPay\Fullservice\HTTP\Response;
 
-use HiPay\Fullservice\HTTP\Response\AbstractResponse;
+namespace HiPay\Fullservice\HTTP\Response;
 
 /**
  * Simple Object Response Data
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  */
-class Response extends AbstractResponse {
-    
+class Response extends AbstractResponse
+{
+
     /**
      *
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct()
      */
-    public function __construct($body, $statusCode, array $headers){
+    public function __construct($body, $statusCode, array $headers)
+    {
         parent::__construct($body, $statusCode, $headers);
     }
 }

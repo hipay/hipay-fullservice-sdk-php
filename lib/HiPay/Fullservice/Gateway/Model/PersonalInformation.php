@@ -19,7 +19,7 @@ namespace HiPay\Fullservice\Gateway\Model;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
- * Customer's Personnal Informations Model
+ * Customer's Personal Information Model
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -54,7 +54,6 @@ class PersonalInformation extends AbstractModel
         $this->_phone = $phone;
         $this->_phoneOperator = $phoneOperator;
         $this->_email = $email;
-
     }
 
     /**
@@ -98,7 +97,7 @@ class PersonalInformation extends AbstractModel
     protected $_phone;
 
     /**
-     * @var string $_phoneOperator Telecom operator
+     * @var string $_phoneOperator Telecoms operator
      */
     protected $_phoneOperator;
 
@@ -109,7 +108,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getFirstname()
     {
@@ -118,7 +117,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getLastname()
     {
@@ -127,7 +126,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getStreetAddress()
     {
@@ -136,7 +135,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getLocality()
     {
@@ -145,7 +144,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getPostalCode()
     {
@@ -154,7 +153,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getCountry()
     {
@@ -163,7 +162,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getMsisdn()
     {
@@ -172,7 +171,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getPhone()
     {
@@ -181,7 +180,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getPhoneOperator()
     {
@@ -190,7 +189,7 @@ class PersonalInformation extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getEmail()
     {

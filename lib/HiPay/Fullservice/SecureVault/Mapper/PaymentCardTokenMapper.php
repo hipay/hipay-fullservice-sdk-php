@@ -33,7 +33,7 @@ use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 class PaymentCardTokenMapper extends AbstractMapper
 {
     /**
-     * @var PaymentMethod $_modelObject Model object to populate
+     * @var PaymentCardToken $_modelObject Model object to populate
      */
     protected $_modelObject;
 

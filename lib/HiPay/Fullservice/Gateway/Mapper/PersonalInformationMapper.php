@@ -20,7 +20,7 @@ use HiPay\Fullservice\Gateway\Model\PersonalInformation;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 
 /**
- * Mapper for Personal Informations Model Object
+ * Mapper for Personal Information Model Object
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>

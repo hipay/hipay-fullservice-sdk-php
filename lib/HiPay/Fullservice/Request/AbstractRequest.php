@@ -18,7 +18,7 @@ namespace HiPay\Fullservice\Request;
 
 /**
  * Model request abstract.
- * All request object sended by Gateway client must implement it
+ * All request object send by Gateway client must implement it
  *
  * @package     HiPay\Fullservice
  * @author        Kassim Belghait <kassim@sirateck.com>
@@ -28,6 +28,4 @@ namespace HiPay\Fullservice\Request;
  */
 abstract class AbstractRequest implements RequestInterface
 {
-
-
 }
