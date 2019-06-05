@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Model\Cart;
 
-
 use HiPay\Fullservice\Enum\Cart\TypeItems;
 use HiPay\Fullservice\Model\AbstractModel;
 
@@ -206,7 +205,8 @@ class Item extends AbstractModel
         $discount_description,
         $total_amount
     ) {
-        return self::initInternalItem($product_reference,
+        return self::initInternalItem(
+            $product_reference,
             $name,
             1,
             $unit_price,
@@ -214,7 +214,8 @@ class Item extends AbstractModel
             $discount,
             $total_amount,
             TypeItems::DISCOUNT,
-            $discount_description);
+            $discount_description
+        );
     }
 
     /**
@@ -244,13 +245,13 @@ class Item extends AbstractModel
     ) {
         $cartItem = new Item();
         $cartItem->setProductReference($product_reference)
-            ->setName($name)
-            ->setType($type)
-            ->setQuantity($quantity)
-            ->setUnitPrice($unit_price)
-            ->setTaxRate($tax_rate)
-            ->setDiscount($discount)
-            ->setTotalAmount($total_amount);
+                 ->setName($name)
+                 ->setType($type)
+                 ->setQuantity($quantity)
+                 ->setUnitPrice($unit_price)
+                 ->setTaxRate($tax_rate)
+                 ->setDiscount($discount)
+                 ->setTotalAmount($total_amount);
 
         if ($type == TypeItems::DISCOUNT) {
             $cartItem->setDiscountDescription($discount_description);
@@ -278,7 +279,8 @@ class Item extends AbstractModel
         $discount,
         $total_amount
     ) {
-        return self::initInternalItem($product_reference,
+        return self::initInternalItem(
+            $product_reference,
             $name,
             1,
             $unit_price,
@@ -669,7 +671,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * Populate $_params array with data to send to the gateaway
+     * Populate $_params array with data to send to the gateway
      *
      * @param Item
      * @param array $params Passed by reference

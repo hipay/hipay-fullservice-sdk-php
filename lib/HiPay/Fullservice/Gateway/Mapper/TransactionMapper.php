@@ -86,10 +86,10 @@ class TransactionMapper extends AbstractMapper
             $threeDSecure = $tdsm->getModelObjectMapped();
         }
 
-        $fraudScreenig = null;
+        $fraudScreening = null;
         if (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) {
             $fsm = new FraudScreeningMapper($source['fraudScreening']);
-            $fraudScreenig = $fsm->getModelObjectMapped();
+            $fraudScreening = $fsm->getModelObjectMapped();
         }
 
         $order = null;
@@ -138,7 +138,7 @@ class TransactionMapper extends AbstractMapper
             $paymentProduct,
             $paymentMethod,
             $threeDSecure,
-            $fraudScreenig,
+            $fraudScreening,
             $order,
             $debitAgreement,
             $basket,
@@ -170,5 +170,4 @@ class TransactionMapper extends AbstractMapper
     {
         return '\HiPay\Fullservice\Gateway\Model\Transaction';
     }
-
 }

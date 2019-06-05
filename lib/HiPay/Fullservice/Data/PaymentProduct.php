@@ -29,22 +29,6 @@ namespace HiPay\Fullservice\Data;
  */
 class PaymentProduct
 {
-
-    /**
-     * PaymentProduct constructor.
-     *
-     * @param $paymentProductData
-     */
-    public function __construct($paymentProductData)
-    {
-
-        foreach ($paymentProductData as $key => $data) {
-            if (property_exists($this, $key)) {
-                $this->{$key} = $data;
-            }
-        }
-    }
-
     /**
      * @var string $productCode Product code (cd,mastercard,visa etc ...)
      */
@@ -91,7 +75,7 @@ class PaymentProduct
     private $canRefund = false;
 
     /**
-     * @var bool $canRefundPartially ayment product accept partial refunds
+     * @var bool $canRefundPartially Payment product accept partial refunds
      */
     private $canRefundPartially = false;
 
@@ -119,6 +103,21 @@ class PaymentProduct
      * @var array $additionalFields information about payment method specific fields, no specific fields if empty
      */
     private $additionalFields = array();
+
+    /**
+     * PaymentProduct constructor.
+     *
+     * @param $paymentProductData
+     */
+    public function __construct($paymentProductData)
+    {
+
+        foreach ($paymentProductData as $key => $data) {
+            if (property_exists($this, $key)) {
+                $this->{$key} = $data;
+            }
+        }
+    }
 
     /**
      * @return string
@@ -238,5 +237,13 @@ class PaymentProduct
     public function getAdditionalFields()
     {
         return $this->additionalFields;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return get_object_vars($this);
     }
 }

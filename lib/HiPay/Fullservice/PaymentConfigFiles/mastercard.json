@@ -13,5 +13,7 @@
   "currencies": [],
   "countries": [],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {}
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\CardTokenPaymentMethod"
+  }
 }

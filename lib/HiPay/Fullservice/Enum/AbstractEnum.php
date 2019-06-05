@@ -16,7 +16,7 @@
 namespace HiPay\Fullservice\Enum;
 
 /**
- * Abstratc Enum class
+ * Abstract Enum class
  * 
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>

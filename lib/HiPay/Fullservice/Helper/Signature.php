@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Helper;
 
 use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
@@ -41,19 +42,19 @@ class Signature
 {
 
     /**
-     * @param $secretPassPhrase
+     * @param $secretPassphrase
      * @param string $hashAlgorithm
      * @return bool
      */
     static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
     {
-		if (static::getComputedSignature($secretPassphrase, $hashAlgorithm) == static::getSignature()) {
-			return true;
-		} 
-		
-		return false;
+        if (static::getComputedSignature($secretPassphrase, $hashAlgorithm) == static::getSignature()) {
+            return true;
+        }
+
+        return false;
     }
-    
+
     /**
      *  Compute signature according to hash and passphrase
      *
@@ -62,7 +63,7 @@ class Signature
      *
      * @return string
      */
-	static protected function getComputedSignature($secretPassphrase, $hashAlgorithm)
+    static protected function getComputedSignature($secretPassphrase, $hashAlgorithm)
     {
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:

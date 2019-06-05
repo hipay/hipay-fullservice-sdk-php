@@ -68,4 +68,29 @@ class PaymentProductTest extends TestCase
         $this->assertEquals(array(), $paymentProduct->getCheckoutFieldsMandatory());
         $this->assertEquals(array(), $paymentProduct->getAdditionalFields());
     }
+
+    public function testToArray()
+    {
+        $data = array(
+            "productCode" => "aura",
+            "brandName" => "Aura",
+            "category" => "credit-card",
+            "comment" => "Available only in BRL currency.",
+            "can3ds" => 0,
+            "canRecurring" => 0,
+            "canManualCapture" => 1,
+            "canManualCapturePartially" => 1,
+            "canRefund" => 0,
+            "canRefundPartially" => 0,
+            "basketRequired" => 0,
+            "currencies" => array("BRL"),
+            "countries" => array("BR"),
+            "checkoutFieldsMandatory" => Array(),
+            "additionalFields" => Array()
+        );
+
+        $paymentProduct = new PaymentProduct($data);
+
+        $this->assertEquals($paymentProduct->toArray(), $data);
+    }
 }

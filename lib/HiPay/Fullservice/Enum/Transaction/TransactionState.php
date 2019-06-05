@@ -13,23 +13,24 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum\Transaction;
 
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
  * Constant values of Transaction States
- * 
+ *
  * Value must be a member of the following list:
  * - completed
  * - forwarding
  * - pending
  * - declined
  * - error
- * 
- * For any others informations, you can refer to the section *Transaction Workflow*
- * in HiPayTPP-GatewayAPI documentation 
- * 
+ *
+ * For any others information, you can refer to the section *Transaction Workflow*
+ * in HiPayTPP-GatewayAPI documentation
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -43,24 +44,24 @@ class TransactionState extends AbstractEnum
      * @var string COMPLETED Transaction is completed
      */
     const COMPLETED = 'completed';
-    
+
     /**
      * @var string FORWARDING Transaction is forwarding action
      */
     const FORWARDING = 'forwarding';
-    
+
     /**
      * @var string PENDING Transaction is in pending process
      */
     const PENDING = 'pending';
-    
+
     /**
      * @var string DECLINED Transaction is declined
      */
     const DECLINED = 'declined';
-    
+
     /**
-     * @var string ERROR an error occured
+     * @var string ERROR an error occurred
      */
     const ERROR = 'error';
 }

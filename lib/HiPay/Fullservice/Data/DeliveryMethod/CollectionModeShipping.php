@@ -31,12 +31,14 @@ use HiPay\Fullservice\Data\DeliveryMethodAttribute;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class CollectionModeShipping {
+class CollectionModeShipping
+{
 
     /**
-     * @return DeliveryMode[] and DeliveryShipping[] Collection 
+     * @return DeliveryMethodAttribute[] Collection
      */
-    public static function getItems() {
+    public static function getItems()
+    {
 
         $jsonModeArr = json_decode(self::$_JSON_MODE, true);
         $jsonShippingArr = json_decode(self::$_JSON_SHIPPING, true);
@@ -54,7 +56,6 @@ class CollectionModeShipping {
     }
 
     /**
-     *
      * @var string $_JSON Json collection
      */
     private static $_JSON_MODE = <<<EOT
@@ -98,10 +99,9 @@ class CollectionModeShipping {
         ]
         
 EOT;
-    
+
 
     /**
-     *
      * @var string $_JSON Json collection
      */
     private static $_JSON_SHIPPING = <<<EOT

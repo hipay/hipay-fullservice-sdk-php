@@ -1,36 +1,37 @@
 {
-	"name" : "hipay/hipay-fullservice-sdk-php",
-	"type" : "library",
-	"minimum-stability": "stable",
-	"description" : "The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform.",
-	"keywords" : [
-		"hipay",
-		"payment",
-		"payment method"
-	],
-	"homepage" : "https://hipay.com/product-enterprise/",
-	"version" : "2.2.0",
-	"license" : "Apache-2.0",
-	"authors" : [{
-			"name" : "HiPay",
-			"homepage" : "http://www.hipay.com",
-			"email" : "support.tpp@hipay.com"
-		}
-	],
-	"support" : {
-		"email" : "support.tpp@hipay.com"
-	},
-	"require" : {
-		"php" : ">=5.6.0",
-		"ext-curl": "*"
-	},
-	"require-dev" : {
-		"phpunit/phpunit" : "6.2.*",
-		"phpdocumentor/phpdocumentor": "^2.8"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"HiPay\\Fullservice\\" : "lib/HiPay/Fullservice/"
-		}
-	}
+  "name": "hipay/hipay-fullservice-sdk-php",
+  "type": "library",
+  "minimum-stability": "stable",
+  "description": "The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform.",
+  "keywords": [
+    "hipay",
+    "payment",
+    "payment method"
+  ],
+  "homepage": "https://hipay.com/product-enterprise/",
+  "version": "2.2.1",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "HiPay",
+      "homepage": "http://www.hipay.com",
+      "email": "support.tpp@hipay.com"
+    }
+  ],
+  "support": {
+    "email": "support.tpp@hipay.com"
+  },
+  "require": {
+    "php": ">=5.6.0",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "HiPay\\Fullservice\\": "lib/HiPay/Fullservice/"
+    }
+  }
 }

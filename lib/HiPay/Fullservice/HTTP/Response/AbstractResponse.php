@@ -13,9 +13,9 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\HTTP\Response;
 
-use HiPay\Fullservice\HTTP\Response\ResponseInterface;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Fullservice\Exception\OutOfBoundsException;
@@ -43,7 +43,7 @@ abstract class AbstractResponse implements ResponseInterface
     private $_body;
 
     /**
-     * HTTP staus code
+     * HTTP status code
      * @var string $_statusCode Status code (200, 404 etc ...)
      */
     private $_statusCode;
@@ -61,7 +61,7 @@ abstract class AbstractResponse implements ResponseInterface
      * @param int $statusCode HTTP status code
      * @param array $headers All response headers
      * @throws InvalidArgumentException
-     * @see HiPay\Fullservice\HTTP\ClientProvider::doRequest Type of return value.
+     * @see ClientProvider::doRequest Type of return value.
      */
     public function __construct($body, $statusCode, array $headers)
     {
@@ -147,7 +147,7 @@ abstract class AbstractResponse implements ResponseInterface
         //instead an object
         $responseArray = json_decode($this->getBody(), true);
 
-        // We Can't return a diffent value of array
+        // We Can't return a different value of array
         // So,we throw an exception
         if (is_null($responseArray) || !is_array($responseArray)) {
             throw new UnexpectedValueException(
