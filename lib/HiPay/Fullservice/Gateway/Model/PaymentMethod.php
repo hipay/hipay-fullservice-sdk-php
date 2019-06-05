@@ -21,7 +21,7 @@ use HiPay\Fullservice\Model\AbstractModel;
 /**
  * Payment method model
  *
- * Informations about payment method (Card expiry, issuer, country etc ...)
+ * Information about payment method (Card expiry, issuer, country etc ...)
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>

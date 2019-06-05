@@ -130,13 +130,13 @@ class Order extends AbstractModel
 
     /**
      *
-     * @var PersonalInformation $_shippingAddress Customer Shipping address informations
+     * @var PersonalInformation $_shippingAddress Customer Shipping address information
      */
     protected $_shippingAddress;
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getId()
     {
@@ -145,7 +145,7 @@ class Order extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getDateCreated()
     {
@@ -153,8 +153,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the int
+     * @return int
      */
     public function getAttempts()
     {
@@ -162,8 +161,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the float
+     * @return float
      */
     public function getAmount()
     {
@@ -171,8 +169,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the float
+     * @return float
      */
     public function getShipping()
     {
@@ -180,8 +177,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the float
+     * @return float
      */
     public function getTax()
     {
@@ -189,8 +185,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the int
+     * @return int
      */
     public function getDecimals()
     {
@@ -199,7 +194,7 @@ class Order extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getCurrency()
     {
@@ -208,7 +203,7 @@ class Order extends AbstractModel
 
     /**
      *
-     * @return the string
+     * @return string
      */
     public function getCustomerId()
     {
@@ -216,8 +211,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the string
+     * @return string
      */
     public function getLanguage()
     {
@@ -225,8 +219,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the string
+     * @return string
      */
     public function getGender()
     {
@@ -234,8 +227,7 @@ class Order extends AbstractModel
     }
 
     /**
-     *
-     * @return the PersonalInformation
+     * @return PersonalInformation
      */
     public function getShippingAddress()
     {

@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Request\Order;
 
 
@@ -20,10 +21,11 @@ use HiPay\Fullservice\Gateway\Request\Info\CustomerBillingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\CommonRequest;
 use HiPay\Fullservice\Gateway\Request\Info\DeliveryShippingInfoRequest;
+use HiPay\Fullservice\Gateway\Model\PaymentMethod;
 
 /**
  * Order request class.
- * Base order informations to send
+ * Base order information to send
  *
  * @category    HiPay
  * @package     HiPay\Fullservice
@@ -60,7 +62,7 @@ class OrderRequest extends CommonRequest
     public $payment_product;
 
     /**
-     * @var string $description The order short descrption
+     * @var string $description The order short description
      * @length 255
      * @required
      */
@@ -74,8 +76,7 @@ class OrderRequest extends CommonRequest
     /**
      * @var string $currency Base currency for this order. (Default to EUR).  This three-character currency code complies with ISO 4217.
      * @required
-     * @lenth 3
-     * @type currency
+     * @length 3
      */
     public $currency = 'EUR';
 
@@ -108,7 +109,6 @@ class OrderRequest extends CommonRequest
     /**
      * @var string $ipaddr The IP address of your customer making a purchase.
      * @required
-     * @type ip
      */
     public $ipaddr;
 
@@ -118,14 +118,12 @@ class OrderRequest extends CommonRequest
      * @var string $pending_url The URL to return your customer to when the payment request was submitted to the acquirer but response is not yet available.
      * @var string $exception_url The URL to return your customer to after a system failure.
      * @var string $cancel_url The URL to return your customer to when he or she decides to abort the payment.
-     * @type url
      */
     public $accept_url, $decline_url, $pending_url, $exception_url, $cancel_url;
 
 
     /**
      * @var string $notify_url Override the notification url specified in the HiPay backend
-     * @type url
      */
     public $notify_url;
 
@@ -156,13 +154,13 @@ class OrderRequest extends CommonRequest
     public $language;
 
     /**
-     * @var CustomerBillingInfoRequest $customerBillingInfo Customer Billing informations
-     * @var CustomerShippingInfoRequest $customerShippingInfo Customer Shipping informations
+     * @var CustomerBillingInfoRequest $customerBillingInfo Customer Billing information
+     * @var CustomerShippingInfoRequest $customerShippingInfo Customer Shipping information
      */
     public $customerBillingInfo, $customerShippingInfo;
 
     /**
-     * @var AbstractRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
+     * @var PaymentMethod $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
      */
     public $paymentMethod;
 
@@ -170,5 +168,4 @@ class OrderRequest extends CommonRequest
      * @var DeliveryShippingInfoRequest $delivery_information
      */
     public $delivery_information;
-
 }

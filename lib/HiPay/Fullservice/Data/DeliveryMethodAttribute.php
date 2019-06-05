@@ -27,7 +27,8 @@ namespace HiPay\Fullservice\Data;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class DeliveryMethodAttribute {
+class DeliveryMethodAttribute
+{
 
     CONST DEFAULT_LANG_ISO_CODE = "EN";
 
@@ -52,15 +53,18 @@ class DeliveryMethodAttribute {
      * @param string $code
      * @param string $displayName
      */
-    public function __construct($code, $displayName) {
+    public function __construct($code, $displayName)
+    {
         $this->_code = $code;
         $this->_displayName = $displayName;
     }
 
     /**
-     * @return string
+     * @param string $langIsoCode
+     * @return mixed
      */
-    public function getDisplayName($langIsoCode = DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE) {
+    public function getDisplayName($langIsoCode = DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE)
+    {
 
         if (isset($this->_displayName[$langIsoCode])) {
             return $this->_displayName[$langIsoCode];
@@ -72,22 +76,24 @@ class DeliveryMethodAttribute {
     /**
      * @param array $displayName
      */
-    public function setDisplayName($displayName) {
+    public function setDisplayName($displayName)
+    {
         $this->_displayName = $displayName;
     }
 
     /**
      * @return string
      */
-    public function getCode() {
+    public function getCode()
+    {
         return $this->_code;
     }
 
     /**
      * @param string $code
      */
-    public function setCode($code) {
+    public function setCode($code)
+    {
         $this->_code = $code;
     }
-
 }

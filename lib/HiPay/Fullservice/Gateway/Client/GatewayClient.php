@@ -18,7 +18,6 @@ namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
-use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Request\RequestSerializer;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
@@ -28,7 +27,6 @@ use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
-use Magento\Review\Block\Adminhtml\Main;
 
 /**
  * Client class for all request send to TPP Fullservice.
@@ -43,7 +41,6 @@ use Magento\Review\Block\Adminhtml\Main;
  */
 class GatewayClient implements GatewayClientInterface
 {
-
 
     /**
      *
@@ -71,7 +68,7 @@ class GatewayClient implements GatewayClientInterface
 
     /**
      *
-     * @var string ENDPOINT_MAINTENANCE_OPERATION endpoint to do a maintenance operation (capture,refund,accept,deby etc ...)
+     * @var string ENDPOINT_MAINTENANCE_OPERATION endpoint to do a maintenance operation (capture, refund, accept, etc, ...)
      */
     const ENDPOINT_MAINTENANCE_OPERATION = 'v1/maintenance/transaction/{transaction}';
 
@@ -214,11 +211,11 @@ class GatewayClient implements GatewayClientInterface
         $params = $this->_serializeRequestToArray($maintenanceRequest);
 
         $response = $this->getClientProvider()
-            ->request(
-                self::METHOD_MAINTENANCE_OPERATION,
-                str_replace('{transaction}', $transactionReference, self::ENDPOINT_MAINTENANCE_OPERATION),
-                $params
-            );
+                         ->request(
+                             self::METHOD_MAINTENANCE_OPERATION,
+                             str_replace('{transaction}', $transactionReference, self::ENDPOINT_MAINTENANCE_OPERATION),
+                             $params
+                         );
 
         $om = new OperationMapper($response->toArray());
         return $om->getModelObjectMapped();

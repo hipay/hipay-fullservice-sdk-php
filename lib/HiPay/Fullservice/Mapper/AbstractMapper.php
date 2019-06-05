@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Mapper;
 
-use HiPay\Fullservice\Mapper\MapperInterface;
 use HiPay\Fullservice\Model\AbstractModel;
 use HiPay\Fullservice\Exception\LengthException;
 use HiPay\Fullservice\Helper\Convert;
@@ -115,6 +114,4 @@ abstract class AbstractMapper implements MapperInterface
      * @return string Name of the class to return mapped
      */
     abstract protected function getModelClassName();
-
-
 }

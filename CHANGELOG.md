@@ -1,3 +1,7 @@
+# Version 2.2.1
+- Add toArray method to PaymentProduct
+- Fix: typo and code formatting
+
 # Version 2.2.0
 - Update payment product collection
 

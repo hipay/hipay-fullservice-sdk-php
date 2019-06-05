@@ -16,8 +16,6 @@
 namespace HiPay\Fullservice\HTTP;
 
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
-use HiPay\Fullservice\HTTP\Client;
-use HiPay\Fullservice\HTTP\Configuration\Configuration;
 
 /**
  * Abstract Client for send request
@@ -39,12 +37,12 @@ abstract class ClientProvider implements Client
     protected $_configuration;
 
     /**
-     * @var object $httpClient Client used to execute HTTP request
+     * @var resource $httpClient Client used to execute HTTP request
      */
     protected $_httpClient;
 
     /**
-     * Contruct HTTP client with Confuration Object
+     * Construct HTTP client with Configuration Object
      *
      * @param ConfigurationInterface $configuration
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface
@@ -92,7 +90,7 @@ abstract class ClientProvider implements Client
 
 
     /**
-     * @return object $_httpClient Current HTTP client used
+     * @return resource $_httpClient Current HTTP client used
      */
     public function getHttpClient()
     {

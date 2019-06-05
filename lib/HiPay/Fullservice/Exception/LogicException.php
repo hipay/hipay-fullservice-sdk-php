@@ -13,20 +13,20 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Exception;
 
-use HiPay\Fullservice\Exception\ExceptionInterface;
-
 /**
- * Exception that represents error in the program logic. 
+ * Exception that represents error in the program logic.
  * This kind of exception should lead directly to a fix in your code.
- * 
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
-class LogicException extends \LogicException implements ExceptionInterface {
+class LogicException extends \LogicException implements ExceptionInterface
+{
 }

@@ -47,7 +47,6 @@ class HostedPaymentPageRequest extends OrderRequest
 
     /**
      * @var string URL to merchant style sheet. HTTPS protocol is required.
-     * @type https url to stylesheet
      */
     public $css;
 
@@ -80,7 +79,6 @@ class HostedPaymentPageRequest extends OrderRequest
      *
      * @var int $multi_use
      * @length 1
-     * @type options
      * @values 0|Generate a single-use token,1|Generate a multi-use token
      */
     public $multi_use;

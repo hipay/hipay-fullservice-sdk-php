@@ -33,10 +33,9 @@ class OperationResponseMapper extends AbstractMapper
 {
 
     /**
-     * @var Operation $_modelObject Model object to populate
+     * @var OperationResponse $_modelObject Model object to populate
      */
     protected $_modelObject;
-
 
     protected $_modelClassName;
 
@@ -87,6 +86,4 @@ class OperationResponseMapper extends AbstractMapper
     {
         return '\HiPay\Fullservice\Gateway\Model\OperationResponse';
     }
-
-
 }

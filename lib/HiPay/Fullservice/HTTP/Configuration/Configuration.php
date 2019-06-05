@@ -15,7 +15,6 @@
 
 namespace HiPay\Fullservice\HTTP\Configuration;
 
-use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Exception\UnexpectedValueException;
 
@@ -128,11 +127,11 @@ class Configuration implements ConfigurationInterface
     ) {
 
         if (empty($apiUsername) || !is_string($apiUsername)) {
-            throw new InvalidArgumentException("Api username can't be emtpy and must be a string");
+            throw new InvalidArgumentException("Api username can't be empty and must be a string");
         }
 
         if (empty($apiPassword) || !is_string($apiPassword)) {
-            throw new InvalidArgumentException("Api password can't be emtpy and must be a string");
+            throw new InvalidArgumentException("Api password can't be empty and must be a string");
         }
 
         if ($apiEnv !== self::API_ENV_PRODUCTION && $apiEnv !== self::API_ENV_STAGE) {

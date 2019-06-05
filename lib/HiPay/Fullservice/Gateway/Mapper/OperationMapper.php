@@ -11,8 +11,8 @@
  *
  * @copyright      Copyright (c) 2016 - HiPay
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
- *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -20,7 +20,7 @@ use HiPay\Fullservice\Gateway\Model\Operation;
 
 /**
  * Mapper for Operation Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,13 +28,14 @@ use HiPay\Fullservice\Gateway\Model\Operation;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class OperationMapper extends AbstractMapper {
-	
-	/**
-	 * @var Operation $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
-    
+class OperationMapper extends AbstractMapper
+{
+
+    /**
+     * @var Operation $_modelObject Model object to populate
+     */
+    protected $_modelObject;
+
     protected $_modelClassName;
 
     /**
@@ -60,30 +61,27 @@ class OperationMapper extends AbstractMapper {
         $refundedAmount = $source['refundedAmount'] ?: null;
         $decimals = $source['decimals'] ?: null;
         $currency = $source['currency'] ?: null;
-        $reason =  null;       
+        $reason = null;
         $operation = isset($source['operation']) ? $source['operation'] : null;
-        
-        $this->_modelObject = new Operation(
-        		$mid, 
-        		$authorizationCode, 
-        		$transactionReference, 
-        		$dateCreated, 
-        		$dateUpdated, 
-        		$dateAuthorized, 
-        		$status, 
-        		$state, 
-        		$message,
-        		$authorizedAmount, 
-        		$capturedAmount, 
-        		$refundedAmount, 
-        		$decimals, 
-        		$currency, 
-        		$reason, 
-        		$operation
-        		);
 
-        
- 			
+        $this->_modelObject = new Operation(
+            $mid,
+            $authorizationCode,
+            $transactionReference,
+            $dateCreated,
+            $dateUpdated,
+            $dateAuthorized,
+            $status,
+            $state,
+            $message,
+            $authorizedAmount,
+            $capturedAmount,
+            $refundedAmount,
+            $decimals,
+            $currency,
+            $reason,
+            $operation
+        );
     }
 
     /**
@@ -107,7 +105,4 @@ class OperationMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\Operation';
     }
-
-
-
 }

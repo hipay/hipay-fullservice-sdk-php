@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -20,7 +21,7 @@ use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 
 /**
  * Mapper for Hosted Payment Page Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,13 +29,14 @@ use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class HostedPaymentPageMapper extends AbstractMapper {
-	
-	/**
-	 * @var HostedPaymentPage $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
-    
+class HostedPaymentPageMapper extends AbstractMapper
+{
+
+    /**
+     * @var HostedPaymentPage $_modelObject Model object to populate
+     */
+    protected $_modelObject;
+
     protected $_modelClassName;
 
     /**
@@ -49,17 +51,16 @@ class HostedPaymentPageMapper extends AbstractMapper {
         $mid = isset($source['mid']) ? $source['mid'] : null;
         $forwardUrl = isset($source['forwardUrl']) ? $source['forwardUrl'] : null;
         $order = null;
-        if(isset($source['order'])){
-        	$om = new OrderMapper($source['order']);
-        	$order = $om->getModelObjectMapped();
+        if (isset($source['order'])) {
+            $om = new OrderMapper($source['order']);
+            $order = $om->getModelObjectMapped();
         }
 
-        $this->_modelObject = new HostedPaymentPage($mid, 
-        		$forwardUrl, 
-        		$order
-        ) ;
-        
- 			
+        $this->_modelObject = new HostedPaymentPage(
+            $mid,
+            $forwardUrl,
+            $order
+        );
     }
 
     /**
@@ -83,7 +84,4 @@ class HostedPaymentPageMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\HostedPaymentPage';
     }
-
-
-
 }
