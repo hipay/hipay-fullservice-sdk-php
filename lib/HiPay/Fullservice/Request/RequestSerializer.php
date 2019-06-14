@@ -16,6 +16,8 @@
 
 namespace HiPay\Fullservice\Request;
 
+use HiPay\Fullservice\Model\AbstractModel;
+
 /**
  * Serialize Request object
  *
@@ -78,8 +80,6 @@ class RequestSerializer
      *
      * @param AbstractRequest $object Object source
      * @param array $params Passed by reference
-     *
-     * @todo Make only one depth
      */
     protected function prepareParams($object, &$params)
     {
@@ -91,14 +91,16 @@ class RequestSerializer
          * Else if value of property is scalar we assign it
          */
         foreach ($properties as $p => $v) {
-            if (is_object($v) && $v instanceof AbstractRequest) {
 
-                $this->prepareParams($v, $params);
-            }
             if (is_scalar($v)) {
                 $params[$p] = $v;
+            } elseif (is_array($v)) {
+                $params[$p] = json_encode($v);
+            } elseif (is_object($v) && $v instanceof AbstractModel) {
+                $params[$p] = $v->toJson();
+            } elseif (is_object($v) && $v instanceof AbstractRequest) {
+                $this->prepareParams($v, $params);
             }
         }
-
     }
 }

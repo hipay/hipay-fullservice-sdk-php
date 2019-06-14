@@ -125,7 +125,6 @@ class Configuration implements ConfigurationInterface
         $apiHTTPHeaderAccept = null,
         $proxy = array()
     ) {
-
         if (empty($apiUsername) || !is_string($apiUsername)) {
             throw new InvalidArgumentException("Api username can't be empty and must be a string");
         }
@@ -145,7 +144,6 @@ class Configuration implements ConfigurationInterface
         $this->_apiEnv = $apiEnv;
 
         if (!is_null($apiHTTPHeaderAccept)) {
-
             if (!in_array($apiHTTPHeaderAccept, $this->_validHTPPHeaders)) {
                 throw new UnexpectedValueException(
                     sprintf(

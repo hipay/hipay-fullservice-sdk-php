@@ -70,7 +70,7 @@ class ClientProviderTest extends TestCase
 
     /**
      * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
-     * @uses  HiPay\Fullservice\HTTP\Configuration
+     * @uses  \HiPay\Fullservice\HTTP\Configuration\Configuration
      */
     public function testCanBeConstructUsingConfiguration()
     {

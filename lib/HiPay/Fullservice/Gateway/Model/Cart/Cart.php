@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Model\Cart;
 
-
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
@@ -51,7 +50,7 @@ class Cart extends AbstractModel
     /**
      *  Add an item ( Fee, Good , Discount) into the cart
      *
-     * @param $item Item
+     * @param Item $item
      */
     public function addItem($item)
     {

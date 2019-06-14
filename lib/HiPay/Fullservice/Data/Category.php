@@ -29,8 +29,7 @@ namespace HiPay\Fullservice\Data;
  */
 class Category
 {
-
-    CONST DEFAULT_LANG_ISO_CODE = "EN";
+    const DEFAULT_LANG_ISO_CODE = "EN";
 
     /**
      * @var int $_code Technical code
@@ -50,13 +49,12 @@ class Category
     /**
      * Category constructor.
      *
-     * @param $code
-     * @param $name
-     * @param $locals
+     * @param int $code
+     * @param string $name
+     * @param array $locals
      */
     public function __construct($code, $name, $locals)
     {
-
         $this->_code = $code;
         $this->_name = $name;
         $this->_locals = $locals;
@@ -84,7 +82,6 @@ class Category
      */
     public function getLocal($langIsoCode = Category::DEFAULT_LANG_ISO_CODE)
     {
-
         if (isset($this->_locals[$langIsoCode])) {
             return $this->_locals[$langIsoCode];
         }

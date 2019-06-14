@@ -17,6 +17,12 @@
 namespace HiPay\Fullservice\Gateway\Request\Order;
 
 
+use HiPay\Fullservice\Enum\ThreeDSTwo\DeviceChannel;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\BrowserInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatement;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\PreviousAuthInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\RecurringInfo;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerBillingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\CommonRequest;
@@ -168,4 +174,35 @@ class OrderRequest extends CommonRequest
      * @var DeliveryShippingInfoRequest $delivery_information
      */
     public $delivery_information;
+
+    /**
+     * @var BrowserInfo $browser_info
+     */
+    public $browser_info;
+
+    /**
+     * @var PreviousAuthInfo $previous_auth_info
+     */
+    public $previous_auth_info;
+
+    /**
+     * @var MerchantRiskStatement $merchant_risk_statement
+     */
+    public $merchant_risk_statement;
+
+    /**
+     * @var AccountInfo $account_info
+     */
+    public $account_info;
+
+    /**
+     * @var string $device_channel
+     * @value DeviceChannel::APP_BASED | DeviceChannel::BROWSER | DeviceChannel::THREE_DS_REQUESTOR_INITIATED
+     */
+    public $device_channel;
+    
+    /**
+     * @var RecurringInfo $recurring_info
+     */
+    public $recurring_info;
 }

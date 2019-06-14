@@ -65,7 +65,6 @@ abstract class AbstractResponse implements ResponseInterface
      */
     public function __construct($body, $statusCode, array $headers)
     {
-
         if (!is_string($body)) {
             throw new InvalidArgumentException("Body must be a string");
         }
@@ -124,7 +123,6 @@ abstract class AbstractResponse implements ResponseInterface
      */
     public function toArray()
     {
-
         $headers = $this->getHeaders();
         //Check if Content-Type key exist
         //And throw an Exception if not

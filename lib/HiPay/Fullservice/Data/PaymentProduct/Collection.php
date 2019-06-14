@@ -32,7 +32,6 @@ use HiPay\Fullservice\Data\PaymentProduct;
  */
 class Collection
 {
-
     const PAYMENT_CONFIG_FILE_PATH = __DIR__ . "/../../PaymentConfigFiles/";
 
     /**
@@ -44,7 +43,6 @@ class Collection
     public static function getItem($product_code)
     {
         if (file_exists(self::PAYMENT_CONFIG_FILE_PATH . $product_code . ".json")) {
-
             return new PaymentProduct(
                 json_decode(
                     file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $product_code . ".json"),
@@ -62,7 +60,6 @@ class Collection
      */
     public static function getItems($categories = null)
     {
-
         if (!is_null($categories) && !is_array($categories)) {
             $categories = array($categories);
         }
@@ -70,7 +67,6 @@ class Collection
         $collection = array();
 
         foreach (self::getPaymentMethodsData() as $item) {
-
             if (!is_null($categories) && !in_array($item['category'], $categories)) {
                 continue;
             }
