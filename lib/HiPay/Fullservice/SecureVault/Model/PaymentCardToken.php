@@ -82,6 +82,31 @@ class PaymentCardToken extends AbstractModel
      */
     private $_domesticNetwork;
 
+    /**
+     * @var string $_cardHash
+     */
+    private $_cardHash;
+
+    /**
+     * @var string $_cardId
+     */
+    private $_cardId;
+
+    /**
+     * @var string $_cardType
+     */
+    private $_cardType;
+
+    /**
+     * @var string $_cardCategory
+     */
+    private $_cardCategory;
+
+    /**
+     * @var string $_forbiddenIssuerCountry
+     */
+    private $_forbiddenIssuerCountry;
+
     public function __construct(
         $token,
         $brand,
@@ -92,7 +117,12 @@ class PaymentCardToken extends AbstractModel
         $issuer,
         $country,
         $requestId,
-        $domesticNetwork
+        $domesticNetwork,
+        $cardHash,
+        $cardId,
+        $cardType,
+        $cardCategory,
+        $forbiddenIssuerCountry
     ) {
         $this->_token = $token;
         $this->_brand = $brand;
@@ -104,8 +134,12 @@ class PaymentCardToken extends AbstractModel
         $this->_country = $country;
         $this->_requestId = $requestId;
         $this->_domesticNetwork = $domesticNetwork;
+        $this->_cardHash = $cardHash;
+        $this->_cardId = $cardId;
+        $this->_cardType = $cardType;
+        $this->_cardCategory = $cardCategory;
+        $this->_forbiddenIssuerCountry = $forbiddenIssuerCountry;
     }
-
 
     public function getToken()
     {
@@ -155,5 +189,30 @@ class PaymentCardToken extends AbstractModel
     public function getDomesticNetwork()
     {
         return $this->_domesticNetwork;
+    }
+
+    public function getCardHash()
+    {
+        return $this->_cardHash;
+    }
+
+    public function getCardId()
+    {
+        return $this->_cardId;
+    }
+
+    public function getCardType()
+    {
+        return $this->_cardType;
+    }
+
+    public function getCardCategory()
+    {
+        return $this->_cardCategory;
+    }
+
+    public function getForbiddenIssuerCountry()
+    {
+        return $this->_forbiddenIssuerCountry;
     }
 }
