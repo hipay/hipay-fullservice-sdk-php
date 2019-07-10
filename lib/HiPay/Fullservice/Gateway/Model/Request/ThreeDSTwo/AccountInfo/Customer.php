@@ -30,6 +30,8 @@ use HiPay\Fullservice\Model\AbstractModel;
 class Customer extends AbstractModel
 {
     public $account_change;
+
     public $opening_account_date;
+
     public $password_change;
 }

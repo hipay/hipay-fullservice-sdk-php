@@ -30,5 +30,6 @@ use HiPay\Fullservice\Model\AbstractModel;
 class RecurringInfo extends AbstractModel
 {
     public $expiration_date;
+
     public $frequency;
 }

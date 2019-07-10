@@ -22,10 +22,10 @@ class ReorderIndicator
     /**
      * FIRST TIME ORDERED
      */
-    const FIRST_TIME_ORDERED = "01";
+    const FIRST_TIME_ORDERED = 1;
 
     /**
      * REORDERED
      */
-    const REORDERED = "02";
+    const REORDERED = 2;
 }

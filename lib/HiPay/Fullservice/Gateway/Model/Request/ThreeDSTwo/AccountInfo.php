@@ -30,7 +30,10 @@ use HiPay\Fullservice\Model\AbstractModel;
 class AccountInfo extends AbstractModel
 {
     public $customer;
+
     public $purchase;
+
     public $payment;
+
     public $shipping;
 }

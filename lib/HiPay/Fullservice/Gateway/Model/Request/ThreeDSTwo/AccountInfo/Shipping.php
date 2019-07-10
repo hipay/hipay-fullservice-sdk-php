@@ -30,6 +30,8 @@ use HiPay\Fullservice\Model\AbstractModel;
 class Shipping extends AbstractModel
 {
     public $shipping_used_date;
+
     public $name_indicator;
+
     public $suspicious_activity;
 }

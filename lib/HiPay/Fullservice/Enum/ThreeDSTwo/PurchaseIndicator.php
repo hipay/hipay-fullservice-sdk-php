@@ -22,10 +22,10 @@ class PurchaseIndicator
     /**
      * MERCHANDISE AVAILABLE
      */
-    const MERCHANDISE_AVAILABLE = "01";
+    const MERCHANDISE_AVAILABLE = 1;
 
     /**
      * FUTURE AVAILABILITY
      */
-    const FUTURE_AVAILABILITY = "02";
+    const FUTURE_AVAILABILITY = 2;
 }

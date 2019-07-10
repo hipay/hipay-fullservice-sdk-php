@@ -30,10 +30,15 @@ use HiPay\Fullservice\Model\AbstractModel;
 class MerchantRiskStatement extends AbstractModel
 {
     public $email_delivery_address;
+
     public $delivery_time_frame;
+
     public $purchase_indicator;
+
     public $pre_order_date;
+
     public $reorder_indicator;
+
     public $shipping_indicator;
 
     /**

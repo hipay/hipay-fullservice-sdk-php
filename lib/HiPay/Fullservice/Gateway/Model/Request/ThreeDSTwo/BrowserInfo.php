@@ -30,14 +30,22 @@ use HiPay\Fullservice\Model\AbstractModel;
 class BrowserInfo extends AbstractModel
 {
     public $ipaddr;
+
     public $http_accept;
+
     public $http_user_agent;
+
     public $java_enabled;
+
     public $javascript_enabled;
+
     public $language;
+
     public $color_depth;
+
     public $screen_height;
+
     public $screen_width;
+
     public $timezone;
-    public $device_fingerprint;
 }

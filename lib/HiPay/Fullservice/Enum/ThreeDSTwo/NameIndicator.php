@@ -22,10 +22,10 @@ class NameIndicator
     /**
      * Account name identical to shipping Name
      */
-    const IDENTICAL = "01";
+    const IDENTICAL = 1;
 
     /**
      * Account name different than shipping Name
      */
-    const DIFFERENT = "02";
+    const DIFFERENT = 2;
 }

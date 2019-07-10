@@ -30,7 +30,10 @@ use HiPay\Fullservice\Model\AbstractModel;
 class Purchase extends AbstractModel
 {
     public $count;
+
     public $card_stored_24h;
+
     public $payment_attempts_24h;
+
     public $payment_attempts_1y;
 }

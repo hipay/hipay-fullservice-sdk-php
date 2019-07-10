@@ -22,20 +22,20 @@ class DeliveryTimeFrame
     /**
      * ELECTRONIC DELIVERY
      */
-    const ELECTRONIC_DELIVERY = "01";
+    const ELECTRONIC_DELIVERY = 1;
 
     /**
      * SAME DAY SHIPPING
      */
-    const SAME_DAY_SHIPPING = "02";
+    const SAME_DAY_SHIPPING = 2;
 
     /**
      * OVERNIGHT SHIPPING
      */
-    const OVERNIGHT_SHIPPING = "03";
+    const OVERNIGHT_SHIPPING = 3;
 
     /**
      * TWO DAY OR MORE SHIPPING
      */
-    const TWO_DAY_OR_MORE_SHIPPING = "04";
+    const TWO_DAY_OR_MORE_SHIPPING = 4;
 }
