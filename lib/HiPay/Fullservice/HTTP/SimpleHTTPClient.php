@@ -73,6 +73,8 @@ class SimpleHTTPClient extends ClientProvider
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FAILONERROR => false,
             CURLOPT_HEADER => false,
+            CURLOPT_TIMEOUT => $this->getConfiguration()->getCurlTimeout(),
+            CURLOPT_CONNECTTIMEOUT => $this->getConfiguration()->getCurlConnectTimeout(),
         );
 
         // add post parameters

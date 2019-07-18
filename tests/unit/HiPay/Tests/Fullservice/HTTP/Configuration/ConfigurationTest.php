@@ -129,13 +129,51 @@ class ConfigurationTest extends TestCase {
 	 */
 	public function testCanBeConstructFromAllArguments(){
 	
-		$conf = new Configuration("username", "123456",Configuration::API_ENV_PRODUCTION,'application/json');
+		$conf = new Configuration("username", "123456",Configuration::API_ENV_PRODUCTION,'application/json',
+            array("host" => 'http://proxy.example.fr', "port" => "8080"), 60, 60);
 		
 		$this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
-		
-		return $conf;
+        $this->assertEquals($conf->getApiUsername(), "username");
+        $this->assertEquals($conf->getApiPassword(), "123456");
+        $this->assertEquals($conf->getApiEnv(), Configuration::API_ENV_PRODUCTION);
+        $this->assertEquals($conf->getApiHTTPHeaderAccept(), "application/json");
+        $this->assertEquals($conf->getProxy(), array("host" => 'http://proxy.example.fr', "port" => "8080"));
+        $this->assertEquals($conf->getCurlTimeout(), 60);
+        $this->assertEquals($conf->getCurlConnectTimeout(), 60);
+
+        return $conf;
 	
 	}
+
+    /**
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     */
+    public function testCanBeConstructFromArray(){
+
+        $arrayConf = array(
+            "apiUsername" => "username",
+            "apiPassword" => "123456",
+            "apiEnv" => Configuration::API_ENV_PRODUCTION,
+            "apiHTTPHeaderAccept" => 'application/json',
+            "proxy" => array("host" => 'http://proxy.example.fr', "port" => "8080"),
+            "timeout" => 60,
+            "connect_timeout" => 60
+        );
+
+        $conf = new Configuration($arrayConf);
+
+        $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
+        $this->assertEquals($conf->getApiUsername(), "username");
+        $this->assertEquals($conf->getApiPassword(), "123456");
+        $this->assertEquals($conf->getApiEnv(), Configuration::API_ENV_PRODUCTION);
+        $this->assertEquals($conf->getApiHTTPHeaderAccept(), "application/json");
+        $this->assertEquals($conf->getProxy(), array("host" => 'http://proxy.example.fr', "port" => "8080"));
+        $this->assertEquals($conf->getCurlTimeout(), 60);
+        $this->assertEquals($conf->getCurlConnectTimeout(), 60);
+
+        return $conf;
+
+    }
 	
 	/**
 	 * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::getApiUsername
