@@ -428,7 +428,7 @@ class Configuration implements ConfigurationInterface
         $connect_timeout = 15
     )
     {
-        //trigger_error("This construction method is deprecated. Please use an array to create your configuration.", E_USER_DEPRECATED);
+        trigger_error("This construction method is deprecated. Please use an array to create your configuration.", E_USER_DEPRECATED);
 
         return array(
             "apiUsername" => $apiUsername,
