@@ -30,8 +30,4 @@ use HiPay\Fullservice\Model\AbstractModel;
 class PreviousAuthInfo extends AbstractModel
 {
     public $transaction_reference;
-
-    public $method;
-
-    public $timestamp;
 }
