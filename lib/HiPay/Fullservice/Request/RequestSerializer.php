@@ -97,7 +97,9 @@ class RequestSerializer
             } elseif (is_array($v)) {
                 $params[$p] = json_encode($v);
             } elseif (is_object($v) && $v instanceof AbstractModel) {
-                $params[$p] = $v->toJson();
+                if($v->cleanNullValues()) {
+                    $params[$p] = $v->toJson();
+                }
             } elseif (is_object($v) && $v instanceof AbstractRequest) {
                 $this->prepareParams($v, $params);
             }
