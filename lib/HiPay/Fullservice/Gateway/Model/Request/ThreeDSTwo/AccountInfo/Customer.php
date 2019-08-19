@@ -11,7 +11,6 @@
  *
  * @copyright      Copyright (c) 2019 - HiPay
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
- *
  */
 
 namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
@@ -19,6 +18,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Customer's account information
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,9 +30,27 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Customer extends AbstractModel
 {
+    /**
+     * Customer's last change on his account (YYYYMMDD)
+     *
+     * @var integer $account_change
+     * @example 20180507
+     */
     public $account_change;
 
+    /**
+     * Date when the customer created his account on the merchant's website (YYYYMMDD)
+     *
+     * @var integer $opening_account_date
+     * @example 20180507
+     */
     public $opening_account_date;
 
+    /**
+     * Date when the customer made a password change on his account (YYYYMMDD)
+     *
+     * @var integer $password_change
+     * @example 20180507
+     */
     public $password_change;
 }

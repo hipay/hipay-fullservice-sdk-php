@@ -148,7 +148,7 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
-     * http://www.mocky.io/v2/5b80129d3400005400dc0727 mocks an API error json response
+     * https://www.mocky.io/v2/5b80129d3400005400dc0727 mocks an API error json response
      *
      * @expectedException HiPay\Fullservice\Exception\ApiErrorException
      * @expectedExceptionCode 123123123
@@ -162,7 +162,7 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
-     * http://www.mocky.io/v2/5b8013903400007700dc072b mocks a not parsable HTTP 500 error
+     * https://www.mocky.io/v2/5b8013903400007700dc072b mocks a not parsable HTTP 500 error
      *
      * @expectedException HiPay\Fullservice\Exception\HttpErrorException
      * @expectedExceptionCode 500
@@ -176,7 +176,7 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
-     * http://www.mocky.io/v2/5d026cd63100002900ab2f83 mocks a HTTP 200
+     * https://www.mocky.io/v2/5d026cd63100002900ab2f83 mocks a HTTP 200
      */
     public function testHttpSuccessVaultRequest()
     {
@@ -188,20 +188,12 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
-     * http://www.mocky.io/v2/5d026cd63100002900ab2f83 mocks a not parsable HTTP 500 error
+     * https://www.mocky.io/v2/5d026cd63100002900ab2f83 mocks a not parsable HTTP 500 error
      */
     public function testHttpSuccessApiRequest()
     {
         $mock = $this->createMock(Configuration::class);
         $mock->method('getApiEndpoint')->willReturn('http://www.mocky.io');
-        $mock->method('getProxy')->willReturn(
-            array(
-                "host" => "http://hipay.com",
-                "port" => "80",
-                "user" => "user",
-                "password" => "password"
-            )
-        );
 
         $client = new SimpleHTTPClient($mock);
         $response = $client->request(

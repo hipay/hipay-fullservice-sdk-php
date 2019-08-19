@@ -17,8 +17,14 @@
 namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo;
 
 use HiPay\Fullservice\Model\AbstractModel;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Customer;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Purchase;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Payment;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Shipping;
 
 /**
+ * Information about the customer's account on the merchant's website
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,11 +35,31 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class AccountInfo extends AbstractModel
 {
+    /**
+     * Customer's account information
+     *
+     * @var Customer $customer
+     */
     public $customer;
 
+    /**
+     * Customer's purchase information
+     *
+     * @var Purchase $purchase
+     */
     public $purchase;
 
+    /**
+     * Customer's payment information
+     *
+     * @var Payment $payment
+     */
     public $payment;
 
+    /**
+     * Customer's shipping information
+     *
+     * @var Shipping $shipping
+     */
     public $shipping;
 }

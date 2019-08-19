@@ -19,6 +19,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Browser Information
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,23 +31,82 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class BrowserInfo extends AbstractModel
 {
+    /**
+     * Customer's IP address
+     *
+     * @var string $ipaddr
+     * @example 127.0.0.1
+     */
     public $ipaddr;
 
+    /**
+     * This element should contain the exact content of the HTTP Accept header as sent to the merchant from the customer's browser
+     *
+     * @var string $http_accept
+     * @example "application/json"
+     */
     public $http_accept;
 
+    /**
+     * This element should contain the exact content of the HTTP User-Agent header as sent to the merchant from the customer's browser
+     *
+     * @var string $http_user_agent
+     * @example "Mozilla/4.0"
+     */
     public $http_user_agent;
 
+    /**
+     * Boolean that represents the ability of the cardholder browser to execute Java.
+     *
+     * @var boolean $java_enabled
+     * @example true
+     */
     public $java_enabled;
 
+    /**
+     * Boolean that represents the ability of the cardholder browser to execute JavaScript.
+     *
+     * @var boolean $javascript_enabled
+     * @example true
+     */
     public $javascript_enabled;
 
+    /**
+     * Value representing the browser language as defined in IETF BCP47.
+     *
+     * @var string $language
+     * @example fr
+     */
     public $language;
 
+    /**
+     * Value representing the bit depth of the colour palette for displaying images, in bits per pixel.
+     *
+     * @var integer $color_depth
+     * @example 24
+     */
     public $color_depth;
 
+    /**
+     * Total height of the Cardholder’s screen in pixels
+     *
+     * @var integer $screen_height
+     * @example 1980
+     */
     public $screen_height;
 
+    /**
+     * Total width of the cardholder’s screen in pixels.
+     *
+     * @var integer $screen_width
+     * @example 1080
+     */
     public $screen_width;
 
+    /**
+     * Time-zone offset in minutes between UTC and the Cardholder browser local time.
+     *
+     * @var string $timezone
+     */
     public $timezone;
 }

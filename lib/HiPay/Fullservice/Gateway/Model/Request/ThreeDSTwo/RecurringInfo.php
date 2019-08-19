@@ -19,6 +19,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Information on recurring transaction
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,7 +31,19 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class RecurringInfo extends AbstractModel
 {
+    /**
+     * Date after which no further authorisations shall be performed
+     *
+     * @var integer $expiration_date
+     * @example 20180507
+     */
     public $expiration_date;
 
+    /**
+     * Indicates the minimum number of days between authorisations.
+     *
+     * @var integer
+     * @example 31
+     */
     public $frequency;
 }

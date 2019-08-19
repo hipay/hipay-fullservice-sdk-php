@@ -19,6 +19,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Customer's payment information
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,5 +31,11 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Payment extends AbstractModel
 {
+    /**
+     * Date that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.
+     *
+     * @var integer $enrollment_date
+     * @example 20180507
+     */
     public $enrollment_date;
 }

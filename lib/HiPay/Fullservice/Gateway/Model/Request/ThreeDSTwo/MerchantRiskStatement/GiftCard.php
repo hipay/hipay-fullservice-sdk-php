@@ -19,6 +19,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStateme
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Information about prepaid or gift cards/codes purchased
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,7 +31,27 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class GiftCard extends AbstractModel
 {
+    /**
+     * Total amount of gift cards purchased
+     *
+     * @var float $amount
+     * @example 15.00
+     */
     public $amount;
+
+    /**
+     * Total count of individual gift cards purchase
+     *
+     * @var integer $count
+     * @example 0
+     */
     public $count;
+
+    /**
+     * ISO 4217 three-digit currency code of the gift cards
+     *
+     * @var string $currency
+     * @example EUR
+     */
     public $currency;
 }

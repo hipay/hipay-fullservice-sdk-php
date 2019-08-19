@@ -19,6 +19,8 @@ namespace HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
+ * Customer's purchase information
+ *
  * @category    HiPay
  * @package     HiPay\Fullservice
  * @author      HiPay <support@hipay.com>
@@ -29,11 +31,35 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Purchase extends AbstractModel
 {
+    /**
+     * Number of purchases with the customer's account during the last six months.
+     *
+     * @var integer $count
+     * @example 2
+     */
     public $count;
 
+    /**
+     * Number of attempts to add a card into the customer's account in the last 24 hours.
+     *
+     * @var integer $card_stored_24h
+     * @example 1
+     */
     public $card_stored_24h;
 
+    /**
+     * Number of transactions (successful and abandoned) for this customer account across all payment accounts in the previous 24 hours.
+     *
+     * @var integer $payment_attempts_24h
+     * @example 2
+     */
     public $payment_attempts_24h;
 
+    /**
+     * Number of transactions (successful and abandoned) for this customer account across all payment accounts in the previous year.
+     *
+     * @var integer $payment_attempts_1y
+     * @example 15
+     */
     public $payment_attempts_1y;
 }
