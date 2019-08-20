@@ -51,8 +51,8 @@ class SimpleHTTPClientTest extends TestCase {
 	 * @uses  HiPay\Fullservice\HTTP\Configuration
 	 */
 	public function testCanBeConstructUsingConfiguration(){
-		
-		$conf = new Configuration("username", "123456");
+
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456"));
 		$client = new SimpleHTTPClient($conf);
 		$this->assertInstanceOf("HiPay\Fullservice\HTTP\SimpleHTTPClient", $client);
 		
@@ -75,9 +75,13 @@ class SimpleHTTPClientTest extends TestCase {
 	 * @depends testCanBeConstructUsingConfiguration
 	 */
 	public function testConfigurationCanBeSetted(ClientProvider $client){
-	
-		$conf = new Configuration("username2", "654321");
-		$client->setConfiguration($conf);
+
+        $conf = new Configuration(
+            array('apiUsername' => "username2",
+                'apiPassword' => "654321"
+            ));
+
+        $client->setConfiguration($conf);
 		
 		$this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface", $client->getConfiguration());
 		$this->assertEquals("username2", $client->getConfiguration()->getApiUsername());

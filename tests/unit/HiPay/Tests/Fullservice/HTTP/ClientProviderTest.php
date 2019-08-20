@@ -76,7 +76,7 @@ class ClientProviderTest extends TestCase
     {
         $mock = $this->getAbstractMock($this->_abstractName);
 
-        $conf = new Configuration("username", "123456");
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456"));
 
         $this->getClassConstructor($this->_abstractName)->invoke($mock, $conf);
 
@@ -105,7 +105,11 @@ class ClientProviderTest extends TestCase
     public function testConfigurationCanBeSetted(ClientProvider $client)
     {
 
-        $conf = new Configuration("username2", "654321");
+        $conf = new Configuration(
+            array('apiUsername' => "username2",
+                'apiPassword' => "654321"
+            ));
+
         $client->setConfiguration($conf);
 
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $client->getConfiguration());
