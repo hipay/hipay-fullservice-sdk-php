@@ -50,7 +50,6 @@ abstract class ClientProvider implements Client
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-
         $this->_configuration = $configuration;
 
         /**

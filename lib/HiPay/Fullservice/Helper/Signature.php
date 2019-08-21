@@ -42,13 +42,30 @@ class Signature
 {
 
     /**
-     * @param $secretPassphrase
+     * @param string $secretPassphrase
      * @param string $hashAlgorithm
      * @return bool
      */
-    static public function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
+    public static function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
     {
         if (static::getComputedSignature($secretPassphrase, $hashAlgorithm) == static::getSignature()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     *  Detects is same hash algorithm is used for signature
+     *
+     * @param string $secretPassphrase
+     * @param string $hashAlgorithm
+     *
+     * @return boolean
+     */
+    public static function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
+    {
+        if (strlen(static::getComputedSignature($secretPassphrase, $hashAlgorithm)) == strlen(static::getSignature())) {
             return true;
         }
 
@@ -63,13 +80,13 @@ class Signature
      *
      * @return string
      */
-    static protected function getComputedSignature($secretPassphrase, $hashAlgorithm)
+    protected static function getComputedSignature($secretPassphrase, $hashAlgorithm)
     {
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:
                 $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassphrase));
                 break;
-            case HashAlgorithm::SHA512 :
+            case HashAlgorithm::SHA512:
                 $computedSignature = hash(HashAlgorithm::SHA512, static::getStringToCompute($secretPassphrase));
                 break;
             default:
@@ -80,29 +97,12 @@ class Signature
         return $computedSignature;
     }
 
-    /**
-     *  Detects is same hash algorithm is used for signature
-     *
-     * @param string $secretPassphrase
-     * @param string $hashAlgorithm
-     *
-     * @return boolean
-     */
-    static public function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
-    {
-        if (strlen(static::getComputedSignature($secretPassphrase, $hashAlgorithm)) == strlen(static::getSignature())) {
-            return true;
-        }
-
-        return false;
-    }
-
-    static protected function isRedirection()
+    protected static function isRedirection()
     {
         return isset($_GET ['hash']);
     }
 
-    static protected function getSignature()
+    protected static function getSignature()
     {
         if (static::isRedirection()) {
             return $_GET['hash'];
@@ -111,7 +111,7 @@ class Signature
         }
     }
 
-    static protected function getParameters()
+    protected static function getParameters()
     {
         $params = $_GET;
         unset($params['hash']);
@@ -119,23 +119,21 @@ class Signature
         return $params;
     }
 
-    static protected function getRawPostData()
+    protected static function getRawPostData()
     {
         return file_get_contents("php://input");
     }
 
-    static protected function getStringToCompute($secretPassPhrase)
+    protected static function getStringToCompute($secretPassPhrase)
     {
         $string2compute = "";
         if (static::isRedirection()) {
-
             foreach (static::getParameters() as $name => $value) {
                 if (strlen($value) > 0) {
                     $string2compute .= $name . $value . $secretPassPhrase;
                 }
             }
         } else {
-
             $string2compute = static::getRawPostData() . $secretPassPhrase;
         }
 

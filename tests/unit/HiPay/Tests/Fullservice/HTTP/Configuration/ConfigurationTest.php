@@ -33,118 +33,122 @@ class ConfigurationTest extends TestCase
 {
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidUsernameArgument()
     {
-
         $conf = new Configuration(array('apiUsername' => 34, 'apiPassword' => "123456"));
-
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyUsernameArgument()
     {
-
         $conf = new Configuration(array('apiUsername' => "", 'apiPassword' => "123456"));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidPasswordArgument()
     {
-
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => null));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyPasswordArgument()
     {
-
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => ""));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidApiEnvArgument()
     {
-
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456", 'apiEnv' => "prod"));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidHTTPHeaderAcceptArgument()
     {
-
         $conf = new Configuration(
-            array('apiUsername' => "username",
+            array(
+                'apiUsername' => "username",
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_PRODUCTION,
                 'apiHTTPHeaderAccept' => 'application/xml'
             ));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingEmptyHTTPHeaderAcceptArgument()
     {
-
         $conf = new Configuration(
-            array('apiUsername' => "username",
+            array(
+                'apiUsername' => "username",
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_PRODUCTION,
                 'apiHTTPHeaderAccept' => ''
             ));
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
+     */
+    public function testCannotBeConstructUsingInvalidProxyArgument()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION,
+                'apiHTTPHeaderAccept' => 'application/json',
+                'proxy' => array("test" => "test")
+            )
+        );
+    }
+
+    /**
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      */
     public function testCanBeConstructFromRequiredArguments()
     {
-
         $conf = new Configuration(
-            array('apiUsername' => "username",
+            array(
+                'apiUsername' => "username",
                 'apiPassword' => "123456"
             ));
 
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
 
         return $conf;
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      */
     public function testCanBeConstructFromApiEnvArguments()
     {
 
         $conf = new Configuration(
-            array('apiUsername' => "username",
+            array(
+                'apiUsername' => "username",
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_STAGE
             ));
@@ -152,17 +156,22 @@ class ConfigurationTest extends TestCase
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
 
         return $conf;
-
     }
 
     /**
-     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      */
     public function testCanBeConstructFromAllArguments()
     {
         $this->expectException(Deprecated::class);
-        $conf = new Configuration("username", "123456", Configuration::API_ENV_PRODUCTION, 'application/json',
-            array("host" => 'http://proxy.example.fr', "port" => "8080"), 60, 60);
+        $conf = new Configuration(
+            "username", "123456",
+            Configuration::API_ENV_PRODUCTION,
+            'application/json',
+            array("host" => 'http://proxy.example.fr', "port" => "8080"),
+            60,
+            60
+        );
     }
 
     /**
@@ -170,13 +179,17 @@ class ConfigurationTest extends TestCase
      */
     public function testCanBeConstructFromArray()
     {
-
         $arrayConf = array(
             "apiUsername" => "username",
             "apiPassword" => "123456",
             "apiEnv" => Configuration::API_ENV_PRODUCTION,
             "apiHTTPHeaderAccept" => 'application/json',
-            "proxy" => array("host" => 'http://proxy.example.fr', "port" => "8080"),
+            "proxy" => array(
+                "host" => 'http://proxy.example.fr',
+                "port" => "8080",
+                "user" => "test",
+                "password" => "test"
+            ),
             "timeout" => 60,
             "connect_timeout" => 60
         );
@@ -188,95 +201,105 @@ class ConfigurationTest extends TestCase
         $this->assertEquals($conf->getApiPassword(), "123456");
         $this->assertEquals($conf->getApiEnv(), Configuration::API_ENV_PRODUCTION);
         $this->assertEquals($conf->getApiHTTPHeaderAccept(), "application/json");
-        $this->assertEquals($conf->getProxy(), array("host" => 'http://proxy.example.fr', "port" => "8080"));
+        $this->assertEquals(
+            $conf->getProxy(),
+            array(
+                "host" => 'http://proxy.example.fr',
+                "port" => "8080",
+                "user" => "test",
+                "password" => "test"
+            )
+        );
         $this->assertEquals($conf->getCurlTimeout(), 60);
         $this->assertEquals($conf->getCurlConnectTimeout(), 60);
 
         return $conf;
-
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiUsername
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiUsername
      * @depends testCanBeConstructFromRequiredArguments
      * @param Configuration $conf
      */
     public function testApiUsernameCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals('username', $conf->getApiUsername());
-
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiPassword
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiPassword
      * @depends testCanBeConstructFromRequiredArguments
      * @param Configuration $conf
      */
     public function testApiPassorwdCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals('123456', $conf->getApiPassword());
-
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEnv
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEnv
      * @depends testCanBeConstructFromArray
      * @param Configuration $conf
      */
     public function testApiEnvCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals(Configuration::API_ENV_PRODUCTION, $conf->getApiEnv());
-
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiHTTPHeaderAccept
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiHTTPHeaderAccept
      * @depends testCanBeConstructFromArray
      * @param Configuration $conf
      */
     public function testApiHTTPHeaderAcceptCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals('application/json', $conf->getApiHTTPHeaderAccept());
-
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpointProd
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpointProd
      * @depends testCanBeConstructFromArray
      * @param Configuration $conf
      */
     public function testApiEndpointProdCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals("https://secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointProd());
+        $this->assertEquals("https://secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpointProd());
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpointStage
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpointStage
      * @depends testCanBeConstructFromApiEnvArguments
      * @param Configuration $conf
      */
     public function testApiEndpointStageCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointStage());
+        $this->assertEquals("https://stage-secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpointStage());
     }
 
     /**
-     * @covers  HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpoint
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getApiEndpoint
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getSecureVaultEndpoint
      * @depends testCanBeConstructFromApiEnvArguments
      * @param Configuration $conf
      */
     public function testApiEndpointCanBeRetrieved(Configuration $conf)
     {
-
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpoint());
+        $this->assertEquals("https://stage-secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpoint());
         $this->assertEquals(Configuration::API_ENV_STAGE, $conf->getApiEnv());
     }
 
+    /**
+     * @covers  \HiPay\Fullservice\HTTP\Configuration\Configuration::getProxy
+     * @depends testCanBeConstructFromArray
+     * @param Configuration $conf
+     */
+    public function testProxyCanBeRetrieved(Configuration $conf)
+    {
+        $proxy = array("host" => "http://proxy.example.fr", "port" => "8080", "user" => "test", "password" => "test");
 
-} 
+        $this->assertEquals($proxy, $conf->getProxy());
+    }
+}

@@ -43,7 +43,6 @@ abstract class AbstractMapper implements MapperInterface
      */
     protected $_source;
 
-
     /**
      * Construct a new mapper
      *
@@ -79,7 +78,6 @@ abstract class AbstractMapper implements MapperInterface
 
     protected function uniformizeSourceKeys()
     {
-
         $this->_source = Convert::arrayKeysToCamelCase($this->_source);
     }
 

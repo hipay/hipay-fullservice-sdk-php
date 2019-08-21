@@ -46,7 +46,7 @@ class DeliveryShippingInfoRequest extends AbstractRequest
      * Delivery Method from HiPay\Fullservice\Data\DeliveryMethod\Collection
      * Eg "{"mode":"STORE","shipping":"STANDARD"}'"
      *
-     * @var $string $delivery_method
+     * @var string $delivery_method
      * @format JSON
      * @required Only for ONEY FACILY PAY
      */

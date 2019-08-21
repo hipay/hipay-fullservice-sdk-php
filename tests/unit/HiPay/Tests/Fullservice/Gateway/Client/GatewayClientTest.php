@@ -112,6 +112,9 @@ class GatewayClientTest extends TestCase
             'https://stage-secure-gateway.allopass.com/payment/web/pay/9eb3c963-907a-42af-8bc3-0b30b6149779',
             $model->getForwardUrl()
         );
+
+        $this->assertEquals('00001326593', $model->getMid());
+        $this->assertInstanceOf('\HiPay\Fullservice\Gateway\Model\Order', $model->getOrder());
     }
 
     public function requestHostedPaymentPageDataProvider()

@@ -61,7 +61,6 @@ class OperationMapper extends AbstractMapper
         $refundedAmount = $source['refundedAmount'] ?: null;
         $decimals = $source['decimals'] ?: null;
         $currency = $source['currency'] ?: null;
-        $reason = null;
         $operation = isset($source['operation']) ? $source['operation'] : null;
 
         $this->_modelObject = new Operation(
@@ -79,7 +78,6 @@ class OperationMapper extends AbstractMapper
             $refundedAmount,
             $decimals,
             $currency,
-            $reason,
             $operation
         );
     }

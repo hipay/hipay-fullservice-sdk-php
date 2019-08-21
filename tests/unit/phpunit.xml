@@ -16,11 +16,11 @@
         </testsuite>
     </testsuites>
 
-    <!-- <filter>
-        <whitelist>
-            <directory>./lib/HiPay/</directory>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../../lib/HiPay/Fullservice/</directory>
         </whitelist>
-    </filter> -->
+    </filter>
     <logging>
         <!--coverage_html_placeholder
             <log type="coverage-html" target="{{coverage_dir}}/test-reports/coverage" charset="UTF-8" yui="true" highlight="true"/>

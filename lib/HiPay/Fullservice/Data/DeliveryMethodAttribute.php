@@ -29,11 +29,10 @@ namespace HiPay\Fullservice\Data;
  */
 class DeliveryMethodAttribute
 {
-
-    CONST DEFAULT_LANG_ISO_CODE = "EN";
+    const DEFAULT_LANG_ISO_CODE = "EN";
 
     /**
-     *  code
+     * code
      *
      * @var string $_mode Mode
      * @value STORE|CARRIER|RELAYPOINT|ELECTRONIC|TRAVEL|STANDARD|EXPRESS|PRIORITY24H|PRIORITY2H|PRIORITY1H|INSTANT
@@ -41,7 +40,7 @@ class DeliveryMethodAttribute
     private $_code;
 
     /**
-     *  Display name
+     * Display name
      *
      * @var array $_displayName
      */
@@ -51,7 +50,7 @@ class DeliveryMethodAttribute
      * DeliveryMode constructor.
      *
      * @param string $code
-     * @param string $displayName
+     * @param array $displayName
      */
     public function __construct($code, $displayName)
     {
@@ -65,7 +64,6 @@ class DeliveryMethodAttribute
      */
     public function getDisplayName($langIsoCode = DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE)
     {
-
         if (isset($this->_displayName[$langIsoCode])) {
             return $this->_displayName[$langIsoCode];
         }

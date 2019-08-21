@@ -35,25 +35,17 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class FraudScreening extends AbstractModel
 {
-
-
-    public function __construct(
-        $scoring,
-        $result,
-        $review
-    ) {
-
+    public function __construct($scoring, $result, $review)
+    {
         $this->_scoring = $scoring;
         $this->_result = $result;
         $this->_review = $review;
-
     }
 
     /**
      * @var int $_scoring Total score assigned to the transaction (main risk indicator).
      */
     protected $_scoring;
-
 
     /**
      * Value must be a member of the following list:
@@ -66,7 +58,6 @@ class FraudScreening extends AbstractModel
      * @see \HiPay\Fullservice\Enum\Transaction\FraudScreening
      */
     protected $_result;
-
 
     /**
      * An empty value means no review is required.
