@@ -113,4 +113,70 @@ interface ConfigurationInterface
      * @return array with keys "host", "port", "user", "password"
      */
     public function getProxy();
+
+    /**
+     * Return Curl timeout configuration
+     *
+     * @return int
+     */
+    public function getCurlTimeout();
+
+    /**
+     * Return Curl connect timeout configuration
+     *
+     * @return int
+     */
+    public function getCurlConnectTimeout();
+
+    /**
+     * Sets Merchant API Username
+     *
+     * @param string $apiUsername
+     */
+    public function setApiUsername(string $apiUsername);
+
+    /**
+     * Sets Merchant API Password
+     *
+     * @param string $apiPassword
+     */
+    public function setApiPassword(string $apiPassword);
+
+    /**
+     * Sets targeted environment
+     *
+     * @param string $apiEnv
+     */
+    public function setApiEnv(string $apiEnv);
+
+    /**
+     * Sets HTTP Accept header for requests
+     * @param string $apiHTTPHeaderAccept
+     */
+    public function setApiHTTPHeaderAccept(string $apiHTTPHeaderAccept);
+
+    /**
+     * Sets proxy configuration
+     *
+     * @param array $proxy
+     */
+    public function setProxy(array $proxy);
+
+
+    /**
+     * Sets Main timeout value for cUrl calls
+     *
+     * @param int $curl_timeout
+     */
+    public function setCurlTimeout(int $curl_timeout);
+
+    /**
+     * Sets connect timeout value for cUrl calls
+     *
+     * @param int $curl_connect_timeout
+     */
+    public function setCurlConnectTimeout(int $curl_connect_timeout);
+
+
+
 }

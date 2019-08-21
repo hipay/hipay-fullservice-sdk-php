@@ -51,7 +51,7 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testCanBeConstructUsingConfiguration()
     {
-        $conf = new Configuration("username", "123456");
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456"));
         $client = new SimpleHTTPClient($conf);
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\SimpleHTTPClient", $client);
 
@@ -76,7 +76,12 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testConfigurationCanBeSetted(ClientProvider $client)
     {
-        $conf = new Configuration("username2", "654321");
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username2",
+                'apiPassword' => "654321"
+            ));
+
         $client->setConfiguration($conf);
 
         $this->assertInstanceOf(
@@ -87,6 +92,7 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::getHttpClient
      * @depends testCanBeConstructUsingConfiguration
      */
     public function testHttpClientCanBeRetrieved(ClientProvider $client)
@@ -96,12 +102,25 @@ class SimpleHTTPClientTest extends TestCase
     }
 
     /**
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
      * @depends testCanBeConstructUsingConfiguration
      * @expectedException TypeError
      */
-    public function testRequestCannotBeExecutedFromAllInvalidArguments(ClientProvider $client)
+    public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client)
     {
-        $client->request('GET', "1234", "foo", 1234);
+        $client->request('GETTED', "1234", "foo", 1234);
+    }
+
+    /**
+     * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
+     * @depends testCanBeConstructUsingConfiguration
+     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
+     */
+    public function testRequestCannotBeExecutedFromRequiredInvalidArguments(ClientProvider $client)
+    {
+        $this->markTestSkipped('HTTP method and Uri validator not implemented yet :-( ');
+
+        $client->request('GETTED', "1234");
     }
 
     /**
@@ -120,19 +139,6 @@ class SimpleHTTPClientTest extends TestCase
     public function testRequestCannotBeExecutedFromInvalidEndpoint(ClientProvider $client)
     {
         $client->request('GET', 1324);
-    }
-
-    /**
-     * @depends testCanBeConstructUsingConfiguration
-     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
-     */
-    public function testRequestCannotBeExecutedFromRequiredInvalidArguments(ClientProvider $client)
-    {
-        $this->markTestSkipped(
-            'HTTP method and Uri validator not implemented yet :-( '
-        );
-
-        $client->request('GETTED', "1234");
     }
 
     /**

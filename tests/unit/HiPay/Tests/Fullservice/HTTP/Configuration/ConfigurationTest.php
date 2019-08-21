@@ -18,6 +18,7 @@ namespace HiPay\Tests\Fullservice\HTTP\Configuration;
 
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
 use HiPay\Tests\TestCase;
+use PHPUnit\Framework\Error\Deprecated;
 
 /**
  * @category    HiPay
@@ -32,89 +33,103 @@ class ConfigurationTest extends TestCase
 {
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidUsernameArgument()
     {
-        $conf = new Configuration(34, "123456");
+
+        $conf = new Configuration(array('apiUsername' => 34, 'apiPassword' => "123456"));
+
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyUsernameArgument()
     {
-        $conf = new Configuration("", "123456");
+
+        $conf = new Configuration(array('apiUsername' => "", 'apiPassword' => "123456"));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidPasswordArgument()
     {
-        $conf = new Configuration("username", null);
+
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => null));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyPasswordArgument()
     {
-        $conf = new Configuration("username", "");
+
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => ""));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidApiEnvArgument()
     {
-        $conf = new Configuration("username", "123456", "prod");
+
+        $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456", 'apiEnv' => "prod"));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidHTTPHeaderAcceptArgument()
     {
-        $conf = new Configuration("username", "123456", Configuration::API_ENV_PRODUCTION, 'application/xml');
+
+        $conf = new Configuration(
+            array('apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION,
+                'apiHTTPHeaderAccept' => 'application/xml'
+            ));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingEmptyHTTPHeaderAcceptArgument()
     {
-        $conf = new Configuration("username", "123456", Configuration::API_ENV_PRODUCTION, '');
-    }
 
-    /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
-     */
-    public function testCannotBeConstructUsingInvalidProxyArgument()
-    {
         $conf = new Configuration(
-            "username",
-            "123456",
-            Configuration::API_ENV_PRODUCTION,
-            'application/json',
-            array("test" => "test")
-        );
+            array('apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION,
+                'apiHTTPHeaderAccept' => ''
+            ));
+
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      */
     public function testCanBeConstructFromRequiredArguments()
     {
-        $conf = new Configuration("username", "123456");
+
+        $conf = new Configuration(
+            array('apiUsername' => "username",
+                'apiPassword' => "123456"
+            ));
 
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
 
