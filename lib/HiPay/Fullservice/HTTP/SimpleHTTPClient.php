@@ -41,7 +41,7 @@ class SimpleHTTPClient extends ClientProvider
      *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::doRequest()
      */
-    protected function doRequest($method, $endpoint, array $params = array(), $isVault = false)
+    protected function doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
@@ -54,12 +54,24 @@ class SimpleHTTPClient extends ClientProvider
         $credentials = $this->getConfiguration()->getApiUsername() . ':' . $this->getConfiguration()->getApiPassword();
 
         $url = $this->getConfiguration()->getApiEndpoint();
+        $timeout = $this->getConfiguration()->getCurlTimeout();
+        $connectTimeout = $this->getConfiguration()->getCurlConnectTimeout();
 
         if ($isVault) {
             $url = $this->getConfiguration()->getSecureVaultEndpoint();
         }
 
+
         $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HiPayFullservice/1.0 (SDK PHP)';
+
+        // Handling data API configuration
+        if ($isData) {
+            $url = $this->getConfiguration()->getDataApiEndpoint();
+            $timeout = 5;
+            $connectTimeout = 5;
+            $userAgent = $this->getConfiguration()->getDataApiHttpUserAgent();
+        }
+
         $finalUrl = $url . $endpoint;
 
         // set appropriate options
@@ -73,9 +85,13 @@ class SimpleHTTPClient extends ClientProvider
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FAILONERROR => false,
             CURLOPT_HEADER => false,
-            CURLOPT_TIMEOUT => $this->getConfiguration()->getCurlTimeout(),
-            CURLOPT_CONNECTTIMEOUT => $this->getConfiguration()->getCurlConnectTimeout(),
+            CURLOPT_TIMEOUT => $timeout,
+            CURLOPT_CONNECTTIMEOUT => $connectTimeout,
         );
+
+        if ($isData) {
+            $options[CURLOPT_HTTPHEADER]['X-Who-Api'] = $this->getConfiguration()->getDataApiHttpUserAgent();
+        }
 
         // add post parameters
         if (strtolower($method) == 'post') {

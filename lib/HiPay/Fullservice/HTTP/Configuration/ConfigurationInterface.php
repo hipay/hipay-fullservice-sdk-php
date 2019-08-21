@@ -77,6 +77,37 @@ interface ConfigurationInterface
     public function getApiEndpoint();
 
     /**
+     * Return production data api endpoint
+     *
+     * @return string $_dataApiEndpointProd Production data api endpoint
+     */
+    public function getDataApiEndpointProd();
+
+    /**
+     * Return stage data api endpoint
+     *
+     * @return string $_dataApiEndpointStage Stage data api endpoint
+     */
+    public function getDataApiEndpointStage();
+
+    /**
+     * Return data api endpoint based on API_ENV
+     *
+     * If API_ENV is equals to *stage*, we return value of DATA_API_ENDPOINT_STAGE
+     * else we return value of DATA_API_ENDPOINT_PRODUCTION
+     *
+     * @return string DATA_API_ENDPOINT Final data api endpoint
+     */
+    public function getDataApiEndpoint();
+
+    /**
+     * Returns user agent used for data api
+     *
+     * @return string DATA_API_HTTP_USER_AGENT User agent for data API
+     */
+    public function getDataApiHttpUserAgent();
+
+    /**
      * Return production secure vault endpoint
      *
      * @return string $_secureVaultEndpointProd Production vault endpoint
@@ -176,7 +207,6 @@ interface ConfigurationInterface
      * @param int $curl_connect_timeout
      */
     public function setCurlConnectTimeout(int $curl_connect_timeout);
-
 
 
 }
