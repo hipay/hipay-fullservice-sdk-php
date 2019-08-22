@@ -91,6 +91,7 @@ class SimpleHTTPClient extends ClientProvider
 
         if ($isData) {
             $options[CURLOPT_HTTPHEADER]['X-Who-Api'] = $this->getConfiguration()->getDataApiHttpUserAgent();
+            unset($options[CURLOPT_USERPWD]);
         }
 
         // add post parameters

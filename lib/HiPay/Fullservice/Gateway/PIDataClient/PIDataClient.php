@@ -61,6 +61,7 @@ class PIDataClient implements PIDataClientInterface
     public function __construct(ClientProvider $clientProvider)
     {
         $this->_clientProvider = $clientProvider;
+        $this->setRequestDate();
     }
 
     /**
@@ -77,9 +78,22 @@ class PIDataClient implements PIDataClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
      */
-    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractResponse $response)
+    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractResponse $orderAPIResponse)
     {
-        $composerData = json_decode(file_get_contents(__DIR__ . "../../../../../composer.json"));
+        $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API,
+            $this->getData($dataId, $orderRequest, $orderAPIResponse), false, true);
+    }
+
+    public function getData($dataId, OrderRequest $orderRequest, AbstractResponse $response)
+    {
+        $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../composer.json"));
+        $orderAPIResponseData = json_decode($response->getBody());
+
+        if (!is_array($orderRequest->source)) {
+            $sourceData = json_decode($orderRequest->source, true);
+        } else {
+            $sourceData = $orderRequest->source;
+        }
 
         $params = array(
             "id" => $dataId,
@@ -87,21 +101,23 @@ class PIDataClient implements PIDataClientInterface
             "currency" => $orderRequest->currency,
             "order_id" => $orderRequest->orderid,
             "components" => array(
-                "cms" => empty($orderRequest->source['brand']) ? "sdk_php" : $orderRequest->source['brand'],
-                "cms_version" => empty($orderRequest->source['brand_version']) ? $composerData->version : $orderRequest->source['brand_version'],
-                "cms_module_version" => empty($orderRequest->source['integration_version']) ? "" : $orderRequest->source['integration_version'],
+                "cms" => empty($sourceData['brand']) ? "sdk_php" : $sourceData['brand'],
+                "cms_version" => empty($sourceData['brand_version']) ? $composerData->version : $sourceData['brand_version'],
+                "cms_module_version" => empty($sourceData['integration_version']) ? "" : $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),
-                "date_response" => (new \DateTime())->format('Y-m-dTH-i-sO'),
+                "date_response" => (new \DateTime())->format('Y-m-d\TH-i-sO'),
             ),
             "environment" => $this->getClientProvider()->getConfiguration()->getApiEnv() == Configuration::API_ENV_PRODUCTION ? 'production' : 'stage',
-            "event" => "request"
+            "event" => "request",
+            "transaction_id" => $orderAPIResponseData->transactionReference,
+            "status" => $orderAPIResponseData->status
         );
 
-        $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API, $params);
+        return $params;
     }
 
     /**
@@ -118,7 +134,7 @@ class PIDataClient implements PIDataClientInterface
             return false;
         }
 
-        $domain = preg_replace(':[0-9]+$', '', preg_replace('^www\.', '', $_SERVER['HTTP_HOST']));
+        $domain = preg_replace('/:[0-9]+$/', '', preg_replace('/^www\./', '', $_SERVER['HTTP_HOST']));
         $fingerprint = $params['device_fingerprint'];
 
         return hash('sha256', $fingerprint . ':' . $domain);
@@ -137,6 +153,6 @@ class PIDataClient implements PIDataClientInterface
      */
     public function setRequestDate()
     {
-        $this->_requestDate = (new \DateTime())->format('Y-m-dTH-i-sO');
+        $this->_requestDate = (new \DateTime())->format('Y-m-d\TH-i-sO');
     }
 }
