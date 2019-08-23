@@ -37,7 +37,7 @@ class PIDataClient implements PIDataClientInterface
     /**
      * @var string ENDPOINT_DATA_API endpoint to create / update a data set
      */
-    const ENDPOINT_DATA_API = 'checkout-data';
+    const ENDPOINT_DATA_API = '/checkout-data';
 
     /**
      * @var string METHOD_DATA_API http method to create / update a data set
@@ -138,7 +138,9 @@ class PIDataClient implements PIDataClientInterface
             return false;
         }
 
-        $domain = preg_replace('/:[0-9]+$/', '', preg_replace('/^www\./', '', $_SERVER['HTTP_HOST']));
+        $host = empty($_SERVER['HTTP_HOST']) ? "" : $_SERVER['HTTP_HOST'];
+
+        $domain = preg_replace('/:[0-9]+$/', '', preg_replace('/^www\./', '', $host));
         $fingerprint = $params['device_fingerprint'];
 
         return hash('sha256', $fingerprint . ':' . $domain);
