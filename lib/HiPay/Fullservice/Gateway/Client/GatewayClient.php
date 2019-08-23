@@ -133,7 +133,9 @@ class GatewayClient implements GatewayClientInterface
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
-        $piDataId = $piDataClient->getDataId(array('device_fingerprint' => $orderRequest->device_fingerprint));
+        $piDataId = $piDataClient->getDataId(array(
+            'device_fingerprint' => $orderRequest->device_fingerprint,
+            'url_accept' => $orderRequest->accept_url));
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($orderRequest);

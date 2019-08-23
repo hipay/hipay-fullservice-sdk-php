@@ -115,11 +115,16 @@ class PIDataClient implements PIDataClientInterface
                 "date_request" => $this->getRequestDate(),
                 "date_response" => (new \DateTime())->format('Y-m-d\TH-i-sO'),
             ),
-            "environment" => $this->getClientProvider()->getConfiguration()->getApiEnv() == Configuration::API_ENV_PRODUCTION ? 'production' : 'stage',
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
             "status" => $transaction->getStatus()
         );
+
+        if($this->getClientProvider()->getConfiguration()->getApiEndpoint() == $this->getClientProvider()->getConfiguration()->getApiEndpointProd()) {
+            $params['environment'] = 'production';
+        } elseif($this->getClientProvider()->getConfiguration()->getApiEndpoint() == $this->getClientProvider()->getConfiguration()->getApiEndpointStage()) {
+            $params['environment'] = 'stage';
+        }
 
         return $params;
     }
@@ -138,9 +143,12 @@ class PIDataClient implements PIDataClientInterface
             return false;
         }
 
-        $host = empty($_SERVER['HTTP_HOST']) ? "" : $_SERVER['HTTP_HOST'];
+        $host = empty($_SERVER['HTTP_HOST']) ? $params['url_accept'] : $_SERVER['HTTP_HOST'];
 
-        $domain = preg_replace('/:[0-9]+$/', '', preg_replace('/^www\./', '', $host));
+        // Cleaning the domain from http(s) tag, www tag, any path and ports
+        $domain = preg_replace('/:[0-9]+$/', '',
+            preg_replace('/\/(.*)$/', '',
+                preg_replace('/^(https?:\/\/)?www\./', '', $host)));
         $fingerprint = $params['device_fingerprint'];
 
         return hash('sha256', $fingerprint . ':' . $domain);
