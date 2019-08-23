@@ -117,7 +117,8 @@ class PIDataClient implements PIDataClientInterface
             ),
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
-            "status" => $transaction->getStatus()
+            "status" => $transaction->getStatus(),
+            "domain" => $this->getDomain($this->getHost($orderRequest->accept_url))
         );
 
         if($this->getClientProvider()->getConfiguration()->getApiEndpoint() == $this->getClientProvider()->getConfiguration()->getApiEndpointProd()) {
@@ -143,12 +144,8 @@ class PIDataClient implements PIDataClientInterface
             return false;
         }
 
-        $host = empty($_SERVER['HTTP_HOST']) ? $params['url_accept'] : $_SERVER['HTTP_HOST'];
-
         // Cleaning the domain from http(s) tag, www tag, any path and ports
-        $domain = preg_replace('/:[0-9]+$/', '',
-            preg_replace('/\/(.*)$/', '',
-                preg_replace('/^(https?:\/\/)?www\./', '', $host)));
+        $domain = $this->getDomain($this->getHost($params['url_accept']));
         $fingerprint = $params['device_fingerprint'];
 
         return hash('sha256', $fingerprint . ':' . $domain);
@@ -168,5 +165,38 @@ class PIDataClient implements PIDataClientInterface
     public function setRequestDate()
     {
         $this->_requestDate = (new \DateTime())->format('Y-m-d\TH-i-sO');
+    }
+
+    private function getHost($defaultHost = "") {
+        $possibleHostSources = array('HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
+        $sourceTransformations = array(
+            "HTTP_X_FORWARDED_HOST" => function($value) {
+                $elements = explode(',', $value);
+                return trim(end($elements));
+            }
+        );
+        $host = '';
+        foreach ($possibleHostSources as $source)
+        {
+            if (!empty($host)) break;
+            if (empty($_SERVER[$source])) continue;
+            $host = $_SERVER[$source];
+            if (array_key_exists($source, $sourceTransformations))
+            {
+                $host = $sourceTransformations[$source]($host);
+            }
+        }
+
+        if(empty($host)){
+            $host = $defaultHost;
+        }
+
+        return trim($host);
+    }
+
+    private function getDomain($rawHostname){
+        return preg_replace('/:[0-9]+$/', '',
+            preg_replace('/\/(.*)$/', '',
+                preg_replace('/^(https?:\/\/)?www\./', '', $rawHostname)));
     }
 }
