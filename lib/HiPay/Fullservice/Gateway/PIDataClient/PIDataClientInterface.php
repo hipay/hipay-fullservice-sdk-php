@@ -16,9 +16,9 @@
 
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
+use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
-use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 
 /**
  * Client interface for all request send to the Data API.
@@ -43,10 +43,19 @@ interface PIDataClientInterface
      * Initiate a new data from an order request
      * @param string $dataId
      * @param OrderRequest $orderRequest
-     * @param AbstractResponse $response
+     * @param AbstractTransaction $transaction
      * @return null
      */
-    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractResponse $response);
+    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
+
+    /**
+     * Gets data needed for data API
+     * @param string $dataId
+     * @param OrderRequest $orderRequest
+     * @param AbstractTransaction $transaction
+     * @return array
+     */
+    public function getData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
 
     /**
      * Compute a data id from params

@@ -142,13 +142,13 @@ class GatewayClient implements GatewayClientInterface
         //send request
         $response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER, self::ENDPOINT_NEW_ORDER, $params);
 
-        if ($piDataId) {
-            $piDataClient->sendDataFromOrder($piDataId, $orderRequest, $response);
-        }
-
         //Transform response to Transaction Model with TransactionMapper
         $transactionMapper = new TransactionMapper($response->toArray());
         $transaction = $transactionMapper->getModelObjectMapped();
+
+        if ($piDataId) {
+            $piDataClient->sendDataFromOrder($piDataId, $orderRequest, $transaction);
+        }
 
         return $transaction;
     }

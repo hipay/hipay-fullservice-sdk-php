@@ -16,13 +16,13 @@
 
 namespace HiPay\Tests\Fullservice\Gateway\PIDataClient;
 
+use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
-use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
-use HiPay\Fullservice\HTTP\Response\Response;
 use HiPay\Fullservice\HTTP\SimpleHTTPClient;
 use HiPay\Tests\TestCase;
+
 
 /**
  * Client Test class for all request send to Hipay's Data API.
@@ -104,11 +104,13 @@ class PIDataClientTest extends TestCase
         $orderRequest->currency = "EUR";
         $orderRequest->orderid = "10052";
         $orderRequest->source = json_encode($sourceData);
-        $orderResponseBody = array(
-            "transactionReference"=> "456118",
-            "status" => "118"
-        );
-        $orderResponse = new Response(json_encode($orderResponseBody), "200", array());
+
+        $transaction = new Transaction(null, null, "456118", null,
+            null, null, 118, null, null, null,
+            null, null, null, null, null, null,
+            null, null, null, null, null, null,
+            null, null, null, null, null, null,
+            null, null, null, null, null);
 
         $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../../../composer.json"));
 
@@ -126,11 +128,11 @@ class PIDataClientTest extends TestCase
             ),
             "environment" => $this->_config->getApiEnv() == Configuration::API_ENV_PRODUCTION ? 'production' : 'stage',
             "event" => "request",
-            "transaction_id" => $orderResponseBody['transactionReference'],
-            "status" => $orderResponseBody['status']
+            "transaction_id" => $transaction->getTransactionReference(),
+            "status" => $transaction->getStatus()
         );
 
-        $params = $dataClient->getData($dataId, $orderRequest, $orderResponse);
+        $params = $dataClient->getData($dataId, $orderRequest, $transaction);
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
 

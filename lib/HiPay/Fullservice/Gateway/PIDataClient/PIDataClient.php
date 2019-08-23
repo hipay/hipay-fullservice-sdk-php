@@ -16,10 +16,10 @@
 
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
+use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
-use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 
 /**
  * Client class for all request send to the Data API.
@@ -78,16 +78,20 @@ class PIDataClient implements PIDataClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
      */
-    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractResponse $orderAPIResponse)
+    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction)
     {
         $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API,
-            $this->getData($dataId, $orderRequest, $orderAPIResponse), false, true);
+            $this->getData($dataId, $orderRequest, $transaction), false, true);
     }
 
-    public function getData($dataId, OrderRequest $orderRequest, AbstractResponse $response)
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getData()
+     */
+    public function getData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction)
     {
         $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../composer.json"));
-        $orderAPIResponseData = json_decode($response->getBody());
 
         if (!is_array($orderRequest->source)) {
             $sourceData = json_decode($orderRequest->source, true);
@@ -113,8 +117,8 @@ class PIDataClient implements PIDataClientInterface
             ),
             "environment" => $this->getClientProvider()->getConfiguration()->getApiEnv() == Configuration::API_ENV_PRODUCTION ? 'production' : 'stage',
             "event" => "request",
-            "transaction_id" => $orderAPIResponseData->transactionReference,
-            "status" => $orderAPIResponseData->status
+            "transaction_id" => $transaction->getTransactionReference(),
+            "status" => $transaction->getStatus()
         );
 
         return $params;
