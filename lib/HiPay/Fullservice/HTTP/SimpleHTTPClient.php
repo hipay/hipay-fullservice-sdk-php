@@ -120,8 +120,9 @@ class SimpleHTTPClient extends ClientProvider
             curl_setopt($this->_httpClient, $option, $value);
         }
 
+        $result = curl_exec($this->_httpClient);
         // execute the given cURL session
-        if (false === ($result = curl_exec($this->_httpClient))) {
+        if ((false === $result) && !$isData) {
             throw new CurlException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
         }
 
@@ -130,7 +131,7 @@ class SimpleHTTPClient extends ClientProvider
         $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
         $httpResponse = json_decode($body);
 
-        if (floor($status / 100) != 2) {
+        if (floor($status / 100) != 2 && !$isData) {
             if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
                 $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
                 throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
