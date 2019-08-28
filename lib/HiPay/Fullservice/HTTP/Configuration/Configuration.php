@@ -336,12 +336,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getDataApiEndpoint()
     {
-        if (!empty(getenv('PI_DATA_URL'))) {
-            return getenv('PI_DATA_URL');
-        } else {
-            return $this->getApiEnv() === self::API_ENV_PRODUCTION ?
-                $this->getDataApiEndpointProd() : $this->getDataApiEndpointStage();
-        }
+        return $this->getApiEnv() === self::API_ENV_PRODUCTION ?
+            $this->getDataApiEndpointProd() : $this->getDataApiEndpointStage();
     }
 
     /**

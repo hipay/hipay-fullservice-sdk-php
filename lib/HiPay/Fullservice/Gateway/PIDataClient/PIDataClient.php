@@ -17,9 +17,10 @@
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
 use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
+use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
+use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
-use HiPay\Fullservice\HTTP\Configuration\Configuration;
 
 /**
  * Client class for all request send to the Data API.
@@ -76,34 +77,67 @@ class PIDataClient implements PIDataClientInterface
     /**
      * {@inheritDoc}
      *
-     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
+     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::sendData()
      */
-    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction)
+    public function sendData($data)
     {
         $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API,
-            $this->getData($dataId, $orderRequest, $transaction), false, true);
+            $data, false, true);
     }
 
     /**
      * {@inheritDoc}
      *
-     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getData()
+     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getOrderData()
      */
-    public function getData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction)
+    public function getOrderData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction)
+    {
+        $params = $this->getCommonData($dataId, $orderRequest);
+        $params['event'] = "request";
+        $params['transaction_id'] = $transaction->getTransactionReference();
+        $params['status'] = $transaction->getStatus();
+
+        return $params;
+    }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getHPaymentData()
+     */
+    public function getHPaymentData($dataId, HostedPaymentPageRequest $hostedPaymentPageRequest, HostedPaymentPage $transaction)
+    {
+        $params = $this->getCommonData($dataId, $hostedPaymentPageRequest);
+        $params['event'] = "initHpayment";
+        $params['payment_method'] = is_array($hostedPaymentPageRequest->payment_product_list) ?
+            implode(',', $hostedPaymentPageRequest->payment_product_list) : $hostedPaymentPageRequest->payment_product_list;
+        $params['components']['template'] = $hostedPaymentPageRequest->template;
+
+        return $params;
+    }
+
+    /**
+     * Returns common request data
+     * @param $dataId
+     * @param OrderRequest $request
+     * @return array
+     */
+    private function getCommonData($dataId, OrderRequest $request)
     {
         $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../composer.json"));
 
-        if (!is_array($orderRequest->source)) {
-            $sourceData = json_decode($orderRequest->source, true);
+        if (!is_array($request->source)) {
+            $sourceData = json_decode($request->source, true);
         } else {
-            $sourceData = $orderRequest->source;
+            $sourceData = $request->source;
         }
 
         $params = array(
             "id" => $dataId,
-            "amount" => $orderRequest->amount,
-            "currency" => $orderRequest->currency,
-            "order_id" => $orderRequest->orderid,
+            "amount" => $request->amount,
+            "currency" => $request->currency,
+            "order_id" => $request->orderid,
             "components" => array(
                 "cms" => empty($sourceData['brand']) ? "sdk_php" : $sourceData['brand'],
                 "cms_version" => empty($sourceData['brand_version']) ? $composerData->version : $sourceData['brand_version'],
@@ -115,17 +149,8 @@ class PIDataClient implements PIDataClientInterface
                 "date_request" => $this->getRequestDate(),
                 "date_response" => (new \DateTime())->format('Y-m-d\TH-i-sO'),
             ),
-            "event" => "request",
-            "transaction_id" => $transaction->getTransactionReference(),
-            "status" => $transaction->getStatus(),
-            "domain" => $this->getDomain($this->getHost($orderRequest->accept_url))
+            "domain" => $this->getDomain($this->getHost($request->accept_url))
         );
-
-        if($this->getClientProvider()->getConfiguration()->getApiEndpoint() == $this->getClientProvider()->getConfiguration()->getApiEndpointProd()) {
-            $params['environment'] = 'production';
-        } elseif($this->getClientProvider()->getConfiguration()->getApiEndpoint() == $this->getClientProvider()->getConfiguration()->getApiEndpointStage()) {
-            $params['environment'] = 'stage';
-        }
 
         return $params;
     }
@@ -143,6 +168,8 @@ class PIDataClient implements PIDataClientInterface
         if (empty($params['device_fingerprint'])) {
             return false;
         }
+
+        $params['url_accept'] = empty($params['url_accept']) ? null : $params['url_accept'];
 
         // Cleaning the domain from http(s) tag, www tag, any path and ports
         $domain = $this->getDomain($this->getHost($params['url_accept']));
@@ -167,34 +194,34 @@ class PIDataClient implements PIDataClientInterface
         $this->_requestDate = (new \DateTime())->format('Y-m-d\TH-i-sO');
     }
 
-    private function getHost($defaultHost = "") {
+    private function getHost($defaultHost = "")
+    {
         $possibleHostSources = array('HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
         $sourceTransformations = array(
-            "HTTP_X_FORWARDED_HOST" => function($value) {
+            "HTTP_X_FORWARDED_HOST" => function ($value) {
                 $elements = explode(',', $value);
                 return trim(end($elements));
             }
         );
         $host = '';
-        foreach ($possibleHostSources as $source)
-        {
+        foreach ($possibleHostSources as $source) {
             if (!empty($host)) break;
             if (empty($_SERVER[$source])) continue;
             $host = $_SERVER[$source];
-            if (array_key_exists($source, $sourceTransformations))
-            {
+            if (array_key_exists($source, $sourceTransformations)) {
                 $host = $sourceTransformations[$source]($host);
             }
         }
 
-        if(empty($host)){
+        if (empty($host)) {
             $host = $defaultHost;
         }
 
         return trim($host);
     }
 
-    private function getDomain($rawHostname){
+    private function getDomain($rawHostname)
+    {
         return preg_replace('/:[0-9]+$/', '',
             preg_replace('/\/(.*)$/', '',
                 preg_replace('/^(https?:\/\/)?www\./', '', $rawHostname)));

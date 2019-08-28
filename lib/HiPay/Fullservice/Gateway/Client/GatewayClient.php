@@ -149,7 +149,7 @@ class GatewayClient implements GatewayClientInterface
         $transaction = $transactionMapper->getModelObjectMapped();
 
         if ($piDataId) {
-            $piDataClient->sendDataFromOrder($piDataId, $orderRequest, $transaction);
+            $piDataClient->sendData($piDataClient->getOrderData($piDataId, $orderRequest, $transaction));
         }
 
         return $transaction;
@@ -163,10 +163,16 @@ class GatewayClient implements GatewayClientInterface
      */
     public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest)
     {
+        // Handle additionnal data management
+        $piDataClient = new PIDataClient($this->getClientProvider());
+        $piDataId = $piDataClient->getDataId(array(
+            'device_fingerprint' => $pageRequest->device_fingerprint,
+            'url_accept' => $pageRequest->accept_url));
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($pageRequest);
 
+        $piDataClient->setRequestDate();
         //send request
         $response = $this->getClientProvider()->request(
             self::METHOD_HOSTED_PAYMENT_PAGE,
@@ -177,6 +183,10 @@ class GatewayClient implements GatewayClientInterface
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
         $mapper = new HostedPaymentPageMapper($response->toArray());
         $hostedPagePayment = $mapper->getModelObjectMapped();
+
+        if ($piDataId) {
+            $piDataClient->sendData($piDataClient->getHPaymentData($piDataId, $pageRequest, $hostedPagePayment));
+        }
 
         return $hostedPagePayment;
     }

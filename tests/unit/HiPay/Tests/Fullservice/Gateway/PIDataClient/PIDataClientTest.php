@@ -16,8 +16,10 @@
 
 namespace HiPay\Tests\Fullservice\Gateway\PIDataClient;
 
+use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
+use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
 use HiPay\Fullservice\HTTP\SimpleHTTPClient;
@@ -76,7 +78,8 @@ class PIDataClientTest extends TestCase
      * @depends testCanBeConstructUsingClientProvider
      * @param PIDataClient $dataClient
      */
-    public function testGetDataId(PIDataClient $dataClient){
+    public function testGetDataId(PIDataClient $dataClient)
+    {
         $deviceFingerprint = "I AM THE DEVICE";
         $domainName = "i-am-the-domain-name.com";
 
@@ -88,11 +91,15 @@ class PIDataClientTest extends TestCase
     }
 
     /**
-     * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getData
+     * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getOrderData
      * @depends testCanBeConstructUsingClientProvider
      * @depends testGetDataId
      */
-    public function testGetData(PIDataClient $dataClient, $dataId){
+    public function testGetOrderData(PIDataClient $dataClient, $dataId)
+    {
+        $domainName = "i-am-the-domain-name.com";
+        $_SERVER['HTTP_HOST'] = "www." . $domainName . ":8085";
+
         $sourceData = array(
             "brand" => "phpunit_test",
             "brand_version" => "5.6.7",
@@ -126,13 +133,69 @@ class PIDataClientTest extends TestCase
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
             ),
-            "environment" => $this->_config->getApiEnv() == Configuration::API_ENV_PRODUCTION ? 'production' : 'stage',
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
-            "status" => $transaction->getStatus()
+            "status" => $transaction->getStatus(),
+            "domain" => $domainName
         );
 
-        $params = $dataClient->getData($dataId, $orderRequest, $transaction);
+        $params = $dataClient->getOrderData($dataId, $orderRequest, $transaction);
+        $this->assertTrue(!empty($params['monitoring']['date_request']));
+        $this->assertTrue(!empty($params['monitoring']['date_response']));
+
+        unset($params['monitoring']);
+
+        $this->assertEquals($testParams, $params);
+    }
+
+    /**
+     * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getHPaymentData
+     * @depends testCanBeConstructUsingClientProvider
+     * @depends testGetDataId
+     */
+    public function testGetHPaymentData(PIDataClient $dataClient, $dataId)
+    {
+        $domainName = "i-am-the-domain-name.com";
+        $_SERVER['HTTP_HOST'] = "www." . $domainName . ":8085";
+
+        $sourceData = array(
+            "brand" => "phpunit_test",
+            "brand_version" => "5.6.7",
+            "integration_version" => "1.2.3"
+        );
+
+        $hostedPaymentPageRequest = new HostedPaymentPageRequest();
+        $hostedPaymentPageRequest->amount = 152;
+        $hostedPaymentPageRequest->currency = "EUR";
+        $hostedPaymentPageRequest->orderid = "10052";
+        $hostedPaymentPageRequest->source = json_encode($sourceData);
+        $hostedPaymentPageRequest->payment_product_list = array('visa', 'mastercard', 'maestro');
+        $hostedPaymentPageRequest->template = 'test_template';
+
+        $transaction = new HostedPaymentPage(null, null, null);
+
+        $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../../../composer.json"));
+
+        $testParams = array(
+            "id" => $dataId,
+            "amount" => $hostedPaymentPageRequest->amount,
+            "currency" => $hostedPaymentPageRequest->currency,
+            "order_id" => $hostedPaymentPageRequest->orderid,
+            "payment_method" => implode(',', $hostedPaymentPageRequest->payment_product_list),
+            "components" => array(
+                "cms" => $sourceData['brand'],
+                "cms_version" => $sourceData['brand_version'],
+                "cms_module_version" => $sourceData['integration_version'],
+                "sdk_server" => "php",
+                "sdk_server_version" => $composerData->version,
+                "template" => $hostedPaymentPageRequest->template
+            ),
+            "event" => "initHpayment",
+            "domain" => $domainName
+        );
+
+
+        $params = $dataClient->getHPaymentData($dataId, $hostedPaymentPageRequest, $transaction);
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
 

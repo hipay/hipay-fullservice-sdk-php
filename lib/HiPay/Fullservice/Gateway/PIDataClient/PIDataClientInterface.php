@@ -17,6 +17,8 @@
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
 use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
+use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
+use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 
@@ -40,22 +42,29 @@ interface PIDataClientInterface
     public function getClientProvider();
 
     /**
-     * Initiate a new data from an order request
-     * @param string $dataId
-     * @param OrderRequest $orderRequest
-     * @param AbstractTransaction $transaction
+     * Initiate a new data
+     * @param array $data
      * @return null
      */
-    public function sendDataFromOrder($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
+    public function sendData($data);
 
     /**
-     * Gets data needed for data API
+     * Gets data needed for data API with order
      * @param string $dataId
      * @param OrderRequest $orderRequest
      * @param AbstractTransaction $transaction
      * @return array
      */
-    public function getData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
+    public function getOrderData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
+
+    /**
+     * Gets data needed for data API with Hpaympent
+     * @param string $dataId
+     * @param HostedPaymentPageRequest $orderRequest
+     * @param HostedPaymentPage $transaction
+     * @return array
+     */
+    public function getHPaymentData($dataId, HostedPaymentPageRequest $orderRequest, HostedPaymentPage $transaction);
 
     /**
      * Compute a data id from params
