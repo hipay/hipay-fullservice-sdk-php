@@ -169,6 +169,9 @@ class PIDataClientTest extends TestCase
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
 
+        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+
         unset($params['monitoring']);
 
         $this->assertEquals($testParams, $params);
@@ -224,6 +227,9 @@ class PIDataClientTest extends TestCase
         $params = $dataClient->getHPaymentData($dataId, $hostedPaymentPageRequest, $transaction);
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
+
+        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
 
         unset($params['monitoring']);
 

@@ -148,7 +148,7 @@ class PIDataClient implements PIDataClientInterface
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),
-                "date_response" => (new \DateTime())->format('Y-m-d\TH-i-sO'),
+                "date_response" => $this->getCurDateUTCFormatted(),
             ),
             "domain" => $this->getDomain($this->getHost($request->accept_url))
         );
@@ -177,7 +177,7 @@ class PIDataClient implements PIDataClientInterface
 
             return hash('sha256', $fingerprint . ':' . $domain);
         } else {
-            throw new ApiErrorException("Error when generating dataId, the param array must include a forward_url value or a device_fingerprint value");
+            return false;
         }
     }
 
@@ -194,7 +194,7 @@ class PIDataClient implements PIDataClientInterface
      */
     public function setRequestDate()
     {
-        $this->_requestDate = (new \DateTime())->format('Y-m-d\TH-i-sO');
+        $this->_requestDate = $this->getCurDateUTCFormatted();
     }
 
     private function getHost($defaultHost = "")
@@ -228,5 +228,11 @@ class PIDataClient implements PIDataClientInterface
         return preg_replace('/:[0-9]+$/', '',
             preg_replace('/\/(.*)$/', '',
                 preg_replace('/^(https?:\/\/)?www\./', '', $rawHostname)));
+    }
+
+    private function getCurDateUTCFormatted(){
+        $curDate = new \DateTime('now', new \DateTimeZone('UTC'));
+        $milliSec = str_pad(floor($curDate->format('u') / 1000), 3, "0", STR_PAD_LEFT);
+        return $curDate->format('Y-m-d\TH:i:s.') . $milliSec . 'Z';
     }
 }
