@@ -165,9 +165,6 @@ class GatewayClient implements GatewayClientInterface
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
-        $piDataId = $piDataClient->getDataId(array(
-            'device_fingerprint' => $pageRequest->device_fingerprint,
-            'url_accept' => $pageRequest->accept_url));
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($pageRequest);
@@ -183,6 +180,10 @@ class GatewayClient implements GatewayClientInterface
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
         $mapper = new HostedPaymentPageMapper($response->toArray());
         $hostedPagePayment = $mapper->getModelObjectMapped();
+
+        $piDataId = $piDataClient->getDataId(array(
+            'forward_url' => $hostedPagePayment->getForwardUrl()
+        ));
 
         if ($piDataId) {
             $piDataClient->sendData($piDataClient->getHPaymentData($piDataId, $pageRequest, $hostedPagePayment));

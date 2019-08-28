@@ -77,8 +77,9 @@ class PIDataClientTest extends TestCase
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getDataId
      * @depends testCanBeConstructUsingClientProvider
      * @param PIDataClient $dataClient
+     * @return string
      */
-    public function testGetDataId(PIDataClient $dataClient)
+    public function testGetDataIdForOrder(PIDataClient $dataClient)
     {
         $deviceFingerprint = "I AM THE DEVICE";
         $domainName = "i-am-the-domain-name.com";
@@ -87,13 +88,38 @@ class PIDataClientTest extends TestCase
 
         $trueId = hash('sha256', $deviceFingerprint . ':' . $domainName);
 
+        $this->assertNotEquals($trueId, $dataClient->getDataId(array('forward_url' => $deviceFingerprint)));
         $this->assertEquals($trueId, $dataClient->getDataId(array('device_fingerprint' => $deviceFingerprint)));
+
+        return $trueId;
     }
+
+    /**
+     * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getDataId
+     * @depends testCanBeConstructUsingClientProvider
+     * @param PIDataClient $dataClient
+     * @return string
+     */
+    public function testGetDataIdForHPayment(PIDataClient $dataClient)
+    {
+        $forwardUrl = "http://forward.me/132468453fs465v15ds4f6s";
+        $domainName = "i-am-the-domain-name.com";
+
+        $_SERVER['HTTP_HOST'] = "www." . $domainName . ":8085";
+
+        $trueId = hash('sha256', $forwardUrl);
+
+        $this->assertNotEquals($trueId, $dataClient->getDataId(array('device_fingerprint' => $forwardUrl)));
+        $this->assertEquals($trueId, $dataClient->getDataId(array('forward_url' => $forwardUrl)));
+
+        return $trueId;
+    }
+
 
     /**
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getOrderData
      * @depends testCanBeConstructUsingClientProvider
-     * @depends testGetDataId
+     * @depends testGetDataIdForOrder
      */
     public function testGetOrderData(PIDataClient $dataClient, $dataId)
     {
@@ -151,7 +177,7 @@ class PIDataClientTest extends TestCase
     /**
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getHPaymentData
      * @depends testCanBeConstructUsingClientProvider
-     * @depends testGetDataId
+     * @depends testGetDataIdForHPayment
      */
     public function testGetHPaymentData(PIDataClient $dataClient, $dataId)
     {
