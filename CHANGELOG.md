@@ -1,3 +1,9 @@
+# Version 2.3.0
+- Add support for 3dsv2 information (PSD2)
+- Add CURLOPT_CONNECTTIMEOUT and CURLOPT_TIMEOUT in configuration [#43](https://github.com/hipay/hipay-fullservice-sdk-php/issues/43)
+- Add monitoring data
+- Fix: update model for requestLookupToken [#44](https://github.com/hipay/hipay-fullservice-sdk-php/issues/44)
+
 # Version 2.2.1
 - Add toArray method to PaymentProduct
 - Fix: typo and code formatting
