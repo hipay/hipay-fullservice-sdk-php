@@ -55,6 +55,21 @@ class Configuration implements ConfigurationInterface
     const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
 
     /**
+     * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
+     */
+    const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
+
+    /**
+     * @var string DATA_API_ENDPOINT_STAGE Data API Endpoint for test
+     */
+    const DATA_API_ENDPOINT_STAGE = "https://stage-data.hipay.com/";
+
+    /**
+     * @var string DATA_API_HTTP_USER_AGENT custom user agent for the data API
+     */
+    const DATA_API_HTTP_USER_AGENT = 'sdk-php-hipay';
+
+    /**
      * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
      */
     const API_ENV_STAGE = 'stage';
@@ -292,6 +307,47 @@ class Configuration implements ConfigurationInterface
     {
         return $this->getApiEnv() === self::API_ENV_PRODUCTION ?
             $this->getSecureVaultEndpointProd() : $this->getSecureVaultEndpointStage();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getDataApiEndpointProd()
+     */
+    public function getDataApiEndpointProd()
+    {
+        return self::DATA_API_ENDPOINT_PROD;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getDataApiEndpointStage()
+     */
+    public function getDataApiEndpointStage()
+    {
+        return self::DATA_API_ENDPOINT_STAGE;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getDataApiEndpoint()
+     */
+    public function getDataApiEndpoint()
+    {
+        return $this->getApiEnv() === self::API_ENV_PRODUCTION ?
+            $this->getDataApiEndpointProd() : $this->getDataApiEndpointStage();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getDataApiHttpUserAgent()
+     */
+    public function getDataApiHttpUserAgent()
+    {
+        return self::DATA_API_HTTP_USER_AGENT;
     }
 
     /**
