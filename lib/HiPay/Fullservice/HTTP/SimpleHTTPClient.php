@@ -67,8 +67,8 @@ class SimpleHTTPClient extends ClientProvider
         // Handling data API configuration
         if ($isData) {
             $url = $this->getConfiguration()->getDataApiEndpoint();
-            $timeout = 5;
-            $connectTimeout = 5;
+            $timeout = 3;
+            $connectTimeout = 3;
             $userAgent = $this->getConfiguration()->getDataApiHttpUserAgent();
         }
 
