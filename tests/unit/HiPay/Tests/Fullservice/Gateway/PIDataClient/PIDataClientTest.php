@@ -136,6 +136,7 @@ class PIDataClientTest extends TestCase
         $orderRequest->amount = 152;
         $orderRequest->currency = "EUR";
         $orderRequest->orderid = "10052";
+        $orderRequest->payment_product = "visa";
         $orderRequest->source = json_encode($sourceData);
 
         $transaction = new Transaction(null, null, "456118", null,
@@ -152,6 +153,7 @@ class PIDataClientTest extends TestCase
             "amount" => $orderRequest->amount,
             "currency" => $orderRequest->currency,
             "order_id" => $orderRequest->orderid,
+            "payment_method" => $orderRequest->payment_product,
             "components" => array(
                 "cms" => $sourceData['brand'],
                 "cms_version" => $sourceData['brand_version'],
@@ -198,7 +200,7 @@ class PIDataClientTest extends TestCase
         $hostedPaymentPageRequest->currency = "EUR";
         $hostedPaymentPageRequest->orderid = "10052";
         $hostedPaymentPageRequest->source = json_encode($sourceData);
-        $hostedPaymentPageRequest->payment_product_list = array('visa', 'mastercard', 'maestro');
+        $hostedPaymentPageRequest->payment_product_list = 'visa,mastercard,maestro';
         $hostedPaymentPageRequest->template = 'test_template';
 
         $transaction = new HostedPaymentPage(null, null, null);
@@ -210,7 +212,7 @@ class PIDataClientTest extends TestCase
             "amount" => $hostedPaymentPageRequest->amount,
             "currency" => $hostedPaymentPageRequest->currency,
             "order_id" => $hostedPaymentPageRequest->orderid,
-            "payment_method" => implode(',', $hostedPaymentPageRequest->payment_product_list),
+            "payment_method" => $hostedPaymentPageRequest->payment_product_list,
             "components" => array(
                 "cms" => $sourceData['brand'],
                 "cms_version" => $sourceData['brand_version'],

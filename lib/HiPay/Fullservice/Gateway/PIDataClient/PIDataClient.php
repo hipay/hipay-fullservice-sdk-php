@@ -97,6 +97,7 @@ class PIDataClient implements PIDataClientInterface
         $params['event'] = "request";
         $params['transaction_id'] = $transaction->getTransactionReference();
         $params['status'] = $transaction->getStatus();
+        $params['payment_method'] = $orderRequest->payment_product;
 
         return $params;
     }
