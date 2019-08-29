@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Data;
 
-
 /**
  * Delivery Method object
  *
@@ -30,16 +29,15 @@ namespace HiPay\Fullservice\Data;
 class DeliveryMethod
 {
     /**
-     *  Internal code
+     * Internal code
      *
      * @var int $_code
      * @value
      */
     private $_code;
 
-
     /**
-     *  Mode of Shipping
+     * Mode of Shipping
      *
      * @var string $_mode Mode
      * @value STORE|CARRIER|RELAYPOINT|ELECTRONIC|TRAVEL
@@ -47,7 +45,7 @@ class DeliveryMethod
     private $_mode;
 
     /**
-     *  Type of Shipping
+     * Type of Shipping
      *
      * @var string $_shipping Code
      */
@@ -56,7 +54,7 @@ class DeliveryMethod
     /**
      * DeliveryMethod constructor.
      *
-     * @param string $code
+     * @param int $code
      * @param string $mode
      * @param string $shipping
      */
@@ -114,5 +112,4 @@ class DeliveryMethod
     {
         $this->_code = $code;
     }
-
 }

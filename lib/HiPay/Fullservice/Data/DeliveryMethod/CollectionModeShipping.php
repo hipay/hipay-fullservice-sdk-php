@@ -35,11 +35,10 @@ class CollectionModeShipping
 {
 
     /**
-     * @return DeliveryMethodAttribute[] Collection
+     * @return array Collection
      */
     public static function getItems()
     {
-
         $jsonModeArr = json_decode(self::$_JSON_MODE, true);
         $jsonShippingArr = json_decode(self::$_JSON_SHIPPING, true);
         $collection = array();
@@ -100,7 +99,6 @@ class CollectionModeShipping
         
 EOT;
 
-
     /**
      * @var string $_JSON Json collection
      */
@@ -152,5 +150,4 @@ EOT;
         ]
         
 EOT;
-
 }

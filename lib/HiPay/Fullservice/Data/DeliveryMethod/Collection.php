@@ -41,8 +41,11 @@ class Collection
         $jsonArr = json_decode(self::$_JSON, true);
         $collection = array();
         foreach ($jsonArr as $item) {
-            $collection[] = new DeliveryMethod($item['code'],$item['mode'],
-                $item['shipping']);
+            $collection[] = new DeliveryMethod(
+                $item['code'],
+                $item['mode'],
+                $item['shipping']
+            );
         }
 
         return $collection;
@@ -203,6 +206,4 @@ class Collection
         ]
         
 EOT;
-
-
 }

@@ -16,7 +16,11 @@
 
 namespace HiPay\Fullservice\Gateway\Request\Order;
 
-
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\BrowserInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatement;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\PreviousAuthInfo;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\RecurringInfo;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerBillingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\CommonRequest;
@@ -37,7 +41,6 @@ use HiPay\Fullservice\Gateway\Model\PaymentMethod;
  * */
 class OrderRequest extends CommonRequest
 {
-
     /**
      * @var string $orderid Unique order id
      * @length 32
@@ -114,13 +117,28 @@ class OrderRequest extends CommonRequest
 
     /**
      * @var string $accept_url The URL to return your customer to once the payment process is completed successfully.
+     */
+    public $accept_url;
+
+    /**
      * @var string $decline_url The URL to return your customer to after the acquirer declines the payment.
+     */
+    public $decline_url;
+
+    /**
      * @var string $pending_url The URL to return your customer to when the payment request was submitted to the acquirer but response is not yet available.
+     */
+    public $pending_url;
+
+    /**
      * @var string $exception_url The URL to return your customer to after a system failure.
+     */
+    public $exception_url;
+
+    /**
      * @var string $cancel_url The URL to return your customer to when he or she decides to abort the payment.
      */
-    public $accept_url, $decline_url, $pending_url, $exception_url, $cancel_url;
-
+    public $cancel_url;
 
     /**
      * @var string $notify_url Override the notification url specified in the HiPay backend
@@ -155,9 +173,13 @@ class OrderRequest extends CommonRequest
 
     /**
      * @var CustomerBillingInfoRequest $customerBillingInfo Customer Billing information
+     */
+    public $customerBillingInfo;
+
+    /**
      * @var CustomerShippingInfoRequest $customerShippingInfo Customer Shipping information
      */
-    public $customerBillingInfo, $customerShippingInfo;
+    public $customerShippingInfo;
 
     /**
      * @var PaymentMethod $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
@@ -168,4 +190,41 @@ class OrderRequest extends CommonRequest
      * @var DeliveryShippingInfoRequest $delivery_information
      */
     public $delivery_information;
+
+    /**
+     * @var BrowserInfo $browser_info
+     */
+    public $browser_info;
+
+    /**
+     * @var PreviousAuthInfo $previous_auth_info
+     */
+    public $previous_auth_info;
+
+    /**
+     * @var MerchantRiskStatement $merchant_risk_statement
+     */
+    public $merchant_risk_statement;
+
+    /**
+     * Information about the customer's account on the merchant's website
+     *
+     * @var AccountInfo $account_info
+     */
+    public $account_info;
+
+    /**
+     * Channel through which the transaction is being processed
+     *
+     * @var integer $device_channel
+     * @value DeviceChannel::APP_BASED | DeviceChannel::BROWSER | DeviceChannel::THREE_DS_REQUESTOR_INITIATED
+     */
+    public $device_channel;
+
+    /**
+     * Information on recurring transaction
+     *
+     * @var RecurringInfo $recurring_info
+     */
+    public $recurring_info;
 }

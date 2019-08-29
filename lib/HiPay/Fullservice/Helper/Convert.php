@@ -4,13 +4,16 @@ namespace HiPay\Fullservice\Helper;
 
 class Convert
 {
-
-    static function toCamelCase($string)
+    public static function toCamelCase($string)
     {
-        return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $string))));
+        $string = strtolower($string);
+        $string = str_replace('_', ' ', $string);
+        $string = ucwords($string);
+        $string = str_replace(' ', '', $string);
+        return lcfirst($string);
     }
 
-    static function arrayKeysToCamelCase($array)
+    public static function arrayKeysToCamelCase($array)
     {
         $newArray = array();
         foreach ($array as $key => $value) {
@@ -30,9 +33,9 @@ class Convert
         return $newArray;
     }
 
-    static function toUnderscored($string)
+    public static function toUnderscored($string)
     {
-        return strtolower(preg_replace('/(.)([A-Z])/', "$1_$2", $string));
+        return strtolower(preg_replace('/(.)([A-Z0-9])/', "$1_$2", $string));
     }
 
     /**
@@ -50,5 +53,4 @@ class Convert
         }
         return true;
     }
-
 }

@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Data;
 
-
 /**
  * Payment product object
  *
@@ -40,7 +39,7 @@ class PaymentProduct
     private $brandName;
 
     /**
-     * @var $category Brand's category
+     * @var string $category Brand's category
      */
     private $category;
 
@@ -107,11 +106,10 @@ class PaymentProduct
     /**
      * PaymentProduct constructor.
      *
-     * @param $paymentProductData
+     * @param array $paymentProductData
      */
     public function __construct($paymentProductData)
     {
-
         foreach ($paymentProductData as $key => $data) {
             if (property_exists($this, $key)) {
                 $this->{$key} = $data;

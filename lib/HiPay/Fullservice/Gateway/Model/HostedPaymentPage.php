@@ -31,22 +31,6 @@ use HiPay\Fullservice\Model\AbstractModel;
 class HostedPaymentPage extends AbstractModel
 {
     /**
-     * @param string $mid
-     * @param string $forwardUrl
-     * @param Order | null $order
-     */
-    public function __construct(
-        $mid,
-        $forwardUrl,
-        $order
-    ) {
-
-        $this->_mid = $mid;
-        $this->_forwardUrl = $forwardUrl;
-        $this->_order = $order;
-    }
-
-    /**
      * @var Order $_order
      */
     protected $_order;
@@ -61,6 +45,20 @@ class HostedPaymentPage extends AbstractModel
      */
     protected $_mid;
 
+    /**
+     * @param string $mid
+     * @param string $forwardUrl
+     * @param Order | null $order
+     */
+    public function __construct(
+        $mid,
+        $forwardUrl,
+        $order
+    ) {
+        $this->_mid = $mid;
+        $this->_forwardUrl = $forwardUrl;
+        $this->_order = $order;
+    }
 
     /**
      * @return Order

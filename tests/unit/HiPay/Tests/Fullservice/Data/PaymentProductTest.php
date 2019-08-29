@@ -14,7 +14,7 @@
  *
  */
 
-namespace HiPay\Tests\Data\PaymentProduct;
+namespace HiPay\Tests\Data;
 
 use HiPay\Tests\TestCase;
 use HiPay\Fullservice\Data\PaymentProduct;

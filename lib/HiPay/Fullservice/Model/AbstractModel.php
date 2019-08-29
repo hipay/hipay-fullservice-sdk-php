@@ -73,4 +73,25 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
     {
         return json_encode($this);
     }
+
+    /**
+     * Deletes every null value recursively in $this
+     * @return bool True if the resulting object still has non null values
+     */
+    public function cleanNullValues()
+    {
+        $properties = get_object_vars($this);
+
+        foreach ($properties as $p => $v) {
+            if($v === null){
+                unset($this->$p);
+            } elseif(is_object($v) && $v instanceof AbstractModel){
+                if(!$this->$p->cleanNullValues()){
+                    unset($this->$p);
+                }
+            }
+        }
+
+        return !(empty(get_object_vars($this)));
+    }
 }

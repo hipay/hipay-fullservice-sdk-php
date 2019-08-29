@@ -505,7 +505,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @param float(12.3) $total_amount
+     * @param float $total_amount
      * @return Item
      */
     public function setTotalAmount($total_amount)
@@ -673,9 +673,8 @@ class Item extends AbstractModel
     /**
      * Populate $_params array with data to send to the gateway
      *
-     * @param Item
+     * @param Item $object
      * @param array $params Passed by reference
-     *
      */
     protected function prepareParams($object, &$params)
     {

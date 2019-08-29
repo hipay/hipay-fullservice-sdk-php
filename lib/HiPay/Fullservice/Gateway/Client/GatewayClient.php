@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Request\RequestSerializer;
@@ -130,16 +131,26 @@ class GatewayClient implements GatewayClientInterface
      */
     public function requestNewOrder(OrderRequest $orderRequest)
     {
+        // Handle additionnal data management
+        $piDataClient = new PIDataClient($this->getClientProvider());
+        $piDataId = $piDataClient->getDataId(array(
+            'device_fingerprint' => $orderRequest->device_fingerprint,
+            'url_accept' => $orderRequest->accept_url));
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($orderRequest);
 
+        $piDataClient->setRequestDate();
         //send request
         $response = $this->getClientProvider()->request(self::METHOD_NEW_ORDER, self::ENDPOINT_NEW_ORDER, $params);
 
         //Transform response to Transaction Model with TransactionMapper
         $transactionMapper = new TransactionMapper($response->toArray());
         $transaction = $transactionMapper->getModelObjectMapped();
+
+        if ($piDataId) {
+            $piDataClient->sendData($piDataClient->getOrderData($piDataId, $orderRequest, $transaction));
+        }
 
         return $transaction;
     }
@@ -152,10 +163,13 @@ class GatewayClient implements GatewayClientInterface
      */
     public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest)
     {
+        // Handle additionnal data management
+        $piDataClient = new PIDataClient($this->getClientProvider());
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($pageRequest);
 
+        $piDataClient->setRequestDate();
         //send request
         $response = $this->getClientProvider()->request(
             self::METHOD_HOSTED_PAYMENT_PAGE,
@@ -166,6 +180,14 @@ class GatewayClient implements GatewayClientInterface
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
         $mapper = new HostedPaymentPageMapper($response->toArray());
         $hostedPagePayment = $mapper->getModelObjectMapped();
+
+        $piDataId = $piDataClient->getDataId(array(
+            'forward_url' => $hostedPagePayment->getForwardUrl()
+        ));
+
+        if ($piDataId) {
+            $piDataClient->sendData($piDataClient->getHPaymentData($piDataId, $pageRequest, $hostedPagePayment));
+        }
 
         return $hostedPagePayment;
     }
@@ -182,7 +204,8 @@ class GatewayClient implements GatewayClientInterface
         $amount = null,
         $operationId = null,
         MaintenanceRequest $maintenanceRequest = null
-    ) {
+    )
+    {
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();
         }
@@ -211,11 +234,11 @@ class GatewayClient implements GatewayClientInterface
         $params = $this->_serializeRequestToArray($maintenanceRequest);
 
         $response = $this->getClientProvider()
-                         ->request(
-                             self::METHOD_MAINTENANCE_OPERATION,
-                             str_replace('{transaction}', $transactionReference, self::ENDPOINT_MAINTENANCE_OPERATION),
-                             $params
-                         );
+            ->request(
+                self::METHOD_MAINTENANCE_OPERATION,
+                str_replace('{transaction}', $transactionReference, self::ENDPOINT_MAINTENANCE_OPERATION),
+                $params
+            );
 
         $om = new OperationMapper($response->toArray());
         return $om->getModelObjectMapped();

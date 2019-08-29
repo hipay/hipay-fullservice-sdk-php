@@ -77,6 +77,37 @@ interface ConfigurationInterface
     public function getApiEndpoint();
 
     /**
+     * Return production data api endpoint
+     *
+     * @return string $_dataApiEndpointProd Production data api endpoint
+     */
+    public function getDataApiEndpointProd();
+
+    /**
+     * Return stage data api endpoint
+     *
+     * @return string $_dataApiEndpointStage Stage data api endpoint
+     */
+    public function getDataApiEndpointStage();
+
+    /**
+     * Return data api endpoint based on API_ENV
+     *
+     * If API_ENV is equals to *stage*, we return value of DATA_API_ENDPOINT_STAGE
+     * else we return value of DATA_API_ENDPOINT_PRODUCTION
+     *
+     * @return string DATA_API_ENDPOINT Final data api endpoint
+     */
+    public function getDataApiEndpoint();
+
+    /**
+     * Returns user agent used for data api
+     *
+     * @return string DATA_API_HTTP_USER_AGENT User agent for data API
+     */
+    public function getDataApiHttpUserAgent();
+
+    /**
      * Return production secure vault endpoint
      *
      * @return string $_secureVaultEndpointProd Production vault endpoint
@@ -113,4 +144,69 @@ interface ConfigurationInterface
      * @return array with keys "host", "port", "user", "password"
      */
     public function getProxy();
+
+    /**
+     * Return Curl timeout configuration
+     *
+     * @return int
+     */
+    public function getCurlTimeout();
+
+    /**
+     * Return Curl connect timeout configuration
+     *
+     * @return int
+     */
+    public function getCurlConnectTimeout();
+
+    /**
+     * Sets Merchant API Username
+     *
+     * @param string $apiUsername
+     */
+    public function setApiUsername(string $apiUsername);
+
+    /**
+     * Sets Merchant API Password
+     *
+     * @param string $apiPassword
+     */
+    public function setApiPassword(string $apiPassword);
+
+    /**
+     * Sets targeted environment
+     *
+     * @param string $apiEnv
+     */
+    public function setApiEnv(string $apiEnv);
+
+    /**
+     * Sets HTTP Accept header for requests
+     * @param string $apiHTTPHeaderAccept
+     */
+    public function setApiHTTPHeaderAccept(string $apiHTTPHeaderAccept);
+
+    /**
+     * Sets proxy configuration
+     *
+     * @param array $proxy
+     */
+    public function setProxy(array $proxy);
+
+
+    /**
+     * Sets Main timeout value for cUrl calls
+     *
+     * @param int $curl_timeout
+     */
+    public function setCurlTimeout(int $curl_timeout);
+
+    /**
+     * Sets connect timeout value for cUrl calls
+     *
+     * @param int $curl_connect_timeout
+     */
+    public function setCurlConnectTimeout(int $curl_connect_timeout);
+
+
 }
