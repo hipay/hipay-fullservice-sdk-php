@@ -78,6 +78,12 @@ class Configuration implements ConfigurationInterface
      * @var string API_ENV_PRODUCTION Production environment. Used in real payment process
      */
     const API_ENV_PRODUCTION = 'production';
+
+    /**
+     * @var string API_ENV_CUSTOM Custom environment. Used in demo and development tests
+     */
+    const API_ENV_CUSTOM = 'custom';
+
     /**
      * @var string[] $_validHTPPHeaders Allowed HTTP header Accept's values
      */
@@ -94,6 +100,12 @@ class Configuration implements ConfigurationInterface
      * @var string $_apiEnv API Environment can be *stage* or *production*
      */
     private $_apiEnv = self::API_ENV_STAGE;
+
+    /**
+     * @var string Custom env URL
+     */
+    private $urlCustom = self::API_ENDPOINT_STAGE;
+
     /**
      * @var string $_apiHTTPHeaderAccept HTTP header Accept's value
      */
@@ -127,7 +139,7 @@ class Configuration implements ConfigurationInterface
      * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
      * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
      *
-     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout]
+     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [customApiURL]
      */
     public function __construct($params)
     {
@@ -153,12 +165,21 @@ class Configuration implements ConfigurationInterface
         $this->_apiPassword = $params['apiPassword'];
 
         if (isset($params['apiEnv']) && !is_null($params['apiEnv'])) {
-            if ($params['apiEnv'] !== self::API_ENV_PRODUCTION && $params['apiEnv'] !== self::API_ENV_STAGE) {
+            if ($params['apiEnv'] !== self::API_ENV_PRODUCTION &&
+                $params['apiEnv'] !== self::API_ENV_STAGE &&
+                $params['apiEnv'] !== self::API_ENV_CUSTOM) {
                 throw new UnexpectedValueException(
-                    "Api environment must be a string value between 'stage' or 'production'"
+                    "Api environment must be a string value between 'stage', 'production' or 'custom'"
                 );
             } else {
                 $this->_apiEnv = $params['apiEnv'];
+
+                if ($params['apiEnv'] === self::API_ENV_CUSTOM && !empty($params['customApiURL'])) {
+                    if(preg_match("/^(?:http(s)?:\/\/)[\w.-]+((?:\.[\w\.-]+)+)?[\w\-\._~:\/[\]@!\$&'\(\)\+,;=.]+$/",
+                        $params['customApiURL'])) {
+                        $this->urlCustom = $params['customApiURL'];
+                    }
+                }
             }
         }
 
@@ -254,8 +275,22 @@ class Configuration implements ConfigurationInterface
      */
     public function getApiEndpoint()
     {
-        return $this->getApiEnv() === self::API_ENV_PRODUCTION ?
-            $this->getApiEndpointProd() : $this->getApiEndpointStage();
+        switch ($this->getApiEnv()) {
+            case self::API_ENV_CUSTOM:
+                if (empty($this->urlCustom)) {
+                    return $this->getApiEndpointStage();
+                } else {
+                    return $this->urlCustom;
+                }
+                break;
+            case self::API_ENV_PRODUCTION:
+                return $this->getApiEndpointProd();
+                break;
+            case self::API_ENDPOINT_STAGE:
+            default:
+                return $this->getApiEndpointStage();
+                break;
+        }
     }
 
     /**
