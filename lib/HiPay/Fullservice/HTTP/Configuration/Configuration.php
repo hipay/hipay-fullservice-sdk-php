@@ -222,7 +222,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setApiPassword()
      */
-    public function setApiPassword(string $apiPassword)
+    public function setApiPassword($apiPassword)
     {
         $this->_apiPassword = $apiPassword;
     }
@@ -242,7 +242,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setApiUsername()
      */
-    public function setApiUsername(string $apiUsername)
+    public function setApiUsername($apiUsername)
     {
         $this->_apiUsername = $apiUsername;
     }
@@ -273,7 +273,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setApiEnv()
      */
-    public function setApiEnv(string $apiEnv)
+    public function setApiEnv($apiEnv)
     {
         $this->_apiEnv = $apiEnv;
     }
@@ -385,7 +385,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setApiHTTPHeaderAccept()
      */
-    public function setApiHTTPHeaderAccept(string $apiHTTPHeaderAccept)
+    public function setApiHTTPHeaderAccept($apiHTTPHeaderAccept)
     {
         $this->_apiHTTPHeaderAccept = $apiHTTPHeaderAccept;
     }
@@ -405,7 +405,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setProxy()
      */
-    public function setProxy(array $proxy)
+    public function setProxy($proxy)
     {
         $this->proxy = $proxy;
     }
@@ -425,7 +425,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setCurlTimeout()
      */
-    public function setCurlTimeout(int $curl_timeout)
+    public function setCurlTimeout($curl_timeout)
     {
         $this->curl_timeout = $curl_timeout;
     }
@@ -445,7 +445,7 @@ class Configuration implements ConfigurationInterface
      *
      * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::setCurlConnectTimeout()
      */
-    public function setCurlConnectTimeout(int $curl_connect_timeout)
+    public function setCurlConnectTimeout($curl_connect_timeout)
     {
         $this->curl_connect_timeout = $curl_connect_timeout;
     }
