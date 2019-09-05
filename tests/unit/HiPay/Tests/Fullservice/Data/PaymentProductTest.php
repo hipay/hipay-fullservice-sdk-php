@@ -86,7 +86,8 @@ class PaymentProductTest extends TestCase
             "currencies" => array("BRL"),
             "countries" => array("BR"),
             "checkoutFieldsMandatory" => Array(),
-            "additionalFields" => Array()
+            "additionalFields" => Array(),
+            "priority" => 99
         );
 
         $paymentProduct = new PaymentProduct($data);

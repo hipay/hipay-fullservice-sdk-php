@@ -104,6 +104,11 @@ class PaymentProduct
     private $additionalFields = array();
 
     /**
+     * @var int $priority Priority of the payment product on hosted payment page
+     */
+    private $priority = 99;
+
+    /**
      * PaymentProduct constructor.
      *
      * @param array $paymentProductData
@@ -235,6 +240,14 @@ class PaymentProduct
     public function getAdditionalFields()
     {
         return $this->additionalFields;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
     }
 
     /**

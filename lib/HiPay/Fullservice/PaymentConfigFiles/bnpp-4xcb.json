@@ -20,5 +20,6 @@
     "phone",
     "gender"
   ],
-  "additionalFields": {}
+  "additionalFields": {},
+  "priority": 13
 }

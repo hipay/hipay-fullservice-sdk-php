@@ -17,6 +17,7 @@
 namespace HiPay\Fullservice\Data\PaymentProduct;
 
 use HiPay\Fullservice\Data\PaymentProduct;
+use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Payment;
 
 /**
  * Payments product collection
@@ -89,5 +90,46 @@ class Collection
                 yield json_decode(file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $file), true);
             }
         }
+    }
+
+    /**
+     * Reorder payment product by priority for use in hpayment pages
+     *
+     * @param string $paymentProductList
+     * @return null
+     */
+    public static function orderByPriority($paymentProductList){
+        if(!empty($paymentProductList)) {
+            $paymentProductArray = explode(',', $paymentProductList);
+            $paymentProductDetailsArray = array();
+
+            foreach ($paymentProductArray as $paymentProduct) {
+                $paymentProductDetails = self::getItem($paymentProduct);
+
+                if ($paymentProductDetails != null) {
+                    $paymentProductDetailsArray[] = $paymentProductDetails;
+                }
+            }
+
+            usort($paymentProductDetailsArray, "HiPay\Fullservice\Data\PaymentProduct\Collection::cmpPaymentProduct");
+
+            return implode(',', array_map(function($paymentProductDetails) { return $paymentProductDetails->getProductCode(); }, $paymentProductDetailsArray));
+        }
+
+        return null;
+    }
+
+    /**
+     * Compares two payment products by their priority
+     * @param PaymentProduct $p1
+     * @param PaymentProduct $p2
+     * @return int
+     */
+    private static function cmpPaymentProduct($p1, $p2){
+        if($p1->getPriority() === $p2->getPriority()){
+            return 0;
+        }
+
+        return ($p1->getPriority() > $p2->getPriority()) ? +1 : -1;
     }
 }
