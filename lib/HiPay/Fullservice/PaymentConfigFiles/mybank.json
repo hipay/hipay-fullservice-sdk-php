@@ -17,5 +17,6 @@
     "IT"
   ],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {}
+  "additionalFields": {},
+  "priority": 27
 }

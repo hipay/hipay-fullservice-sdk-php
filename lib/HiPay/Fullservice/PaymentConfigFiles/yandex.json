@@ -17,5 +17,6 @@
     "RU"
   ],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {}
+  "additionalFields": {},
+  "priority": 28
 }

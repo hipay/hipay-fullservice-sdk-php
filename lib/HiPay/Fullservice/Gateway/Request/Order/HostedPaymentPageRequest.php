@@ -15,7 +15,7 @@
  */
 
 namespace HiPay\Fullservice\Gateway\Request\Order;
-
+use HiPay\Fullservice\Data\PaymentProduct\Collection;
 
 /**
  * Payment Page request class.
@@ -34,7 +34,7 @@ class HostedPaymentPageRequest extends OrderRequest
 {
 
     /**
-     * @var array The list of payment products to display on the payment page.
+     * @var string The list of payment products to display on the payment page.
      * @required
      */
     public $payment_product_list;
@@ -82,4 +82,8 @@ class HostedPaymentPageRequest extends OrderRequest
      * @values 0|Generate a single-use token,1|Generate a multi-use token
      */
     public $multi_use;
+
+    public function reorderPaymentProductList(){
+        $this->payment_product_list = Collection::orderByPriority($this->payment_product_list);
+    }
 }
