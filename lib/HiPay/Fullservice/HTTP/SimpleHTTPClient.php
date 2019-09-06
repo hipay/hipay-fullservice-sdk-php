@@ -129,9 +129,10 @@ class SimpleHTTPClient extends ClientProvider
         $body = $result;
 
         $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
-        $httpResponse = json_decode($body);
 
         if (floor($status / 100) != 2 && !$isData) {
+            $httpResponse = json_decode($body);
+
             if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
                 $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
                 throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
