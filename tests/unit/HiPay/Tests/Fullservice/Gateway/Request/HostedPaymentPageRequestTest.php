@@ -91,11 +91,11 @@ class HostedPaymentPageRequestTest extends TestCase
      */
     public function testProductListCanBeSorted(HostedPaymentPageRequest $o){
 
-        $o->payment_product_list = 'mastercard,american-express,cb,paypal,azerty,bcmc,visa';
+        $o->payment_product_list = 'mastercard, american-express,cb ,paypal, azerty,bcmc,visa';
 
         $o->reorderPaymentProductList();
 
-        $this->assertAttributeEquals('cb,visa,mastercard,paypal,american-express,bcmc', 'payment_product_list', $o);
+        $this->assertAttributeEquals('cb,visa,mastercard,paypal,american-express,bcmc,azerty', 'payment_product_list', $o);
 
         return $o;
     }

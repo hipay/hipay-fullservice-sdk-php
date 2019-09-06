@@ -17,7 +17,6 @@
 namespace HiPay\Fullservice\Data\PaymentProduct;
 
 use HiPay\Fullservice\Data\PaymentProduct;
-use HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Payment;
 
 /**
  * Payments product collection
@@ -104,14 +103,19 @@ class Collection
             $paymentProductDetailsArray = array();
 
             foreach ($paymentProductArray as $paymentProduct) {
-                $paymentProductDetails = self::getItem($paymentProduct);
+                $paymentProductDetails = self::getItem(trim($paymentProduct));
 
                 if ($paymentProductDetails != null) {
                     $paymentProductDetailsArray[] = $paymentProductDetails;
+                } else {
+                    $paymentProductDetailsArray[] = new PaymentProduct(array(
+                        "productCode" => trim($paymentProduct),
+                        "priority" => 99
+                    ));
                 }
             }
 
-            usort($paymentProductDetailsArray, "HiPay\Fullservice\Data\PaymentProduct\Collection::cmpPaymentProduct");
+            usort($paymentProductDetailsArray, array(self::class, 'cmpPaymentProduct'));
 
             return implode(',', array_map(function($paymentProductDetails) { return $paymentProductDetails->getProductCode(); }, $paymentProductDetailsArray));
         }
