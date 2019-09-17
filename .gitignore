@@ -53,3 +53,7 @@ vendor/
 doc/
 .idea
 /nbproject/private/
+
+# Specific examples files #
+###########################
+examples/credentials.php
