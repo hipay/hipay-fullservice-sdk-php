@@ -118,6 +118,11 @@ class Configuration implements ConfigurationInterface
     private $curl_connect_timeout = 15;
 
     /**
+     * @var bool Indicates if PHP SDK is supposed to be overriding merchant's sorting in payment pages
+     */
+    private $_overridePaymentProductSorting = true;
+
+    /**
      * Construct configuration object.
      *
      * Configuration Object is used by HTTP client.
@@ -127,7 +132,7 @@ class Configuration implements ConfigurationInterface
      * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
      * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
      *
-     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout]
+     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [overridePaymentProductSorting]
      */
     public function __construct($params)
     {
@@ -203,6 +208,14 @@ class Configuration implements ConfigurationInterface
                 throw new InvalidArgumentException("Curl connect timeout can't be empty and must be a positive integer");
             } else {
                 $this->curl_connect_timeout = $params['connect_timeout'];
+            }
+        }
+
+        if (isset($params['overridePaymentProductSorting']) && !is_null($params['overridePaymentProductSorting'])) {
+            if (!is_bool($params['overridePaymentProductSorting'])) {
+                throw new InvalidArgumentException("Override sorting parameter can't be empty and must be a boolean");
+            } else {
+                $this->_overridePaymentProductSorting = $params['overridePaymentProductSorting'];
             }
         }
     }
@@ -448,6 +461,22 @@ class Configuration implements ConfigurationInterface
     public function setCurlConnectTimeout(int $curl_connect_timeout)
     {
         $this->curl_connect_timeout = $curl_connect_timeout;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOverridePaymentProductSorting()
+    {
+        return $this->_overridePaymentProductSorting;
+    }
+
+    /**
+     * @param bool $overridePaymentProductSorting
+     */
+    public function setOverridePaymentProductSorting($overridePaymentProductSorting)
+    {
+        $this->_overridePaymentProductSorting = $overridePaymentProductSorting;
     }
 
     /**
