@@ -164,34 +164,34 @@ interface ConfigurationInterface
      *
      * @param string $apiUsername
      */
-    public function setApiUsername(string $apiUsername);
+    public function setApiUsername($apiUsername);
 
     /**
      * Sets Merchant API Password
      *
      * @param string $apiPassword
      */
-    public function setApiPassword(string $apiPassword);
+    public function setApiPassword($apiPassword);
 
     /**
      * Sets targeted environment
      *
      * @param string $apiEnv
      */
-    public function setApiEnv(string $apiEnv);
+    public function setApiEnv($apiEnv);
 
     /**
      * Sets HTTP Accept header for requests
      * @param string $apiHTTPHeaderAccept
      */
-    public function setApiHTTPHeaderAccept(string $apiHTTPHeaderAccept);
+    public function setApiHTTPHeaderAccept($apiHTTPHeaderAccept);
 
     /**
      * Sets proxy configuration
      *
      * @param array $proxy
      */
-    public function setProxy(array $proxy);
+    public function setProxy($proxy);
 
 
     /**
@@ -199,7 +199,7 @@ interface ConfigurationInterface
      *
      * @param int $curl_timeout
      */
-    public function setCurlTimeout(int $curl_timeout);
+    public function setCurlTimeout($curl_timeout);
 
     /**
      * Sets connect timeout value for cUrl calls

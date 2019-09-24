@@ -302,4 +302,57 @@ class ConfigurationTest extends TestCase
 
         $this->assertEquals($proxy, $conf->getProxy());
     }
+
+    /**
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     */
+    public function testCaBeConstructUsingCustomEnvironment()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_CUSTOM,
+                'customApiURL' => "https://custom-api.hipay.com/"
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENV_CUSTOM, $conf->getApiEnv());
+        $this->assertEquals("https://custom-api.hipay.com/", $conf->getApiEndpoint());
+    }
+
+    /**
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     */
+    public function testCaBeConstructUsingEmptyCustomEnvironment()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_CUSTOM
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENV_CUSTOM, $conf->getApiEnv());
+        $this->assertEquals(Configuration::API_ENDPOINT_STAGE, $conf->getApiEndpoint());
+    }
+
+    /**
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     */
+    public function testCaBeConstructUsingInvalidCustomEnvironment()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_CUSTOM,
+                'customApiURL' => "hps://wrong-api.hipay.com/#wrong"
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENV_CUSTOM, $conf->getApiEnv());
+        $this->assertEquals(Configuration::API_ENDPOINT_STAGE, $conf->getApiEndpoint());
+    }
 }

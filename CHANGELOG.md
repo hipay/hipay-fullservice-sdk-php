@@ -1,3 +1,6 @@
+# Version 2.3.1
+- Fix: delete scalar type hint (PHP7.1 and less backward compatibility)
+
 # Version 2.3.0
 - Add support for 3dsv2 information (PSD2)
 - Add CURLOPT_CONNECTTIMEOUT and CURLOPT_TIMEOUT in configuration [#43](https://github.com/hipay/hipay-fullservice-sdk-php/issues/43)
