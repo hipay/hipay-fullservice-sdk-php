@@ -207,4 +207,19 @@ interface ConfigurationInterface
      * @param int $curl_connect_timeout
      */
     public function setCurlConnectTimeout($curl_connect_timeout);
+
+    /**
+     * Returns override sorting payment products parameter
+     *
+     * @return bool
+     */
+    public function isOverridePaymentProductSorting();
+
+    /**
+     * Sets override sorting payment products parameter
+     *
+     * @param bool $overridePaymentProductSorting
+     */
+    public function setOverridePaymentProductSorting($overridePaymentProductSorting);
+
 }

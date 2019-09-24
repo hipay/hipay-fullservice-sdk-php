@@ -94,6 +94,9 @@ class GatewayClientTest extends TestCase
             ->method('request')
             ->willReturn($this->_response);
 
+        $this->_clientProvider
+            ->method('getConfiguration')
+            ->willReturn($this->_config);
 
         $gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
             ->setConstructorArgs(array($this->_clientProvider))
