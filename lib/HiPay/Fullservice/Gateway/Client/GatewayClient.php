@@ -166,7 +166,7 @@ class GatewayClient implements GatewayClientInterface
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
 
-        if($this->_clientProvider->getConfiguration()->isOverridePaymentProductSorting()) {
+        if($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
         }
 
