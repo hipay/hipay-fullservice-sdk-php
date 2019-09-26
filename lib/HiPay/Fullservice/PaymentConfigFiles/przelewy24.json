@@ -17,5 +17,6 @@
     "PL"
   ],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {}
+  "additionalFields": {},
+  "priority": 11
 }

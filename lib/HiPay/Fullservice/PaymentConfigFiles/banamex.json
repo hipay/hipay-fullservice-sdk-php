@@ -31,5 +31,6 @@
         "controlType": "curp-cpn"
       }
     }
-  }
+  },
+  "priority": 99
 }

@@ -1,3 +1,8 @@
+# Version 2.4.0
+- Add configuration option for payment product sorting
+- Add priority reordering for payment product on hosted page request
+- Add custom API URL
+
 # Version 2.3.1
 - Fix: delete scalar type hint (PHP7.1 and less backward compatibility)
 

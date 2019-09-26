@@ -166,6 +166,10 @@ class GatewayClient implements GatewayClientInterface
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
 
+        if($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
+            $pageRequest->reorderPaymentProductList();
+        }
+
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($pageRequest);
 

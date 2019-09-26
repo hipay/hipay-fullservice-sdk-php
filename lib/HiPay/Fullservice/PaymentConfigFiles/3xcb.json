@@ -17,5 +17,6 @@
     "FR"
   ],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {}
+  "additionalFields": {},
+  "priority": 20
 }

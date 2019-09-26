@@ -90,4 +90,50 @@ class Collection
             }
         }
     }
+
+    /**
+     * Reorder payment product by priority for use in hpayment pages
+     *
+     * @param string $paymentProductList
+     * @return null
+     */
+    public static function orderByPriority($paymentProductList){
+        if(!empty($paymentProductList)) {
+            $paymentProductArray = explode(',', $paymentProductList);
+            $paymentProductDetailsArray = array();
+
+            foreach ($paymentProductArray as $paymentProduct) {
+                $paymentProductDetails = self::getItem(trim($paymentProduct));
+
+                if ($paymentProductDetails != null) {
+                    $paymentProductDetailsArray[] = $paymentProductDetails;
+                } else {
+                    $paymentProductDetailsArray[] = new PaymentProduct(array(
+                        "productCode" => trim($paymentProduct),
+                        "priority" => 99
+                    ));
+                }
+            }
+
+            usort($paymentProductDetailsArray, array(self::class, 'cmpPaymentProduct'));
+
+            return implode(',', array_map(function($paymentProductDetails) { return $paymentProductDetails->getProductCode(); }, $paymentProductDetailsArray));
+        }
+
+        return null;
+    }
+
+    /**
+     * Compares two payment products by their priority
+     * @param PaymentProduct $p1
+     * @param PaymentProduct $p2
+     * @return int
+     */
+    private static function cmpPaymentProduct($p1, $p2){
+        if($p1->getPriority() === $p2->getPriority()){
+            return 0;
+        }
+
+        return ($p1->getPriority() > $p2->getPriority()) ? +1 : -1;
+    }
 }

@@ -31,5 +31,6 @@
         "controlType": "cpf"
       }
     }
-  }
+  },
+  "priority": 99
 }
