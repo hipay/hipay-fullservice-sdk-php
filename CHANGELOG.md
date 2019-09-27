@@ -1,3 +1,6 @@
+# Version 2.4.1
+- Fix: Missing field in payment method config file 
+
 # Version 2.4.0
 - Add configuration option for payment product sorting
 - Add priority reordering for payment product on hosted page request
