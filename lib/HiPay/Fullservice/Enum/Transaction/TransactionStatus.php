@@ -291,6 +291,11 @@ class TransactionStatus extends AbstractEnum
     const CAPTURE_REFUSED = 173;
 
     /**
+     * @var int AUTHORIZATION_CANCELLATION_REQUESTED The payment is authorized but merchant requested it's cancellation.
+     */
+    const AUTHORIZATION_CANCELLATION_REQUESTED = 175;
+
+    /**
      * @var int PENDING_PAYMENT The transaction request was submitted to the acquirer but response is not yet available
      */
     const PENDING_PAYMENT = 200;
