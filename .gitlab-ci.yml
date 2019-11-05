@@ -1,4 +1,4 @@
-image: hipay/gitlab-ci-base:jessie
+image: gcr.io/pi-dev-sandbox/gitlab-ci-base:jessie
 
 stages:
  - test
@@ -11,4 +11,4 @@ phpunit:
     - phpunit -c tests/unit/phpunit.xml
   allow_failure: false
   tags:
-    - pi-ecommerce
+    - gcp-default-runner
