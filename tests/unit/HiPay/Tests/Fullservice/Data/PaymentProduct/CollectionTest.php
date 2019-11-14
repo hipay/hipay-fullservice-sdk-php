@@ -49,7 +49,7 @@ class CollectionTest extends TestCase
     public function testGetItems()
     {
         $collection = Collection::getItems();
-        $this->assertCount(38, $collection);
+        $this->assertCount(39, $collection);
 
         foreach ($collection as $item) {
             $this->assertInstanceOf("HiPay\Fullservice\Data\PaymentProduct", $item);
