@@ -1,3 +1,6 @@
+# Version 2.5.0
+- Add support for Multibanco
+
 # Version 2.4.2
 - Add new status "Cancellation authorization requested" (275) in TransactionStatus enum
 
