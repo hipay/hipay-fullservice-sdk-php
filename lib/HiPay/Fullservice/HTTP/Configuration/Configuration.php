@@ -57,7 +57,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
      */
-    const DATA_API_ENDPOINT_PROD = "https://eature-ec-1036-cyz4ot6yrq-ew.a.run.app/";
+    const DATA_API_ENDPOINT_PROD = "https://feature-ec-1036-cyz4ot6yrq-ew.a.run.app/";
 
     /**
      * @var string DATA_API_ENDPOINT_STAGE Data API Endpoint for test
