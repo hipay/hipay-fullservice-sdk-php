@@ -57,12 +57,12 @@ class Configuration implements ConfigurationInterface
     /**
      * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
      */
-    const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
+    const DATA_API_ENDPOINT_PROD = "https://eature-ec-1036-cyz4ot6yrq-ew.a.run.app/";
 
     /**
      * @var string DATA_API_ENDPOINT_STAGE Data API Endpoint for test
      */
-    const DATA_API_ENDPOINT_STAGE = "https://stage-data.hipay.com/";
+    const DATA_API_ENDPOINT_STAGE = "https://feature-ec-1036-cyz4ot6yrq-ew.a.run.app/";
 
     /**
      * @var string DATA_API_HTTP_USER_AGENT custom user agent for the data API
