@@ -11,4 +11,4 @@ phpunit:
     - phpunit -c tests/unit/phpunit.xml
   allow_failure: false
   tags:
-    - gcp-default-runner
+    - gcp-default-runner-prod
