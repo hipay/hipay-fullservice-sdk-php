@@ -1,4 +1,4 @@
-image: gcr.io/pi-dev-sandbox/gitlab-ci-base:jessie
+image: $REGISTRY_CI/gitlab-ci-base:buster
 
 stages:
  - test
