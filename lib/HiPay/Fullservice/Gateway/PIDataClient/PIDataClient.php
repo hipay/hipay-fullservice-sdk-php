@@ -95,7 +95,7 @@ class PIDataClient implements PIDataClientInterface
     {
         $params = $this->getCommonData($dataId, $orderRequest);
         $params['event'] = "request";
-        $params['transaction_id'] = $transaction->getTransactionReference();
+        $params['transaction_id'] = (int) $transaction->getTransactionReference();
         $params['status'] = $transaction->getStatus();
         $params['payment_method'] = $orderRequest->payment_product;
 
@@ -137,7 +137,7 @@ class PIDataClient implements PIDataClientInterface
 
         $params = array(
             "id" => $dataId,
-            "amount" => $request->amount,
+            "amount" => (float) $request->amount,
             "currency" => $request->currency,
             "order_id" => $request->orderid,
             "components" => array(
@@ -200,7 +200,7 @@ class PIDataClient implements PIDataClientInterface
 
     private function getHost($defaultHost = "")
     {
-        $possibleHostSources = array('HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
+        $possibleHostSources = array('HTTP_REFERER','HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
         $sourceTransformations = array(
             "HTTP_X_FORWARDED_HOST" => function ($value) {
                 $elements = explode(',', $value);
@@ -228,7 +228,7 @@ class PIDataClient implements PIDataClientInterface
     {
         return preg_replace('/:[0-9]+$/', '',
             preg_replace('/\/(.*)$/', '',
-                preg_replace('/^(https?:\/\/)?www\./', '', $rawHostname)));
+                preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)));
     }
 
     private function getCurDateUTCFormatted(){

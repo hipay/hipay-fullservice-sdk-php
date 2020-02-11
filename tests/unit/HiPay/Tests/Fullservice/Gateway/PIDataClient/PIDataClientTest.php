@@ -168,8 +168,13 @@ class PIDataClientTest extends TestCase
         );
 
         $params = $dataClient->getOrderData($dataId, $orderRequest, $transaction);
+
+
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
+
+        $this->assertSame(152.0,$params['amount']);
+        $this->assertSame(456118,$params['transaction_id']);
 
         $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
         $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
