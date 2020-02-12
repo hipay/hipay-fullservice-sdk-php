@@ -1,3 +1,6 @@
+# Version 2.5.1
+- Fix: Internal data for CMS
+
 # Version 2.5.0
 - Add support for Multibanco
 
