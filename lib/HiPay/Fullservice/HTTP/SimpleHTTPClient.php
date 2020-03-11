@@ -97,7 +97,12 @@ class SimpleHTTPClient extends ClientProvider
         // add post parameters
         if (strtolower($method) == 'post') {
             $options[CURLOPT_POST] = true;
-            $options[CURLOPT_POSTFIELDS] = http_build_query($params);
+            if ($isData) {
+                $options[CURLOPT_HTTPHEADER][] = 'Content-Type: application/json';
+                $options[CURLOPT_POSTFIELDS] = json_encode($params);
+            } else {
+                $options[CURLOPT_POSTFIELDS] = http_build_query($params);
+            }
         } else {
             $options[CURLOPT_POST] = false;
         }
