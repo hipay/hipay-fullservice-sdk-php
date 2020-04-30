@@ -1,3 +1,6 @@
+# Version 2.5.2
+- Fix: Internal cURL Request
+
 # Version 2.5.1
 - Fix: Internal data for CMS
 
