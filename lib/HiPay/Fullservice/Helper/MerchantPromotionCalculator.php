@@ -2,9 +2,9 @@
 
 namespace HiPay\Fullservice\Helper;
 
-class Calcul
+class MerchantPromotionCalculator
 {
-    public static function calculMerchantPromotion($payment_product, $amount)
+    public static function calculate($payment_product, $amount)
     {
         $promoteCode = "000";
         if ($amount >= 100 && $amount < 400) {
