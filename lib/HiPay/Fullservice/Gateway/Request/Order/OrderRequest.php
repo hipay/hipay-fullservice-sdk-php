@@ -227,4 +227,15 @@ class OrderRequest extends CommonRequest
      * @var RecurringInfo $recurring_info
      */
     public $recurring_info;
+
+    /**
+     * Additional parameters for a payment product.
+     *
+     * Accept JSON encoded string or PHP array
+     * Eg. {"merchant_promotion":"CODE"}
+     * Alternative Ex. ["merchant_promotion" => "CODE"]
+     *
+     * @var array|string $source (JSON).
+     */
+    public $payment_product_parameters;
 }
