@@ -1,0 +1,39 @@
+{
+  "productCode": "illicado",
+  "brandName": "Illicado",
+  "category": "prepaid-card",
+  "comment": "",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 0,
+  "currencies": [],
+  "countries": [],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "formFields": {
+      "prepaid_card_number": {
+        "label": {
+          "en": "Card Number",
+          "fr": "Numéro de carte"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": false
+      },
+      "prepaid_card_security_code": {
+        "label": {
+          "en": "CVV",
+          "fr": "CVC"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": false
+      }
+    }
+  },
+  "priority": 19
+}
