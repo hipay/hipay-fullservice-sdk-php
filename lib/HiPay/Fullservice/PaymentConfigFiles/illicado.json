@@ -5,12 +5,14 @@
   "comment": "",
   "can3ds": 0,
   "canRecurring": 0,
-  "canManualCapture": 0,
-  "canManualCapturePartially": 0,
-  "canRefund": 0,
-  "canRefundPartially": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
   "basketRequired": 0,
-  "currencies": [],
+  "currencies": [
+    "EUR"
+  ],
   "countries": [],
   "checkoutFieldsMandatory": [],
   "additionalFields": {
