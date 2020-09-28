@@ -1,0 +1,18 @@
+{
+  "productCode": "mbway",
+  "brandName": "MB Way",
+  "category": "ewallet",
+  "comment": "",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [],
+  "countries": [],
+  "checkoutFieldsMandatory": ["phone"],
+  "additionalFields": {},
+  "priority": 5
+}
