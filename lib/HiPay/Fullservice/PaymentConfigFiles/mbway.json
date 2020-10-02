@@ -11,7 +11,7 @@
   "canRefundPartially": 1,
   "basketRequired": 0,
   "currencies": [],
-  "countries": [],
+  "countries": ["PT"],
   "checkoutFieldsMandatory": ["phone"],
   "additionalFields": {},
   "priority": 5
