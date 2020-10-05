@@ -14,5 +14,5 @@
   "countries": ["PT"],
   "checkoutFieldsMandatory": ["phone"],
   "additionalFields": {},
-  "priority": 5
+  "priority": 29
 }
