@@ -47,7 +47,7 @@ class SecuritySettingsMapper extends AbstractMapper
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $hashingAlgorithm = $source['hashingAlgorithm'] ?: null;
+        $hashingAlgorithm = isset($source['hashingAlgorithm']) ? $source['hashingAlgorithm'] : null;
 
         $this->_modelObject = new SecuritySettings($hashingAlgorithm);
     }

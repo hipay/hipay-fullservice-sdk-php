@@ -48,12 +48,12 @@ class OperationResponseMapper extends AbstractMapper
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $type = $source['type'] ?: null;
-        $id = $source['id'] ?: null;
-        $reference = $source['reference'] ?: null;
-        $amount = $source['amount'] ?: null;
-        $currency = $source['currency'] ?: null;
-        $dateAuthorized = $source['date'] ?: null;
+        $type = isset($source['type']) ? $source['type'] : null;
+        $id = isset($source['id']) ? $source['id'] : null;
+        $reference = isset($source['reference']) ? $source['reference'] : null;
+        $amount = isset($source['amount']) ? $source['amount'] : null;
+        $currency = isset($source['currency']) ? $source['currency'] : null;
+        $dateAuthorized = isset($source['date']) ? $source['date'] : null;
 
         $this->_modelObject = new OperationResponse(
             $type,

@@ -48,31 +48,31 @@ class TransactionMapper extends AbstractMapper
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $mid = $source['mid'] ?: null;
-        $authorizationCode = $source['authorizationCode'] ?: null;
-        $transactionReference = $source['transactionReference'] ?: null;
-        $dateCreated = $source['dateCreated'] ?: null;
-        $dateUpdated = $source['dateUpdated'] ?: null;
-        $dateAuthorized = $source['dateAuthorized'] ?: null;
-        $status = ((int)$source['status']) ?: null;
-        $state = $source['state'] ?: null;
-        $message = $source['message'] ?: null;
-        $authorizedAmount = $source['authorizedAmount'] ?: null;
-        $capturedAmount = $source['capturedAmount'] ?: null;
-        $refundedAmount = $source['refundedAmount'] ?: null;
-        $decimals = $source['decimals'] ?: null;
-        $currency = $source['currency'] ?: null;
+        $mid = isset($source['mid']) ? $source['mid'] : null;
+        $authorizationCode = isset($source['authorizationCode']) ? $source['authorizationCode'] : null;
+        $transactionReference = isset($source['transactionReference']) ? $source['transactionReference'] : null;
+        $dateCreated = isset($source['dateCreated']) ? $source['dateCreated'] : null;
+        $dateUpdated = isset($source['dateUpdated']) ? $source['dateUpdated'] : null;
+        $dateAuthorized = isset($source['dateAuthorized']) ? $source['dateAuthorized'] : null;
+        $status = isset($source['status']) ? ((int)$source['status']) : null;
+        $state = isset($source['state']) ? $source['state'] : null;
+        $message = isset($source['message']) ? $source['message'] : null;
+        $authorizedAmount = isset($source['authorizedAmount']) ? $source['authorizedAmount'] : null;
+        $capturedAmount = isset($source['capturedAmount']) ? $source['capturedAmount'] : null;
+        $refundedAmount = isset($source['refundedAmount']) ? $source['refundedAmount'] : null;
+        $decimals = isset($source['decimals']) ? $source['decimals'] : null;
+        $currency = isset($source['currency']) ? $source['currency'] : null;
         $reason = isset($source['reason']) ? $source['reason'] : null;
         $forwardUrl = isset($source['forwardUrl']) ? $source['forwardUrl'] : null;
-        $attemptId = $source['attemptId'] ?: null;
+        $attemptId = isset($source['attemptId']) ? $source['attemptId'] : null;
         $referenceToPay = isset($source['referenceToPay']) ? $source['referenceToPay'] : null;
-        $ipAddress = $source['ipAddress'] ?: null;
-        $ipCountry = $source['ipCountry'] ?: null;
+        $ipAddress = isset($source['ipAddress']) ? $source['ipAddress'] : null;
+        $ipCountry = isset($source['ipCountry']) ? $source['ipCountry'] : null;
         $deviceId = isset($source['deviceId']) ? $source['deviceId'] : null;
         $avsResult = isset($source['avsResult']) ? $source['avsResult'] : null;
         $cvcResult = isset($source['cvcResult']) ? $source['cvcResult'] : null;
-        $eci = $source['eci'] ?: null;
-        $paymentProduct = $source['paymentProduct'] ?: null;
+        $eci = isset($source['eci']) ? $source['eci'] : null;
+        $paymentProduct = isset($source['paymentProduct']) ? $source['paymentProduct'] : null;
 
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
@@ -145,8 +145,6 @@ class TransactionMapper extends AbstractMapper
             $operation,
             $customData
         );
-
-
     }
 
     /**
