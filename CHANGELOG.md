@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.6.0
+
+- **Add** Illicado payment product on hosted fields
+- **Add** MB Way payment product on hosted fields
+- **Fix**: errors processing on API Maintenance
+
 ## Version 2.5.3
 
 - Add promotion parameter for oney 3x and 4x no fees payment methods
