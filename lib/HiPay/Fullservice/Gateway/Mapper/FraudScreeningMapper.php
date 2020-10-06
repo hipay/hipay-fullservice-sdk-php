@@ -21,7 +21,7 @@ use HiPay\Fullservice\Gateway\Model\FraudScreening;
 
 /**
  * Mapper for Fraud Screening Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,12 +29,13 @@ use HiPay\Fullservice\Gateway\Model\FraudScreening;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class FraudScreeningMapper extends AbstractMapper {
-	
-	/**
-	 * @var ThreeDSecure $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
+class FraudScreeningMapper extends AbstractMapper
+{
+    
+    /**
+     * @var ThreeDSecure $_modelObject Model object to populate
+     */
+    protected $_modelObject;
     
     protected $_modelClassName;
 
@@ -47,13 +48,11 @@ class FraudScreeningMapper extends AbstractMapper {
     protected function mapResponseToModel()
     {
         $source = $this->_getSource();
-        $scoring = $source['scoring'] ?: null;
-        $result = $source['result'] ?: null;
+        $scoring = isset($source['scoring']) ? $source['scoring'] : null;
+        $result = isset($source['result']) ? $source['result'] : null;
         $review = isset($source['review']) ? $source['review'] : null;
         
         $this->_modelObject = new FraudScreening($scoring, $result, $review);
-        
- 			
     }
 
     /**
@@ -77,7 +76,4 @@ class FraudScreeningMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\FraudScreening';
     }
-
-
-
 }
