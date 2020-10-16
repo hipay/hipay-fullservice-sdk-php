@@ -10,12 +10,8 @@
   "canRefund": 1,
   "canRefundPartially": 1,
   "basketRequired": 1,
-  "currencies": [
-    "EUR"
-  ],
-  "countries": [
-    "FR"
-  ],
+  "currencies": ["EUR"],
+  "countries": ["FR", "IT", "BE"],
   "checkoutFieldsMandatory": [],
   "additionalFields": {},
   "priority": 20
