@@ -1,6 +1,6 @@
 {
-  "productCode": "3xcb",
-  "brandName": "3x Carte Bancaire - Oney",
+  "productCode": "credit-long",
+  "brandName": "Credit Long - Oney",
   "category": "credit-card",
   "comment": "Available only in France, Italia or Belgium.",
   "can3ds": 1,
@@ -14,5 +14,5 @@
   "countries": ["FR", "IT", "BE"],
   "checkoutFieldsMandatory": [],
   "additionalFields": {},
-  "priority": 20
+  "priority": 30
 }
