@@ -10,12 +10,12 @@
   "canRefund": 1,
   "canRefundPartially": 1,
   "basketRequired": 0,
-  "currencies": [
-    "EUR"
-  ],
+  "currencies": ["EUR"],
   "countries": [],
   "checkoutFieldsMandatory": [],
   "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\PrepaidCardPaymentMethod",
+    "defaultFieldsValue": {},
     "formFields": {
       "prepaid_card_number": {
         "label": {
