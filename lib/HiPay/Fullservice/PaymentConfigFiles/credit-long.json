@@ -12,7 +12,7 @@
   "basketRequired": 1,
   "currencies": ["EUR"],
   "countries": ["FR"],
-  "checkoutFieldsMandatory": [],
+  "checkoutFieldsMandatory": ["phone"],
   "additionalFields": {},
   "priority": 30
 }
