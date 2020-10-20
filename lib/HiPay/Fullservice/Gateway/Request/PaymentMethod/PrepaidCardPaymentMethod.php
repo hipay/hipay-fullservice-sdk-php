@@ -19,8 +19,7 @@ namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 use HiPay\Fullservice\Request\AbstractRequest;
 
 /**
- * IDeal Payment Method
- * Data related to payment with IDeal system
+ * PrepaidCardPaymentMethod Payment Method
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
