@@ -1,7 +1,7 @@
 {
   "productCode": "credit-long",
   "brandName": "Credit Long - Oney",
-  "category": "credit-card",
+  "category": "debit-card",
   "comment": "Available only in France.",
   "can3ds": 1,
   "canRecurring": 0,
