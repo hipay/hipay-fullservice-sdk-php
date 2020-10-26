@@ -5,37 +5,14 @@
   "comment": "",
   "can3ds": 0,
   "canRecurring": 0,
-  "canManualCapture": 1,
-  "canManualCapturePartially": 1,
-  "canRefund": 1,
-  "canRefundPartially": 1,
-  "basketRequired": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 0,
+  "canRefundPartially": 0,
+  "basketRequired": 1,
   "currencies": ["EUR"],
   "countries": [],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {
-    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\PrepaidCardPaymentMethod",
-    "defaultFieldsValue": {},
-    "formFields": {
-      "prepaid_card_number": {
-        "label": {
-          "en": "Card Number",
-          "fr": "Numéro de carte"
-        },
-        "type": "text",
-        "required": true,
-        "controlType": false
-      },
-      "prepaid_card_security_code": {
-        "label": {
-          "en": "CVV",
-          "fr": "CVC"
-        },
-        "type": "text",
-        "required": true,
-        "controlType": false
-      }
-    }
-  },
+  "additionalFields": {},
   "priority": 19
 }
