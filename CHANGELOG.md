@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 2.7.0
+
+- **Add** Oney Credit Long payment product
+- **Update** payment product configuration for:
+  - Oney 3xcb, 4xcb
+  - Illicado
+
 ## Version 2.6.0
 
 - **Add** Illicado payment product on hosted fields
