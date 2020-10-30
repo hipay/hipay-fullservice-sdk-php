@@ -1,8 +1,8 @@
 {
-  "productCode": "3xcb-no-fees",
-  "brandName": "3x Carte Bancaire sans frais - Oney",
-  "category": "credit-card",
-  "comment": "Available only in France, Italia or Belgium.",
+  "productCode": "credit-long",
+  "brandName": "Credit Long - Oney",
+  "category": "debit-card",
+  "comment": "Available only in France.",
   "can3ds": 1,
   "canRecurring": 0,
   "canManualCapture": 1,
@@ -11,8 +11,8 @@
   "canRefundPartially": 1,
   "basketRequired": 1,
   "currencies": ["EUR"],
-  "countries": ["FR", "IT", "BE"],
+  "countries": ["FR"],
   "checkoutFieldsMandatory": ["phone"],
   "additionalFields": {},
-  "priority": 8
+  "priority": 30
 }
