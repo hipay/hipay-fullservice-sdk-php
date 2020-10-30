@@ -16,8 +16,8 @@
 
 namespace HiPay\Tests\Data\PaymentProduct;
 
-use HiPay\Tests\TestCase;
 use HiPay\Fullservice\Data\PaymentProduct\Collection;
+use HiPay\Tests\TestCase;
 
 /**
  *
@@ -33,23 +33,23 @@ class CollectionTest extends TestCase
 
     public function testGetItemSuccess()
     {
-        $mastercardFromCollection = Collection::getItem("mastercard");
+        $mastercardFromCollection = Collection::getItem('mastercard');
 
         $this->assertInstanceOf("HiPay\Fullservice\Data\PaymentProduct", $mastercardFromCollection);
 
-        $this->assertEquals("MasterCard", $mastercardFromCollection->getBrandName());
+        $this->assertEquals('MasterCard', $mastercardFromCollection->getBrandName());
     }
 
     public function testGetItemEmpty()
     {
-        $testFromCollection = Collection::getItem("test");
+        $testFromCollection = Collection::getItem('test');
         $this->assertNull($testFromCollection);
     }
 
     public function testGetItems()
     {
         $collection = Collection::getItems();
-        $this->assertCount(41, $collection);
+        $this->assertCount(42, $collection);
 
         foreach ($collection as $item) {
             $this->assertInstanceOf("HiPay\Fullservice\Data\PaymentProduct", $item);
@@ -58,7 +58,7 @@ class CollectionTest extends TestCase
 
     public function testGetItemsFilteredSuccess()
     {
-        $collection = Collection::getItems("credit-card");
+        $collection = Collection::getItems('credit-card');
         $this->assertCount(9, $collection);
 
         foreach ($collection as $item) {
@@ -68,7 +68,7 @@ class CollectionTest extends TestCase
 
     public function testGetItemsFilteredEmpty()
     {
-        $collection = Collection::getItems("test");
+        $collection = Collection::getItems('test');
         $this->assertCount(0, $collection);
     }
 }
