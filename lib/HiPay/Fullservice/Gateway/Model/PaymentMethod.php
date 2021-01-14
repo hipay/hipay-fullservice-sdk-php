@@ -35,6 +35,7 @@ class PaymentMethod extends AbstractModel
 
     public function __construct(
         $token,
+        $cardId,
         $brand,
         $pan,
         $cardHolder,
@@ -45,6 +46,7 @@ class PaymentMethod extends AbstractModel
     ) {
 
         $this->_token = $token;
+        $this->_cardId = $cardId;
         $this->_brand = $brand;
         $this->_pan = $pan;
         $this->_cardHolder = $cardHolder;
@@ -59,6 +61,11 @@ class PaymentMethod extends AbstractModel
      * @var string $_token
      */
     protected $_token;
+    
+    /**
+     * @var string $_cardId
+     */
+    protected $_cardId;
 
     /**
      * @var string $_brand
@@ -98,6 +105,10 @@ class PaymentMethod extends AbstractModel
     public function getToken()
     {
         return $this->_token;
+    }
+    public function getCardId()
+    {
+        return $this->_cardId;
     }
 
     public function getBrand()
