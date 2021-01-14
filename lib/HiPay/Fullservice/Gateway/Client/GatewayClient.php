@@ -299,8 +299,8 @@ class GatewayClient implements GatewayClientInterface
             
         );
         $data = $response->toArray();
-
-        if (empty($data['transaction'])) {
+        dd($data);
+        if (empty($data['token'])) {
             return null;
         }
 
