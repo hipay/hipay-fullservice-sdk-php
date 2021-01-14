@@ -299,12 +299,11 @@ class GatewayClient implements GatewayClientInterface
             
         );
         $data = $response->toArray();
-        dd($data);
         if (empty($data['token'])) {
             return null;
         }
 
-        $paymentMethodMapper = new PaymentMethodMapper($data['transaction']);
+        $paymentMethodMapper = new PaymentMethodMapper($data);
 
         return $paymentMethodMapper->getModelObjectMapped();
     }
