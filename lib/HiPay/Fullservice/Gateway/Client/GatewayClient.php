@@ -28,6 +28,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
+use HiPay\Fullservice\Gateway\Mapper\PaymentMethodMapper;
 
 /**
  * Client class for all request send to TPP Fullservice.
