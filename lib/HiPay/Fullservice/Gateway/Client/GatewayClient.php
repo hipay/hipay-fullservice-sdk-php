@@ -295,7 +295,7 @@ class GatewayClient implements GatewayClientInterface
             self::METHOD_TOKEN_INFORMATION,
             str_replace('{token}', $token, self::ENDPOINT_TOKEN_INFORMATION)
         );
-
+        dd($data);
         $data = $response->toArray();
 
         if (empty($data['transaction'])) {
