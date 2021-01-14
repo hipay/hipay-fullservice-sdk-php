@@ -293,9 +293,11 @@ class GatewayClient implements GatewayClientInterface
     {
         $response = $this->getClientProvider()->request(
             self::METHOD_TOKEN_INFORMATION,
-            str_replace('{token}', $token, self::ENDPOINT_TOKEN_INFORMATION)
+            str_replace('{token}', $token, self::ENDPOINT_TOKEN_INFORMATION),
+            [],
+            true
+            
         );
-        dd($data);
         $data = $response->toArray();
 
         if (empty($data['transaction'])) {
