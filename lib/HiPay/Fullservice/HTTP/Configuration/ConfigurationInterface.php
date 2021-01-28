@@ -70,11 +70,35 @@ interface ConfigurationInterface
      * Return api endpoint based on API_ENV
      *
      * If API_ENV is equals to *stage*, we return value of API_ENDPOINT_STAGE
-     * else we return value of API_ENDPOINT_PRODUCTION
+     * else we return value of API_ENDPOINT_PROD
      *
      * @return string API_ENDPOINT Final api endpoint
      */
     public function getApiEndpoint();
+
+    /**
+     * Return production api endpoint from GCP
+     *
+     * @return string $_apiEndpointProdGcp Production api endpoint from GPC
+     */
+    public function getApiEndpointGCPProd();
+
+    /**
+     * Return stage api endpoint from GCP
+     *
+     * @return string $_apiEndpointStageGcp Stage api endpoint from GPC
+     */
+    public function getApiEndpointGCPStage();
+
+    /**
+     * Return api endpoint from GCP based on API_ENV
+     *
+     * If API_ENV is equals to *stage*, we return value of API_ENDPOINT_GCP_STAGE
+     * else we return value of API_ENDPOINT_GCP_PROD
+     *
+     * @return string API_ENDPOINT_GCP Final api endpoint from GPC
+     */
+    public function getApiEndpointGCP();
 
     /**
      * Return production data api endpoint
@@ -221,5 +245,4 @@ interface ConfigurationInterface
      * @param bool $overridePaymentProductSorting
      */
     public function setOverridePaymentProductSorting($overridePaymentProductSorting);
-
 }

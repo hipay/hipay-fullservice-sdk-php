@@ -55,6 +55,16 @@ class Configuration implements ConfigurationInterface
     const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
 
     /**
+     * @var string API_ENDPOINT_GCP_PROD API Endpoint for production from GCP
+     */
+    const API_ENDPOINT_GCP_PROD = "https://api.hipay.com/";
+
+    /**
+     * @var string API_ENDPOINT_GCP_STAGE API Endpoint for test from GCP
+     */
+    const API_ENDPOINT_GCP_STAGE = "https://stage-api.hipay.com/";
+
+    /**
      * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
      */
     const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
@@ -180,8 +190,10 @@ class Configuration implements ConfigurationInterface
                 $this->_apiEnv = $params['apiEnv'];
 
                 if ($params['apiEnv'] === self::API_ENV_CUSTOM && !empty($params['customApiURL'])) {
-                    if(preg_match("/^(?:http(s)?:\/\/)[\w.-]+((?:\.[\w\.-]+)+)?[\w\-\._~:\/[\]@!\$&'\(\)\+,;=.]+$/",
-                        $params['customApiURL'])) {
+                    if (preg_match(
+                        "/^(?:http(s)?:\/\/)[\w.-]+((?:\.[\w\.-]+)+)?[\w\-\._~:\/[\]@!\$&'\(\)\+,;=.]+$/",
+                        $params['customApiURL']
+                    )) {
                         $this->urlCustom = $params['customApiURL'];
                     }
                 }
@@ -190,7 +202,6 @@ class Configuration implements ConfigurationInterface
 
 
         if (isset($params['apiHTTPHeaderAccept']) && !is_null($params['apiHTTPHeaderAccept'])) {
-
             if (!in_array($params['apiHTTPHeaderAccept'], $this->_validHTPPHeaders)) {
                 throw new UnexpectedValueException(
                     sprintf(
@@ -344,6 +355,51 @@ class Configuration implements ConfigurationInterface
     public function getApiEndpointStage()
     {
         return self::API_ENDPOINT_STAGE;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointGCP()
+     */
+    public function getApiEndpointGCP()
+    {
+        switch ($this->getApiEnv()) {
+            case self::API_ENV_CUSTOM:
+                if (empty($this->urlCustom)) {
+                    return $this->getApiEndpointGCPStage();
+                } else {
+                    return $this->urlCustom;
+                }
+                break;
+            case self::API_ENV_PRODUCTION:
+                return $this->getApiEndpointGCPProd();
+                break;
+            case self::API_ENDPOINT_STAGE:
+            default:
+                return $this->getApiEndpointGCPStage();
+                break;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointGCPProd()
+     */
+    public function getApiEndpointGCPProd()
+    {
+        return self::API_ENDPOINT_GCP_PROD;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointGCPStage()
+     */
+    public function getApiEndpointGCPStage()
+    {
+        return self::API_ENDPOINT_GCP_STAGE;
     }
 
     /**
@@ -546,8 +602,7 @@ class Configuration implements ConfigurationInterface
         $proxy = array(),
         $timeout = 15,
         $connect_timeout = 15
-    )
-    {
+    ) {
         trigger_error("This construction method is deprecated. Please use an array to create your configuration.", E_USER_DEPRECATED);
 
         return array(

@@ -20,6 +20,7 @@ use HiPay\Fullservice\Exception\ApiErrorException;
 use HiPay\Fullservice\Exception\CurlException;
 use HiPay\Fullservice\Exception\HttpErrorException;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
+use HiPay\Fullservice\Gateway\Client\GatewayClient;
 use HiPay\Fullservice\HTTP\Response\Response;
 
 /**
@@ -53,7 +54,12 @@ class SimpleHTTPClient extends ClientProvider
 
         $credentials = $this->getConfiguration()->getApiUsername() . ':' . $this->getConfiguration()->getApiPassword();
 
-        $url = $this->getConfiguration()->getApiEndpoint();
+        if ($endpoint === GatewayClient::ENDPOINT_HOSTED_PAYMENT_PAGE) {
+            $url = $this->getConfiguration()->getApiEndpointGCP();
+        } else {
+            $url = $this->getConfiguration()->getApiEndpoint();
+        }
+
         $timeout = $this->getConfiguration()->getCurlTimeout();
         $connectTimeout = $this->getConfiguration()->getCurlConnectTimeout();
 
