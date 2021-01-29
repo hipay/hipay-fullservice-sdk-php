@@ -55,7 +55,7 @@ class SimpleHTTPClient extends ClientProvider
         $credentials = $this->getConfiguration()->getApiUsername() . ':' . $this->getConfiguration()->getApiPassword();
 
         if ($endpoint === GatewayClient::ENDPOINT_HOSTED_PAYMENT_PAGE) {
-            $url = $this->getConfiguration()->getApiEndpointGCP();
+            $url = $this->getConfiguration()->getApiEndpointV2();
         } else {
             $url = $this->getConfiguration()->getApiEndpoint();
         }

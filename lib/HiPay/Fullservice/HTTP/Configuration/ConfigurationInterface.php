@@ -77,28 +77,28 @@ interface ConfigurationInterface
     public function getApiEndpoint();
 
     /**
-     * Return production api endpoint from GCP
+     * Return production api endpoint v2
      *
-     * @return string $_apiEndpointProdGcp Production api endpoint from GPC
+     * @return string $_apiEndpointProdV2 Production api endpoint
      */
-    public function getApiEndpointGCPProd();
+    public function getApiEndpointV2Prod();
 
     /**
-     * Return stage api endpoint from GCP
+     * Return stage api endpoint v2
      *
-     * @return string $_apiEndpointStageGcp Stage api endpoint from GPC
+     * @return string $_apiEndpointStageV2 Stage api endpoint
      */
-    public function getApiEndpointGCPStage();
+    public function getApiEndpointV2Stage();
 
     /**
-     * Return api endpoint from GCP based on API_ENV
+     * Return api endpoint v2 based on API_ENV
      *
-     * If API_ENV is equals to *stage*, we return value of API_ENDPOINT_GCP_STAGE
-     * else we return value of API_ENDPOINT_GCP_PROD
+     * If API_ENV is equals to *stage*, we return value of API_ENDPOINT_V2_STAGE
+     * else we return value of API_ENDPOINT_V2_PROD
      *
-     * @return string API_ENDPOINT_GCP Final api endpoint from GPC
+     * @return string API_ENDPOINT_V2 Final api endpoint from GPC
      */
-    public function getApiEndpointGCP();
+    public function getApiEndpointV2();
 
     /**
      * Return production data api endpoint
@@ -245,4 +245,18 @@ interface ConfigurationInterface
      * @param bool $overridePaymentProductSorting
      */
     public function setOverridePaymentProductSorting($overridePaymentProductSorting);
+
+    /**
+     * Returns hostedpage v2 parameter
+     *
+     * @return bool
+     */
+    public function isHostedPageV2();
+
+    /**
+     * Sets hostedpage v2 parameter
+     *
+     * @param bool $hostedPageV2
+     */
+    public function setHostedPageV2($hostedPageV2);
 }
