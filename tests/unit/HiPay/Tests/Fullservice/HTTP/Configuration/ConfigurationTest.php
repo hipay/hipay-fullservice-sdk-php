@@ -89,7 +89,8 @@ class ConfigurationTest extends TestCase
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_PRODUCTION,
                 'apiHTTPHeaderAccept' => 'application/xml'
-            ));
+            )
+        );
     }
 
     /**
@@ -104,7 +105,8 @@ class ConfigurationTest extends TestCase
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_PRODUCTION,
                 'apiHTTPHeaderAccept' => ''
-            ));
+            )
+        );
     }
 
     /**
@@ -126,6 +128,23 @@ class ConfigurationTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
+     */
+    public function testCannotBeConstructUsingInvalidHostedPageV2Argument()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION,
+                'apiHTTPHeaderAccept' => 'application/json',
+                'hostedPageV2' => 1
+            )
+        );
+    }
+
+    /**
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
      */
     public function testCanBeConstructFromRequiredArguments()
     {
@@ -133,7 +152,8 @@ class ConfigurationTest extends TestCase
             array(
                 'apiUsername' => "username",
                 'apiPassword' => "123456"
-            ));
+            )
+        );
 
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
 
@@ -151,7 +171,8 @@ class ConfigurationTest extends TestCase
                 'apiUsername' => "username",
                 'apiPassword' => "123456",
                 'apiEnv' => Configuration::API_ENV_STAGE
-            ));
+            )
+        );
 
         $this->assertInstanceOf("HiPay\Fullservice\HTTP\Configuration\Configuration", $conf);
 
@@ -165,7 +186,8 @@ class ConfigurationTest extends TestCase
     {
         $this->expectException(Deprecated::class);
         $conf = new Configuration(
-            "username", "123456",
+            "username",
+            "123456",
             Configuration::API_ENV_PRODUCTION,
             'application/json',
             array("host" => 'http://proxy.example.fr', "port" => "8080"),
@@ -191,7 +213,8 @@ class ConfigurationTest extends TestCase
                 "password" => "test"
             ),
             "timeout" => 60,
-            "connect_timeout" => 60
+            "connect_timeout" => 60,
+            "hostedPageV2" => true
         );
 
         $conf = new Configuration($arrayConf);
@@ -212,6 +235,7 @@ class ConfigurationTest extends TestCase
         );
         $this->assertEquals($conf->getCurlTimeout(), 60);
         $this->assertEquals($conf->getCurlConnectTimeout(), 60);
+        $this->assertEquals($conf->isHostedPageV2(), true);
 
         return $conf;
     }
@@ -264,6 +288,7 @@ class ConfigurationTest extends TestCase
     public function testApiEndpointProdCanBeRetrieved(Configuration $conf)
     {
         $this->assertEquals("https://secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointProd());
+        $this->assertEquals("https://api.hipay.com/", $conf->getApiEndpointV2Prod());
         $this->assertEquals("https://secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpointProd());
     }
 
@@ -275,6 +300,7 @@ class ConfigurationTest extends TestCase
     public function testApiEndpointStageCanBeRetrieved(Configuration $conf)
     {
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointStage());
+        $this->assertEquals("https://stage-api.hipay.com/", $conf->getApiEndpointV2Stage());
         $this->assertEquals("https://stage-secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpointStage());
     }
 
@@ -287,8 +313,13 @@ class ConfigurationTest extends TestCase
     public function testApiEndpointCanBeRetrieved(Configuration $conf)
     {
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpoint());
+        $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/", $conf->getApiEndpointV2());
         $this->assertEquals("https://stage-secure2-vault.hipay-tpp.com/rest/", $conf->getSecureVaultEndpoint());
         $this->assertEquals(Configuration::API_ENV_STAGE, $conf->getApiEnv());
+
+        $conf->setHostedPageV2(true);
+
+        $this->assertEquals("https://stage-api.hipay.com/", $conf->getApiEndpointV2());
     }
 
     /**

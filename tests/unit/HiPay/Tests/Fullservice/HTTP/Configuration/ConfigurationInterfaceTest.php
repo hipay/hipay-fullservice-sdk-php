@@ -21,10 +21,10 @@ use HiPay\Tests\TestCase;
 /**
  * @category    HiPay
  * @package     HiPay\Tests
- * @author 		Kassim Belghait <kassim@sirateck.com>
+ * @author      Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link 		https://github.com/hipay/hipay-fullservice-sdk-php
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
 class ConfigurationInterfaceTest extends TestCase
@@ -102,6 +102,8 @@ class ConfigurationInterfaceTest extends TestCase
         $conf = $this->getMockBuilder('HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface')->getMock();
         $conf->method('getApiEndpointProd')->willReturn('https://secure-gateway.hipay-tpp.com/rest/v1/');
         $this->assertEquals("https://secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpointProd());
+        $conf->method('getApiEndpointV2Prod')->willReturn('https://api.hipay.com/');
+        $this->assertEquals('https://api.hipay.com/', $conf->getApiEndpointV2Prod());
     }
     
     /**
@@ -114,6 +116,8 @@ class ConfigurationInterfaceTest extends TestCase
         $conf = $this->getMockBuilder('HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface')->getMock();
         $conf->method('getApiEndpointStage')->willReturn('https://stage-secure-gateway.hipay-tpp.com/rest/v1/');
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpointStage());
+        $conf->method('getApiEndpointV2Stage')->willReturn('https://stage-api.hipay.com/');
+        $this->assertEquals('https://stage-api.hipay.com/', $conf->getApiEndpointV2Stage());
     }
     
     /**
@@ -127,8 +131,10 @@ class ConfigurationInterfaceTest extends TestCase
         
         $conf->method('getApiEnv')->willReturn('stage');
         $conf->method('getApiEndpoint')->willReturn('https://stage-secure-gateway.hipay-tpp.com/rest/v1/');
+        $conf->method('getApiEndpointV2')->willReturn('https://stage-api.hipay.com/');
         
         $this->assertEquals("https://stage-secure-gateway.hipay-tpp.com/rest/v1/", $conf->getApiEndpoint());
+        $this->assertEquals("https://stage-api.hipay.com/", $conf->getApiEndpointV2());
         $this->assertEquals('stage', $conf->getApiEnv());
     }
 }
