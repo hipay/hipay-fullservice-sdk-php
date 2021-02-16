@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.8.0
+
+- **Add** HostedPage v2 endpoint API
+- **Add** Configuration parameter to enable HostedPage v2
+
 ## Version 2.7.0
 
 - **Add** Oney Credit Long payment product

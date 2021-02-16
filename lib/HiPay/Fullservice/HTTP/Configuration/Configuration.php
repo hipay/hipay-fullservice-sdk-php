@@ -55,6 +55,16 @@ class Configuration implements ConfigurationInterface
     const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
 
     /**
+     * @var string API_ENDPOINT_V2_PROD API Endpoint v2 for production
+     */
+    const API_ENDPOINT_V2_PROD = "https://api.hipay.com/";
+
+    /**
+     * @var string API_ENDPOINT_V2_STAGE API Endpoint v2 for test
+     */
+    const API_ENDPOINT_V2_STAGE = "https://stage-api.hipay.com/";
+
+    /**
      * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
      */
     const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
@@ -135,6 +145,11 @@ class Configuration implements ConfigurationInterface
     private $_overridePaymentProductSorting = true;
 
     /**
+     * @var bool Indicates if PHP SDK has to use API Endpoint v2
+     */
+    private $_hostedPageV2 = false;
+
+    /**
      * Construct configuration object.
      *
      * Configuration Object is used by HTTP client.
@@ -144,7 +159,7 @@ class Configuration implements ConfigurationInterface
      * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
      * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
      *
-     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [overridePaymentProductSorting], [customApiURL]
+     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [overridePaymentProductSorting], [hostedPageV2], [customApiURL]
      */
     public function __construct($params)
     {
@@ -180,8 +195,10 @@ class Configuration implements ConfigurationInterface
                 $this->_apiEnv = $params['apiEnv'];
 
                 if ($params['apiEnv'] === self::API_ENV_CUSTOM && !empty($params['customApiURL'])) {
-                    if(preg_match("/^(?:http(s)?:\/\/)[\w.-]+((?:\.[\w\.-]+)+)?[\w\-\._~:\/[\]@!\$&'\(\)\+,;=.]+$/",
-                        $params['customApiURL'])) {
+                    if (preg_match(
+                        "/^(?:http(s)?:\/\/)[\w.-]+((?:\.[\w\.-]+)+)?[\w\-\._~:\/[\]@!\$&'\(\)\+,;=.]+$/",
+                        $params['customApiURL']
+                    )) {
                         $this->urlCustom = $params['customApiURL'];
                     }
                 }
@@ -190,7 +207,6 @@ class Configuration implements ConfigurationInterface
 
 
         if (isset($params['apiHTTPHeaderAccept']) && !is_null($params['apiHTTPHeaderAccept'])) {
-
             if (!in_array($params['apiHTTPHeaderAccept'], $this->_validHTPPHeaders)) {
                 throw new UnexpectedValueException(
                     sprintf(
@@ -237,6 +253,14 @@ class Configuration implements ConfigurationInterface
                 throw new InvalidArgumentException("Override sorting parameter can't be empty and must be a boolean");
             } else {
                 $this->_overridePaymentProductSorting = $params['overridePaymentProductSorting'];
+            }
+        }
+
+        if (isset($params['hostedPageV2']) && !is_null($params['hostedPageV2'])) {
+            if (!is_bool($params['hostedPageV2'])) {
+                throw new InvalidArgumentException("Hosted Page v2 can't be empty and must be a boolean");
+            } else {
+                $this->setHostedPageV2($params['hostedPageV2']);
             }
         }
     }
@@ -344,6 +368,52 @@ class Configuration implements ConfigurationInterface
     public function getApiEndpointStage()
     {
         return self::API_ENDPOINT_STAGE;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointV2()
+     */
+    public function getApiEndpointV2()
+    {
+        if ($this->isHostedPageV2()) {
+            switch ($this->getApiEnv()) {
+                case self::API_ENV_CUSTOM:
+                    if (empty($this->urlCustom)) {
+                        return $this->getApiEndpointV2Stage();
+                    } else {
+                        return $this->urlCustom;
+                    }
+                case self::API_ENV_PRODUCTION:
+                    return $this->getApiEndpointV2Prod();
+                case self::API_ENDPOINT_STAGE:
+                default:
+                    return $this->getApiEndpointV2Stage();
+            }
+        } else {
+            return $this->getApiEndpoint();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointV2Prod()
+     */
+    public function getApiEndpointV2Prod()
+    {
+        return self::API_ENDPOINT_V2_PROD;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface::getApiEndpointV2Stage()
+     */
+    public function getApiEndpointV2Stage()
+    {
+        return self::API_ENDPOINT_V2_STAGE;
     }
 
     /**
@@ -515,6 +585,22 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isHostedPageV2()
+    {
+        return $this->_hostedPageV2;
+    }
+
+    /**
+     * @param bool $hostedPageV2
+     */
+    public function setHostedPageV2($hostedPageV2)
+    {
+        $this->_hostedPageV2 = $hostedPageV2;
+    }
+
+    /**
      * Construct configuration object.
      *
      * Configuration Object is used by HTTP client.
@@ -546,8 +632,7 @@ class Configuration implements ConfigurationInterface
         $proxy = array(),
         $timeout = 15,
         $connect_timeout = 15
-    )
-    {
+    ) {
         trigger_error("This construction method is deprecated. Please use an array to create your configuration.", E_USER_DEPRECATED);
 
         return array(
