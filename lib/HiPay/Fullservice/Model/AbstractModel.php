@@ -50,7 +50,7 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
 
                 //Call getter to get the value
                 $val = $method->invoke($this);
-                if (is_object($val) && get_class($val)) {
+                if (is_object($val) && is_a($val, AbstractModel::class)) {
                     $array[$key] = $val->toArray();
                 } else {
                     $array[$key] = $val;

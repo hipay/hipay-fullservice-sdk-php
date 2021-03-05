@@ -10,7 +10,7 @@
       "intAttribute": 1,
       "stringAttribute": "",
       "arrayAttribute": ["test", "test"],
-      "objectAttribute": null
+      "objectAttribute": {}
     }
   }
 }

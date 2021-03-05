@@ -47,7 +47,7 @@ class AbstractModelTest extends TestCase
                     "intAttribute" => 1,
                     "stringAttribute" => "",
                     "arrayAttribute" => array("test", "test"),
-                    "objectAttribute" => null
+                    "objectAttribute" => new \stdClass()
                 )
             )
         );
@@ -63,7 +63,7 @@ class AbstractModelTest extends TestCase
             "intAttribute" => 1,
             "stringAttribute" => "",
             "arrayAttribute" => array("test", "test"),
-            "objectAttribute" => null
+            "objectAttribute" => (object)[]
         );
 
         $this->assertEquals($expectedValues, $mock->toArray());
@@ -90,7 +90,7 @@ class AbstractModelTest extends TestCase
         $expectedValues = array(
             "intAttribute" => 1,
             "arrayAttribute" => array("test", "test"),
-            "objectAttribute" => null
+            "objectAttribute" => new \stdClass()
         );
 
         $this->assertEquals($expectedValues, $mock->jsonSerialize());
