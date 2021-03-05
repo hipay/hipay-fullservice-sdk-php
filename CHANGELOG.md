@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- **Fix**: PHP compatibility [#46](https://github.com/hipay/hipay-fullservice-sdk-php/issues/46)
+- **Fix**: toArray() method to be recursive [#50](https://github.com/hipay/hipay-fullservice-sdk-php/issues/50)
+
 ## Version 2.8.0
 
 - **Add** HostedPage v2 endpoint API
