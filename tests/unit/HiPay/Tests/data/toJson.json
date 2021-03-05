@@ -1,22 +1,15 @@
 {
   "intAttribute": 1,
   "stringAttribute": "test",
-  "arrayAttribute": [
-    "test",
-    "test"
-  ],
+  "arrayAttribute": ["test", "test"],
   "serializableObject": {
     "intAttribute": 1,
-    "arrayAttribute": [
-      "test",
-      "test"
-    ],
+    "stringAttribute": "",
+    "arrayAttribute": ["test", "test"],
     "objectAttribute": {
       "intAttribute": 1,
-      "arrayAttribute": [
-        "test",
-        "test"
-      ],
+      "stringAttribute": "",
+      "arrayAttribute": ["test", "test"],
       "objectAttribute": null
     }
   }

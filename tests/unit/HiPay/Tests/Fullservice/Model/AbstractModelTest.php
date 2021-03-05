@@ -39,7 +39,17 @@ class AbstractModelTest extends TestCase
             "intAttribute" => 1,
             "stringAttribute" => "test",
             "arrayAttribute" => array("test", "test"),
-            "serializableObject" => new MockSimpleModel(true)
+            "serializableObject" => array(
+                "intAttribute" => 1,
+                "stringAttribute" => "",
+                "arrayAttribute" => array("test", "test"),
+                "objectAttribute" => array(
+                    "intAttribute" => 1,
+                    "stringAttribute" => "",
+                    "arrayAttribute" => array("test", "test"),
+                    "objectAttribute" => null
+                )
+            )
         );
 
         $this->assertEquals($expectedValues, $mock->toArray());
