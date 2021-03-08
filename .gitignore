@@ -4,6 +4,7 @@
 .settings
 .project
 .idea/*
+.vscode
 
 #Netbeans IDE#
 ##############################
@@ -53,3 +54,4 @@ vendor/
 doc/
 .idea
 /nbproject/private/
+/composer.lock

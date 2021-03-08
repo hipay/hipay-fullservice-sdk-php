@@ -8,6 +8,10 @@
     "payment",
     "payment method"
   ],
+  "scripts": {
+    "test": "phpunit -c tests/unit/phpunit.xml",
+    "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
+  },
   "homepage": "https://hipay.com/product-enterprise/",
   "version": "2.8.0",
   "license": "Apache-2.0",
@@ -28,7 +32,9 @@
   },
   "require-dev": {
     "phpunit/phpunit": "6.2.*",
-    "phpstan/phpstan": "0.*"
+    "phpstan/phpstan": "0.*",
+    "phpcompatibility/php-compatibility": "^9.3",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
   },
   "autoload": {
     "psr-4": {
