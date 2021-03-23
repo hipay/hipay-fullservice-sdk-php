@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 2.8.1
 
 - **Fix**: PHP compatibility [#46](https://github.com/hipay/hipay-fullservice-sdk-php/issues/46)
 - **Fix**: toArray() method to be recursive [#50](https://github.com/hipay/hipay-fullservice-sdk-php/issues/50)
