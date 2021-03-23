@@ -39,6 +39,8 @@ class MockSimpleModel extends AbstractModel
     {
         if ($recursive) {
             $this->objectAttribute = new MockSimpleModel();
+        } else {
+            $this->objectAttribute = (object)[];
         }
     }
 

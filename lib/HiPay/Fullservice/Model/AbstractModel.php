@@ -49,7 +49,12 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
                 $key = lcfirst(substr($method->name, 3));
 
                 //Call getter to get the value
-                $array[$key] = $method->invoke($this);
+                $val = $method->invoke($this);
+                if (is_object($val) && is_a($val, AbstractModel::class)) {
+                    $array[$key] = $val->toArray();
+                } else {
+                    $array[$key] = $val;
+                }
             }
         }
 
@@ -71,7 +76,7 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
      */
     public function toJson()
     {
-        return json_encode($this);
+        return json_encode($this->toArray());
     }
 
     /**
@@ -83,10 +88,10 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
         $properties = get_object_vars($this);
 
         foreach ($properties as $p => $v) {
-            if($v === null){
+            if ($v === null) {
                 unset($this->$p);
-            } elseif(is_object($v) && $v instanceof AbstractModel){
-                if(!$this->$p->cleanNullValues()){
+            } elseif (is_object($v) && $v instanceof AbstractModel) {
+                if (!$this->$p->cleanNullValues()) {
                     unset($this->$p);
                 }
             }

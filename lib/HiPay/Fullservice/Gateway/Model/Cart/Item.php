@@ -312,7 +312,7 @@ class Item extends AbstractModel
      * @param int $product_category
      * @param int $shop_id
      */
-    public function __constructItem(
+    public function __construct(
         $european_article_numbering,
         $product_reference,
         $type,
@@ -330,7 +330,6 @@ class Item extends AbstractModel
         $delivery_number,
         $product_category,
         $shop_id
-
     ) {
         $this->_european_article_numbering = $european_article_numbering;
         $this->_product_reference = $product_reference;
