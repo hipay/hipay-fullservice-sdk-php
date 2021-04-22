@@ -38,4 +38,12 @@ class PreviousAuthInfo extends AbstractModel
      * @example 800000987283
      */
     public $transaction_reference;
+
+    /**
+     * @return string
+     */
+    public function getTransactionReference()
+    {
+        return $this->transaction_reference;
+    }
 }

@@ -54,4 +54,28 @@ class Shipping extends AbstractModel
      * @value SuspiciousActivity::NO_SUSPICIOUS_ACTIVITY | SuspiciousActivity::SUSPICIOUS_ACTIVITY
      */
     public $suspicious_activity;
+
+    /**
+     * @return int
+     */
+    public function getShippingUsedDate()
+    {
+        return $this->shipping_used_date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNameIndicator()
+    {
+        return $this->name_indicator;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSuspiciousActivity()
+    {
+        return $this->suspicious_activity;
+    }
 }

@@ -38,4 +38,12 @@ class Payment extends AbstractModel
      * @example 20180507
      */
     public $enrollment_date;
+
+    /**
+     * @return int
+     */
+    public function getEnrollmentDate()
+    {
+        return $this->enrollment_date;
+    }
 }

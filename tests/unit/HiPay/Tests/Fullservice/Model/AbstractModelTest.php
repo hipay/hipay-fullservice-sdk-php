@@ -69,33 +69,6 @@ class AbstractModelTest extends TestCase
         $this->assertEquals($expectedValues, $mock->toArray());
     }
 
-    public function testJsonSerializeComplex()
-    {
-        $mock = new MockComplexModel();
-
-        $expectedValues = array(
-            "intAttribute" => 1,
-            "stringAttribute" => "test",
-            "arrayAttribute" => array("test", "test"),
-            "serializableObject" => new MockSimpleModel(true)
-        );
-
-        $this->assertEquals($expectedValues, $mock->jsonSerialize());
-    }
-
-    public function testJsonSerializeSimple()
-    {
-        $mock = new MockSimpleModel();
-
-        $expectedValues = array(
-            "intAttribute" => 1,
-            "arrayAttribute" => array("test", "test"),
-            "objectAttribute" => new \stdClass()
-        );
-
-        $this->assertEquals($expectedValues, $mock->jsonSerialize());
-    }
-
     public function testToJson()
     {
         $stringExpected = preg_replace("/\s+/", "", file_get_contents(dirname(__FILE__) . "/../../data/toJson.json"));

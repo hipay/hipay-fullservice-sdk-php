@@ -53,4 +53,29 @@ class Customer extends AbstractModel
      * @example 20180507
      */
     public $password_change;
+
+    /**
+     * @return int
+     */
+    public function getAccountChange()
+    {
+        return $this->account_change;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOpeningAccountDate()
+    {
+        return $this->opening_account_date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPasswordChange()
+    {
+        return $this->password_change;
+    }
+
 }

@@ -312,7 +312,7 @@ class Item extends AbstractModel
      * @param int $product_category
      * @param int $shop_id
      */
-    public function __construct(
+    public function __constructItem(
         $european_article_numbering,
         $product_reference,
         $type,
