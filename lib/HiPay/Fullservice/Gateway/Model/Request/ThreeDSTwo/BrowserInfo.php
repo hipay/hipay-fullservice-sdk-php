@@ -109,4 +109,85 @@ class BrowserInfo extends AbstractModel
      * @var string $timezone
      */
     public $timezone;
+
+    /**
+     * @return string
+     */
+    public function getIpaddr()
+    {
+        return $this->ipaddr;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHttpAccept()
+    {
+        return $this->http_accept;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHttpUserAgent()
+    {
+        return $this->http_user_agent;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isJavaEnabled()
+    {
+        return $this->java_enabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isJavascriptEnabled()
+    {
+        return $this->javascript_enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * @return int
+     */
+    public function getColorDepth()
+    {
+        return $this->color_depth;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScreenHeight()
+    {
+        return $this->screen_height;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScreenWidth()
+    {
+        return $this->screen_width;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.8.2
+
+- [fix]: Double constructor for cart's item
+- [fix]: Error on request parameters serialization
+
 ## Version 2.8.1
 
 - **Fix**: PHP compatibility [#46](https://github.com/hipay/hipay-fullservice-sdk-php/issues/46)

@@ -69,6 +69,7 @@ class RequestSerializer
 
         //prepare an array of scalar properties
         $this->prepareParams($this->_request, $params);
+
         return $params;
     }
 
@@ -97,9 +98,7 @@ class RequestSerializer
             } elseif (is_array($v)) {
                 $params[$p] = json_encode($v);
             } elseif (is_object($v) && $v instanceof AbstractModel) {
-                if($v->cleanNullValues()) {
-                    $params[$p] = $v->toJson();
-                }
+                $params[$p] = $v->toJson();
             } elseif (is_object($v) && $v instanceof AbstractRequest) {
                 $this->prepareParams($v, $params);
             }

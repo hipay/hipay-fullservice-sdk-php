@@ -29,7 +29,7 @@ namespace HiPay\Fullservice\Model;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
-abstract class AbstractModel implements ModelInterface, \JsonSerializable
+abstract class AbstractModel implements ModelInterface
 {
 
     /**
@@ -52,21 +52,13 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
                 $val = $method->invoke($this);
                 if (is_object($val) && is_a($val, AbstractModel::class)) {
                     $array[$key] = $val->toArray();
-                } else {
+                } elseif ($val !== null) {
                     $array[$key] = $val;
                 }
             }
         }
 
         return $array;
-    }
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        return get_object_vars($this);
     }
 
     /**
@@ -79,24 +71,8 @@ abstract class AbstractModel implements ModelInterface, \JsonSerializable
         return json_encode($this->toArray());
     }
 
-    /**
-     * Deletes every null value recursively in $this
-     * @return bool True if the resulting object still has non null values
-     */
-    public function cleanNullValues()
+    public function __get($name)
     {
-        $properties = get_object_vars($this);
-
-        foreach ($properties as $p => $v) {
-            if ($v === null) {
-                unset($this->$p);
-            } elseif (is_object($v) && $v instanceof AbstractModel) {
-                if (!$this->$p->cleanNullValues()) {
-                    unset($this->$p);
-                }
-            }
-        }
-
-        return !(empty(get_object_vars($this)));
+        return isset($this->{$name}) ? $this->{$name} : null;
     }
 }

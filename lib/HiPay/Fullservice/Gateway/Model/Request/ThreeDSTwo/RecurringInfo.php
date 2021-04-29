@@ -46,4 +46,20 @@ class RecurringInfo extends AbstractModel
      * @example 31
      */
     public $frequency;
+
+    /**
+     * @return int
+     */
+    public function getExpirationDate()
+    {
+        return $this->expiration_date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFrequency()
+    {
+        return $this->frequency;
+    }
 }
