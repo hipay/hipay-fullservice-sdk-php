@@ -47,6 +47,7 @@ class PaymentMethodMapper extends AbstractMapper {
     {
         $source = $this->_getSource();
         $token = isset($source['token']) ? $source['token'] : null;
+        $cardId = isset($source['cardId']) ? $source['cardId'] : null;
         $brand = isset($source['brand']) ? $source['brand'] : null;
         $pan = isset($source['pan']) ? $source['pan'] : null;
         $cardHolder = isset($source['cardHolder']) ? $source['cardHolder'] : null;
@@ -55,7 +56,7 @@ class PaymentMethodMapper extends AbstractMapper {
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
         
-        $this->_modelObject = new PaymentMethod($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country);
+        $this->_modelObject = new PaymentMethod($token,$cardId, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country);
         
  			
     }

@@ -28,6 +28,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
+use HiPay\Fullservice\Gateway\Mapper\PaymentMethodMapper;
 
 /**
  * Client class for all request send to TPP Fullservice.
@@ -80,15 +81,25 @@ class GatewayClient implements GatewayClientInterface
     const METHOD_MAINTENANCE_OPERATION = 'POST';
 
     /**
-     * @var string ENDPOINT_TRANSACTION_DETAILS endpoint to call transaction information
+     * @var string ENDPOINT_TRANSACTION_INFORMATION endpoint to call transaction information
      */
     const ENDPOINT_TRANSACTION_INFORMATION = 'v1/transaction/{transaction}';
 
     /**
-     * @var string METHOD_TRANSACTION_DETAILS http method to call transaction information
+     * @var string METHOD_TRANSACTION_INFORMATION http method to call transaction information
      */
     const METHOD_TRANSACTION_INFORMATION = 'GET';
 
+     /**
+     * @var string ENDPOINT_TOKEN_INFORMATION endpoint to call token information
+     */
+    const ENDPOINT_TOKEN_INFORMATION = 'v2/token/{token}';
+
+    /**
+     * @var string METHOD_TOKEN_INFORMATION http method to call token information
+     */
+    const METHOD_TOKEN_INFORMATION = 'GET';
+    
     /**
      * @var string ENDPOINT_ORDER_TRANSACTION_INFORMATION endpoint to call transaction information
      */
@@ -272,6 +283,31 @@ class GatewayClient implements GatewayClientInterface
         return $transactionMapper->getModelObjectMapped();
     }
 
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestTokenInformation()
+     */
+    public function requestTokenInformation($token)
+    {
+        $response = $this->getClientProvider()->request(
+            self::METHOD_TOKEN_INFORMATION,
+            str_replace('{token}', $token, self::ENDPOINT_TOKEN_INFORMATION),
+            [],
+            true
+            
+        );
+        $data = $response->toArray();
+        if (empty($data['token'])) {
+            return null;
+        }
+
+        $paymentMethodMapper = new PaymentMethodMapper($data);
+
+        return $paymentMethodMapper->getModelObjectMapped();
+    }
 
     /**
      *

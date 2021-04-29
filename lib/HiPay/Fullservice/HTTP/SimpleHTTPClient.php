@@ -79,7 +79,6 @@ class SimpleHTTPClient extends ClientProvider
         }
 
         $finalUrl = $url . $endpoint;
-
         // set appropriate options
         $options = array(
             CURLOPT_URL => $finalUrl,
