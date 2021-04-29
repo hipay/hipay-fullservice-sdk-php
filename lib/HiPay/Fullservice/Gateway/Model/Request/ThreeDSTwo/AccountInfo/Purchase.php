@@ -62,4 +62,36 @@ class Purchase extends AbstractModel
      * @example 15
      */
     public $payment_attempts_1y;
+
+    /**
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCardStored24h()
+    {
+        return $this->card_stored_24h;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPaymentAttempts24h()
+    {
+        return $this->payment_attempts_24h;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPaymentAttempts1y()
+    {
+        return $this->payment_attempts_1y;
+    }
 }

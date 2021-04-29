@@ -89,4 +89,60 @@ class MerchantRiskStatement extends AbstractModel
      * @var GiftCard
      */
     public $gift_card;
+
+    /**
+     * @return string
+     */
+    public function getEmailDeliveryAddress()
+    {
+        return $this->email_delivery_address;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDeliveryTimeFrame()
+    {
+        return $this->delivery_time_frame;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPurchaseIndicator()
+    {
+        return $this->purchase_indicator;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPreOrderDate()
+    {
+        return $this->pre_order_date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getReorderIndicator()
+    {
+        return $this->reorder_indicator;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShippingIndicator()
+    {
+        return $this->shipping_indicator;
+    }
+
+    /**
+     * @return GiftCard
+     */
+    public function getGiftCard()
+    {
+        return $this->gift_card;
+    }
 }
