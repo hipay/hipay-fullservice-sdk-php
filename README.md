@@ -28,7 +28,7 @@ Read the **[project documentation][doc-home]** for comprehensive information abo
 
 The **HiPay Enterprise SDK for PHP** is available under the **Apache 2.0 License**. Check out the [license file][project-license] for more information.
 
-[doc-home]: https://developer.hipay.com/doc/hipay-fullservice-sdk-php/
+[doc-home]: https://developer.hipay.com/online-payments/sdk-reference/sdk-php
 [hipay-help]: https://support.hipay.com
 [project-issues]: https://github.com/hipay/hipay-fullservice-sdk-php/issues
 [project-license]: LICENSE.md
