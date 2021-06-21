@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.8.3
+
+- [fix]: timeout for OrderRequest
+
 ## Version 2.8.2
 
 - [fix]: Double constructor for cart's item

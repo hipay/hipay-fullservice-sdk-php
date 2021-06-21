@@ -132,7 +132,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @var int Timeout value for curl calls
      */
-    private $curl_timeout = 15;
+    private $curl_timeout = 60;
 
     /**
      * @var int Timeout value for curl connection
@@ -630,7 +630,7 @@ class Configuration implements ConfigurationInterface
         $apiEnv = self::API_ENV_STAGE,
         $apiHTTPHeaderAccept = null,
         $proxy = array(),
-        $timeout = 15,
+        $timeout = 60,
         $connect_timeout = 15
     ) {
         trigger_error("This construction method is deprecated. Please use an array to create your configuration.", E_USER_DEPRECATED);
