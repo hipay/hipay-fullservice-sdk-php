@@ -2,7 +2,10 @@
 
 ## Version 2.8.3
 
-- [fix]: timeout for OrderRequest
+- [fix]: Timeout for OrderRequest
+- [change]: payment product configuration for:
+  - Oney 3xcb, 4xcb fees/no-fees
+  - Oney Credit Long
 
 ## Version 2.8.2
 
@@ -22,7 +25,7 @@
 ## Version 2.7.0
 
 - **Add** Oney Credit Long payment product
-- **Update** payment product configuration for:
+- **Change** payment product configuration for:
   - Oney 3xcb, 4xcb
   - Illicado
 

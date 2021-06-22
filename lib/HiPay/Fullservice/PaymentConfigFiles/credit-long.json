@@ -2,7 +2,7 @@
   "productCode": "credit-long",
   "brandName": "Credit Long - Oney",
   "category": "debit-card",
-  "comment": "Available only in France.",
+  "comment": "Available only in France, Italia or Portugal.",
   "can3ds": 1,
   "canRecurring": 0,
   "canManualCapture": 1,
@@ -11,7 +11,7 @@
   "canRefundPartially": 1,
   "basketRequired": 1,
   "currencies": ["EUR"],
-  "countries": ["FR"],
+  "countries": ["FR", "IT", "PT"],
   "checkoutFieldsMandatory": ["phone"],
   "additionalFields": {},
   "priority": 30
