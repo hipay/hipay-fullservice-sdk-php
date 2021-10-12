@@ -1,9 +1,8 @@
-image: $REGISTRY_CI/gitlab-ci-base:buster
-
 stages:
- - test
+  - test
 
 phpunit:
+  image: php:5.6-alpine
   stage: test
   before_script:
     - composer install
@@ -11,4 +10,4 @@ phpunit:
     - phpunit -c tests/unit/phpunit.xml
   allow_failure: false
   tags:
-    - gcp-default-runner-prod
+    - gcp-small-runner-prod
