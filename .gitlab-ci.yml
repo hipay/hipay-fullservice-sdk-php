@@ -2,7 +2,7 @@ stages:
   - test
 
 phpunit:
-  image: pathmotion/composer-php-5.6:latest
+  image: pathmotion/composer-php-7.2:latest
   stage: test
   before_script:
     - composer install
