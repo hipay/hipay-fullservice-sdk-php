@@ -46,7 +46,7 @@ abstract class AbstractModel implements ModelInterface
         foreach ($classRef->getMethods() as $method) {
             if (preg_match("/^(?:get|is)(\w+)/", $method->name, $groups)) {
                 //clean key name
-                $key = lcfirst($groups[1]);
+                $key = $this->decamelize($groups[1]);
 
                 //Call getter to get the value
                 $val = $method->invoke($this);
@@ -74,5 +74,14 @@ abstract class AbstractModel implements ModelInterface
     public function __get($name)
     {
         return isset($this->{$name}) ? $this->{$name} : null;
+    }
+
+    /**
+     * @param string $string string in camelCase
+     * @return string string in snake_case
+     */
+    private function decamelize($string)
+    {
+        return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
     }
 }
