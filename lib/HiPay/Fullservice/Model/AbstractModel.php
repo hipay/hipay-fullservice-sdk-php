@@ -44,9 +44,9 @@ abstract class AbstractModel implements ModelInterface
 
         $classRef = new \ReflectionClass(get_class($this));
         foreach ($classRef->getMethods() as $method) {
-            if (substr($method->name, 0, 3) == 'get') {
+            if (preg_match("/^(?:get|is)(\w+)/", $method->name, $groups)) {
                 //clean key name
-                $key = lcfirst(substr($method->name, 3));
+                $key = lcfirst($groups[1]);
 
                 //Call getter to get the value
                 $val = $method->invoke($this);
