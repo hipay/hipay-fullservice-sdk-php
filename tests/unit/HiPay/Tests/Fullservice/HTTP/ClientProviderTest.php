@@ -39,8 +39,6 @@ class ClientProviderTest extends TestCase
 
     /**
      * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
-     * @expectedException TypeError
-     * @expectedExceptionMessage  Too few arguments to function HiPay\Fullservice\HTTP\ClientProvider::__construct(), 0 passed and exactly 1 expected
      */
     public function testCannotBeConstructUsingNoArgument()
     {
@@ -48,14 +46,14 @@ class ClientProviderTest extends TestCase
         $mock = $this->getAbstractMock($this->_abstractName);
 
         // now call the constructor
+        $this->expectException(\TypeError::class);
+        $this->expectExceptionMessage("Too few arguments to function HiPay\Fullservice\HTTP\ClientProvider::__construct(), 0 passed and exactly 1 expected");
         $this->getClassConstructor($this->_abstractName)->invoke($mock);
 
     }
 
     /**
      * @cover HiPay\Fullservice\HTTP\ClientProvider::__construct
-     * @expectedException TypeError
-     * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
      */
     public function testCannotBeConstructUsingInvalidArgument()
     {
@@ -63,6 +61,8 @@ class ClientProviderTest extends TestCase
         $mock = $this->getAbstractMock($this->_abstractName);
 
         // now call the constructor
+        $this->expectException(\TypeError::class);
+        $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
 
     }

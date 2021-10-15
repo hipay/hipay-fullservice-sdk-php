@@ -1,6 +1,7 @@
 <?php
 namespace HiPay\Tests\Fullservice\HTTP\Response;
 
+use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Tests\TestCase;
 
 /**
@@ -19,11 +20,11 @@ class AbstractResponseTest extends TestCase
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructFromNonStringValue(){
         
         $mock = $this->getAbstractMock($this->_abstractName);
+        $this->expectException(InvalidArgumentException::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock,null,500,array());
         
     }
@@ -36,17 +37,18 @@ class AbstractResponseTest extends TestCase
     public function testCannotBeConstructFromNonNumericValue(){
     
         $mock = $this->getAbstractMock($this->_abstractName);
+        $this->expectException(InvalidArgumentException::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock,'some string','status 500',array());
     
     }
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct
-     * @expectedException TypeError
      */
     public function testCannotBeConstructFromNonArrayValue(){
     
         $mock = $this->getAbstractMock($this->_abstractName);
+        $this->expectException(\TypeError::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock,'some string',500,'Content-Type: application/json');
     
     }

@@ -16,6 +16,7 @@
 
 namespace HiPay\Tests\Fullservice\Mapper;
 
+use HiPay\Fullservice\Exception\LengthException;
 use HiPay\Tests\TestCase;
 
 /**
@@ -34,22 +35,22 @@ class AbstractMapperTest extends TestCase
 
     /**
      * @cover HiPay\Fullservice\Mapper\AbstractMapper::__construct
-     * @expectedException TypeError
      */
     public function testCannotBeConstructUsingInvalidArgument()
     {
         $mock = $this->getAbstractMock($this->_abstractName);
 
+        $this->expectException(\TypeError::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
     }
 
     /**
      * @cover HiPay\Fullservice\Mapper\AbstractMapper::__construct
-     * @expectedException HiPay\Fullservice\Exception\LengthException
      */
     public function testCannotBeConstructWithEmptyArray()
     {
         $mock = $this->getAbstractMock($this->_abstractName);
+        $this->expectException(LengthException::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock, array());
     }
 
