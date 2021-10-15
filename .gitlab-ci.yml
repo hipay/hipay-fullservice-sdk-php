@@ -1,14 +1,19 @@
-image: $REGISTRY_CI/gitlab-ci-base:buster
+cache:
+  key: ${CI_COMMIT_REF_SLUG}-${CI_PIPELINE_ID}
+  paths:
+    - composer.lock
+    - vendor/
 
 stages:
- - test
+  - test
 
 phpunit:
+  image: pathmotion/composer-php-7.2:latest
   stage: test
   before_script:
     - composer install
   script:
-    - phpunit -c tests/unit/phpunit.xml
+    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml
   allow_failure: false
   tags:
-    - gcp-default-runner-prod
+    - gcp-small-runner-prod
