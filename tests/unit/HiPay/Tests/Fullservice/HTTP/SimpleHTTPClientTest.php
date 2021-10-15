@@ -16,10 +16,6 @@
 
 namespace HiPay\Tests\Fullservice\HTTP;
 
-use HiPay\Fullservice\Exception\ApiErrorException;
-use HiPay\Fullservice\Exception\CurlException;
-use HiPay\Fullservice\Exception\HttpErrorException;
-use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Tests\TestCase;
 use HiPay\Fullservice\HTTP\SimpleHTTPClient;
 use HiPay\Fullservice\HTTP\ClientProvider;
@@ -41,11 +37,11 @@ class SimpleHTTPClientTest extends TestCase
     /**
      * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::__construct()
      * @uses  \HiPay\Fullservice\HTTP\Configuration\Configuration
+     * @expectedException TypeError
+     * @expectedExceptionMessage  Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given
      */
     public function testCannotBeConstructFromInvalidArgument()
     {
-        $this->expectException(\TypeError::class);
-        $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
         $client = new SimpleHTTPClient(null);
     }
 
@@ -108,105 +104,80 @@ class SimpleHTTPClientTest extends TestCase
     /**
      * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
      * @depends testCanBeConstructUsingConfiguration
+     * @expectedException TypeError
      */
     public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client)
     {
-        $this->expectException(\TypeError::class);
         $client->request('GETTED', "1234", "foo", 1234);
     }
 
     /**
      * @cover HiPay\Fullservice\HTTP\SimpleHTTPClient::request
      * @depends testCanBeConstructUsingConfiguration
+     * @expectedException HiPay\Fullservice\Exception\InvalidArgumentException
      */
-    public function testRequestCannotBeExecutedFromRequiredInvalidMethod(ClientProvider $client)
+    public function testRequestCannotBeExecutedFromRequiredInvalidArguments(ClientProvider $client)
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("HTTP METHOD \"GETTED\" doesn't exist");
+        $this->markTestSkipped('HTTP method and Uri validator not implemented yet :-( ');
+
         $client->request('GETTED', "1234");
     }
 
     /**
      * @depends testCanBeConstructUsingConfiguration
+     * @expectedException InvalidArgumentException
      */
     public function testRequestCannotBeExecutedFromInvalidHTTPMethod(ClientProvider $client)
     {
-        $this->expectException(InvalidArgumentException::class);
         $client->request(123, "1234");
     }
 
     /**
      * @depends testCanBeConstructUsingConfiguration
+     * @expectedException InvalidArgumentException
      */
     public function testRequestCannotBeExecutedFromInvalidEndpoint(ClientProvider $client)
     {
-        $this->expectException(InvalidArgumentException::class);
         $client->request('GET', 1324);
     }
 
     /**
-     * @depends testCanBeConstructUsingConfiguration
-     */
-    public function testRequestCanBeExecutedWithProxy(ClientProvider $client)
-    {
-        $conf = new Configuration(
-            array(
-                'apiUsername' => "username",
-                'apiPassword' => "123456",
-                'proxy' => array(
-                    'host' => "127.0.0.1",
-                    'port' => 25565,
-                    'user' => "jDoe",
-                    'password' => "1234"
-                )
-            )
-        );
-
-        $client->setConfiguration($conf);
-
-        $this->expectException(CurlException::class);
-        $this->expectExceptionMessage('Failed to connect to 127.0.0.1 port 25565: Connection refused');
-
-        $client->request('GET', "/");
-    }
-
-    /**
+     * @expectedException HiPay\Fullservice\Exception\CurlException
+     * @expectedExceptionMessage Could not resolve host
      */
     public function testCurlExceptionIsRaisedForNetworkFailure()
     {
         $mock = $this->createMock(Configuration::class);
         $mock->method('getApiEndpoint')->willReturn('http://domain.invalid');
         $client = new SimpleHTTPClient($mock);
-        $this->expectException(CurlException::class);
-        $this->expectExceptionMessage("Could not resolve host");
         $client->request('GET', "/");
     }
 
     /**
      * https://www.mocky.io/v2/5b80129d3400005400dc0727 mocks an API error json response
      *
+     * @expectedException HiPay\Fullservice\Exception\ApiErrorException
+     * @expectedExceptionCode 123123123
      */
     public function testApiErrorExceptionIsRaisedForParsableHttpResponse()
     {
         $mock = $this->createMock(Configuration::class);
         $mock->method('getApiEndpoint')->willReturn('http://www.mocky.io');
         $client = new SimpleHTTPClient($mock);
-        $this->expectException(ApiErrorException::class);
-        $this->expectExceptionCode(123123123);
         $client->request('GET', "/v2/5b80129d3400005400dc0727");
     }
 
     /**
      * https://www.mocky.io/v2/5b8013903400007700dc072b mocks a not parsable HTTP 500 error
      *
+     * @expectedException HiPay\Fullservice\Exception\HttpErrorException
+     * @expectedExceptionCode 500
      */
     public function testHttpErrorExceptionIsRaisedForNotParsableHttpResponse()
     {
         $mock = $this->createMock(Configuration::class);
         $mock->method('getApiEndpoint')->willReturn('http://www.mocky.io');
         $client = new SimpleHTTPClient($mock);
-        $this->expectException(HttpErrorException::class);
-        $this->expectExceptionCode(500);
         $client->request('GET', "/v2/5b8013903400007700dc072b");
     }
 

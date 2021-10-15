@@ -33,6 +33,7 @@ class DeliveryMethodAttributeTest extends TestCase
 
     public function testConstruct()
     {
+
         $deliveryMethodAttribute = new DeliveryMethodAttribute(
             "Test",
             array(
@@ -53,13 +54,6 @@ class DeliveryMethodAttributeTest extends TestCase
      */
     public function testGetDisplayName($deliveryMethodAttribute)
     {
-        $deliveryMethodAttribute->setDisplayName(
-            array(
-                "FR" => "TEST_FR",
-                "EN" => "TEST_EN"
-            )
-        );
-
         $this->assertEquals("TEST_EN", $deliveryMethodAttribute->getDisplayName());
         $this->assertEquals("TEST_FR", $deliveryMethodAttribute->getDisplayName("FR"));
         $this->assertEquals("TEST_EN", $deliveryMethodAttribute->getDisplayName("IT"));
@@ -76,12 +70,7 @@ class DeliveryMethodAttributeTest extends TestCase
         $deliveryMethodAttribute->setCode("Test2");
         $this->assertEquals("Test2", $deliveryMethodAttribute->getCode());
 
-        $deliveryMethodAttribute->setDisplayName(
-            array(
-                "FR" => "TEST2_FR",
-                "EN" => "TEST2_EN"
-            )
-        );
+        $deliveryMethodAttribute->setDisplayName(array("FR" => "TEST2_FR", "EN" => "TEST2_EN"));
         $this->assertEquals("TEST2_EN", $deliveryMethodAttribute->getDisplayName());
     }
 }

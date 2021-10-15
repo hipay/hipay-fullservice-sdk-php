@@ -66,20 +66,20 @@ class HostedPaymentPageRequestTest extends TestCase
         $o->obj = new \stdClass();
         $o->obj->p1 = 'value1';
 
-        $this->assertEquals('visa,cb,mastercard,american-express', $o->payment_product_list);
-        $this->assertEquals('debit-card', $o->payment_product_category_list);
-        $this->assertEquals('Sale', $o->operation);
+        $this->assertAttributeEquals('visa,cb,mastercard,american-express', 'payment_product_list', $o);
+        $this->assertAttributeEquals('debit-card', 'payment_product_category_list', $o);
+        $this->assertAttributeEquals('Sale', 'operation', $o);
 
-        $this->assertEquals('THIS_IS_A_CSS', $o->css);
-        $this->assertEquals('basic_js', $o->template);
-        $this->assertEquals('1', $o->display_selector);
-        $this->assertEquals('1000', $o->time_limit_to_pay);
-        $this->assertEquals('1', $o->multi_use);
+        $this->assertAttributeEquals('THIS_IS_A_CSS', 'css', $o);
+        $this->assertAttributeEquals('basic_js', 'template', $o);
+        $this->assertAttributeEquals('1', 'display_selector', $o);
+        $this->assertAttributeEquals('1000', 'time_limit_to_pay', $o);
+        $this->assertAttributeEquals('1', 'multi_use', $o);
 
-        $this->assertEquals(array('bar'=>'foobar'), $o->foo);
+        $this->assertAttributeEquals(array('bar'=>'foobar'),'foo', $o);
         $toCompare = new \stdClass();
         $toCompare->p1 = 'value1';
-        $this->assertEquals($toCompare, $o->obj);
+        $this->assertAttributeEquals($toCompare,'obj', $o);
 
         return $o;
     }
@@ -95,7 +95,7 @@ class HostedPaymentPageRequestTest extends TestCase
 
         $o->reorderPaymentProductList();
 
-        $this->assertEquals('cb,visa,mastercard,paypal,american-express,bcmc,azerty', $o->payment_product_list);
+        $this->assertAttributeEquals('cb,visa,mastercard,paypal,american-express,bcmc,azerty', 'payment_product_list', $o);
 
         return $o;
     }

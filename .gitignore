@@ -55,4 +55,3 @@ doc/
 .idea
 /nbproject/private/
 /composer.lock
-tests/unit/tests-reports

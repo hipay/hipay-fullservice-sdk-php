@@ -71,33 +71,4 @@ class CollectionTest extends TestCase
         $collection = Collection::getItems('test');
         $this->assertCount(0, $collection);
     }
-
-    public function testOrderByPriorityEmpty()
-    {
-        $collection = Collection::orderByPriority("");
-
-        $this->assertNull($collection);
-    }
-
-    public function testOrderByPriority()
-    {
-        $collection = Collection::orderByPriority("mastercard,credit-card");
-
-        $this->assertNotNull($collection);
-
-        $collectionArray = explode(',', $collection);
-
-        $this->assertCount(2, $collectionArray);
-    }
-
-    public function testOrderByPriorityNew()
-    {
-        $collection = Collection::orderByPriority("mastercard,credit-card,new");
-
-        $this->assertNotNull($collection);
-
-        $collectionArray = explode(',', $collection);
-
-        $this->assertCount(3, $collectionArray);
-    }
 }

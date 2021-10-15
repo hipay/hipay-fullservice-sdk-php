@@ -1,9 +1,6 @@
 <?php
 namespace HiPay\Tests\Fullservice\HTTP\Response;
 
-use HiPay\Fullservice\Exception\InvalidArgumentException;
-use HiPay\Fullservice\Exception\OutOfBoundsException;
-use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Tests\TestCase;
 use HiPay\Fullservice\HTTP\Response\Response;
 
@@ -21,28 +18,28 @@ class ResponseTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructFromNonStringValue()
     {
-        $this->expectException(InvalidArgumentException::class);
         new Response(null, 500, array());
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::__construct
+     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructFromNonNumericValue()
     {
-        $this->expectException(InvalidArgumentException::class);
         new Response('some string', 'status 500', array());
     }
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::__construct
+     * @expectedException TypeError
      */
     public function testCannotBeConstructFromNonArrayValue()
     {
-        $this->expectException(\TypeError::class);
         new Response('some string', 500, 'Content-Type: application/json');
     }
     
@@ -95,30 +92,30 @@ class ResponseTest extends TestCase
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::toArray
      * @depends testObjectBanBeConstructUsingValidArguments
+     * @expectedException \HiPay\Fullservice\Exception\OutOfBoundsException
      */
     public function testToArrayCannotBeRetrievedFromInvalidHeaderKey(Response $response)
     {
-        $this->expectException(OutOfBoundsException::class);
         $response->toArray();
     }
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::toArray
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testToArrayCannotBeRetrievedUsingInvalidContentTypeHeader()
     {
         $response = new Response('some string', 200, array('Content-Type'=>array('application/xml')));
-        $this->expectException(UnexpectedValueException::class);
         $response->toArray();
     }
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\Response::toArray
+     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testToArrayCannotBeRetrievedUsingInvalidJsonBody()
     {
         $response = new Response('some string', 200, array('Content-Type'=>array('application/json; encoding=UTF-8')));
-        $this->expectException(UnexpectedValueException::class);
         $response->toArray();
     }
     

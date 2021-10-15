@@ -63,14 +63,14 @@ class AbstractRequestTest extends TestCase
         $req->obj = new \stdClass();
         $req->obj->p1 = 'value1';
 
-        $this->assertEquals('7', $req->eci);
-        $this->assertEquals('123456', $req->orderId);
-        $this->assertEquals('Sale', $req->operation);
+        $this->assertAttributeEquals('7', 'eci', $req);
+        $this->assertAttributeEquals('123456', 'orderId', $req);
+        $this->assertAttributeEquals('Sale', 'operation', $req);
 
-        $this->assertEquals(array('bar' => 'foobar'), $req->foo);
+        $this->assertAttributeEquals(array('bar' => 'foobar'), 'foo', $req);
         $toCompare = new \stdClass();
         $toCompare->p1 = 'value1';
-        $this->assertEquals($toCompare, $req->obj);
+        $this->assertAttributeEquals($toCompare, 'obj', $req);
 
         return $req;
     }

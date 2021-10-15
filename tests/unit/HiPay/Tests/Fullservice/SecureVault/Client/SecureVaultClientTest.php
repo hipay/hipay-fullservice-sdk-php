@@ -15,7 +15,6 @@
 
 namespace HiPay\Tests\Fullservice\Gateway\Client;
 
-use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 use HiPay\Tests\TestCase;
 use HiPay\Fullservice\SecureVault\Client\SecureVaultClient;
 
@@ -47,29 +46,20 @@ class SecureVaultClientTest extends TestCase
      */
     protected $_response;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->_config = $this->getMockBuilder('\HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface')
                               ->disableOriginalConstructor()
                               ->getMock();
 
-        $this->_response = $this->getMockBuilder('\HiPay\Fullservice\HTTP\Response\AbstractResponse')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->_response->method('toArray')
-                        ->willReturn(array(
-                           "test" => "test"
-                        ));
-
         $this->_clientProvider = $this->getMockBuilder('\HiPay\Fullservice\HTTP\ClientProvider')
+                                      ->setMethods(array('getHttpClient', 'doRequest', 'createHttpClient'))
                                       ->setConstructorArgs(array($this->_config))
                                       ->getMock();
 
-        $this->_clientProvider->method('getHttpClient');
-        $this->_clientProvider->method('createHttpClient');
-        $this->_clientProvider->method('request')
-                              ->willReturn($this->_response);
+        $this->_response = $this->getMockBuilder('\HiPay\Fullservice\HTTP\Response\AbstractResponse')
+                                ->disableOriginalConstructor()
+                                ->getMock();
     }
 
     /**
@@ -79,18 +69,8 @@ class SecureVaultClientTest extends TestCase
     {
         $vault = new SecureVaultClient($this->_clientProvider);
 
-        $this->assertInstanceOf(SecureVaultClient::class, $vault);
+        $this->assertInstanceOf("HiPay\Fullservice\SecureVault\Client\SecureVaultClient", $vault);
 
         return $vault;
-    }
-
-    /**
-     * @param SecureVaultClient $vault
-     * @depends testCanBeConstructUsingClientProvider
-     */
-    public function testRequestLookupToken($vault) {
-        $token = $vault->requestLookupToken(1, '0');
-
-        $this->assertInstanceOf(PaymentCardToken::class, $token);
     }
 }

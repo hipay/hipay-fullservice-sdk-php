@@ -41,18 +41,6 @@ abstract class ClientProvider implements Client
      */
     protected $_httpClient;
 
-    protected $_validHttpMethods = array(
-        'GET',
-        'POST',
-        'DELETE',
-        'PUT',
-        'HEAD',
-        'CONNECT',
-        'OPTIONS',
-        'TRACE',
-        'PATCH',
-    );
-
     /**
      * Construct HTTP client with Configuration Object
      *
@@ -131,17 +119,4 @@ abstract class ClientProvider implements Client
      * @throws \Exception
      */
     abstract protected function createHttpClient();
-
-    /**
-     * Checks validity of HTTP method as parameter
-     *
-     * @param string $method
-     *
-     * @return bool
-     */
-    public function validateHttpMethod($method)
-    {
-        $method = strtoupper($method);
-        return in_array($method, $this->_validHttpMethods);
-    }
 }
