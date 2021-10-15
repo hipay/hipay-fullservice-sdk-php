@@ -262,7 +262,7 @@ class GatewayClient implements GatewayClientInterface
         );
 
         $data = $response->toArray();
-
+print_r($data);
         if (empty($data['transaction'])) {
             return null;
         }

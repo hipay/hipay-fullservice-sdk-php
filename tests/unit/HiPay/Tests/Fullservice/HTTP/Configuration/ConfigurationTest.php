@@ -16,6 +16,8 @@
 
 namespace HiPay\Tests\Fullservice\HTTP\Configuration;
 
+use HiPay\Fullservice\Exception\InvalidArgumentException;
+use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Fullservice\HTTP\Configuration\Configuration;
 use HiPay\Tests\TestCase;
 use PHPUnit\Framework\Error\Deprecated;
@@ -34,55 +36,55 @@ class ConfigurationTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidUsernameArgument()
     {
+        $this->expectException(InvalidArgumentException::class);
         $conf = new Configuration(array('apiUsername' => 34, 'apiPassword' => "123456"));
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyUsernameArgument()
     {
+        $this->expectException(InvalidArgumentException::class);
         $conf = new Configuration(array('apiUsername' => "", 'apiPassword' => "123456"));
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidPasswordArgument()
     {
+        $this->expectException(InvalidArgumentException::class);
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => null));
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingEmptyPasswordArgument()
     {
+        $this->expectException(InvalidArgumentException::class);
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => ""));
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidApiEnvArgument()
     {
+        $this->expectException(UnexpectedValueException::class);
         $conf = new Configuration(array('apiUsername' => "username", 'apiPassword' => "123456", 'apiEnv' => "prod"));
     }
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidHTTPHeaderAcceptArgument()
     {
+        $this->expectException(UnexpectedValueException::class);
         $conf = new Configuration(
             array(
                 'apiUsername' => "username",
@@ -95,10 +97,10 @@ class ConfigurationTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingEmptyHTTPHeaderAcceptArgument()
     {
+        $this->expectException(UnexpectedValueException::class);
         $conf = new Configuration(
             array(
                 'apiUsername' => "username",
@@ -111,10 +113,10 @@ class ConfigurationTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\UnexpectedValueException
      */
     public function testCannotBeConstructUsingInvalidProxyArgument()
     {
+        $this->expectException(UnexpectedValueException::class);
         $conf = new Configuration(
             array(
                 'apiUsername' => "username",
@@ -128,10 +130,10 @@ class ConfigurationTest extends TestCase
 
     /**
      * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructUsingInvalidHostedPageV2Argument()
     {
+        $this->expectException(InvalidArgumentException::class);
         $conf = new Configuration(
             array(
                 'apiUsername' => "username",
@@ -180,11 +182,14 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__construct
+     * @covers \HiPay\Fullservice\HTTP\Configuration\Configuration::__constructDirect
      */
     public function testCanBeConstructFromAllArguments()
     {
-        $this->expectException(Deprecated::class);
+        set_error_handler(function ($errno, $errstr) {
+            $this->assertEquals("This construction method is deprecated. Please use an array to create your configuration.", $errstr);
+        });
+
         $conf = new Configuration(
             "username",
             "123456",
@@ -247,6 +252,7 @@ class ConfigurationTest extends TestCase
      */
     public function testApiUsernameCanBeRetrieved(Configuration $conf)
     {
+        $conf->setApiUsername("username");
         $this->assertEquals('username', $conf->getApiUsername());
     }
 
@@ -257,7 +263,9 @@ class ConfigurationTest extends TestCase
      */
     public function testApiPassorwdCanBeRetrieved(Configuration $conf)
     {
-        $this->assertEquals('123456', $conf->getApiPassword());
+        $conf->setApiPassword("123456");
+
+        $this->assertEquals("123456", $conf->getApiPassword());
     }
 
     /**
@@ -386,4 +394,349 @@ class ConfigurationTest extends TestCase
         $this->assertEquals(Configuration::API_ENV_CUSTOM, $conf->getApiEnv());
         $this->assertEquals(Configuration::API_ENDPOINT_STAGE, $conf->getApiEndpoint());
     }
+
+    public function testCantBeConstructWithoutParams() {
+        $this->expectException(\ArgumentCountError::class);
+        new Configuration();
+    }
+
+    /**
+     * @depends testCanBeConstructFromRequiredArguments
+     * @param Configuration $conf
+     */
+    public function testSetApiUsername($conf)
+    {
+        $conf->setApiUsername("test");
+
+        $this->assertEquals("test", $conf->getApiUsername());
+    }
+
+    /**
+     * @depends testCanBeConstructFromRequiredArguments
+     * @param Configuration $conf
+     */
+    public function testSetApiPassword($conf)
+    {
+        $conf->setApiPassword("test");
+
+        $this->assertEquals("test", $conf->getApiPassword());
+    }
+
+    public function testGetApiEndpointCustom()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_CUSTOM,
+                'customApiURL' => "https://test.com/api"
+            )
+        );
+
+        $this->assertEquals("https://test.com/api", $conf->getApiEndpoint());
+    }
+
+    public function testGetApiEndpointProduction()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENDPOINT_PROD, $conf->getApiEndpoint());
+    }
+
+    public function testGetApiEndpointStage()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_STAGE
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENDPOINT_STAGE, $conf->getApiEndpoint());
+    }
+
+    public function testSetApiEnv() {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_STAGE
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENV_STAGE, $conf->getApiEnv());
+
+        $conf->setApiEnv(Configuration::API_ENV_PRODUCTION);
+
+        $this->assertEquals(Configuration::API_ENV_PRODUCTION, $conf->getApiEnv());
+    }
+
+
+
+    public function testGetApiEndpointV2FromV1()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_STAGE
+            )
+        );
+
+        $this->assertEquals(Configuration::API_ENDPOINT_STAGE, $conf->getApiEndpointV2());
+    }
+
+    public function testGetApiEndpointV2Custom()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_CUSTOM,
+                'customApiURL' => "https://test.com/api"
+            )
+        );
+
+        $conf->setHostedPageV2(true);
+
+        $this->assertEquals("https://test.com/api", $conf->getApiEndpointV2());
+    }
+
+    public function testGetApiEndpointV2Stage()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_STAGE
+            )
+        );
+
+        $conf->setHostedPageV2(true);
+
+        $this->assertEquals(Configuration::API_ENDPOINT_V2_STAGE, $conf->getApiEndpointV2());
+    }
+
+    public function testGetApiEndpointV2Production()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456",
+                'apiEnv' => Configuration::API_ENV_PRODUCTION
+            )
+        );
+
+        $conf->setHostedPageV2(true);
+
+        $this->assertEquals(Configuration::API_ENDPOINT_V2_PROD, $conf->getApiEndpointV2());
+    }
+
+    public function testGetDataApiEndpointProd()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+        $this->assertEquals(Configuration::DATA_API_ENDPOINT_PROD, $conf->getDataApiEndpointProd());
+    }
+
+    public function testGetDataApiEndpointStage()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+        $this->assertEquals(Configuration::DATA_API_ENDPOINT_STAGE, $conf->getDataApiEndpointStage());
+    }
+
+    public function testGetDataApiEndpoint()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $conf->setApiEnv(Configuration::API_ENV_STAGE);
+
+        $this->assertEquals(Configuration::DATA_API_ENDPOINT_STAGE, $conf->getDataApiEndpoint());
+
+        $conf->setApiEnv(Configuration::API_ENV_PRODUCTION);
+
+        $this->assertEquals(Configuration::DATA_API_ENDPOINT_PROD, $conf->getDataApiEndpoint());
+    }
+
+    public function testGetDataApiHttpUserAgent()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(Configuration::DATA_API_HTTP_USER_AGENT, $conf->getDataApiHttpUserAgent());
+    }
+
+    public function testGetSecureVaultEndpointProd()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(Configuration::SECURE_VAULT_ENDPOINT_PROD, $conf->getSecureVaultEndpointProd());
+    }
+
+    public function testGetSecureVaultEndpointStage()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(Configuration::SECURE_VAULT_ENDPOINT_STAGE, $conf->getSecureVaultEndpointStage());
+    }
+
+    public function testSetApiHTTPHeaderAccept()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals("application/json", $conf->getApiHTTPHeaderAccept());
+
+        $conf->setApiHTTPHeaderAccept("text/html");
+
+        $this->assertEquals("text/html", $conf->getApiHTTPHeaderAccept());
+    }
+
+    public function testSetProxy()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(array(), $conf->getProxy());
+
+        $proxy = array(
+            "host" => "127.0.0.1",
+            "port" => "25565",
+            "user" => "user",
+            "password" => "password"
+        );
+
+        $conf->setProxy($proxy);
+
+        $this->assertEquals($proxy, $conf->getProxy());
+    }
+
+    public function testGetCurlTimeout()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(60, $conf->getCurlTimeout());
+    }
+
+    public function testSetCurlTimeout()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(60, $conf->getCurlTimeout());
+
+        $conf->setCurlTimeout(1000);
+
+        $this->assertEquals(1000, $conf->getCurlTimeout());
+    }
+
+    public function testGetCurlConnectTimeout()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(60, $conf->getCurlTimeout());
+    }
+
+    public function testSetCurlConnectTimeout()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(15, $conf->getCurlConnectTimeout());
+
+        $conf->setCurlConnectTimeout(1000);
+
+        $this->assertEquals(1000, $conf->getCurlConnectTimeout());
+    }
+
+    public function testIsOverridePaymentProductSorting()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(true, $conf->isOverridePaymentProductSorting());
+    }
+
+    public function testSetOverridePaymentProductSorting()
+    {
+        $conf = new Configuration(
+            array(
+                'apiUsername' => "username",
+                'apiPassword' => "123456"
+            )
+        );
+
+        $this->assertEquals(true, $conf->isOverridePaymentProductSorting());
+
+        $conf->setOverridePaymentProductSorting(false);
+
+        $this->assertEquals(false, $conf->isOverridePaymentProductSorting());
+    }
+
+
 }

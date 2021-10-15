@@ -57,14 +57,14 @@ class OrderRequestTest extends TestCase
         $o->obj = new \stdClass();
         $o->obj->p1 = 'value1';
         
-        $this->assertAttributeEquals('7', 'eci', $o);
-        $this->assertAttributeEquals('123456', 'orderId', $o);
-        $this->assertAttributeEquals('Sale', 'operation', $o);
+        $this->assertEquals('7', $o->eci);
+        $this->assertEquals('123456', $o->orderId);
+        $this->assertEquals('Sale', $o->operation);
         
-        $this->assertAttributeEquals(array('bar'=>'foobar'),'foo', $o);
+        $this->assertEquals(array('bar'=>'foobar'), $o->foo);
         $toCompare = new \stdClass();
         $toCompare->p1 = 'value1';
-        $this->assertAttributeEquals($toCompare,'obj', $o);
+        $this->assertEquals($toCompare, $o->obj);
         
         return $o;
     }
