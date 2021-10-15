@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.8.4
+
+- [fix]: Fixed DSP2 field names in OrderRequest
+
 ## Version 2.8.3
 
 - [fix]: Timeout for OrderRequest
