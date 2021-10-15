@@ -36,18 +36,18 @@ class AbstractModelTest extends TestCase
         $mock = new MockComplexModel();
 
         $expectedValues = array(
-            "intAttribute" => 1,
-            "stringAttribute" => "test",
-            "arrayAttribute" => array("test", "test"),
-            "serializableObject" => array(
-                "intAttribute" => 1,
-                "stringAttribute" => "",
-                "arrayAttribute" => array("test", "test"),
-                "objectAttribute" => array(
-                    "intAttribute" => 1,
-                    "stringAttribute" => "",
-                    "arrayAttribute" => array("test", "test"),
-                    "objectAttribute" => new \stdClass()
+            "int_attribute" => 1,
+            "string_attribute" => "test",
+            "array_attribute" => array("test", "test"),
+            "serializable_object" => array(
+                "int_attribute" => 1,
+                "string_attribute" => "",
+                "array_attribute" => array("test", "test"),
+                "object_attribute" => array(
+                    "int_attribute" => 1,
+                    "string_attribute" => "",
+                    "array_attribute" => array("test", "test"),
+                    "object_attribute" => new \stdClass()
                 )
             )
         );
@@ -60,10 +60,10 @@ class AbstractModelTest extends TestCase
         $mock = new MockSimpleModel();
 
         $expectedValues = array(
-            "intAttribute" => 1,
-            "stringAttribute" => "",
-            "arrayAttribute" => array("test", "test"),
-            "objectAttribute" => (object)[]
+            "int_attribute" => 1,
+            "string_attribute" => "",
+            "array_attribute" => array("test", "test"),
+            "object_attribute" => (object)[]
         );
 
         $this->assertEquals($expectedValues, $mock->toArray());

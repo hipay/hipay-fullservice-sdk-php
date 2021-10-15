@@ -44,9 +44,9 @@ abstract class AbstractModel implements ModelInterface
 
         $classRef = new \ReflectionClass(get_class($this));
         foreach ($classRef->getMethods() as $method) {
-            if (substr($method->name, 0, 3) == 'get') {
+            if (preg_match("/^(?:get|is)(\w+)/", $method->name, $groups)) {
                 //clean key name
-                $key = lcfirst(substr($method->name, 3));
+                $key = $this->decamelize($groups[1]);
 
                 //Call getter to get the value
                 $val = $method->invoke($this);
@@ -74,5 +74,14 @@ abstract class AbstractModel implements ModelInterface
     public function __get($name)
     {
         return isset($this->{$name}) ? $this->{$name} : null;
+    }
+
+    /**
+     * @param string $string string in camelCase
+     * @return string string in snake_case
+     */
+    private function decamelize($string)
+    {
+        return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
     }
 }
