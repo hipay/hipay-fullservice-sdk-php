@@ -43,8 +43,8 @@ interface PIDataClientInterface
 
     /**
      * Initiate a new data
-     * @param array $data
-     * @return null
+     * @param array<string, mixed> $data
+     * @return void
      */
     public function sendData($data);
 
@@ -53,7 +53,7 @@ interface PIDataClientInterface
      * @param string $dataId
      * @param OrderRequest $orderRequest
      * @param AbstractTransaction $transaction
-     * @return array
+     * @return array<string, mixed>
      */
     public function getOrderData($dataId, OrderRequest $orderRequest, AbstractTransaction $transaction);
 
@@ -62,13 +62,13 @@ interface PIDataClientInterface
      * @param string $dataId
      * @param HostedPaymentPageRequest $orderRequest
      * @param HostedPaymentPage $transaction
-     * @return array
+     * @return array<string, mixed>
      */
     public function getHPaymentData($dataId, HostedPaymentPageRequest $orderRequest, HostedPaymentPage $transaction);
 
     /**
      * Compute a data id from params
-     * @param array $params
+     * @param array<string, mixed> $params
      * @return string
      */
     public function getDataId(array $params);

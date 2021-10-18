@@ -16,6 +16,8 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
+use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
@@ -146,6 +148,9 @@ class GatewayClient implements GatewayClientInterface
 
         //Transform response to Transaction Model with TransactionMapper
         $transactionMapper = new TransactionMapper($response->toArray());
+        /**
+         * @var Transaction $transaction
+         */
         $transaction = $transactionMapper->getModelObjectMapped();
 
         if ($piDataId) {
@@ -183,6 +188,9 @@ class GatewayClient implements GatewayClientInterface
 
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
         $mapper = new HostedPaymentPageMapper($response->toArray());
+        /**
+         * @var HostedPaymentPage $hostedPagePayment
+         */
         $hostedPagePayment = $mapper->getModelObjectMapped();
 
         $piDataId = $piDataClient->getDataId(array(
@@ -262,7 +270,7 @@ class GatewayClient implements GatewayClientInterface
         );
 
         $data = $response->toArray();
-print_r($data);
+
         if (empty($data['transaction'])) {
             return null;
         }
@@ -341,7 +349,7 @@ print_r($data);
     /**
      * Serialize to array an object request
      * @param AbstractRequest $request
-     * @return array
+     * @return array<string, mixed>
      */
     protected function _serializeRequestToArray(AbstractRequest $request)
     {

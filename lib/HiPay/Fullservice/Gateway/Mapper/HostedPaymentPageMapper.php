@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Mapper;
 
+use HiPay\Fullservice\Gateway\Model\Order;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 
@@ -37,6 +38,9 @@ class HostedPaymentPageMapper extends AbstractMapper
      */
     protected $_modelObject;
 
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**
@@ -50,6 +54,10 @@ class HostedPaymentPageMapper extends AbstractMapper
         $source = $this->_getSource();
         $mid = isset($source['mid']) ? $source['mid'] : null;
         $forwardUrl = isset($source['forwardUrl']) ? $source['forwardUrl'] : null;
+
+        /**
+         * @var Order $order
+         */
         $order = null;
         if (isset($source['order'])) {
             $om = new OrderMapper($source['order']);

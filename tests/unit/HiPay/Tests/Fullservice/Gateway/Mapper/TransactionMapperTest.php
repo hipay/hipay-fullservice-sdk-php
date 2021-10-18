@@ -21,27 +21,27 @@ class TransactionMapperTest extends TestCase
         $this->_transactionMapper = array(
             "state" => "completed",
             "reason" => "",
-            "forwardUrl" => "",
+            "forward_url" => "",
             "test" => true,
             "mid" => "00001331069",
-            "attemptId" => 2,
-            "authorizationCode" => "test123",
-            "transactionReference" => "800131273123",
-            "referenceToPay" => "",
-            "dateCreated" => "2021-10-13T07:37:55+0000",
-            "dateUpdated" => "2021-10-13T07:38:01+0000",
-            "dateAuthorized" => "2021-10-13T07:38:00+0000",
+            "attempt_id" => 2,
+            "authorization_code" => "test123",
+            "transaction_reference" => "800131273123",
+            "reference_to_pay" => "",
+            "date_created" => "2021-10-13T07:37:55+0000",
+            "date_updated" => "2021-10-13T07:38:01+0000",
+            "date_authorized" => "2021-10-13T07:38:00+0000",
             "status" => "118",
             "message" => "Captured",
-            "authorizedAmount" => 21.60,
-            "capturedAmount" => 21.60,
-            "refundedAmount" => 0.00,
-            "creditedAmount" => 0.00,
+            "authorized_amount" => 21.60,
+            "captured_amount" => 21.60,
+            "refunded_amount" => 0.00,
+            "credited_amount" => 0.00,
             "decimals" => 2,
             "currency" => "EUR",
-            "ipAddress" => "172.20.0.1",
-            "ipCountry" => "",
-            "deviceId" => "",
+            "ip_address" => "172.20.0.1",
+            "ip_country" => "",
+            "device_id" => "",
             "cdata1" => "",
             "cdata2" => "",
             "cdata3" => "",
@@ -52,47 +52,47 @@ class TransactionMapperTest extends TestCase
             "cdata8" => "",
             "cdata9" => "",
             "cdata10" => "",
-            "avsResult" => "",
-            "cvcResult" => "",
+            "avs_result" => "",
+            "cvc_result" => "",
             "eci" => 7,
-            "paymentProduct" => "visa",
-            "paymentMethod" => array (
+            "payment_product" => "visa",
+            "payment_method" => array (
                 "token" => "d99ef51e45b3faa3c85bbf98c88417a894a32c572db430de15de4a28651e4ebd",
                 "brand" => "VISA",
                 "pan" => "448412******0029",
-                "cardHolder" => "Jane Doe",
-                "cardExpiryMonth" => "05",
-                "cardExpiryYear" => "2024",
+                "card_holder" => "Jane Doe",
+                "card_expiry_month" => "05",
+                "card_expiry_year" => "2024",
                 "issuer" => "BNP PARIBAS",
                 "country" => "FR",
             ),
-            "threeDSecure" => array (
+            "three_d_secure" => array (
                 "eci" => 6,
-                "enrollmentStatus" => "N",
-                "enrollmentMessage" => "Cardholder Not Enrolled",
-                "authenticationStatus" => "",
-                "authenticationMessage" => "",
-                "authenticationToken" => "",
+                "enrollment_status" => "N",
+                "enrollment_message" => "Cardholder Not Enrolled",
+                "authentication_status" => "",
+                "authentication_message" => "",
+                "authentication_token" => "",
                 "xid" => ""
             ),
-            "TransactionMapper" => array (
+            "transaction_mapper" => array (
                 "scoring" => 0,
                 "result" => "ACCEPTED",
                 "review" => ""
             ),
             "order" => array  (
                 "id" => "ORDER #123461",
-                "dateCreated" => "2021-10-13T07:32:56+0000",
+                "date_created" => "2021-10-13T07:32:56+0000",
                 "attempts" => 2,
                 "amount" => 21.60,
                 "shipping" => 0.00,
                 "tax" => 3.60,
                 "decimals" => 2,
                 "currency" => "EUR",
-                "customerId" => "",
+                "customer_id" => "",
                 "language" => "en_US"
             ),
-            "debitAgreement" => array (
+            "debit_agreement" => array (
                 "id" =>"",
                 "status" => "",
             ),
@@ -103,9 +103,9 @@ class TransactionMapperTest extends TestCase
                 "amount" => 100,
                 "currency" => "EUR"
             ),
-            "customData" => array (),
+            "custom_data" => array (),
             "basket" => array (),
-            "fraudScreening" => array(
+            "fraud_screening" => array(
                 "scoring" => 0,
                 "result" => \HiPay\Fullservice\Enum\Transaction\FraudScreening::RESULT_ACCEPTED,
                 "review" => \HiPay\Fullservice\Enum\Transaction\FraudScreening::REVIEW_ALLOWED
@@ -134,47 +134,47 @@ class TransactionMapperTest extends TestCase
 
         $this->assertInstanceOf(Transaction::class, $transaction);
         $this->assertEquals($this->_transactionMapper['mid'], $transaction->getMid());
-        $this->assertEquals($this->_transactionMapper['authorizationCode'], $transaction->getAuthorizationCode());
-        $this->assertEquals($this->_transactionMapper['transactionReference'], $transaction->getTransactionReference());
-        $this->assertEquals($this->_transactionMapper['dateCreated'], $transaction->getDateCreated());
-        $this->assertEquals($this->_transactionMapper['dateUpdated'], $transaction->getDateUpdated());
-        $this->assertEquals($this->_transactionMapper['dateAuthorized'], $transaction->getDateAuthorized());
+        $this->assertEquals($this->_transactionMapper['authorization_code'], $transaction->getAuthorizationCode());
+        $this->assertEquals($this->_transactionMapper['transaction_reference'], $transaction->getTransactionReference());
+        $this->assertEquals($this->_transactionMapper['date_created'], $transaction->getDateCreated());
+        $this->assertEquals($this->_transactionMapper['date_updated'], $transaction->getDateUpdated());
+        $this->assertEquals($this->_transactionMapper['date_authorized'], $transaction->getDateAuthorized());
         $this->assertEquals($this->_transactionMapper['status'], $transaction->getStatus());
         $this->assertEquals($this->_transactionMapper['state'], $transaction->getState());
         $this->assertEquals($this->_transactionMapper['message'], $transaction->getMessage());
-        $this->assertEquals($this->_transactionMapper['authorizedAmount'], $transaction->getAuthorizedAmount());
-        $this->assertEquals($this->_transactionMapper['capturedAmount'], $transaction->getCapturedAmount());
-        $this->assertEquals($this->_transactionMapper['refundedAmount'], $transaction->getRefundedAmount());
+        $this->assertEquals($this->_transactionMapper['authorized_amount'], $transaction->getAuthorizedAmount());
+        $this->assertEquals($this->_transactionMapper['captured_amount'], $transaction->getCapturedAmount());
+        $this->assertEquals($this->_transactionMapper['refunded_amount'], $transaction->getRefundedAmount());
         $this->assertEquals($this->_transactionMapper['decimals'], $transaction->getDecimals());
         $this->assertEquals($this->_transactionMapper['currency'], $transaction->getCurrency());
         $this->assertEquals($this->_transactionMapper['reason'], $transaction->getReason());
-        $this->assertEquals($this->_transactionMapper['forwardUrl'], $transaction->getForwardUrl());
-        $this->assertEquals($this->_transactionMapper['attemptId'], $transaction->getAttemptId());
-        $this->assertEquals($this->_transactionMapper['referenceToPay'], $transaction->getReferenceToPay());
-        $this->assertEquals($this->_transactionMapper['ipAddress'], $transaction->getIpAddress());
-        $this->assertEquals($this->_transactionMapper['ipCountry'], $transaction->getIpCountry());
-        $this->assertEquals($this->_transactionMapper['deviceId'], $transaction->getDeviceId());
-        $this->assertEquals($this->_transactionMapper['avsResult'], $transaction->getAvsResult());
-        $this->assertEquals($this->_transactionMapper['cvcResult'], $transaction->getCvcResult());
+        $this->assertEquals($this->_transactionMapper['forward_url'], $transaction->getForwardUrl());
+        $this->assertEquals($this->_transactionMapper['attempt_id'], $transaction->getAttemptId());
+        $this->assertEquals($this->_transactionMapper['reference_to_pay'], $transaction->getReferenceToPay());
+        $this->assertEquals($this->_transactionMapper['ip_address'], $transaction->getIpAddress());
+        $this->assertEquals($this->_transactionMapper['ip_country'], $transaction->getIpCountry());
+        $this->assertEquals($this->_transactionMapper['device_id'], $transaction->getDeviceId());
+        $this->assertEquals($this->_transactionMapper['avs_result'], $transaction->getAvsResult());
+        $this->assertEquals($this->_transactionMapper['cvc_result'], $transaction->getCvcResult());
         $this->assertEquals($this->_transactionMapper['eci'], $transaction->getEci());
-        $this->assertEquals($this->_transactionMapper['paymentProduct'], $transaction->getPaymentProduct());
-        $this->assertEquals($this->_transactionMapper['debitAgreement'], $transaction->getDebitAgreement());
+        $this->assertEquals($this->_transactionMapper['payment_product'], $transaction->getPaymentProduct());
+        $this->assertEquals($this->_transactionMapper['debit_agreement'], $transaction->getDebitAgreement());
         $this->assertEquals($this->_transactionMapper['basket'], $transaction->getBasket());
-        $this->assertEquals($this->_transactionMapper['customData'], $transaction->getCustomData());
+        $this->assertEquals($this->_transactionMapper['custom_data'], $transaction->getCustomData());
 
         $this->assertInstanceOf(OperationResponse::class, $transaction->getOperation());
         $this->assertEquals($this->_transactionMapper['operation'], $transaction->getOperation()->toArray());
 
         $this->assertInstanceOf(FraudScreening::class, $transaction->getFraudScreening());
-        $this->assertEquals($this->_transactionMapper['fraudScreening'], $transaction->getFraudScreening()->toArray());
+        $this->assertEquals($this->_transactionMapper['fraud_screening'], $transaction->getFraudScreening()->toArray());
 
         $this->assertInstanceOf(Order::class, $transaction->getOrder());
         $this->assertEquals($this->_transactionMapper['order'], $transaction->getOrder()->toArray());
 
         $this->assertInstanceOf(ThreeDSecure::class, $transaction->getThreeDSecure());
-        $this->assertEquals($this->_transactionMapper['threeDSecure'], $transaction->getThreeDSecure()->toArray());
+        $this->assertEquals($this->_transactionMapper['three_d_secure'], $transaction->getThreeDSecure()->toArray());
 
         $this->assertInstanceOf(PaymentMethod::class, $transaction->getPaymentMethod());
-        $this->assertEquals($this->_transactionMapper['paymentMethod'], $transaction->getPaymentMethod()->toArray());
+        $this->assertEquals($this->_transactionMapper['payment_method'], $transaction->getPaymentMethod()->toArray());
     }
 }

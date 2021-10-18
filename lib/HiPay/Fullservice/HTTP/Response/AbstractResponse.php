@@ -44,13 +44,13 @@ abstract class AbstractResponse implements ResponseInterface
 
     /**
      * HTTP status code
-     * @var string $_statusCode Status code (200, 404 etc ...)
+     * @var int $_statusCode Status code (200, 404 etc ...)
      */
     private $_statusCode;
 
     /**
      * All response headers
-     * @var array $_headers
+     * @var array<string, mixed> $_headers
      */
     private $_headers;
 
@@ -59,7 +59,7 @@ abstract class AbstractResponse implements ResponseInterface
      *
      * @param string $body HTTP response (XML or Json)
      * @param int $statusCode HTTP status code
-     * @param array $headers All response headers
+     * @param array<string, mixed> $headers All response headers
      * @throws InvalidArgumentException
      * @see ClientProvider::doRequest Type of return value.
      */
@@ -87,6 +87,8 @@ abstract class AbstractResponse implements ResponseInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Response\ResponseInterface::getStatusCode()
+     *
+     * @return int
      */
     public function getStatusCode()
     {
@@ -98,6 +100,8 @@ abstract class AbstractResponse implements ResponseInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Response\ResponseInterface::getBody()
+     *
+     * @return string
      */
     public function getBody()
     {
@@ -109,6 +113,8 @@ abstract class AbstractResponse implements ResponseInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Response\ResponseInterface::getHeaders()
+     *
+     * @return array<string, mixed>
      */
     public function getHeaders()
     {

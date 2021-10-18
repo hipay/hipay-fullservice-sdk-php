@@ -43,7 +43,7 @@ class ItemTest extends TestCase
         $this->assertEquals("", $item->getProductReference());
         $this->assertEquals("", $item->getType());
         $this->assertEquals("", $item->getName());
-        $this->assertEquals("", $item->getQuantity());
+        $this->assertEquals(0, $item->getQuantity());
         $this->assertEquals(0.00, $item->getUnitPrice());
         $this->assertEquals(0.00, $item->getTaxRate());
         $this->assertEquals(0.00, $item->getDiscount());

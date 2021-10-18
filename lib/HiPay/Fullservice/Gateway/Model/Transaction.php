@@ -16,6 +16,10 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
+use HiPay\Fullservice\Data\PaymentProduct;
+use HiPay\Fullservice\Enum\Transaction\TransactionState;
+use HiPay\Fullservice\Enum\Transaction\TransactionStatus;
+
 /**
  * Transaction model
  *
@@ -28,7 +32,42 @@ namespace HiPay\Fullservice\Gateway\Model;
  */
 class Transaction extends AbstractTransaction
 {
-
+    /**
+     * Transaction constructor.
+     * @param string $mid
+     * @param string $authorizationCode
+     * @param string $transactionReference
+     * @param string $dateCreated
+     * @param string $dateUpdated
+     * @param string $dateAuthorized
+     * @param int $status
+     * @param string $state
+     * @param string $message
+     * @param float $authorizedAmount
+     * @param float $capturedAmount
+     * @param float $refundedAmount
+     * @param int $decimals
+     * @param string $currency
+     * @param string $reason
+     * @param string $forwardUrl
+     * @param string $attemptId
+     * @param string $referenceToPay
+     * @param string $ipAddress
+     * @param string $ipCountry
+     * @param string $deviceId
+     * @param string $avsResult
+     * @param string $cvcResult
+     * @param string $eci
+     * @param string $paymentProduct
+     * @param PaymentMethod $paymentMethod
+     * @param ThreeDSecure $threeDSecure
+     * @param FraudScreening $fraudScreening
+     * @param Order $order
+     * @param array<string, mixed> $debitAgreement
+     * @param array<string, mixed> $basket
+     * @param OperationResponse|null $operation
+     * @param array<string, mixed>|null $customData
+     */
     public function __construct(
         $mid,
         $authorizationCode,
@@ -61,7 +100,7 @@ class Transaction extends AbstractTransaction
         $order,
         $debitAgreement,
         $basket = null,
-        $operation,
+        $operation = null,
         $customData = null
     ) {
         parent::__construct(
@@ -202,7 +241,7 @@ class Transaction extends AbstractTransaction
     protected $_order;
 
     /**
-     * @var array $_debitAgreement Information about the debit agreement created
+     * @var array<string, mixed> $_debitAgreement Information about the debit agreement created
      */
     protected $_debitAgreement;
 
@@ -213,112 +252,170 @@ class Transaction extends AbstractTransaction
     protected $_operation;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected $_customData;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected $_basket;
 
-
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getCustomData()
     {
         return $this->_customData;
     }
 
-
+    /**
+     * @return string
+     */
     public function getTransactionReference()
     {
         return $this->_transactionReference;
     }
 
+    /**
+     * @return string
+     */
     public function getReason()
     {
         return $this->_reason;
     }
 
+    /**
+     * @return string
+     */
     public function getForwardUrl()
     {
         return $this->_forwardUrl;
     }
 
+    /**
+     * @return string
+     */
     public function getAttemptId()
     {
         return $this->_attemptId;
     }
 
+    /**
+     * @return string
+     */
     public function getReferenceToPay()
     {
         return $this->_referenceToPay;
     }
 
+    /**
+     * @return string
+     */
     public function getIpAddress()
     {
         return $this->_ipAddress;
     }
 
+    /**
+     * @return string
+     */
     public function getIpCountry()
     {
         return $this->_ipCountry;
     }
 
+    /**
+     * @return string
+     */
     public function getDeviceId()
     {
         return $this->_deviceId;
     }
 
+    /**
+     * @return string
+     */
     public function getAvsResult()
     {
         return $this->_avsResult;
     }
 
+    /**
+     * @return string
+     */
     public function getCvcResult()
     {
         return $this->_cvcResult;
     }
 
+    /**
+     * @return string
+     */
     public function getEci()
     {
         return $this->_eci;
     }
 
+    /**
+     * @return string
+     */
     public function getPaymentProduct()
     {
         return $this->_paymentProduct;
     }
 
+    /**
+     * @return PaymentMethod
+     */
     public function getPaymentMethod()
     {
         return $this->_paymentMethod;
     }
 
+    /**
+     * @return ThreeDSecure
+     */
     public function getThreeDSecure()
     {
         return $this->_threeDSecure;
     }
 
+    /**
+     * @return FraudScreening
+     */
     public function getFraudScreening()
     {
         return $this->_fraudScreening;
     }
 
+    /**
+     * @return Order
+     */
     public function getOrder()
     {
         return $this->_order;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getDebitAgreement()
     {
         return $this->_debitAgreement;
     }
 
+    /**
+     * @return OperationResponse|null
+     */
     public function getOperation()
     {
         return $this->_operation;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getBasket()
     {
         return $this->_basket;

@@ -49,9 +49,9 @@ interface GatewayClientInterface
      * Request Maintenance operation on a transaction
      * Because this api call is simple, we don't use an object request as method parameter
      *
-     * @param string $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
+     * @param string|null $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
      * @param string $transactionReference Transaction ID related to customer order
-     * @param string $amount Amount to process
+     * @param string|float $amount Amount to process
      * @param string $operationId Operation ID
      * @param MaintenanceRequest $maintenanceRequest
      * @deprecated
@@ -85,7 +85,7 @@ interface GatewayClientInterface
      * Get order Transaction information
      *
      * @param string $orderId
-     * @return Transaction[] Transaction Model
+     * @return array<int, Transaction> Transaction Model
      */
     public function requestOrderTransactionInformation($orderId);
 

@@ -56,3 +56,4 @@ doc/
 /nbproject/private/
 /composer.lock
 tests/unit/tests-reports
+.cache

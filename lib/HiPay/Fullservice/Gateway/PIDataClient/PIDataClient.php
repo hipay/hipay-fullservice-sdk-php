@@ -107,6 +107,11 @@ class PIDataClient implements PIDataClientInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getHPaymentData()
+     *
+     * @param string $dataId
+     * @param HostedPaymentPageRequest $hostedPaymentPageRequest
+     * @param HostedPaymentPage $transaction
+     * @return array<string, mixed>
      */
     public function getHPaymentData($dataId, HostedPaymentPageRequest $hostedPaymentPageRequest, HostedPaymentPage $transaction)
     {
@@ -121,9 +126,9 @@ class PIDataClient implements PIDataClientInterface
 
     /**
      * Returns common request data
-     * @param $dataId
+     * @param string $dataId
      * @param OrderRequest $request
-     * @return array
+     * @return array<string, mixed>
      */
     private function getCommonData($dataId, OrderRequest $request)
     {
@@ -164,6 +169,9 @@ class PIDataClient implements PIDataClientInterface
      * Computation is a sha256 of device_fingerprint:host_domain or a sha256 of the forward_url if present
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
+     *
+     * @param array<string, mixed>$params
+     * @return false|string
      */
     public function getDataId(array $params)
     {
@@ -192,12 +200,17 @@ class PIDataClient implements PIDataClientInterface
 
     /**
      * Initializes request date to current datetime
+     * @return void
      */
     public function setRequestDate()
     {
         $this->_requestDate = $this->getCurDateUTCFormatted();
     }
 
+    /**
+     * @param string $defaultHost
+     * @return string
+     */
     private function getHost($defaultHost = "")
     {
         $possibleHostSources = array('HTTP_REFERER','HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
@@ -224,6 +237,10 @@ class PIDataClient implements PIDataClientInterface
         return trim($host);
     }
 
+    /**
+     * @param string $rawHostname
+     * @return string
+     */
     private function getDomain($rawHostname)
     {
         return preg_replace('/:[0-9]+$/', '',
@@ -231,9 +248,12 @@ class PIDataClient implements PIDataClientInterface
                 preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)));
     }
 
+    /**
+     * @return string
+     */
     private function getCurDateUTCFormatted(){
         $curDate = new \DateTime('now', new \DateTimeZone('UTC'));
-        $milliSec = str_pad(floor($curDate->format('u') / 1000), 3, "0", STR_PAD_LEFT);
+        $milliSec = str_pad(strval(floor($curDate->format('u') / 1000)), 3, "0", STR_PAD_LEFT);
         return $curDate->format('Y-m-d\TH:i:s.') . $milliSec . 'Z';
     }
 }

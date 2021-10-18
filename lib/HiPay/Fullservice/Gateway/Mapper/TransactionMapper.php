@@ -16,6 +16,10 @@
 
 namespace HiPay\Fullservice\Gateway\Mapper;
 
+use HiPay\Fullservice\Gateway\Model\FraudScreening;
+use HiPay\Fullservice\Gateway\Model\Order;
+use HiPay\Fullservice\Gateway\Model\PaymentMethod;
+use HiPay\Fullservice\Gateway\Model\ThreeDSecure;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 
@@ -37,6 +41,9 @@ class TransactionMapper extends AbstractMapper
      */
     protected $_modelObject;
 
+    /**
+     * @var string
+     */
     protected $_modelClassName;
 
     /**
@@ -74,24 +81,36 @@ class TransactionMapper extends AbstractMapper
         $eci = isset($source['eci']) ? $source['eci'] : null;
         $paymentProduct = isset($source['paymentProduct']) ? $source['paymentProduct'] : null;
 
+        /**
+         * @var PaymentMethod $paymentMethod
+         */
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
             $pmm = new PaymentMethodMapper($source['paymentMethod']);
             $paymentMethod = $pmm->getModelObjectMapped();
         }
 
+        /**
+         * @var ThreeDSecure $threeDSecure
+         */
         $threeDSecure = null;
         if (isset($source['threeDSecure']) && is_array($source['threeDSecure'])) {
             $tdsm = new ThreeDSecureMapper($source['threeDSecure']);
             $threeDSecure = $tdsm->getModelObjectMapped();
         }
 
+        /**
+         * @var FraudScreening $fraudScreening
+         */
         $fraudScreening = null;
         if (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) {
             $fsm = new FraudScreeningMapper($source['fraudScreening']);
             $fraudScreening = $fsm->getModelObjectMapped();
         }
 
+        /**
+         * @var Order $order
+         */
         $order = null;
         if (isset($source['order'])) {
             $om = new OrderMapper($source['order']);

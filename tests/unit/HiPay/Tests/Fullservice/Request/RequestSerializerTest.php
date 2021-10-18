@@ -74,8 +74,6 @@ class RequestSerializerTest extends TestCase
 
         $params = $rs->toArray();
 
-        $this->assertIsArray($params);
-
         $this->assertArrayHasKey('eci', $params);
         $this->assertEquals('7', $params['eci']);
 

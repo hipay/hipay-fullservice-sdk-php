@@ -34,7 +34,10 @@ class PaymentMethodMapper extends AbstractMapper {
 	 * @var PaymentMethod $_modelObject Model object to populate
 	 */
 	protected $_modelObject;
-    
+
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**

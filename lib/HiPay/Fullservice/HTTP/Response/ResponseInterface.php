@@ -42,7 +42,7 @@ interface ResponseInterface {
 	
 	/**
 	 * Get response headers
-	 * @return array All response headers
+	 * @return array<string, mixed> All response headers
 	 */
 	public function getHeaders();
 	
@@ -52,7 +52,7 @@ interface ResponseInterface {
 	 * 
 	 * @throws OutOfBoundsException Invalid Key in response header
 	 * @throws UnexpectedValueException Missing value or json_decode not work
-	 * @return array Array return by json_decode
+	 * @return array<string, mixed> Array return by json_decode
 	 */
 	public function toArray();
 	

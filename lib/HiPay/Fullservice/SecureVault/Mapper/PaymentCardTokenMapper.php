@@ -17,6 +17,7 @@
 namespace HiPay\Fullservice\SecureVault\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
+use HiPay\Fullservice\Model\AbstractModel;
 use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 
 /**
@@ -41,6 +42,7 @@ class PaymentCardTokenMapper extends AbstractMapper
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::mapResponseToModel()
+     * @return void
      */
     protected function mapResponseToModel()
     {
@@ -84,6 +86,7 @@ class PaymentCardTokenMapper extends AbstractMapper
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Mapper\AbstractMapper::validate()
+     * @return PaymentCardTokenMapper
      */
     protected function validate()
     {

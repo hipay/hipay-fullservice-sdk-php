@@ -35,6 +35,12 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class FraudScreening extends AbstractModel
 {
+    /**
+     * FraudScreening constructor.
+     * @param int $scoring
+     * @param int $result
+     * @param int $review
+     */
     public function __construct($scoring, $result, $review)
     {
         $this->_scoring = $scoring;
@@ -71,16 +77,25 @@ class FraudScreening extends AbstractModel
      */
     protected $_review;
 
+    /**
+     * @return int
+     */
     public function getScoring()
     {
         return $this->_scoring;
     }
 
+    /**
+     * @return int
+     */
     public function getResult()
     {
         return $this->_result;
     }
 
+    /**
+     * @return int
+     */
     public function getReview()
     {
         return $this->_review;

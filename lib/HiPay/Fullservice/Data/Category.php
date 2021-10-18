@@ -42,7 +42,7 @@ class Category
     private $_name;
 
     /**
-     * @var array $_locals translations
+     * @var array<string, string> $_locals translations
      */
     private $_locals;
 
@@ -51,7 +51,7 @@ class Category
      *
      * @param int $code
      * @param string $name
-     * @param array $locals
+     * @param array<string, string> $locals
      */
     public function __construct($code, $name, $locals)
     {
@@ -90,7 +90,8 @@ class Category
     }
 
     /**
-     * @param array $locals
+     * @param array<string, string> $locals
+     * @return void
      */
     public function setLocals($locals)
     {

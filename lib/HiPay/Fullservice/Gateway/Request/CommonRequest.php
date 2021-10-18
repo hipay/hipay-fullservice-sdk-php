@@ -39,7 +39,7 @@ class CommonRequest extends AbstractRequest
      * Example: {"shipping_method":"click and collect", "first_order":"0", "products_list":"First product, Second product, Third product"}
      * Alternative Ex: ["shipping_method" => "click and collect", "first_order" => "0"]
      *
-     * @var array|string $custom_data Custom data (JSON).
+     * @var array<string, mixed>|string $custom_data Custom data (JSON).
      */
     public $custom_data;
 
@@ -50,7 +50,7 @@ class CommonRequest extends AbstractRequest
      * Eg. {"source":"CMS","brand":"magento","brand_version":"1.9.2.3","integration_version":"1.5.0"}
      * Alternative Ex. ["source" => "CMS", "brand" => "magento", "brand_version" => "1.9.2.3"]
      *
-     * @var array|string $source (JSON).
+     * @var array<string, mixed>|string $source (JSON).
      */
     public $source;
 

@@ -107,6 +107,24 @@ class PaymentCardToken extends AbstractModel
      */
     private $_forbiddenIssuerCountry;
 
+    /**
+     * PaymentCardToken constructor.
+     * @param string $token
+     * @param string $brand
+     * @param string $pan
+     * @param string $cardHolder
+     * @param string $cardExpiryMonth
+     * @param string $cardExpiryYear
+     * @param string $issuer
+     * @param string $country
+     * @param string $requestId
+     * @param string $domesticNetwork
+     * @param string $cardHash
+     * @param string $cardId
+     * @param string $cardType
+     * @param string $cardCategory
+     * @param string $forbiddenIssuerCountry
+     */
     public function __construct(
         $token,
         $brand,
@@ -141,76 +159,121 @@ class PaymentCardToken extends AbstractModel
         $this->_forbiddenIssuerCountry = $forbiddenIssuerCountry;
     }
 
+    /**
+     * @return string
+     */
     public function getToken()
     {
         return $this->_token;
     }
 
+    /**
+     * @return string
+     */
     public function getBrand()
     {
         return $this->_brand;
     }
 
+    /**
+     * @return string
+     */
     public function getPan()
     {
         return $this->_pan;
     }
 
+    /**
+     * @return string
+     */
     public function getCardHolder()
     {
         return $this->_cardHolder;
     }
 
+    /**
+     * @return string
+     */
     public function getCardExpiryMonth()
     {
         return $this->_cardExpiryMonth;
     }
 
+    /**
+     * @return string
+     */
     public function getCardExpiryYear()
     {
         return $this->_cardExpiryYear;
     }
 
+    /**
+     * @return string
+     */
     public function getIssuer()
     {
         return $this->_issuer;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry()
     {
         return $this->_country;
     }
 
+    /**
+     * @return string
+     */
     public function getRequestId()
     {
         return $this->_requestId;
     }
 
+    /**
+     * @return string
+     */
     public function getDomesticNetwork()
     {
         return $this->_domesticNetwork;
     }
 
+    /**
+     * @return string
+     */
     public function getCardHash()
     {
         return $this->_cardHash;
     }
 
+    /**
+     * @return string
+     */
     public function getCardId()
     {
         return $this->_cardId;
     }
 
+    /**
+     * @return string
+     */
     public function getCardType()
     {
         return $this->_cardType;
     }
 
+    /**
+     * @return string
+     */
     public function getCardCategory()
     {
         return $this->_cardCategory;
     }
 
+    /**
+     * @return string
+     */
     public function getForbiddenIssuerCountry()
     {
         return $this->_forbiddenIssuerCountry;

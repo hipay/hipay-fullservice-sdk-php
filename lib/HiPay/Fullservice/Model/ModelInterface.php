@@ -39,7 +39,7 @@ interface ModelInterface
 
     /**
      * Return public attributes accessible by getter in ARRAY format
-     * @return array public attributes array
+     * @return array<string, mixed> public attributes array
      */
     public function toArray();
 }

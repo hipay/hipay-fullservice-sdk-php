@@ -36,6 +36,9 @@ class OperationMapper extends AbstractMapper
      */
     protected $_modelObject;
 
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**

@@ -4,6 +4,11 @@ namespace HiPay\Fullservice\Helper;
 
 class MerchantPromotionCalculator
 {
+    /**
+     * @param string $payment_product
+     * @param int $amount
+     * @return string|void
+     */
     public static function calculate($payment_product, $amount)
     {
         $promoteCode = "000";

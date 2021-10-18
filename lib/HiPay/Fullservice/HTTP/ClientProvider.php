@@ -16,6 +16,7 @@
 namespace HiPay\Fullservice\HTTP;
 
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
+use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 
 /**
  * Abstract Client for send request
@@ -32,15 +33,18 @@ abstract class ClientProvider implements Client
 {
 
     /**
-     * @var ConfigurationInterface $configuration Configuration object used for authentication and endpoints
+     * @var ConfigurationInterface $_configuration Configuration object used for authentication and endpoints
      */
     protected $_configuration;
 
     /**
-     * @var resource $httpClient Client used to execute HTTP request
+     * @var resource $_httpClient Client used to execute HTTP request
      */
     protected $_httpClient;
 
+    /**
+     * @var array<string> $_validHttpMethods List of HTTP valid methods
+     */
     protected $_validHttpMethods = array(
         'GET',
         'POST',
@@ -75,6 +79,14 @@ abstract class ClientProvider implements Client
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Client::request()
+     *
+     * @param string $method
+     * @param string $endpoint
+     * @param array<string, mixed> $params
+     * @param bool $isVault
+     * @param bool $isData
+     *
+     * @return AbstractResponse
      */
     public function request($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
     {
@@ -91,7 +103,7 @@ abstract class ClientProvider implements Client
 
     /**
      * @param ConfigurationInterface $configuration
-     * @return $this
+     * @return ClientProvider
      */
     public function setConfiguration($configuration)
     {
@@ -114,7 +126,7 @@ abstract class ClientProvider implements Client
      *
      * @param string $method HTTP method
      * @param string $endpoint Endpoint
-     * @param array $params Params to send
+     * @param array<string, mixed> $params Params to send
      * @param bool $isVault Secure vault action
      * @param bool $isData Special PI Data call
      *
@@ -129,6 +141,7 @@ abstract class ClientProvider implements Client
      * Called in constructor
      *
      * @throws \Exception
+     * @return void
      */
     abstract protected function createHttpClient();
 

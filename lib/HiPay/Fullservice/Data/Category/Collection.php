@@ -32,6 +32,7 @@ use HiPay\Fullservice\Data\Category;
  * @api
  */
 class Collection
+
 {
 
     /**

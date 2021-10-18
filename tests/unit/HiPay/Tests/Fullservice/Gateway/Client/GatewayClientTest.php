@@ -18,6 +18,7 @@ namespace HiPay\Tests\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Client\GatewayClient;
 use HiPay\Fullservice\Gateway\Model\Transaction;
+use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Tests\TestCase;
 
 /**
@@ -100,7 +101,7 @@ class GatewayClientTest extends TestCase
             ->willReturn($this->_config);
 
         $gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
-            ->onlyMethods(array('_serializeRequestToArray'))
+            ->setMethods(array('_serializeRequestToArray'))
             ->setConstructorArgs(array($this->_clientProvider))
             ->getMock();
 
@@ -209,7 +210,7 @@ class GatewayClientTest extends TestCase
             ->willReturn($this->_config);
 
         $gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
-            ->onlyMethods(array('_serializeRequestToArray'))
+            ->setMethods(array('_serializeRequestToArray'))
             ->setConstructorArgs(array($this->_clientProvider))
             ->getMock();
 
@@ -362,9 +363,131 @@ class GatewayClientTest extends TestCase
                     "debitAgreement" => array (
                         "id" =>"",
                         "status" => "",
+                    ),
+                    "transaction" => array(
+                        "mid" => "00001326589",
+                        "authorizationCode" => "author",
+                        "transactionReference" => "800131273123",
+                        "status" => "118",
+                        "message" => "Captured",
+                        "dateCreated" => "2019-02-07T10:07:09+0000",
+                        "dateUpdated" => "2019-02-07T10:07:09+0000",
+                        "dateAuthorized" => "2019-02-07T10:07:09+0000",
+                        "authorizedAmount" => "125.85",
+                        "capturedAmount" => "125.85",
+                        "refundedAmount" => "0.00",
+                        "decimals" => "2",
+                        "currency" => "EUR"
                     )
                 )
             )
         );
+    }
+
+    /**
+     * @dataProvider requestMaintenanceOperationDataProvider
+     */
+    public function testRequestMaintenanceOperation($request, $response)
+    {
+
+        $this->_response->method('toArray')->willReturn($response);
+
+        $this->_clientProvider
+            ->method('request')
+            ->willReturn($this->_response);
+
+        $this->_clientProvider
+            ->method('getConfiguration')
+            ->willReturn($this->_config);
+
+        $gatewayClient = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
+            ->setMethods(array('_serializeRequestToArray'))
+            ->setConstructorArgs(array($this->_clientProvider))
+            ->getMock();
+
+        $gatewayClient->method('_serializeRequestToArray')->willReturn($request);
+
+        $maintenanceRequest = new MaintenanceRequest();
+        $maintenanceRequest->amount = "21.60";
+        $maintenanceRequest->operation = "capture";
+        $maintenanceRequest->operation_id = "capture_1";
+        $maintenanceRequest->basket = "{}";
+
+        $operation = $gatewayClient->requestMaintenanceOperation(
+            "capture",
+            "000001",
+            "21.60",
+            "capture_1",
+            $maintenanceRequest
+        );
+
+        $this->assertInstanceOf('\HiPay\Fullservice\Gateway\Model\Operation', $operation);
+
+        $this->assertEquals(
+            'capture',
+            $operation->getOperation()
+        );
+    }
+
+    public function requestMaintenanceOperationDataProvider()
+    {
+        return array(
+            array(
+                array(
+
+                ),
+                array(
+                    "operation" => "capture",
+                    "mid" => "00001326589",
+                    "authorizationCode" => "author",
+                    "transactionReference" => "800000968431",
+                    "status" => "118",
+                    "message" => "Captured",
+                    "dateCreated" => "2019-02-07T10:07:09+0000",
+                    "dateUpdated" => "2019-02-07T10:07:09+0000",
+                    "dateAuthorized" => "2019-02-07T10:07:09+0000",
+                    "authorizedAmount" => "125.85",
+                    "capturedAmount" => "125.85",
+                    "refundedAmount" => "0.00",
+                    "decimals" => "2",
+                    "currency" => "EUR"
+                )
+            )
+        );
+    }
+
+    /**
+     * @dataProvider requestNewOrderDataProvider
+     */
+    public function testRequestTransactionInformation($request, $response)
+    {
+        $this->_response->method('toArray')->willReturn($response);
+
+        $this->_clientProvider
+            ->method('request')
+            ->willReturn($this->_response);
+
+        $this->_clientProvider
+            ->method('getConfiguration')
+            ->willReturn($this->_config);
+
+        $gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
+            ->setMethods(array('_serializeRequestToArray'))
+            ->setConstructorArgs(array($this->_clientProvider))
+            ->getMock();
+
+        $gateway->method('_serializeRequestToArray')->willReturn($request);
+
+        $orderRequest = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\OrderRequest')->getMock();
+        $orderRequest->device_fingerprint = "I AM THE DEVICE";
+        $orderRequest->url_accept = "http://test.com/payment/accept/";
+
+        $transaction = $gateway->requestNewOrder($orderRequest);
+
+        $transactionInformation = $gateway->requestTransactionInformation($transaction->getTransactionReference());
+
+        $this->assertInstanceOf(Transaction::class, $transactionInformation);
+
+        $this->assertEquals($transaction->getTransactionReference(), $transactionInformation->getTransactionReference());
     }
 }

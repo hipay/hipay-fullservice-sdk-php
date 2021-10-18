@@ -16,26 +16,26 @@ class OrderMapperTest extends TestCase
     {
         $this->_orderMapper = array(
             "id" => "000001",
-            "customerId" => "000002",
+            "customer_id" => "000002",
             "amount" => "100",
             "tax" => "20",
             "shipping" => "10",
-            "dateCreated" => "2021-07-06",
+            "date_created" => "2021-07-06",
             "attempts" => 1,
             "currency" => "EUR",
             "decimals" => 2,
             "gender" => Gender::FEMALE,
             "language" => "FR",
-            "shippingAddress" => array(
+            "shipping_address" => array(
                 "firstname" => "Jane",
                 "lastname" => "Doe",
-                "streetAddress" => "56 avenue de la paix",
+                "street_address" => "56 avenue de la paix",
                 "locality" => "Paris",
-                "postalCode" => "75000",
+                "postal_code" => "75000",
                 "country" => "FRANCE",
                 "msisdn" => "000001",
                 "phone" => "0123456789",
-                "phoneOperator" => "Orange",
+                "phone_operator" => "Orange",
                 "email" => "jane.doe@test.com",
             )
         );
@@ -62,11 +62,11 @@ class OrderMapperTest extends TestCase
 
         $this->assertInstanceOf(Order::class, $order);
         $this->assertEquals($this->_orderMapper['id'], $order->getId());
-        $this->assertEquals($this->_orderMapper['customerId'], $order->getCustomerId());
+        $this->assertEquals($this->_orderMapper['customer_id'], $order->getCustomerId());
         $this->assertEquals($this->_orderMapper['amount'], $order->getAmount());
         $this->assertEquals($this->_orderMapper['tax'], $order->getTax());
         $this->assertEquals($this->_orderMapper['shipping'], $order->getShipping());
-        $this->assertEquals($this->_orderMapper['dateCreated'], $order->getDateCreated());
+        $this->assertEquals($this->_orderMapper['date_created'], $order->getDateCreated());
         $this->assertEquals($this->_orderMapper['attempts'], $order->getAttempts());
         $this->assertEquals($this->_orderMapper['currency'], $order->getCurrency());
         $this->assertEquals($this->_orderMapper['decimals'], $order->getDecimals());
@@ -74,7 +74,7 @@ class OrderMapperTest extends TestCase
         $this->assertEquals($this->_orderMapper['language'], $order->getLanguage());
 
         $this->assertInstanceOf(PersonalInformation::class, $order->getShippingAddress());
-        $this->assertEquals($this->_orderMapper['shippingAddress'], $order->getShippingAddress()->toArray());
+        $this->assertEquals($this->_orderMapper['shipping_address'], $order->getShippingAddress()->toArray());
 
     }
 }

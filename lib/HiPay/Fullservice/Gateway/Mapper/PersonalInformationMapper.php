@@ -31,6 +31,9 @@ use HiPay\Fullservice\Mapper\AbstractMapper;
  */
 class PersonalInformationMapper extends AbstractMapper
 {
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**
