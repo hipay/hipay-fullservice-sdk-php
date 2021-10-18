@@ -67,8 +67,6 @@ phpunit:
   stage: test
   cache:
       <<: *global_cache
-  before_script:
-    - composer install
   script:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit
   allow_failure: false
