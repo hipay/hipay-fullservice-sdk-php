@@ -10,6 +10,7 @@ stages:
     paths:
         - .env
         - vendor/
+        - composer.lock
     policy: pull-push
 
 build:
