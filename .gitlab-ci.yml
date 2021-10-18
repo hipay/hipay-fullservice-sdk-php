@@ -79,7 +79,7 @@ infection:
   cache:
       <<: *global_cache
   before_script:
-    - curl -L https://github.com/infection/infection/releases/download/0.25.0/infection.phar --output /usr/local/bin/infection
+    - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar --output /usr/local/bin/infection
     - chmod a+x /usr/local/bin/infection
   script:
     - infection --threads=4
