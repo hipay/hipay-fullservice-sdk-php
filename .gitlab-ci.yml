@@ -1,11 +1,5 @@
 image: pathmotion/composer-php-7.2:latest
 
-cache:
-  key: test
-  paths:
-    - composer.lock
-    - vendor/
-
 stages:
   - build
   - validate
@@ -16,6 +10,7 @@ stages:
     paths:
         - .env
         - vendor/
+    policy: pull-push
 
 build:
   stage: build
