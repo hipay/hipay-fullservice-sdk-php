@@ -19,7 +19,7 @@
         </whitelist>
     </filter>
     <logging>
-            <log type="coverage-html" target="{{coverage_dir}}/test-reports/coverage" />
+            <log type="coverage-html" target="test-reports/coverage" />
         <!--coverage_cov_placeholder
             <log type="coverage-php" target="{{coverage_dir}}/test-reports/coverage.cov"/>
         coverage_cov_placeholder-->
