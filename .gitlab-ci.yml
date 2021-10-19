@@ -85,7 +85,7 @@ infection:
     #- gpg --with-fingerprint --verify infection.phar.asc infection.phar
     - chmod +x infection.phar
   script:
-    - ./infection.phar —debug —log-verbosity=all
+    - ./infection.phar --debug --log-verbosity=all
     - cat infection.log
   allow_failure: false
   tags:
