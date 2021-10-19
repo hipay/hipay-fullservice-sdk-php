@@ -85,7 +85,7 @@ infection:
     #- gpg --with-fingerprint --verify infection.phar.asc infection.phar
     - chmod +x infection.phar
   script:
-    - ./infection.phar --threads=4
+    - ./infection.phar
   allow_failure: false
   tags:
     - gcp-small-runner-prod
