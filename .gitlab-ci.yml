@@ -117,8 +117,8 @@ infection:
     - curl -L https://schema.phpunit.de/6.2/phpunit.xsd --output tests/unit/phpunit.xsd -k
     - chmod +x infection.phar
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit
-    - ./infection.phar --threads=4 --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
+    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
+    - ./infection.phar --threads=4 --coverage=tests/unit/test-reports/_coverage --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     when: always
