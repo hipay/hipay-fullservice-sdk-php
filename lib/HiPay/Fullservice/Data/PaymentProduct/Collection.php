@@ -94,7 +94,7 @@ class Collection
     /**
      * Reorder payment product by priority for use in hpayment pages
      *
-     * @param string $paymentProductList
+     * @param array<string>|string|null $paymentProductList
      * @return string|null
      */
     public static function orderByPriority($paymentProductList){

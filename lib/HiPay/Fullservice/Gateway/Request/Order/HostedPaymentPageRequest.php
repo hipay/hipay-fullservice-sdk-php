@@ -34,7 +34,7 @@ class HostedPaymentPageRequest extends OrderRequest
 {
 
     /**
-     * @var string $payment_product_list The list of payment products to display on the payment page.
+     * @var array<string>|string|null $payment_product_list The list of payment products to display on the payment page.
      * @required
      */
     public $payment_product_list;

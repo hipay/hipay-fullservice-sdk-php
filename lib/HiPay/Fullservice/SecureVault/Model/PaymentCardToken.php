@@ -53,7 +53,7 @@ class PaymentCardToken extends AbstractModel
     private $_cardHolder;
 
     /**
-     * @var string $_cardExpiryMonth
+     * @var string|null $_cardExpiryMonth
      */
     private $_cardExpiryMonth;
 
@@ -192,7 +192,7 @@ class PaymentCardToken extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCardExpiryMonth()
     {

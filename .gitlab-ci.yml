@@ -13,6 +13,12 @@ stages:
         - composer.lock
     policy: pull-push
 
+
+#########
+# BUILD #
+#########
+
+# Build and cache project dependancies
 build:
   stage: build
   cache:
@@ -24,7 +30,14 @@ build:
   tags:
     - gcp-small-runner-prod
 
+#############
+# END BUILD #
+#############
 
+############
+# VALIDATE #
+############
+# Check code standards application (PSR-1, PSR-2...)
 code-style:
   stage: validate
   cache:
@@ -35,8 +48,7 @@ code-style:
   tags:
     - gcp-small-runner-prod
 
-
-
+# Looks for dependancies known vulnerabilities
 code-security:
   stage: validate
   cache:
@@ -49,7 +61,17 @@ code-security:
   tags:
     - gcp-small-runner-prod
 
+# Looks for typing and syntax errors
+stan:
+  stage: validate
+  cache: 
+      <<: *global_cache  
+  script:
+    - ./vendor/bin/phpstan analyse lib/ --level 2
+  tags:
+    - gcp-small-runner-prod
 
+# Check that the different layers of the project are independant
 #deptrac:
 #  stage: validate
 #  cache:
@@ -58,22 +80,34 @@ code-security:
 #    - curl -L https://github.com/qossmic/deptrac/releases/download/0.15.2/deptrac.phar --output ./deptrac.phar
 #  script:
 #    - php deptrac.phar analyse
-  tags:
-    - gcp-small-runner-prod
+#  tags:
+#    - gcp-small-runner-prod
 
+################
+# END VALIDATE #
+################
 
-
+########
+# TEST #
+########
+# Unit testing
 phpunit:
   stage: test
   cache:
       <<: *global_cache
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit
+    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --log-junit=tests/unit/test-reports/_coverage/junit.xml
   allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/unit/test-reports/_coverage/junit.xml
+    paths:
+      - test/_report/infection.log
   tags:
     - gcp-small-runner-prod
 
-
+# Unit tests mutation
 infection:
   stage: test
   cache:
@@ -82,12 +116,18 @@ infection:
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar.asc --output infection.phar.asc
     - curl -L https://schema.phpunit.de/6.2/phpunit.xsd --output tests/unit/phpunit.xsd -k
-    #- gpg --recv-keys C6D76C329EBADE2FB9C458CFC5095986493B4AA0
-    #- gpg --with-fingerprint --verify infection.phar.asc infection.phar
     - chmod +x infection.phar
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
+    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit
     - ./infection.phar --threads=4
   allow_failure: false
+  artifacts:
+    paths:
+      - test/_report/infection.log
+    expire_in: 1 week
   tags:
     - gcp-small-runner-prod
+
+############
+# END TEST #
+############

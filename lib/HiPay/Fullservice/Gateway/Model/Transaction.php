@@ -40,7 +40,7 @@ class Transaction extends AbstractTransaction
      * @param string $dateCreated
      * @param string $dateUpdated
      * @param string $dateAuthorized
-     * @param int $status
+     * @param int|null $status
      * @param string $state
      * @param string $message
      * @param float $authorizedAmount
@@ -247,17 +247,17 @@ class Transaction extends AbstractTransaction
 
     /**
      *
-     * @var OperationResponse $_operation Result Operation ( Operation ID, reference ... )
+     * @var OperationResponse|null $_operation Result Operation ( Operation ID, reference ... )
      */
     protected $_operation;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>|null
      */
     protected $_customData;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>|null
      */
     protected $_basket;
 

@@ -239,7 +239,7 @@ class PIDataClient implements PIDataClientInterface
 
     /**
      * @param string $rawHostname
-     * @return string
+     * @return string|null
      */
     private function getDomain($rawHostname)
     {

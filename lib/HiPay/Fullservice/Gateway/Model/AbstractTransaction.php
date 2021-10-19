@@ -43,7 +43,7 @@ abstract class AbstractTransaction extends AbstractModel
      * @param string $dateCreated
      * @param string $dateUpdated
      * @param string $dateAuthorized
-     * @param int $status
+     * @param int|null $status
      * @param string|null $state
      * @param string $message
      * @param float $authorizedAmount
@@ -122,7 +122,7 @@ abstract class AbstractTransaction extends AbstractModel
     protected $_dateAuthorized;
 
     /**
-     * @var int $_status Transaction status return by Fullservice API.
+     * @var int|null $_status Transaction status return by Fullservice API.
      * @see \HiPay\Fullservice\Enum\Transaction\TransactionStatus
      */
     protected $_status;
@@ -217,7 +217,7 @@ abstract class AbstractTransaction extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getStatus()
     {
@@ -225,7 +225,7 @@ abstract class AbstractTransaction extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getState()
     {

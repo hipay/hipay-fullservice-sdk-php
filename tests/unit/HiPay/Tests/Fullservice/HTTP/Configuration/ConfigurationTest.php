@@ -397,7 +397,8 @@ class ConfigurationTest extends TestCase
 
     public function testCantBeConstructWithoutParams() {
         $this->expectException(\ArgumentCountError::class);
-        new Configuration();
+
+        new Configuration(); // @phpstan-ignore-line
     }
 
     /**

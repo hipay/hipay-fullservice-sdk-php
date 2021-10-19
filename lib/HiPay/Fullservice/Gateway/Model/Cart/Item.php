@@ -106,7 +106,7 @@ class Item extends AbstractModel
     /**
      * Discount description
      *
-     * @var string
+     * @var string|null
      */
     protected $_discount_description;
 
@@ -228,7 +228,7 @@ class Item extends AbstractModel
      * @param float $tax_rate
      * @param float $discount
      * @param float $total_amount
-     * @param string $discount_description
+     * @param string|null $discount_description
      * @param string $type
      * @return \HiPay\Fullservice\Gateway\Model\Cart\Item
      */
@@ -352,7 +352,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEuropeanArticleNumbering()
     {
@@ -515,7 +515,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDiscountDescription()
     {
@@ -523,7 +523,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @param string $discount_description
+     * @param string|null $discount_description
      * @return Item
      */
     public function setDiscountDescription($discount_description)
@@ -551,7 +551,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryMethod()
     {
@@ -569,7 +569,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryCompany()
     {
@@ -587,7 +587,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryDelay()
     {
@@ -605,7 +605,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryNumber()
     {
@@ -641,7 +641,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getShopId()
     {
