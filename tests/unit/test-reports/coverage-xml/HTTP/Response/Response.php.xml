@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Response.php" path="/HTTP/Response">
+    <totals>
+      <lines total="45" comments="33" code="12" executable="2" executed="2" percent="100.00"/>
+      <methods count="1" tested="1" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\HTTP\Response\Response" start="28" executable="2" executed="2" crap="1">
+      <package full="HiPay" name="HiPay" sub="" category=""/>
+      <namespace name="HiPay\Fullservice\HTTP\Response"/>
+      <method name="__construct" signature="__construct($body, $statusCode, array $headers)" start="41" end="44" crap="1" executable="2" executed="2" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="43">
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testCannotBeConstructFromNonStringValue"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testCannotBeConstructFromNonNumericValue"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testObjectBanBeConstructFromNumericStatusCodeArgument"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testObjectBanBeConstructUsingValidArguments"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+      </line>
+      <line nr="44">
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testObjectBanBeConstructFromNumericStatusCodeArgument"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\Response\ResponseTest::testObjectBanBeConstructUsingValidArguments"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">HTTP</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Response</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="20">
+        <token name="T_DOC_COMMENT"> * Simple Object Response Data</token>
+      </line>
+      <line no="21">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> * @package HiPay\Fullservice</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * @author Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * @copyright Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @link https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="28">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Response</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">AbstractResponse</token>
+      </line>
+      <line no="29">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="30"/>
+      <line no="31">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT">     * Response constructor.</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT">     * {@inheritDoc}</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct()</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     * @param string $body</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     * @param int $statusCode</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $headers</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="41">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$body</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$statusCode</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$headers</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="42">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">parent</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$body</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$statusCode</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$headers</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="44">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="45">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="46"/>
+    </source>
+  </file>
+</phpunit>

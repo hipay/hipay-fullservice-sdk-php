@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="SEPADirectDebitPaymentMethod.php" path="/Gateway/Request/PaymentMethod">
+    <totals>
+      <lines total="88" comments="68" code="20" executable="0" executed="0" percent="0"/>
+      <methods count="0" tested="0" percent="0"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="0" tested="0" percent="0"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Gateway\Request\PaymentMethod\SEPADirectDebitPaymentMethod" start="30" executable="0" executed="0" crap="0">
+      <package full="HiPay" name="HiPay" sub="" category=""/>
+      <namespace name="HiPay\Fullservice\Gateway\Request\PaymentMethod"/>
+    </class>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">PaymentMethod</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="20">
+        <token name="T_DOC_COMMENT"> * SEPA Direct Debit Payment Method</token>
+      </line>
+      <line no="21">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * @package HiPay\Fullservice</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * @author Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @copyright Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @link https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="30">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">SEPADirectDebitPaymentMethod</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">IssuerBankIDPaymentMethod</token>
+      </line>
+      <line no="31">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="32">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT">     * If recurring payment the agreement ID returned on first transaction.</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">     * @var int $debit_agreement_id Agreement ID returned on first transaction</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="37">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$debit_agreement_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="38"/>
+      <line no="39">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     * Indicates if the debit agreement will be created for a single-use or a multi-use.</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="42">
+        <token name="T_DOC_COMMENT">     * Possible values:</token>
+      </line>
+      <line no="43">
+        <token name="T_DOC_COMMENT">     * - 0 = Single use</token>
+      </line>
+      <line no="44">
+        <token name="T_DOC_COMMENT">     * - 1 = Multi use</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     * @length 1</token>
+      </line>
+      <line no="48">
+        <token name="T_DOC_COMMENT">     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id</token>
+      </line>
+      <line no="49">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$recurring_payment</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="51"/>
+      <line no="52">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="53">
+        <token name="T_DOC_COMMENT">     * Issuer Bank Name</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="56">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="57">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$bank_name</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="58"/>
+      <line no="59">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="60">
+        <token name="T_DOC_COMMENT">     * Issuer Iban</token>
+      </line>
+      <line no="61">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="62">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="63">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="64">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$iban</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="65"/>
+      <line no="66">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="67">
+        <token name="T_DOC_COMMENT">     *  Issuer Firstname</token>
+      </line>
+      <line no="68">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="69">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="70">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="71">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$firstname</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="72"/>
+      <line no="73">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="74">
+        <token name="T_DOC_COMMENT">     * Issuer Lastname</token>
+      </line>
+      <line no="75">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="76">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="77">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="78">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$lastname</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="79"/>
+      <line no="80">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="81">
+        <token name="T_DOC_COMMENT">     * Issuer gender</token>
+      </line>
+      <line no="82">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="83">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="84">
+        <token name="T_DOC_COMMENT">     * @length 1</token>
+      </line>
+      <line no="85">
+        <token name="T_DOC_COMMENT">     * @values M|Male,F|Female,U|Unknown see HiPay\Fullservice\Enum\AbstractEnum\Gender</token>
+      </line>
+      <line no="86">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="87">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$gender</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="88">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="89"/>
+    </source>
+  </file>
+</phpunit>
