@@ -43,7 +43,7 @@ code-style:
   cache:
       <<: *global_cache
   script:
-    ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
+    - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
   allow_failure: 
     exit_codes:
 #      - 0 # OK.
