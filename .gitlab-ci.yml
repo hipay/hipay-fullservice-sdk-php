@@ -79,7 +79,7 @@ infection:
   cache:
       <<: *global_cache
   before_script:
-    - apt install -y ca-certificates
+    - apt-get install -y ca-certificates
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar.asc --output infection.phar.asc
     #- gpg --recv-keys C6D76C329EBADE2FB9C458CFC5095986493B4AA0
