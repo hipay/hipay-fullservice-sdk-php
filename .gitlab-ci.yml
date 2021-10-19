@@ -87,7 +87,7 @@ infection:
     - chmod +x infection.phar
   script:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
-    - ./infection.phar --coverage=tests/unit/test-reports/_coverage --test-framework-options="-c tests/unit/phpunit.xml --testsuite unit"
+    - ./infection.phar --threads=4
   allow_failure: false
   tags:
     - gcp-small-runner-prod
