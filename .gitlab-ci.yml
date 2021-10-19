@@ -102,8 +102,7 @@ phpunit:
     when: always
     reports:
       junit: tests/unit/test-reports/_coverage/junit.xml
-    paths:
-      - test/_report/infection.log
+    expire_in: 1 day
   tags:
     - gcp-small-runner-prod
 
@@ -119,12 +118,15 @@ infection:
     - chmod +x infection.phar
   script:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit
-    - ./infection.phar --threads=4
+    - ./infection.phar --threads=4 --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
+    when: always
+    reports:
+      junit: tests/unit/test-reports/_coverage/junit.xml
     paths:
       - test/_report/infection.log
-    expire_in: 1 week
+    expire_in: 1 day
   tags:
     - gcp-small-runner-prod
 
