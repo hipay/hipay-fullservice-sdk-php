@@ -144,10 +144,12 @@ infection:
 sonar:
   stage: sonar
   image: sonarsource/sonar-scanner-cli:latest
-  tags:
-    - small
+  cache:
+      <<: *global_cache
   variables:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN
+    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.coverageReportPaths=tests/unit/test-reports/_coverage/junit.xml
+  tags:
+    - small
