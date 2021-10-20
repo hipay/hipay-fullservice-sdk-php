@@ -76,7 +76,8 @@ stan:
   cache: 
       <<: *global_cache  
   script:
-    - ./vendor/bin/phpstan analyse lib/ --level 2
+    - ./vendor/bin/phpstan analyse lib/ --level 8
+  allow_failure: true # Temporary until error fix
   tags:
     - small
 
@@ -142,14 +143,11 @@ infection:
 
 sonar:
   stage: sonar
-  image: python:3.8
+  image: sonarsource/sonar-scanner-cli:latest
   tags:
     - small
   variables:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-linux.zip
-    - unzip sonar-scanner-cli-4.6.0.2311-linux.zip
-    - export PATH=$PATH:$(pwd)/sonar-scanner-4.6.0.2311-linux/bin/
     - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_LOGIN
