@@ -622,7 +622,7 @@
      <tr><td><div align="right"><a name="40"></a><a href="#40">40</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$dateCreated</span></td></tr>
      <tr><td><div align="right"><a name="41"></a><a href="#41">41</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$dateUpdated</span></td></tr>
      <tr><td><div align="right"><a name="42"></a><a href="#42">42</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$dateAuthorized</span></td></tr>
-     <tr><td><div align="right"><a name="43"></a><a href="#43">43</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int&nbsp;$status</span></td></tr>
+     <tr><td><div align="right"><a name="43"></a><a href="#43">43</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int|null&nbsp;$status</span></td></tr>
      <tr><td><div align="right"><a name="44"></a><a href="#44">44</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$state</span></td></tr>
      <tr><td><div align="right"><a name="45"></a><a href="#45">45</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$message</span></td></tr>
      <tr><td><div align="right"><a name="46"></a><a href="#46">46</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;float&nbsp;$authorizedAmount</span></td></tr>
@@ -829,17 +829,17 @@
      <tr><td><div align="right"><a name="247"></a><a href="#247">247</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="248"></a><a href="#248">248</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
      <tr><td><div align="right"><a name="249"></a><a href="#249">249</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
-     <tr><td><div align="right"><a name="250"></a><a href="#250">250</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;OperationResponse&nbsp;$_operation&nbsp;Result&nbsp;Operation&nbsp;(&nbsp;Operation&nbsp;ID,&nbsp;reference&nbsp;...&nbsp;)</span></td></tr>
+     <tr><td><div align="right"><a name="250"></a><a href="#250">250</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;OperationResponse|null&nbsp;$_operation&nbsp;Result&nbsp;Operation&nbsp;(&nbsp;Operation&nbsp;ID,&nbsp;reference&nbsp;...&nbsp;)</span></td></tr>
      <tr><td><div align="right"><a name="251"></a><a href="#251">251</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="252"></a><a href="#252">252</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected</span><span class="default">&nbsp;</span><span class="default">$_operation</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="253"></a><a href="#253">253</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="254"></a><a href="#254">254</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="255"></a><a href="#255">255</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;array&lt;string,&nbsp;mixed&gt;</span></td></tr>
+     <tr><td><div align="right"><a name="255"></a><a href="#255">255</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;array&lt;string,&nbsp;mixed&gt;|null</span></td></tr>
      <tr><td><div align="right"><a name="256"></a><a href="#256">256</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="257"></a><a href="#257">257</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected</span><span class="default">&nbsp;</span><span class="default">$_customData</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="258"></a><a href="#258">258</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="259"></a><a href="#259">259</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="260"></a><a href="#260">260</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;array&lt;string,&nbsp;mixed&gt;</span></td></tr>
+     <tr><td><div align="right"><a name="260"></a><a href="#260">260</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;array&lt;string,&nbsp;mixed&gt;|null</span></td></tr>
      <tr><td><div align="right"><a name="261"></a><a href="#261">261</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="262"></a><a href="#262">262</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected</span><span class="default">&nbsp;</span><span class="default">$_basket</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="263"></a><a href="#263">263</a></div></td><td class="codeLine"></td></tr>
@@ -1015,7 +1015,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.34-24+ubuntu20.04.1+deb.sury.org+1</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 6.2.4</a> at Tue Oct 19 11:47:57 UTC 2021.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.34-24+ubuntu20.04.1+deb.sury.org+1</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 6.2.4</a> at Wed Oct 20 8:40:50 UTC 2021.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
    </footer>

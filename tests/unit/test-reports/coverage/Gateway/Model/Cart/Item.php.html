@@ -1118,7 +1118,7 @@
      <tr><td><div align="right"><a name="106"></a><a href="#106">106</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
      <tr><td><div align="right"><a name="107"></a><a href="#107">107</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Discount&nbsp;description</span></td></tr>
      <tr><td><div align="right"><a name="108"></a><a href="#108">108</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
-     <tr><td><div align="right"><a name="109"></a><a href="#109">109</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="109"></a><a href="#109">109</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="110"></a><a href="#110">110</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="111"></a><a href="#111">111</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected</span><span class="default">&nbsp;</span><span class="default">$_discount_description</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="112"></a><a href="#112">112</a></div></td><td class="codeLine"></td></tr>
@@ -1240,7 +1240,7 @@
      <tr><td><div align="right"><a name="228"></a><a href="#228">228</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;float&nbsp;$tax_rate</span></td></tr>
      <tr><td><div align="right"><a name="229"></a><a href="#229">229</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;float&nbsp;$discount</span></td></tr>
      <tr><td><div align="right"><a name="230"></a><a href="#230">230</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;float&nbsp;$total_amount</span></td></tr>
-     <tr><td><div align="right"><a name="231"></a><a href="#231">231</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$discount_description</span></td></tr>
+     <tr><td><div align="right"><a name="231"></a><a href="#231">231</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string|null&nbsp;$discount_description</span></td></tr>
      <tr><td><div align="right"><a name="232"></a><a href="#232">232</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$type</span></td></tr>
      <tr><td><div align="right"><a name="233"></a><a href="#233">233</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;\HiPay\Fullservice\Gateway\Model\Cart\Item</span></td></tr>
      <tr><td><div align="right"><a name="234"></a><a href="#234">234</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
@@ -1364,7 +1364,7 @@
      <tr class="covered-by-large-tests popin" data-title="1 test covers line 352" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="352"></a><a href="#352">352</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="353"></a><a href="#353">353</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="354"></a><a href="#354">354</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="355"></a><a href="#355">355</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="355"></a><a href="#355">355</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="356"></a><a href="#356">356</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="357"></a><a href="#357">357</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getEuropeanArticleNumbering</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="358"></a><a href="#358">358</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1527,7 +1527,7 @@
      <tr class="warning"><td><div align="right"><a name="515"></a><a href="#515">515</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="516"></a><a href="#516">516</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="517"></a><a href="#517">517</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="518"></a><a href="#518">518</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="518"></a><a href="#518">518</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="519"></a><a href="#519">519</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="520"></a><a href="#520">520</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getDiscountDescription</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="521"></a><a href="#521">521</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1535,7 +1535,7 @@
      <tr class="warning"><td><div align="right"><a name="523"></a><a href="#523">523</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="524"></a><a href="#524">524</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="525"></a><a href="#525">525</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="526"></a><a href="#526">526</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$discount_description</span></td></tr>
+     <tr><td><div align="right"><a name="526"></a><a href="#526">526</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string|null&nbsp;$discount_description</span></td></tr>
      <tr><td><div align="right"><a name="527"></a><a href="#527">527</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Item</span></td></tr>
      <tr><td><div align="right"><a name="528"></a><a href="#528">528</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="529"></a><a href="#529">529</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">setDiscountDescription</span><span class="keyword">(</span><span class="default">$discount_description</span><span class="keyword">)</span></td></tr>
@@ -1563,7 +1563,7 @@
      <tr class="warning"><td><div align="right"><a name="551"></a><a href="#551">551</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="552"></a><a href="#552">552</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="553"></a><a href="#553">553</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="554"></a><a href="#554">554</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="554"></a><a href="#554">554</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="555"></a><a href="#555">555</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="556"></a><a href="#556">556</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getDeliveryMethod</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="557"></a><a href="#557">557</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1581,7 +1581,7 @@
      <tr class="warning"><td><div align="right"><a name="569"></a><a href="#569">569</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="570"></a><a href="#570">570</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="571"></a><a href="#571">571</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="572"></a><a href="#572">572</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="572"></a><a href="#572">572</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="573"></a><a href="#573">573</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="574"></a><a href="#574">574</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getDeliveryCompany</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="575"></a><a href="#575">575</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1599,7 +1599,7 @@
      <tr class="warning"><td><div align="right"><a name="587"></a><a href="#587">587</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="588"></a><a href="#588">588</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="589"></a><a href="#589">589</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="590"></a><a href="#590">590</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="590"></a><a href="#590">590</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="591"></a><a href="#591">591</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="592"></a><a href="#592">592</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getDeliveryDelay</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="593"></a><a href="#593">593</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1617,7 +1617,7 @@
      <tr class="warning"><td><div align="right"><a name="605"></a><a href="#605">605</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="606"></a><a href="#606">606</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="607"></a><a href="#607">607</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="608"></a><a href="#608">608</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="608"></a><a href="#608">608</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="609"></a><a href="#609">609</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="610"></a><a href="#610">610</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getDeliveryNumber</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="611"></a><a href="#611">611</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1653,7 +1653,7 @@
      <tr class="warning"><td><div align="right"><a name="641"></a><a href="#641">641</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="642"></a><a href="#642">642</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="643"></a><a href="#643">643</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="644"></a><a href="#644">644</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string</span></td></tr>
+     <tr><td><div align="right"><a name="644"></a><a href="#644">644</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string|null</span></td></tr>
      <tr><td><div align="right"><a name="645"></a><a href="#645">645</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="646"></a><a href="#646">646</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">getShopId</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="647"></a><a href="#647">647</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
@@ -1711,7 +1711,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.34-24+ubuntu20.04.1+deb.sury.org+1</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 6.2.4</a> at Tue Oct 19 11:47:57 UTC 2021.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.34-24+ubuntu20.04.1+deb.sury.org+1</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 6.2.4</a> at Wed Oct 20 8:40:50 UTC 2021.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
    </footer>
