@@ -1,1 +1,0 @@
-­ (2xmlX·	hrGtests/unit/test-reports/_coverage/coverage-xml/Helper/Signature.php.xml

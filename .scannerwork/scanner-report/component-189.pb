@@ -1,1 +1,0 @@
-½ (2xmlXÃhrUtests/unit/test-reports/_coverage/coverage-xml/HTTP/Response/AbstractResponse.php.xml

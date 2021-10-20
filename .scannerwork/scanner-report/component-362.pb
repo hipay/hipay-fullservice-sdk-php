@@ -1,1 +1,0 @@
-Í (2webXêhr_tests/unit/test-reports/coverage/Gateway/Request/PaymentMethod/QiwiWalletPaymentMethod.php.html

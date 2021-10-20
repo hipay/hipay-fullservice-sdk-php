@@ -1,1 +1,0 @@
-® (2webX‚hrHtests/unit/test-reports/coverage/Data/PaymentProduct/Collection.php.html

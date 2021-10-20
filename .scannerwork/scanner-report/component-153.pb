@@ -1,1 +1,0 @@
-™ 2phpX2hr;lib/HiPay/Fullservice/Enum/ThreeDSTwo/DeliveryTimeFrame.php

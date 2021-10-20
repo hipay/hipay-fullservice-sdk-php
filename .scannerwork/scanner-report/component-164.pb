@@ -1,1 +1,0 @@
-¤ (2xmlXhrQtests/unit/test-reports/_coverage/coverage-xml/Exception/RuntimeException.php.xml

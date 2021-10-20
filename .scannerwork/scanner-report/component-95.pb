@@ -1,1 +1,0 @@
-_ 2phpX*hrOlib/HiPay/Fullservice/Gateway/Request/PaymentMethod/QiwiWalletPaymentMethod.php

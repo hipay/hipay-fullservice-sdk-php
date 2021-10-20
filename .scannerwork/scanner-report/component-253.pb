@@ -1,1 +1,0 @@
-ý (2xmlXÑhrPtests/unit/test-reports/_coverage/coverage-xml/Enum/Helper/HashAlgorithm.php.xml

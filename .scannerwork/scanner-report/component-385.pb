@@ -1,1 +1,0 @@
- (2webX­hrFtests/unit/test-reports/coverage/Gateway/Client/GatewayClient.php.html

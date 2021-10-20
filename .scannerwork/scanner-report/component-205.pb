@@ -1,1 +1,0 @@
-Õ (2xmlXùhr]tests/unit/test-reports/_coverage/coverage-xml/Gateway/Mapper/HostedPaymentPageMapper.php.xml

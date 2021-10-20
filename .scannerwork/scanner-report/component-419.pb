@@ -1,1 +1,0 @@
-£ (2webXôhrEtests/unit/test-reports/coverage/Gateway/Model/PaymentMethod.php.html

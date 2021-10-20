@@ -1,1 +1,0 @@
-þ (2webX¡hr?tests/unit/test-reports/coverage/Gateway/Request/dashboard.html

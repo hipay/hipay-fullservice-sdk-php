@@ -1,1 +1,0 @@
-Ì (2webX hr7tests/unit/test-reports/coverage/Request/dashboard.html

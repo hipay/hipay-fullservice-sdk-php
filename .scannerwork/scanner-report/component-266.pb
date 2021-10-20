@@ -1,1 +1,0 @@
-Š (2xmlX¶hrTtests/unit/test-reports/_coverage/coverage-xml/Enum/ThreeDSTwo/DeviceChannel.php.xml

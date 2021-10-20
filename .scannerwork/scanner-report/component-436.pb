@@ -1,1 +1,0 @@
-´ (2webXÑhr<tests/unit/test-reports/coverage/Enum/Transaction/index.html

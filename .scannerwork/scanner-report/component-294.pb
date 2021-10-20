@@ -1,1 +1,0 @@
-¦ (2webXÏhr7tests/unit/test-reports/coverage/Data/Category.php.html

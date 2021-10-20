@@ -1,1 +1,0 @@
-¡ (2webX¹hrLtests/unit/test-reports/coverage/Helper/MerchantPromotionCalculator.php.html

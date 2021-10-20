@@ -1,1 +1,0 @@
-® (2xmlXÅhrYtests/unit/test-reports/_coverage/coverage-xml/Helper/MerchantPromotionCalculator.php.xml

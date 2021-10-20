@@ -1,1 +1,0 @@
-ô (2webX¢hrDtests/unit/test-reports/coverage/Gateway/Request/Info/dashboard.html

@@ -1,1 +1,0 @@
-Ð (2xmlX¦hrUtests/unit/test-reports/_coverage/coverage-xml/Gateway/Mapper/OperationMapper.php.xml

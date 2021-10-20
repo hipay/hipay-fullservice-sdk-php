@@ -1,1 +1,0 @@
-è (2webXÁhretests/unit/test-reports/coverage/Gateway/Request/PaymentMethod/XTimesCreditCardPaymentMethod.php.html

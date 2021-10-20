@@ -1,1 +1,0 @@
-æ (2xmlX²	hrVtests/unit/test-reports/_coverage/coverage-xml/Gateway/Model/OperationResponse.php.xml

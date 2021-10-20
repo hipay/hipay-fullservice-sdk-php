@@ -1,1 +1,0 @@
-³ (2webX¡hrCtests/unit/test-reports/coverage/Data/DeliveryMethod/dashboard.html

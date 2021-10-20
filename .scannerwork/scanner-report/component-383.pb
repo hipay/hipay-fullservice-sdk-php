@@ -1,1 +1,0 @@
-ÿ (2webX‡hr:tests/unit/test-reports/coverage/Gateway/Client/index.html

@@ -1,1 +1,0 @@
-¨ (2webX¡hr0tests/unit/test-reports/coverage/Data/index.html

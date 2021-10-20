@@ -1,1 +1,0 @@
-€ (2webXÀhrOtests/unit/test-reports/coverage/Gateway/Client/GatewayClientInterface.php.html

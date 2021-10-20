@@ -1,1 +1,0 @@
-Þ (2webX¯hrHtests/unit/test-reports/coverage/Gateway/Mapper/OperationMapper.php.html

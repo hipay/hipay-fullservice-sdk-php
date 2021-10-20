@@ -1,1 +1,0 @@
-é (2xmlX½hrJtests/unit/test-reports/_coverage/coverage-xml/Gateway/Model/Order.php.xml

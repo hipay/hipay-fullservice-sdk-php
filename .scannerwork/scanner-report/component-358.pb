@@ -1,1 +1,0 @@
-æ (2webX‡hrZtests/unit/test-reports/coverage/Gateway/Request/PaymentMethod/IDealPaymentMethod.php.html

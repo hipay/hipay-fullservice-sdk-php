@@ -1,1 +1,0 @@
-¸ (2xmlX’'hrWtests/unit/test-reports/_coverage/coverage-xml/HTTP/Configuration/Configuration.php.xml

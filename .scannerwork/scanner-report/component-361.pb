@@ -1,1 +1,0 @@
-é (2webX¸hrItests/unit/test-reports/coverage/Gateway/Request/PaymentMethod/index.html

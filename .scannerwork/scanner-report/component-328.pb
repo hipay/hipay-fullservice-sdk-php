@@ -1,1 +1,0 @@
-È (2webX“hr3tests/unit/test-reports/coverage/Request/index.html

@@ -1,1 +1,0 @@
-É (2webXuhrBtests/unit/test-reports/coverage/Request/RequestInterface.php.html

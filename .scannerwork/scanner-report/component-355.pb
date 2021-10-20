@@ -1,1 +1,0 @@
-ã (2webXœhrLtests/unit/test-reports/coverage/Gateway/Mapper/PaymentMethodMapper.php.html

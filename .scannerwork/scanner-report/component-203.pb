@@ -1,1 +1,0 @@
-Ë (2xmlXâhr_tests/unit/test-reports/_coverage/coverage-xml/Gateway/Mapper/PersonalInformationMapper.php.xml

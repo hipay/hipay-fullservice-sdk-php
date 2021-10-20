@@ -1,1 +1,0 @@
-² (2webXèhrHtests/unit/test-reports/coverage/Data/DeliveryMethod/Collection.php.html

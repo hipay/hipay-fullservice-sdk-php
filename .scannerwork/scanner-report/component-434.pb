@@ -1,1 +1,0 @@
-² (2webX—hrCtests/unit/test-reports/coverage/Enum/Helper/HashAlgorithm.php.html

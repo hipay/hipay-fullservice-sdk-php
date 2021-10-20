@@ -1,1 +1,0 @@
-ú (2phpXthrFtests/unit/HiPay/Tests/Fullservice/Gateway/Model/PaymentMethodTest.php

@@ -1,1 +1,0 @@
-à (2webX‘hrOtests/unit/test-reports/coverage/Gateway/Mapper/SecuritySettingsMapper.php.html

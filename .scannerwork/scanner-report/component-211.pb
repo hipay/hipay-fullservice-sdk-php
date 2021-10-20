@@ -1,1 +1,0 @@
-Ó (2xmlX­hrltests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/QiwiWalletPaymentMethod.php.xml

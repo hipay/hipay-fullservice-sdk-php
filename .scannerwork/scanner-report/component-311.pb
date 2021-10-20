@@ -1,1 +1,0 @@
-· (2webXáhr?tests/unit/test-reports/coverage/HTTP/SimpleHTTPClient.php.html

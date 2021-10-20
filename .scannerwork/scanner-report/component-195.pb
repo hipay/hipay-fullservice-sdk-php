@@ -1,1 +1,0 @@
-Ã (2xmlX’hrPtests/unit/test-reports/_coverage/coverage-xml/Request/RequestSerializer.php.xml

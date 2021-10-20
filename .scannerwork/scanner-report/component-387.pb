@@ -1,1 +1,0 @@
-ƒ (2webX»hr7tests/unit/test-reports/coverage/Gateway/dashboard.html

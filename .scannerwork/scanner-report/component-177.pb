@@ -1,1 +1,0 @@
-± (2xmlXúhrStests/unit/test-reports/_coverage/coverage-xml/Data/DeliveryMethodAttribute.php.xml

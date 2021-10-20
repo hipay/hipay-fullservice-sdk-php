@@ -1,1 +1,0 @@
-ˆ (2webX¢hrBtests/unit/test-reports/coverage/Gateway/Model/Cart/dashboard.html

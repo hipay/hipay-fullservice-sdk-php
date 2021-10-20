@@ -1,1 +1,0 @@
-Ã (2webX¨hr4tests/unit/test-reports/coverage/HTTP/dashboard.html

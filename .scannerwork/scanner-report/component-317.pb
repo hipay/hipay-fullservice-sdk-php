@@ -1,1 +1,0 @@
-½ (2webX¥hrBtests/unit/test-reports/coverage/HTTP/Configuration/dashboard.html

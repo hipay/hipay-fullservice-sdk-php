@@ -1,1 +1,0 @@
-ê (2webXòhrVtests/unit/test-reports/coverage/Gateway/Model/Request/ThreeDSTwo/BrowserInfo.php.html

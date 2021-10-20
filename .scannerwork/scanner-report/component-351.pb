@@ -1,1 +1,0 @@
-ß (2webXžhrPtests/unit/test-reports/coverage/Gateway/Mapper/OperationResponseMapper.php.html

@@ -1,1 +1,0 @@
- 2phpXhr6lib/HiPay/Fullservice/Exception/ExceptionInterface.php

@@ -1,1 +1,0 @@
-¬ (2webX¡hr=tests/unit/test-reports/coverage/Data/Category/dashboard.html

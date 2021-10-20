@@ -1,1 +1,0 @@
-º (2xmlX£hrLtests/unit/test-reports/_coverage/coverage-xml/HTTP/SimpleHTTPClient.php.xml

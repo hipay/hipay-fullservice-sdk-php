@@ -1,1 +1,0 @@
-„ (2webX…hrCtests/unit/test-reports/coverage/Gateway/Model/Transaction.php.html

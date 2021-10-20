@@ -1,1 +1,0 @@
-Á (2xmlX|hrNtests/unit/test-reports/_coverage/coverage-xml/Request/AbstractRequest.php.xml

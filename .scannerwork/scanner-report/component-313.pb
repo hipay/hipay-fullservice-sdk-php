@@ -1,1 +1,0 @@
-¹ (2webXÚhr0tests/unit/test-reports/coverage/HTTP/index.html

@@ -1,1 +1,0 @@
-ô (2xmlX²hrUtests/unit/test-reports/_coverage/coverage-xml/Gateway/Model/SecuritySettings.php.xml

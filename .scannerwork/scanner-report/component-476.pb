@@ -1,1 +1,0 @@
-Ü (2phpXhhrItests/unit/HiPay/Tests/Fullservice/Data/PaymentProduct/CollectionTest.php

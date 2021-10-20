@@ -165,6 +165,8 @@ sonar:
       -Dsonar.login=$SONAR_TOKEN 
       -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml 
       -Dsonar.php.coverage.reportPaths=tests/unit/test-reports/_coverage/coverage.xml
+  only:
+    -develop
   tags:
     - small
 

@@ -1,1 +1,0 @@
-× (2xmlXhrgtests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/IDealPaymentMethod.php.xml

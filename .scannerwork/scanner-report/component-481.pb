@@ -1,1 +1,0 @@
-á (2phpXXhrGtests/unit/HiPay/Tests/Fullservice/Data/DeliveryMethodAttributeTest.php

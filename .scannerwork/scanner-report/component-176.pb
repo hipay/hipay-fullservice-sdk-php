@@ -1,1 +1,0 @@
-° (2xmlX²hrOtests/unit/test-reports/_coverage/coverage-xml/Data/Category/Collection.php.xml

@@ -1,1 +1,0 @@
-r 2phpX@hr8lib/HiPay/Fullservice/Gateway/Model/SecuritySettings.php

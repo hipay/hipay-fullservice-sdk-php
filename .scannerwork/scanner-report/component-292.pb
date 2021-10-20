@@ -1,1 +1,0 @@
-¤ (2webXšhr8tests/unit/test-reports/coverage/Helper/Convert.php.html

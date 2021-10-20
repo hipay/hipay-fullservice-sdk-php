@@ -1,1 +1,0 @@
-ª (2xmlXhrPtests/unit/test-reports/_coverage/coverage-xml/Exception/LengthException.php.xml

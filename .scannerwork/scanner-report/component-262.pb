@@ -1,1 +1,0 @@
-† (2xmlX”hrXtests/unit/test-reports/_coverage/coverage-xml/Enum/Transaction/TransactionState.php.xml

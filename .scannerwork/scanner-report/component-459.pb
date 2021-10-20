@@ -1,1 +1,0 @@
-Ë (2webX¡hr?tests/unit/test-reports/coverage/Enum/ThreeDSTwo/dashboard.html

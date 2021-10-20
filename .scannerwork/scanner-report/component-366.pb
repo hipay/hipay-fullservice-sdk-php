@@ -1,1 +1,0 @@
-Ó (2webXèhratests/unit/test-reports/coverage/Gateway/Request/PaymentMethod/IssuerBankIDPaymentMethod.php.html

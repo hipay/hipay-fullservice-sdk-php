@@ -1,1 +1,0 @@
-´ (2webX hr4tests/unit/test-reports/coverage/Data/dashboard.html

@@ -1,1 +1,0 @@
- 2phpXêhrClib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php

@@ -1,1 +1,0 @@
-¾ (2webX£hr9tests/unit/test-reports/coverage/HTTP/Response/index.html

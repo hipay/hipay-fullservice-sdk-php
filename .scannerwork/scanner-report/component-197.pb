@@ -1,1 +1,0 @@
-Å (2xmlX³hrdtests/unit/test-reports/_coverage/coverage-xml/SecureVault/Client/SecureVaultClientInterface.php.xml

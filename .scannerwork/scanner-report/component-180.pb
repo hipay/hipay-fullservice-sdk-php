@@ -1,1 +1,0 @@
-´ (2xmlXŽhratests/unit/test-reports/_coverage/coverage-xml/Data/DeliveryMethod/CollectionModeShipping.php.xml
