@@ -11,6 +11,7 @@ stages:
     paths:
         - vendor/
         - composer.lock
+        - tests/unit/test-reports/_coverage
     policy: pull-push
 
 
@@ -106,7 +107,12 @@ phpunit:
   cache:
       <<: *global_cache
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --log-junit=tests/unit/test-reports/_coverage/junit.xml
+    - ./vendor/bin/phpunit 
+      --configuration tests/unit/phpunit.xml 
+      --testsuite unit 
+      --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml 
+      --log-junit=tests/unit/test-reports/_coverage/junit.xml 
+      --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml
   allow_failure: false
   artifacts:
     when: always
@@ -120,19 +126,18 @@ phpunit:
 infection:
   stage: test
   cache:
-    paths:
-        - vendor/
-        - composer.lock
-        - tests/unit/test-reports/_coverage/junit.xml
-        - tests/unit/test-reports/_coverage/coverage.xml
+      <<: *global_cache
+        - tests/unit/test-reports/_coverage
   before_script:
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar.asc --output infection.phar.asc
     - curl -L https://schema.phpunit.de/6.2/phpunit.xsd --output tests/unit/phpunit.xsd -k
     - chmod +x infection.phar
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml
-    - ./infection.phar --threads=4 --coverage=tests/unit/test-reports/_coverage --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
+    - ./infection.phar 
+      --threads=4 
+      --coverage=tests/unit/test-reports/_coverage 
+      --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     paths:
@@ -149,14 +154,20 @@ sonar:
   stage: sonar
   image: sonarsource/sonar-scanner-cli:latest
   cache:
-    paths:
-        - vendor/
-        - composer.lock
-        - tests/unit/test-reports/_coverage/coverage.xml
+  cache:
+      <<: *global_cache
   variables:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml -Dsonar.coverageReportPaths=tests/unit/test-reports/_coverage/coverage.xml
+    - sonar-scanner 
+      -Dsonar.log.level=DEBUG 
+      -Dsonar.projectKey=$SONAR_PROJECT_KEY 
+      -Dsonar.sources=lib 
+      -Dsonar.tests=tests/unit 
+      -Dsonar.host.url=https://sonar-ce.hipay.org 
+      -Dsonar.login=$SONAR_TOKEN 
+      -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml 
+      -Dsonar.coverageReportPaths=tests/unit/test-reports/_coverage/coverage.xml
   tags:
     - small
