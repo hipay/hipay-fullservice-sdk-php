@@ -4,6 +4,7 @@ stages:
   - build
   - validate
   - test
+  - sonar
 
 
 .cache: &global_cache
@@ -103,8 +104,6 @@ phpunit:
   stage: test
   cache:
       <<: *global_cache
-    path:
-      - tests/unit/test-reports/_coverage/junit.xml
   script:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --log-junit=tests/unit/test-reports/_coverage/junit.xml
   allow_failure: false
@@ -130,6 +129,7 @@ infection:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
     - ./infection.phar --threads=4 --coverage=tests/unit/test-reports/_coverage --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
   allow_failure: false
+  artifacts:
     paths:
       - infection.log
     expire_in: 1 day
@@ -145,14 +145,14 @@ sonar:
   image: python:3.8
   tags:
     - small
-  only:
-    - develop
   variables:
-    - GIT_DEPTH: "0"
-    - SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
+    GIT_DEPTH: "0"
+    SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
     - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-linux.zip
     - unzip sonar-scanner-cli-4.6.0.2311-linux.zip
     - export PATH=$PATH:$(pwd)/sonar-scanner-4.6.0.2311-linux/bin/
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_LOGIN
+    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN
+  only:
+    - develop
 
