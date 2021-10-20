@@ -166,7 +166,7 @@ sonar:
       -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml 
       -Dsonar.php.coverage.reportPaths=tests/unit/test-reports/_coverage/coverage.xml
   only:
-    -develop
+    - develop
   tags:
     - small
 
