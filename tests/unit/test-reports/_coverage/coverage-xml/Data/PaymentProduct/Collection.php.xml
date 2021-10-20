@@ -731,7 +731,7 @@
         <token name="T_DOC_COMMENT">     *</token>
       </line>
       <line no="97">
-        <token name="T_DOC_COMMENT">     * @param string $paymentProductList</token>
+        <token name="T_DOC_COMMENT">     * @param array&lt;string&gt;|string|null $paymentProductList</token>
       </line>
       <line no="98">
         <token name="T_DOC_COMMENT">     * @return string|null</token>

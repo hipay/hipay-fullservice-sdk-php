@@ -2076,7 +2076,7 @@
         <token name="T_DOC_COMMENT">     * @param string $rawHostname</token>
       </line>
       <line no="242">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="243">
         <token name="T_DOC_COMMENT">     */</token>

@@ -163,7 +163,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="34">
-        <token name="T_DOC_COMMENT">     * @var Order $_order</token>
+        <token name="T_DOC_COMMENT">     * @var Order|null $_order</token>
       </line>
       <line no="35">
         <token name="T_DOC_COMMENT">     */</token>
@@ -300,7 +300,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="64">
-        <token name="T_DOC_COMMENT">     * @return Order</token>
+        <token name="T_DOC_COMMENT">     * @return Order|null</token>
       </line>
       <line no="65">
         <token name="T_DOC_COMMENT">     */</token>

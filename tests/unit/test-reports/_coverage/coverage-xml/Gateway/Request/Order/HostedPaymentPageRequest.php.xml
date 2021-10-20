@@ -154,7 +154,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="37">
-        <token name="T_DOC_COMMENT">     * @var string $payment_product_list The list of payment products to display on the payment page.</token>
+        <token name="T_DOC_COMMENT">     * @var array&lt;string&gt;|string|null $payment_product_list The list of payment products to display on the payment page.</token>
       </line>
       <line no="38">
         <token name="T_DOC_COMMENT">     * @required</token>

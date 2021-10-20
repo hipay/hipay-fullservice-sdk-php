@@ -1013,7 +1013,7 @@
         <token name="T_DOC_COMMENT">     *</token>
       </line>
       <line no="109">
-        <token name="T_DOC_COMMENT">     * @var string</token>
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
       </line>
       <line no="110">
         <token name="T_DOC_COMMENT">     */</token>
@@ -1598,7 +1598,7 @@
         <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
       </line>
       <line no="231">
-        <token name="T_DOC_COMMENT">     * @param string $discount_description</token>
+        <token name="T_DOC_COMMENT">     * @param string|null $discount_description</token>
       </line>
       <line no="232">
         <token name="T_DOC_COMMENT">     * @param string $type</token>
@@ -2300,7 +2300,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="355">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="356">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3104,7 +3104,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="518">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="519">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3142,7 +3142,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="526">
-        <token name="T_DOC_COMMENT">     * @param string $discount_description</token>
+        <token name="T_DOC_COMMENT">     * @param string|null $discount_description</token>
       </line>
       <line no="527">
         <token name="T_DOC_COMMENT">     * @return Item</token>
@@ -3282,7 +3282,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="554">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="555">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3371,7 +3371,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="572">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="573">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3460,7 +3460,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="590">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="591">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3549,7 +3549,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="608">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="609">
         <token name="T_DOC_COMMENT">     */</token>
@@ -3727,7 +3727,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="644">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="645">
         <token name="T_DOC_COMMENT">     */</token>

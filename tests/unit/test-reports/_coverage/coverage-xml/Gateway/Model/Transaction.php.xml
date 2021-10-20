@@ -541,7 +541,7 @@
         <token name="T_DOC_COMMENT">     * @param string $dateAuthorized</token>
       </line>
       <line no="43">
-        <token name="T_DOC_COMMENT">     * @param int $status</token>
+        <token name="T_DOC_COMMENT">     * @param int|null $status</token>
       </line>
       <line no="44">
         <token name="T_DOC_COMMENT">     * @param string $state</token>
@@ -1490,7 +1490,7 @@
         <token name="T_DOC_COMMENT">     *</token>
       </line>
       <line no="250">
-        <token name="T_DOC_COMMENT">     * @var OperationResponse $_operation Result Operation ( Operation ID, reference ... )</token>
+        <token name="T_DOC_COMMENT">     * @var OperationResponse|null $_operation Result Operation ( Operation ID, reference ... )</token>
       </line>
       <line no="251">
         <token name="T_DOC_COMMENT">     */</token>
@@ -1508,7 +1508,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="255">
-        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;</token>
+        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;|null</token>
       </line>
       <line no="256">
         <token name="T_DOC_COMMENT">     */</token>
@@ -1526,7 +1526,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="260">
-        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;</token>
+        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;|null</token>
       </line>
       <line no="261">
         <token name="T_DOC_COMMENT">     */</token>

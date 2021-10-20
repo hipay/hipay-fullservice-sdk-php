@@ -401,7 +401,7 @@
         <token name="T_DOC_COMMENT">     * @param string $dateAuthorized</token>
       </line>
       <line no="46">
-        <token name="T_DOC_COMMENT">     * @param int $status</token>
+        <token name="T_DOC_COMMENT">     * @param int|null $status</token>
       </line>
       <line no="47">
         <token name="T_DOC_COMMENT">     * @param string|null $state</token>
@@ -800,7 +800,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="125">
-        <token name="T_DOC_COMMENT">     * @var int $_status Transaction status return by Fullservice API.</token>
+        <token name="T_DOC_COMMENT">     * @var int|null $_status Transaction status return by Fullservice API.</token>
       </line>
       <line no="126">
         <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Enum\Transaction\TransactionStatus</token>
@@ -1196,7 +1196,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="220">
-        <token name="T_DOC_COMMENT">     * @return int</token>
+        <token name="T_DOC_COMMENT">     * @return int|null</token>
       </line>
       <line no="221">
         <token name="T_DOC_COMMENT">     */</token>
@@ -1234,7 +1234,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="228">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="229">
         <token name="T_DOC_COMMENT">     */</token>

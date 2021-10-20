@@ -334,7 +334,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="56">
-        <token name="T_DOC_COMMENT">     * @var string $_cardExpiryMonth</token>
+        <token name="T_DOC_COMMENT">     * @var string|null $_cardExpiryMonth</token>
       </line>
       <line no="57">
         <token name="T_DOC_COMMENT">     */</token>
@@ -998,7 +998,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="195">
-        <token name="T_DOC_COMMENT">     * @return string</token>
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
       </line>
       <line no="196">
         <token name="T_DOC_COMMENT">     */</token>
