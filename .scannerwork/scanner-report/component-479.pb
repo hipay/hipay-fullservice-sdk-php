@@ -1,0 +1,1 @@
+ß (2phpXhrItests/unit/HiPay/Tests/Fullservice/Data/DeliveryMethod/CollectionTest.php

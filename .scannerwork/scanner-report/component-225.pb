@@ -1,0 +1,1 @@
+á (2xmlXïhr\tests/unit/test-reports/_coverage/coverage-xml/Gateway/Client/GatewayClientInterface.php.xml

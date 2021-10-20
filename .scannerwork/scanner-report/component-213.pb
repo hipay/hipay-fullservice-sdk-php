@@ -1,0 +1,1 @@
+Õ (2xmlX¥hrntests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/IssuerBankIDPaymentMethod.php.xml

@@ -1,0 +1,1 @@
+¯ (2xmlX‰hrDtests/unit/test-reports/_coverage/coverage-xml/Data/Category.php.xml

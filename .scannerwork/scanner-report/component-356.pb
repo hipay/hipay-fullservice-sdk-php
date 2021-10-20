@@ -1,0 +1,1 @@
+ä (2webX¡hrPtests/unit/test-reports/coverage/Gateway/Mapper/HostedPaymentPageMapper.php.html

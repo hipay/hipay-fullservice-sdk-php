@@ -1,0 +1,1 @@
+è (2xmlX¢hrVtests/unit/test-reports/_coverage/coverage-xml/Gateway/Model/HostedPaymentPage.php.xml

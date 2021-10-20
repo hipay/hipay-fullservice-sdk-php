@@ -1,0 +1,1 @@
+‡ (2xmlX¬hrPtests/unit/test-reports/_coverage/coverage-xml/Enum/Transaction/Template.php.xml

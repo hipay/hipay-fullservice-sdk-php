@@ -1,0 +1,1 @@
+â (2phpX„hr>tests/unit/HiPay/Tests/Fullservice/HTTP/ClientProviderTest.php

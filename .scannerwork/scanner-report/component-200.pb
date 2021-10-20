@@ -1,0 +1,1 @@
+È (2xmlX„hr\tests/unit/test-reports/_coverage/coverage-xml/Gateway/Mapper/SecuritySettingsMapper.php.xml

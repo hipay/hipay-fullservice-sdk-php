@@ -1,0 +1,1 @@
+Ä (2xmlX·hr`tests/unit/test-reports/_coverage/coverage-xml/SecureVault/Mapper/PaymentCardTokenMapper.php.xml

@@ -82,18 +82,6 @@ stan:
   tags:
     - small
 
-# Check that the different layers of the project are independant
-#deptrac:
-#  stage: validate
-#  cache:
-#      <<: *global_cache
-#  before_script:
-#    - curl -L https://github.com/qossmic/deptrac/releases/download/0.15.2/deptrac.phar --output ./deptrac.phar
-#  script:
-#    - php deptrac.phar analyse
-#  tags:
-#    - small
-
 ################
 # END VALIDATE #
 ################
@@ -155,6 +143,10 @@ infection:
 # END TEST #
 ############
 
+#########
+# SONAR #
+#########
+
 sonar:
   stage: sonar
   image: sonarsource/sonar-scanner-cli:latest
@@ -172,6 +164,10 @@ sonar:
       -Dsonar.host.url=https://sonar-ce.hipay.org 
       -Dsonar.login=$SONAR_TOKEN 
       -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml 
-      -Dsonar.coverageReportPaths=tests/unit/test-reports/_coverage/coverage.xml
+      -Dsonar.php.coverage.reportPaths=tests/unit/test-reports/_coverage/coverage.xml
   tags:
     - small
+
+#############
+# END SONAR #
+#############

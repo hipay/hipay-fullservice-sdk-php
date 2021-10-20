@@ -1,0 +1,1 @@
+Å (2webX}hr@tests/unit/test-reports/coverage/Mapper/MapperInterface.php.html

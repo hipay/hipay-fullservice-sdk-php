@@ -1,0 +1,1 @@
+ 2phpXšhrDlib/HiPay/Fullservice/Data/DeliveryMethod/CollectionModeShipping.php

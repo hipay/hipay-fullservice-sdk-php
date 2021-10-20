@@ -1,0 +1,2307 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Transaction.php" path="/Gateway/Model">
+    <totals>
+      <lines total="423" comments="199" code="224" executable="56" executed="56" percent="100.00"/>
+      <methods count="21" tested="21" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Gateway\Model\Transaction" start="33" executable="56" executed="56" crap="21">
+      <package full="HiPay" name="HiPay" sub="" category=""/>
+      <namespace name="HiPay\Fullservice\Gateway\Model"/>
+      <method name="__construct" signature="__construct(&#10;        $mid,&#10;        $authorizationCode,&#10;        $transactionReference,&#10;        $dateCreated,&#10;        $dateUpdated,&#10;        $dateAuthorized,&#10;        $status,&#10;        $state,&#10;        $message,&#10;        $authorizedAmount,&#10;        $capturedAmount,&#10;        $refundedAmount,&#10;        $decimals,&#10;        $currency,&#10;        $reason,&#10;        $forwardUrl,&#10;        $attemptId,&#10;        $referenceToPay,&#10;        $ipAddress,&#10;        $ipCountry,&#10;        $deviceId,&#10;        $avsResult,&#10;        $cvcResult,&#10;        $eci,&#10;        $paymentProduct,&#10;        $paymentMethod,&#10;        $threeDSecure,&#10;        $fraudScreening,&#10;        $order,&#10;        $debitAgreement,&#10;        $basket = null,&#10;        $operation = null,&#10;        $customData = null&#10;    )" start="71" end="143" crap="1" executable="36" executed="36" coverage="100"/>
+      <method name="getCustomData" signature="getCustomData()" start="267" end="270" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getTransactionReference" signature="getTransactionReference()" start="275" end="278" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getReason" signature="getReason()" start="283" end="286" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getForwardUrl" signature="getForwardUrl()" start="291" end="294" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAttemptId" signature="getAttemptId()" start="299" end="302" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getReferenceToPay" signature="getReferenceToPay()" start="307" end="310" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getIpAddress" signature="getIpAddress()" start="315" end="318" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getIpCountry" signature="getIpCountry()" start="323" end="326" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getDeviceId" signature="getDeviceId()" start="331" end="334" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAvsResult" signature="getAvsResult()" start="339" end="342" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getCvcResult" signature="getCvcResult()" start="347" end="350" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getEci" signature="getEci()" start="355" end="358" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPaymentProduct" signature="getPaymentProduct()" start="363" end="366" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPaymentMethod" signature="getPaymentMethod()" start="371" end="374" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getThreeDSecure" signature="getThreeDSecure()" start="379" end="382" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getFraudScreening" signature="getFraudScreening()" start="387" end="390" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getOrder" signature="getOrder()" start="395" end="398" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getDebitAgreement" signature="getDebitAgreement()" start="403" end="406" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getOperation" signature="getOperation()" start="411" end="414" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getBasket" signature="getBasket()" start="419" end="422" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="106">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="107">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="108">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="109">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="110">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="111">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="112">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="113">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="114">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="115">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="116">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="117">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="118">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="119">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="120">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="123">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="124">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="125">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="126">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="127">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="128">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="129">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="130">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="131">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="132">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="133">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="134">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="135">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="136">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="137">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="138">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="139">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="140">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="141">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="142">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="143">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="269">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+      </line>
+      <line nr="277">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+      </line>
+      <line nr="285">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+      </line>
+      <line nr="293">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+      </line>
+      <line nr="301">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+      </line>
+      <line nr="309">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+      </line>
+      <line nr="317">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+      </line>
+      <line nr="325">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+      </line>
+      <line nr="333">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+      </line>
+      <line nr="341">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+      </line>
+      <line nr="349">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+      </line>
+      <line nr="357">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+      </line>
+      <line nr="365">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+      </line>
+      <line nr="373">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+      </line>
+      <line nr="381">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+      </line>
+      <line nr="389">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+      </line>
+      <line nr="397">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+      </line>
+      <line nr="405">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+      </line>
+      <line nr="413">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+      </line>
+      <line nr="421">
+        <covered by="HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Data</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">PaymentProduct</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Enum</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Transaction</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">TransactionState</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="21">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Enum</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Transaction</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">TransactionStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="22"/>
+      <line no="23">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * Transaction model</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @package HiPay\Fullservice</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @author Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @copyright Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> * @link https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="31">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="33">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Transaction</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">AbstractTransaction</token>
+      </line>
+      <line no="34">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="35">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     * Transaction constructor.</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     * @param string $mid</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     * @param string $authorizationCode</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @param string $transactionReference</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     * @param string $dateCreated</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     * @param string $dateUpdated</token>
+      </line>
+      <line no="42">
+        <token name="T_DOC_COMMENT">     * @param string $dateAuthorized</token>
+      </line>
+      <line no="43">
+        <token name="T_DOC_COMMENT">     * @param int|null $status</token>
+      </line>
+      <line no="44">
+        <token name="T_DOC_COMMENT">     * @param string $state</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">     * @param string $message</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @param float $authorizedAmount</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     * @param float $capturedAmount</token>
+      </line>
+      <line no="48">
+        <token name="T_DOC_COMMENT">     * @param float $refundedAmount</token>
+      </line>
+      <line no="49">
+        <token name="T_DOC_COMMENT">     * @param int $decimals</token>
+      </line>
+      <line no="50">
+        <token name="T_DOC_COMMENT">     * @param string $currency</token>
+      </line>
+      <line no="51">
+        <token name="T_DOC_COMMENT">     * @param string $reason</token>
+      </line>
+      <line no="52">
+        <token name="T_DOC_COMMENT">     * @param string $forwardUrl</token>
+      </line>
+      <line no="53">
+        <token name="T_DOC_COMMENT">     * @param string $attemptId</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     * @param string $referenceToPay</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     * @param string $ipAddress</token>
+      </line>
+      <line no="56">
+        <token name="T_DOC_COMMENT">     * @param string $ipCountry</token>
+      </line>
+      <line no="57">
+        <token name="T_DOC_COMMENT">     * @param string $deviceId</token>
+      </line>
+      <line no="58">
+        <token name="T_DOC_COMMENT">     * @param string $avsResult</token>
+      </line>
+      <line no="59">
+        <token name="T_DOC_COMMENT">     * @param string $cvcResult</token>
+      </line>
+      <line no="60">
+        <token name="T_DOC_COMMENT">     * @param string $eci</token>
+      </line>
+      <line no="61">
+        <token name="T_DOC_COMMENT">     * @param string $paymentProduct</token>
+      </line>
+      <line no="62">
+        <token name="T_DOC_COMMENT">     * @param PaymentMethod $paymentMethod</token>
+      </line>
+      <line no="63">
+        <token name="T_DOC_COMMENT">     * @param ThreeDSecure $threeDSecure</token>
+      </line>
+      <line no="64">
+        <token name="T_DOC_COMMENT">     * @param FraudScreening $fraudScreening</token>
+      </line>
+      <line no="65">
+        <token name="T_DOC_COMMENT">     * @param Order $order</token>
+      </line>
+      <line no="66">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $debitAgreement</token>
+      </line>
+      <line no="67">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $basket</token>
+      </line>
+      <line no="68">
+        <token name="T_DOC_COMMENT">     * @param OperationResponse|null $operation</token>
+      </line>
+      <line no="69">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt;|null $customData</token>
+      </line>
+      <line no="70">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="71">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="72">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$mid</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="73">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$authorizationCode</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="74">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$transactionReference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$dateCreated</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$dateUpdated</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="77">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$dateAuthorized</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="78">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$status</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="79">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$state</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="80">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$message</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="81">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$authorizedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="82">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$capturedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="83">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$refundedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="84">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$decimals</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="85">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$currency</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="86">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$reason</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="87">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$forwardUrl</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="88">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$attemptId</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="89">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$referenceToPay</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="90">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$ipAddress</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$ipCountry</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="92">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$deviceId</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="93">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$avsResult</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="94">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$cvcResult</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="95">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$eci</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="96">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$paymentProduct</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$paymentMethod</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="98">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$threeDSecure</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="99">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$fraudScreening</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="100">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$order</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="101">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$debitAgreement</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="102">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$basket</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="103">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$operation</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="104">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$customData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+      </line>
+      <line no="105">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="106">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">parent</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="107">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$mid</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="108">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$authorizationCode</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="109">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$transactionReference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="110">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$dateCreated</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="111">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$dateUpdated</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="112">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$dateAuthorized</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="113">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$status</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="114">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$state</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="115">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$message</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="116">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$authorizedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="117">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$capturedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="118">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$refundedAmount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="119">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$decimals</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$currency</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="122"/>
+      <line no="123">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_reason</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$reason</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="124">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_forwardUrl</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$forwardUrl</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="125">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_attemptId</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$attemptId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="126">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_referenceToPay</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$referenceToPay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="127">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_ipAddress</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$ipAddress</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="128">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_ipCountry</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$ipCountry</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="129">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_deviceId</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$deviceId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="130">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_avsResult</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$avsResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="131">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_cvcResult</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cvcResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="132">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_eci</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="133">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_paymentMethod</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$paymentMethod</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="134">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_paymentProduct</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$paymentProduct</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="135">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_threeDSecure</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$threeDSecure</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="136">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_fraudScreening</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$fraudScreening</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_order</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$order</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="138">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_debitAgreement</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$debitAgreement</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="139">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_transactionReference</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$transactionReference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="140">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_operation</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$operation</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="141">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_basket</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$basket</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="142">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_customData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$customData</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="143">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="144"/>
+      <line no="145">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="146">
+        <token name="T_DOC_COMMENT">     * @var string $_transactionReference Transaction unique ID.</token>
+      </line>
+      <line no="147">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="148">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_transactionReference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="149"/>
+      <line no="150">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="151">
+        <token name="T_DOC_COMMENT">     * @var string $_reason Reason why transaction was declined. Optional.</token>
+      </line>
+      <line no="152">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="153">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_reason</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="154"/>
+      <line no="155">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="156">
+        <token name="T_DOC_COMMENT">     * @var string $_forwardUrl Merchant must redirect the customer's browser to this URL.</token>
+      </line>
+      <line no="157">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="158">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_forwardUrl</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="159"/>
+      <line no="160">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="161">
+        <token name="T_DOC_COMMENT">     * @var string $_attemptId Attempt id of the payment.</token>
+      </line>
+      <line no="162">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="163">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_attemptId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="164"/>
+      <line no="165">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="166">
+        <token name="T_DOC_COMMENT">     * Reference to pay</token>
+      </line>
+      <line no="167">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="168">
+        <token name="T_DOC_COMMENT">     * In some payment methods the customer can</token>
+      </line>
+      <line no="169">
+        <token name="T_DOC_COMMENT">     * receive a reference to pay, at this point, the</token>
+      </line>
+      <line no="170">
+        <token name="T_DOC_COMMENT">     * customer has the option to physically paying with</token>
+      </line>
+      <line no="171">
+        <token name="T_DOC_COMMENT">     * cash at any bank branch, or at authorized</token>
+      </line>
+      <line no="172">
+        <token name="T_DOC_COMMENT">     * processors such as drugstores, supermarkets or</token>
+      </line>
+      <line no="173">
+        <token name="T_DOC_COMMENT">     * post offices, or paying electronically at an electronic</token>
+      </line>
+      <line no="174">
+        <token name="T_DOC_COMMENT">     * banking point.</token>
+      </line>
+      <line no="175">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="176">
+        <token name="T_DOC_COMMENT">     * @var string $_referenceToPay Reference to pay</token>
+      </line>
+      <line no="177">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="178">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_referenceToPay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="179"/>
+      <line no="180">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="181">
+        <token name="T_DOC_COMMENT">     * @var string $_ipAddress The IP address of the customer making the purchase</token>
+      </line>
+      <line no="182">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="183">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_ipAddress</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="184"/>
+      <line no="185">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="186">
+        <token name="T_DOC_COMMENT">     * @var string $_ipCountry Country code associated to the customer's IP address.</token>
+      </line>
+      <line no="187">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="188">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_ipCountry</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="189"/>
+      <line no="190">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="191">
+        <token name="T_DOC_COMMENT">     * @var string $_deviceId Unique identifier assigned to device (the customer's browser) by HiPay TPP.</token>
+      </line>
+      <line no="192">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="193">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_deviceId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="194"/>
+      <line no="195">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="196">
+        <token name="T_DOC_COMMENT">     * @var string Result of the Address Verification Service (AVS).</token>
+      </line>
+      <line no="197">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Enum\Transaction\AVSResult</token>
+      </line>
+      <line no="198">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="199">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_avsResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="200"/>
+      <line no="201">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="202">
+        <token name="T_DOC_COMMENT">     * @var string $_cvcResult Result of the CVC (Card Verification Code) check</token>
+      </line>
+      <line no="203">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Enum\Transaction\CVCResult</token>
+      </line>
+      <line no="204">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="205">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_cvcResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="206"/>
+      <line no="207">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="208">
+        <token name="T_DOC_COMMENT">     * @var string $_eci Electronic Commerce Indicator (ECI).</token>
+      </line>
+      <line no="209">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Gateway\Request\PaymentMethod\CardTokenPaymentMethod::$eci</token>
+      </line>
+      <line no="210">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="211">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="212"/>
+      <line no="213">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="214">
+        <token name="T_DOC_COMMENT">     * @var string $_paymentProduct Payment product used to complete the transaction.</token>
+      </line>
+      <line no="215">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Data\PaymentProduct</token>
+      </line>
+      <line no="216">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="217">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_paymentProduct</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="218"/>
+      <line no="219">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="220">
+        <token name="T_DOC_COMMENT">     * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object</token>
+      </line>
+      <line no="221">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod</token>
+      </line>
+      <line no="222">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Gateway\Model\PaymentMethod</token>
+      </line>
+      <line no="223">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="224">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_paymentMethod</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="225"/>
+      <line no="226">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="227">
+        <token name="T_DOC_COMMENT">     * @var ThreeDSecure $_threeDSecure Model 3ds secure enrollment and authentication result</token>
+      </line>
+      <line no="228">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="229">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_threeDSecure</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="230"/>
+      <line no="231">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="232">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="233">
+        <token name="T_DOC_COMMENT">     * @var FraudScreening $_fraudScreening Model Result of the fraud screening</token>
+      </line>
+      <line no="234">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="235">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_fraudScreening</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="236"/>
+      <line no="237">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="238">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="239">
+        <token name="T_DOC_COMMENT">     * @var Order $_order Model Result Order (customer, order information...)</token>
+      </line>
+      <line no="240">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="241">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_order</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="242"/>
+      <line no="243">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="244">
+        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt; $_debitAgreement Information about the debit agreement created</token>
+      </line>
+      <line no="245">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="246">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_debitAgreement</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="247"/>
+      <line no="248">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="249">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="250">
+        <token name="T_DOC_COMMENT">     * @var OperationResponse|null $_operation Result Operation ( Operation ID, reference ... )</token>
+      </line>
+      <line no="251">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="252">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_operation</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="253"/>
+      <line no="254">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="255">
+        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;|null</token>
+      </line>
+      <line no="256">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="257">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_customData</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="258"/>
+      <line no="259">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="260">
+        <token name="T_DOC_COMMENT">     * @var array&lt;string, mixed&gt;|null</token>
+      </line>
+      <line no="261">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="262">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_basket</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="263"/>
+      <line no="264">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="265">
+        <token name="T_DOC_COMMENT">     * @return array&lt;string, mixed&gt;|null</token>
+      </line>
+      <line no="266">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="267">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getCustomData</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="268">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="269">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_customData</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="270">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="271"/>
+      <line no="272">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="273">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="274">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="275">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getTransactionReference</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="276">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="277">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_transactionReference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="278">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="279"/>
+      <line no="280">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="281">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="282">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="283">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getReason</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="284">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="285">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_reason</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="286">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="287"/>
+      <line no="288">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="289">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="290">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="291">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getForwardUrl</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="292">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="293">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_forwardUrl</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="294">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="295"/>
+      <line no="296">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="297">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="298">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="299">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAttemptId</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="300">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="301">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_attemptId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="302">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="303"/>
+      <line no="304">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="305">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="306">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="307">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getReferenceToPay</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="308">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="309">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_referenceToPay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="310">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="311"/>
+      <line no="312">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="313">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="314">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="315">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getIpAddress</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="316">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="317">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_ipAddress</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="318">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="319"/>
+      <line no="320">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="321">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="322">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="323">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getIpCountry</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="324">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="325">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_ipCountry</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="326">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="327"/>
+      <line no="328">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="329">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="330">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="331">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeviceId</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="332">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="333">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_deviceId</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="334">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="335"/>
+      <line no="336">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="337">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="338">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="339">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAvsResult</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="340">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="341">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_avsResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="342">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="343"/>
+      <line no="344">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="345">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="346">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="347">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getCvcResult</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="348">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="349">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_cvcResult</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="350">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="351"/>
+      <line no="352">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="353">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="354">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="355">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEci</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="356">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="357">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="358">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="359"/>
+      <line no="360">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="361">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="362">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="363">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getPaymentProduct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="364">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="365">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_paymentProduct</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="366">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="367"/>
+      <line no="368">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="369">
+        <token name="T_DOC_COMMENT">     * @return PaymentMethod</token>
+      </line>
+      <line no="370">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="371">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getPaymentMethod</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="372">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="373">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_paymentMethod</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="374">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="375"/>
+      <line no="376">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="377">
+        <token name="T_DOC_COMMENT">     * @return ThreeDSecure</token>
+      </line>
+      <line no="378">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="379">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getThreeDSecure</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="380">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="381">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_threeDSecure</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="382">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="383"/>
+      <line no="384">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="385">
+        <token name="T_DOC_COMMENT">     * @return FraudScreening</token>
+      </line>
+      <line no="386">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="387">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getFraudScreening</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="388">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="389">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_fraudScreening</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="390">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="391"/>
+      <line no="392">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="393">
+        <token name="T_DOC_COMMENT">     * @return Order</token>
+      </line>
+      <line no="394">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="395">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getOrder</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="396">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="397">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_order</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="398">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="399"/>
+      <line no="400">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="401">
+        <token name="T_DOC_COMMENT">     * @return array&lt;string, mixed&gt;</token>
+      </line>
+      <line no="402">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="403">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDebitAgreement</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="404">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="405">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_debitAgreement</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="406">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="407"/>
+      <line no="408">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="409">
+        <token name="T_DOC_COMMENT">     * @return OperationResponse|null</token>
+      </line>
+      <line no="410">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="411">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getOperation</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="412">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="413">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_operation</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="414">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="415"/>
+      <line no="416">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="417">
+        <token name="T_DOC_COMMENT">     * @return array&lt;string, mixed&gt;|null</token>
+      </line>
+      <line no="418">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="419">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getBasket</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="420">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="421">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_basket</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="422">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="423">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="424"/>
+    </source>
+  </file>
+</phpunit>

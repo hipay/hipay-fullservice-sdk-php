@@ -1,0 +1,1 @@
+æ (2phpXŠhrAtests/unit/HiPay/Tests/Fullservice/HTTP/Response/ResponseTest.php

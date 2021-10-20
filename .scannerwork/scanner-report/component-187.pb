@@ -1,0 +1,1 @@
+ª (2xmlXÅhrVtests/unit/test-reports/_coverage/coverage-xml/HTTP/Response/ResponseInterface.php.xml

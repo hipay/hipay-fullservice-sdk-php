@@ -1,0 +1,1 @@
+ç (2phpXNhrItests/unit/HiPay/Tests/Fullservice/HTTP/Response/AbstractResponseTest.php

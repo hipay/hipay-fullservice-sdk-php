@@ -1,0 +1,1 @@
+  (2xmlXxhrNtests/unit/test-reports/_coverage/coverage-xml/Exception/CurlException.php.xml

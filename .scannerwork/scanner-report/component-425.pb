@@ -1,0 +1,1 @@
+© (2webX—hrKtests/unit/test-reports/coverage/Gateway/PIDataClient/PIDataClient.php.html

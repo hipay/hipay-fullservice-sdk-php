@@ -1,0 +1,1 @@
+è 2phpX=hr4lib/HiPay/Fullservice/Enum/Transaction/Operation.php

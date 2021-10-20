@@ -1,0 +1,1 @@
+Â (2xmlXrhrOtests/unit/test-reports/_coverage/coverage-xml/Request/RequestInterface.php.xml

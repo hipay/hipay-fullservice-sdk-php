@@ -1,0 +1,1 @@
+· (2xmlX×hrBtests/unit/test-reports/_coverage/coverage-xml/HTTP/Client.php.xml

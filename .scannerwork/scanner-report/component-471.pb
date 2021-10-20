@@ -1,0 +1,1 @@
+× (2phpX*hrMtests/unit/HiPay/Tests/Fullservice/Helper/MerchantPromotionCalculatorTest.php

@@ -1,0 +1,1 @@
+ç (2xmlXéhrXtests/unit/test-reports/_coverage/coverage-xml/Enum/ThreeDSTwo/ShippingIndicator.php.xml

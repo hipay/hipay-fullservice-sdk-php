@@ -1,0 +1,1 @@
+£ (2xmlX‚hrOtests/unit/test-reports/_coverage/coverage-xml/Exception/LogicException.php.xml

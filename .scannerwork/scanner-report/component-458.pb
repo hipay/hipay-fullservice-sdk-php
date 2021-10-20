@@ -1,0 +1,1 @@
+Ê (2webX‘hrGtests/unit/test-reports/coverage/Enum/ThreeDSTwo/DeviceChannel.php.html

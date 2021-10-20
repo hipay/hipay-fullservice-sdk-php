@@ -1,0 +1,1 @@
+‰ (2xmlXwhrHtests/unit/test-reports/_coverage/coverage-xml/Enum/AbstractEnum.php.xml

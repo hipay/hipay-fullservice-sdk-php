@@ -1,0 +1,1 @@
+† (2webXÅhrHtests/unit/test-reports/coverage/Gateway/Model/SecuritySettings.php.html

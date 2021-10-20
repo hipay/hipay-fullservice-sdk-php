@@ -1,0 +1,1 @@
+à (2phpXhrUtests/unit/HiPay/Tests/Fullservice/Data/DeliveryMethod/CollectionModeShippingTest.php

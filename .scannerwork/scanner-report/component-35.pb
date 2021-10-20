@@ -1,0 +1,1 @@
+# 2phpXmhr3lib/HiPay/Fullservice/Request/RequestSerializer.php

@@ -1,0 +1,1 @@
+Ö (2xmlX·hrjtests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/AstropayPaymentMethod.php.xml

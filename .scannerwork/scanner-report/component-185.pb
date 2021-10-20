@@ -1,0 +1,1 @@
+¹ (2xmlX¦hr`tests/unit/test-reports/_coverage/coverage-xml/HTTP/Configuration/ConfigurationInterface.php.xml

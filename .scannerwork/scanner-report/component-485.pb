@@ -1,0 +1,1 @@
+Â (2phpXçhrTtests/unit/HiPay/Tests/Fullservice/HTTP/Configuration/ConfigurationInterfaceTest.php

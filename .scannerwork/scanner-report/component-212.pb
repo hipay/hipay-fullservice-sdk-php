@@ -1,0 +1,1 @@
+Ô (2xmlX•hrktests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/CardTokenPaymentMethod.php.xml

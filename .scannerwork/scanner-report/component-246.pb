@@ -1,0 +1,1 @@
+ö (2xmlX	hrRtests/unit/test-reports/_coverage/coverage-xml/Gateway/Model/PaymentMethod.php.xml

@@ -1,0 +1,1 @@
+¦ (2xmlXhrYtests/unit/test-reports/_coverage/coverage-xml/Exception/InvalidArgumentException.php.xml

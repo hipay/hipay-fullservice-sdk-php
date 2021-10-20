@@ -1,0 +1,1 @@
+É (2xmlX‰hrYtests/unit/test-reports/_coverage/coverage-xml/Gateway/Mapper/PaymentMethodMapper.php.xml

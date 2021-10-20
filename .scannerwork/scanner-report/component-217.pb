@@ -1,0 +1,1 @@
+Ù (2xmlXÐhrrtests/unit/test-reports/_coverage/coverage-xml/Gateway/Request/PaymentMethod/XTimesCreditCardPaymentMethod.php.xml
