@@ -128,7 +128,7 @@ infection:
     - chmod +x infection.phar
   script:
     - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
-    - ./infection.phar --threads=4 --coverage=tests/unit/test-reports/_coverage --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
+    - ./infection.phar --threads=4 --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     paths:
@@ -150,6 +150,7 @@ sonar:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml
+    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml --testsuite unit --coverage-xml=tests/unit/test-reports/_coverage/coverage.xml --log-junit=tests/unit/test-reports/_coverage/junit.xml
+    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml -Dsonar.coverageReportPaths=tests/unit/test-reports/_coverage/coverage.xml
   tags:
     - small
