@@ -133,6 +133,12 @@ infection:
     - curl -L https://schema.phpunit.de/6.2/phpunit.xsd --output tests/unit/phpunit.xsd -k
     - chmod +x infection.phar
   script:
+    - ./vendor/bin/phpunit 
+      --configuration tests/unit/phpunit.xml 
+      --testsuite unit 
+      --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml 
+      --log-junit=tests/unit/test-reports/_coverage/junit.xml 
+      --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml
     - ./infection.phar 
       --threads=4 
       --coverage=tests/unit/test-reports/_coverage 
@@ -152,7 +158,6 @@ infection:
 sonar:
   stage: sonar
   image: sonarsource/sonar-scanner-cli:latest
-  cache:
   cache:
       <<: *global_cache
   variables:
