@@ -150,4 +150,4 @@ sonar:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_LOGIN
+    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests/unit -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN
