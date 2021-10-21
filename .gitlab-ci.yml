@@ -108,7 +108,7 @@ phpunit-7.2:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependancies
+    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
@@ -134,7 +134,7 @@ phpunit-7.4:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependancies
+    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
@@ -160,7 +160,7 @@ phpunit-8.0:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependancies
+    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
