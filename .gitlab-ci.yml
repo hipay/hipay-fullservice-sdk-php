@@ -24,7 +24,7 @@ build:
   stage: build
   cache:
       <<: *global_cache
-    - policy: push
+      - policy: push
   script:
       - 
       - composer install --ignore-platform-reqs --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
