@@ -210,6 +210,7 @@ infection:
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
     - chmod +x infection.phar
+    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
