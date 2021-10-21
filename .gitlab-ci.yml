@@ -37,6 +37,7 @@ build:
     - php -r "unlink('composer-setup.php');"
   script:
       - php composer.phar install
+      - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
       - php composer.phar info
   tags:
     - small
