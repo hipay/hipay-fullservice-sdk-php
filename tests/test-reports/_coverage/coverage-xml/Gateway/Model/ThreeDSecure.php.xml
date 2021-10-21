@@ -1,0 +1,1098 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="ThreeDSecure.php" path="/Gateway/Model">
+    <totals>
+      <lines total="170" comments="92" code="78" executable="15" executed="15" percent="100.00"/>
+      <methods count="8" tested="8" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Gateway\Model\ThreeDSecure" start="36" executable="15" executed="15" crap="8">
+      <package full="HiPay" name="HiPay" sub="" category=""/>
+      <namespace name="HiPay\Fullservice\Gateway\Model"/>
+      <method name="__construct" signature="__construct(&#10;        $eci,&#10;        $enrollmentStatus,&#10;        $enrollmentMessage,&#10;        $authenticationStatus,&#10;        $authenticationMessage,&#10;        $authenticationToken,&#10;        $xid&#10;    )" start="48" end="67" crap="1" executable="8" executed="8" coverage="100"/>
+      <method name="getEci" signature="getEci()" start="118" end="121" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getEnrollmentStatus" signature="getEnrollmentStatus()" start="126" end="129" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getEnrollmentMessage" signature="getEnrollmentMessage()" start="134" end="137" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAuthenticationStatus" signature="getAuthenticationStatus()" start="142" end="145" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAuthenticationMessage" signature="getAuthenticationMessage()" start="150" end="153" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAuthenticationToken" signature="getAuthenticationToken()" start="158" end="161" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getXid" signature="getXid()" start="166" end="169" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="59">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="60">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="61">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="62">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="63">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="64">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="65">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="67">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCustomData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetTransactionReference"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReason"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetForwardUrl"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAttemptId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetReferenceToPay"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpAddress"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetIpCountry"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDeviceId"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAvsResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCvcResult"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetEci"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentProduct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetPaymentMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetThreeDSecure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetFraudScreening"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDebitAgreement"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetOperation"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetBasket"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMid"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizationCode"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateCreated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateUpdated"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDateAuthorized"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetState"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetMessage"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetAuthorizedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCapturedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetRefundedAmount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetDecimals"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\TransactionTest::testGetCurrency"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="120">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetEci"/>
+      </line>
+      <line nr="128">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetEnrollmentStatus"/>
+      </line>
+      <line nr="136">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetEnrollmentMessage"/>
+      </line>
+      <line nr="144">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetAuthenticationStatus"/>
+      </line>
+      <line nr="152">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetAuthenticationMessage"/>
+      </line>
+      <line nr="160">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetAuthenticationToken"/>
+      </line>
+      <line nr="168">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Mapper\TransactionMapperTest::testMapResponseToModel"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\ThreeDSecureTest::testGetXid"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">AbstractModel</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20"/>
+      <line no="21">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> * 3d secure model</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * Result of the 3-D Secure Authentication.</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * Include enrollment and authentication status</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @see \HiPay\Fullservice\Enum\Transaction\ThreeDSecureStatus</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @package HiPay\Fullservice</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> * @author Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="31">
+        <token name="T_DOC_COMMENT"> * @copyright Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT"> * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT"> * @link https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="36">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ThreeDSecure</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">AbstractModel</token>
+      </line>
+      <line no="37">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="38">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * ThreeDSecure constructor.</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     * @param int $eci</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     * @param string $enrollmentStatus</token>
+      </line>
+      <line no="42">
+        <token name="T_DOC_COMMENT">     * @param string $enrollmentMessage</token>
+      </line>
+      <line no="43">
+        <token name="T_DOC_COMMENT">     * @param string $authenticationStatus</token>
+      </line>
+      <line no="44">
+        <token name="T_DOC_COMMENT">     * @param string $authenticationMessage</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">     * @param string $authenticationToken</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @param string $xid</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="48">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="49">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$eci</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$enrollmentStatus</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="51">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$enrollmentMessage</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="52">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$authenticationStatus</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="53">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$authenticationMessage</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="54">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$authenticationToken</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="55">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$xid</token>
+      </line>
+      <line no="56">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="57"/>
+      <line no="58"/>
+      <line no="59">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_eci</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="60">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_enrollmentStatus</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$enrollmentStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_enrollmentMessage</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$enrollmentMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="62">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationStatus</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$authenticationStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="63">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationMessage</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$authenticationMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="64">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationToken</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$authenticationToken</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="65">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_xid</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$xid</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="66"/>
+      <line no="67">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="68"/>
+      <line no="69">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="70">
+        <token name="T_DOC_COMMENT">     * @var int $_eci The 3-D Secure (3DS) electronic commerce indicator.</token>
+      </line>
+      <line no="71">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="72">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="73"/>
+      <line no="74">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="75">
+        <token name="T_DOC_COMMENT">     * @var string $_enrollmentStatus The enrollment status.</token>
+      </line>
+      <line no="76">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Enum\Transaction\ThreeDSecureStatus</token>
+      </line>
+      <line no="77">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="78">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_enrollmentStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="79"/>
+      <line no="80">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="81">
+        <token name="T_DOC_COMMENT">     * @var string $_enrollmentMessage The enrollment message</token>
+      </line>
+      <line no="82">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="83">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_enrollmentMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="84"/>
+      <line no="85">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="86">
+        <token name="T_DOC_COMMENT">     * This field is only included if payment authentication was attempted and a value was received.</token>
+      </line>
+      <line no="87">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="88">
+        <token name="T_DOC_COMMENT">     * @var string $_authenticationStatus The authentication status</token>
+      </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\Enum\Transaction\ThreeDSecureStatus</token>
+      </line>
+      <line no="90">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_authenticationStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="92"/>
+      <line no="93">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="94">
+        <token name="T_DOC_COMMENT">     * This field is only included if payment authentication was attempted and a value was received.</token>
+      </line>
+      <line no="95">
+        <token name="T_DOC_COMMENT">     * @var string $_authenticationMessage Authentication message</token>
+      </line>
+      <line no="96">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_authenticationMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="98"/>
+      <line no="99">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="100">
+        <token name="T_DOC_COMMENT">     * This is a value generated by the card issuer as a token</token>
+      </line>
+      <line no="101">
+        <token name="T_DOC_COMMENT">     * to prove that the cardholder was successfully authenticated.</token>
+      </line>
+      <line no="102">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="103">
+        <token name="T_DOC_COMMENT">     * @var string $_authenticationToken Authentication token</token>
+      </line>
+      <line no="104">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="105">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_authenticationToken</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="106"/>
+      <line no="107">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="108">
+        <token name="T_DOC_COMMENT">     * A unique transaction identifier that is generated by the payment server on behalf of the merchant</token>
+      </line>
+      <line no="109">
+        <token name="T_DOC_COMMENT">     * to identify the 3-D Secure transaction</token>
+      </line>
+      <line no="110">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="111">
+        <token name="T_DOC_COMMENT">     * @var string $_xid Unique transaction identifier</token>
+      </line>
+      <line no="112">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="113">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_xid</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="114"/>
+      <line no="115">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="116">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="117">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="118">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEci</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="119">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_eci</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="122"/>
+      <line no="123">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="124">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="125">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="126">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEnrollmentStatus</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="127">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="128">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_enrollmentStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="129">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="130"/>
+      <line no="131">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="132">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="133">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="134">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEnrollmentMessage</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="135">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="136">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_enrollmentMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="138"/>
+      <line no="139">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="140">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="141">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="142">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAuthenticationStatus</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="143">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="144">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="145">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="146"/>
+      <line no="147">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="148">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="149">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="150">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAuthenticationMessage</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="151">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="152">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationMessage</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="153">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="154"/>
+      <line no="155">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="156">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="157">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="158">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAuthenticationToken</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="159">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="160">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_authenticationToken</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="161">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="162"/>
+      <line no="163">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="164">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="165">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="166">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getXid</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="167">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="168">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_xid</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="169">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="170">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="171"/>
+    </source>
+  </file>
+</phpunit>

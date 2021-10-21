@@ -96,16 +96,16 @@ phpunit:
       <<: *global_cache
   script:
     - ./vendor/bin/phpunit 
-      --configuration tests/unit/phpunit.xml 
-      --testsuite unit 
-      --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml 
-      --log-junit=tests/unit/test-reports/_coverage/junit.xml 
-      --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml
+      --configuration tests/phpunit.xml 
+      --testsuite unit,integration
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml 
+      --log-junit=tests/test-reports/_coverage/junit.xml 
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml
   allow_failure: false
   artifacts:
     when: always
     reports:
-      junit: tests/unit/test-reports/_coverage/junit.xml
+      junit: tests/test-reports/_coverage/junit.xml
     expire_in: 1 day
   tags:
     - small
@@ -122,15 +122,15 @@ infection:
     - chmod +x infection.phar
   script:
     - ./vendor/bin/phpunit 
-      --configuration tests/unit/phpunit.xml 
-      --testsuite unit 
-      --coverage-xml=tests/unit/test-reports/_coverage/coverage-xml 
-      --log-junit=tests/unit/test-reports/_coverage/junit.xml 
-      --coverage-clover=tests/unit/test-reports/_coverage/coverage.xml
+      --configuration tests/phpunit.xml 
+      --testsuite unit,integration
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml 
+      --log-junit=tests/test-reports/_coverage/junit.xml 
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml
     - ./infection.phar 
       --threads=4 
-      --coverage=tests/unit/test-reports/_coverage 
-      --test-framework-options="--log-junit=tests/unit/test-reports/_coverage/junit.xml"
+      --coverage=tests/test-reports/_coverage 
+      --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     paths:
@@ -160,13 +160,13 @@ sonar:
       -Dsonar.log.level=DEBUG 
       -Dsonar.projectKey=$SONAR_PROJECT_KEY 
       -Dsonar.sources=lib 
-      -Dsonar.tests=tests/unit 
+      -Dsonar.tests=tests
       -Dsonar.host.url=https://sonar-ce.hipay.org 
       -Dsonar.login=$SONAR_TOKEN 
-      -Dsonar.php.tests.reportPath=tests/unit/test-reports/_coverage/junit.xml 
-      -Dsonar.php.coverage.reportPaths=tests/unit/test-reports/_coverage/coverage.xml
-  only:
-    - develop
+      -Dsonar.php.tests.reportPath=tests/test-reports/_coverage/junit.xml 
+      -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+#  only:
+#    - develop
   tags:
     - small
 

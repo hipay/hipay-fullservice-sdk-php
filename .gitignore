@@ -55,6 +55,6 @@ doc/
 .idea
 /nbproject/private/
 /composer.lock
-tests/unit/tests-reports/
+tests/tests-reports/
 .cache
 .scannerwork/scanner-report/

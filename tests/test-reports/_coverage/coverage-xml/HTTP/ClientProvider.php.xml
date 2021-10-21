@@ -1,0 +1,913 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="ClientProvider.php" path="/HTTP">
+    <totals>
+      <lines total="160" comments="95" code="65" executable="10" executed="10" percent="100.00"/>
+      <methods count="6" tested="6" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\HTTP\ClientProvider" start="32" executable="10" executed="10" crap="8">
+      <package full="HiPay" name="HiPay" sub="" category="HiPay"/>
+      <namespace name="HiPay\Fullservice\HTTP"/>
+      <method name="__construct" signature="__construct(ConfigurationInterface $configuration)" start="67" end="76" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="request" signature="request($method, $endpoint, array $params = array(), $isVault = false, $isData = false)" start="91" end="94" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getConfiguration" signature="getConfiguration()" start="99" end="102" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setConfiguration" signature="setConfiguration($configuration)" start="108" end="112" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getHttpClient" signature="getHttpClient()" start="118" end="121" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="doRequest" signature="doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false)" start="137" end="137" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="createHttpClient" signature="createHttpClient()" start="146" end="146" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="validateHttpMethod" signature="validateHttpMethod($method)" start="155" end="159" crap="1" executable="2" executed="2" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="69">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCallRequestHostedPaymentPage with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestMaintenanceOperation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForHPayment"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetHPaymentData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testRequestLookupToken"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="75">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCallRequestHostedPaymentPage with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestMaintenanceOperation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForHPayment"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetHPaymentData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testRequestLookupToken"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="76">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testCallRequestHostedPaymentPage with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestNewOrder with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestMaintenanceOperation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\GatewayClientTest::testRequestTransactionInformation with data set #0"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForOrder"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetDataIdForHPayment"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetOrderData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\PIDataClient\PIDataClientTest::testGetHPaymentData"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCanBeConstructUsingConfiguration"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testCanBeConstructUsingClientProvider"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Client\SecureVaultClientTest::testRequestLookupToken"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="93">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromRequiredInvalidMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromInvalidHTTPMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromInvalidEndpoint"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="101">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testConfigurationCanBeRetrieved"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testConfigurationCanBeRetrieved"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="110">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+      </line>
+      <line nr="111">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testConfigurationCanBeSetted"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+      </line>
+      <line nr="120">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\ClientProviderTest::testHttpClientCanBeRetrieved"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpClientCanBeRetrieved"/>
+      </line>
+      <line nr="157">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromRequiredInvalidMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromInvalidEndpoint"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+      <line nr="158">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromRequiredInvalidMethod"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCannotBeExecutedFromInvalidEndpoint"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testRequestCanBeExecutedWithProxy"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testCurlExceptionIsRaisedForNetworkFailure"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpErrorExceptionIsRaisedForNotParsableHttpResponse"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessVaultRequest"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testHttpSuccessApiRequest"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderSuccessful"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2019 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="15"/>
+      <line no="16">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">HTTP</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="17"/>
+      <line no="18">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">HTTP</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Configuration</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">ConfigurationInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">HTTP</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Response</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">AbstractResponse</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20"/>
+      <line no="21">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> * Abstract Client for send request</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * @category    HiPay</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @package     HiPay\Fullservice</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @author      HiPay &lt;support.tpp@hipay.com&gt;</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @copyright   Copyright (c) 2019 - HiPay</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @link        https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="31">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="32">
+        <token name="T_ABSTRACT">abstract</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ClientProvider</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IMPLEMENTS">implements</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Client</token>
+      </line>
+      <line no="33">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="34"/>
+      <line no="35">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     * @var ConfigurationInterface $_configuration Configuration object used for authentication and endpoints</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="38">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_configuration</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="39"/>
+      <line no="40">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     * @var resource $_httpClient Client used to execute HTTP request</token>
+      </line>
+      <line no="42">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_httpClient</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="44"/>
+      <line no="45">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @var array&lt;string&gt; $_validHttpMethods List of HTTP valid methods</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="48">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_validHttpMethods</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="49">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'GET'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'POST'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="51">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'DELETE'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="52">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'PUT'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="53">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'HEAD'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="54">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'CONNECT'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="55">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'OPTIONS'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="56">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'TRACE'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="57">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'PATCH'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="58">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="59"/>
+      <line no="60">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="61">
+        <token name="T_DOC_COMMENT">     * Construct HTTP client with Configuration Object</token>
+      </line>
+      <line no="62">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="63">
+        <token name="T_DOC_COMMENT">     * @param ConfigurationInterface $configuration</token>
+      </line>
+      <line no="64">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface</token>
+      </line>
+      <line no="65">
+        <token name="T_DOC_COMMENT">     * @throws \Exception</token>
+      </line>
+      <line no="66">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="67">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">ConfigurationInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$configuration</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="68">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="69">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_configuration</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$configuration</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="70"/>
+      <line no="71">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="72">
+        <token name="T_DOC_COMMENT">         * Force http client instantiation</token>
+      </line>
+      <line no="73">
+        <token name="T_DOC_COMMENT">         * This ensure the availability of http client object</token>
+      </line>
+      <line no="74">
+        <token name="T_DOC_COMMENT">         */</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">createHttpClient</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="77"/>
+      <line no="78">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="79">
+        <token name="T_DOC_COMMENT">     * {@inheritDoc}</token>
+      </line>
+      <line no="80">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="81">
+        <token name="T_DOC_COMMENT">     * @see \HiPay\Fullservice\HTTP\Client::request()</token>
+      </line>
+      <line no="82">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="83">
+        <token name="T_DOC_COMMENT">     * @param string $method</token>
+      </line>
+      <line no="84">
+        <token name="T_DOC_COMMENT">     * @param string $endpoint</token>
+      </line>
+      <line no="85">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $params</token>
+      </line>
+      <line no="86">
+        <token name="T_DOC_COMMENT">     * @param bool $isVault</token>
+      </line>
+      <line no="87">
+        <token name="T_DOC_COMMENT">     * @param bool $isData</token>
+      </line>
+      <line no="88">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     * @return AbstractResponse</token>
+      </line>
+      <line no="90">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">request</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$endpoint</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isVault</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="92">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="93">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">doRequest</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$endpoint</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isVault</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isData</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="94">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="95"/>
+      <line no="96">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="97">
+        <token name="T_DOC_COMMENT">     * @return ConfigurationInterface Current Configuration</token>
+      </line>
+      <line no="98">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="99">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getConfiguration</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="100">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="101">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_configuration</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="102">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="103"/>
+      <line no="104">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="105">
+        <token name="T_DOC_COMMENT">     * @param ConfigurationInterface $configuration</token>
+      </line>
+      <line no="106">
+        <token name="T_DOC_COMMENT">     * @return ClientProvider</token>
+      </line>
+      <line no="107">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="108">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setConfiguration</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$configuration</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="109">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="110">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_configuration</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$configuration</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="111">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="112">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="113"/>
+      <line no="114"/>
+      <line no="115">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="116">
+        <token name="T_DOC_COMMENT">     * @return resource $_httpClient Current HTTP client used</token>
+      </line>
+      <line no="117">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="118">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getHttpClient</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="119">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_httpClient</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="122"/>
+      <line no="123">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="124">
+        <token name="T_DOC_COMMENT">     * Generic doRequest method</token>
+      </line>
+      <line no="125">
+        <token name="T_DOC_COMMENT">     * You must to implement it in your provider</token>
+      </line>
+      <line no="126">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="127">
+        <token name="T_DOC_COMMENT">     * @param string $method HTTP method</token>
+      </line>
+      <line no="128">
+        <token name="T_DOC_COMMENT">     * @param string $endpoint Endpoint</token>
+      </line>
+      <line no="129">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $params Params to send</token>
+      </line>
+      <line no="130">
+        <token name="T_DOC_COMMENT">     * @param bool $isVault Secure vault action</token>
+      </line>
+      <line no="131">
+        <token name="T_DOC_COMMENT">     * @param bool $isData Special PI Data call</token>
+      </line>
+      <line no="132">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="133">
+        <token name="T_DOC_COMMENT">     * @throws \HiPay\Fullservice\Exception\RuntimeException</token>
+      </line>
+      <line no="134">
+        <token name="T_DOC_COMMENT">     * @throws \HiPay\Fullservice\Exception\InvalidArgumentException</token>
+      </line>
+      <line no="135">
+        <token name="T_DOC_COMMENT">     * @return \HiPay\Fullservice\HTTP\Response\AbstractResponse</token>
+      </line>
+      <line no="136">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_ABSTRACT">abstract</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">doRequest</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$endpoint</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isVault</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$isData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="138"/>
+      <line no="139">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="140">
+        <token name="T_DOC_COMMENT">     * Create local http client object used in doRequest method</token>
+      </line>
+      <line no="141">
+        <token name="T_DOC_COMMENT">     * Called in constructor</token>
+      </line>
+      <line no="142">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="143">
+        <token name="T_DOC_COMMENT">     * @throws \Exception</token>
+      </line>
+      <line no="144">
+        <token name="T_DOC_COMMENT">     * @return void</token>
+      </line>
+      <line no="145">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="146">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_ABSTRACT">abstract</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">createHttpClient</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="147"/>
+      <line no="148">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="149">
+        <token name="T_DOC_COMMENT">     * Checks validity of HTTP method as parameter</token>
+      </line>
+      <line no="150">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="151">
+        <token name="T_DOC_COMMENT">     * @param string $method</token>
+      </line>
+      <line no="152">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="153">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="154">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="155">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">validateHttpMethod</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="156">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="157">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">strtoupper</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="158">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">in_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$method</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_validHttpMethods</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="159">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="160">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="161"/>
+    </source>
+  </file>
+</phpunit>

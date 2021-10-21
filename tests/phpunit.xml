@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="./bootstrap.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+    </php>
+
+    <testsuites>
+        <testsuite name="unit">
+            <directory >./Unit/HiPay/Tests/Fullservice/</directory>
+        </testsuite>
+    </testsuites>
+
+    <testsuites>
+        <testsuite name="integration">
+            <directory >./Integration/HiPay/Tests/Fullservice/</directory>
+        </testsuite>
+    </testsuites>
+
+    <testsuites>
+        <testsuite name="end2end">
+            <directory >./End2end/HiPay/Tests/Fullservice/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../lib/HiPay/Fullservice/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+            <log type="coverage-html" target="test-reports/coverage" />
+        <!--coverage_cov_placeholder
+            <log type="coverage-php" target="{{coverage_dir}}/test-reports/coverage.cov"/>
+        coverage_cov_placeholder-->
+        <!--coverage_clover_placeholder
+            <log type="coverage-clover" target="{{coverage_dir}}/test-reports/phpunit.coverage.xml"/>
+        coverage_clover_placeholder-->
+        <!--coverage_crap4j_placeholder
+            <log type="coverage-crap4j" target="{{coverage_dir}}/test-reports/phpunit.crap4j.xml"/>
+        coverage_crap4j_placeholder-->
+    </logging>
+</phpunit>

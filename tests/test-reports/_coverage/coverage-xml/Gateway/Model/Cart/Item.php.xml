@@ -1,0 +1,4000 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Item.php" path="/Gateway/Model/Cart">
+    <totals>
+      <lines total="689" comments="313" code="376" executable="126" executed="126" percent="100.00"/>
+      <methods count="41" tested="41" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Gateway\Model\Cart\Item" start="33" executable="126" executed="126" crap="44">
+      <package full="HiPay" name="HiPay" sub="" category="HiPay"/>
+      <namespace name="HiPay\Fullservice\Gateway\Model\Cart"/>
+      <method name="__construct" signature="__construct()" start="166" end="185" crap="1" executable="18" executed="18" coverage="100"/>
+      <method name="buildItemTypeDiscount" signature="buildItemTypeDiscount(&#10;        $product_reference,&#10;        $name,&#10;        $unit_price,&#10;        $tax_rate,&#10;        $discount,&#10;        $discount_description,&#10;        $total_amount&#10;    )" start="199" end="219" crap="1" executable="10" executed="10" coverage="100"/>
+      <method name="initInternalItem" signature="initInternalItem(&#10;        $product_reference,&#10;        $name,&#10;        $quantity,&#10;        $unit_price,&#10;        $tax_rate,&#10;        $discount,&#10;        $total_amount,&#10;        $type,&#10;        $discount_description = null&#10;    )" start="235" end="261" crap="2" executable="12" executed="12" coverage="100"/>
+      <method name="buildItemTypeFees" signature="buildItemTypeFees(&#10;        $product_reference,&#10;        $name,&#10;        $unit_price,&#10;        $tax_rate,&#10;        $discount,&#10;        $total_amount&#10;    )" start="274" end="292" crap="1" executable="9" executed="9" coverage="100"/>
+      <method name="__constructItem" signature="__constructItem(&#10;        $european_article_numbering,&#10;        $product_reference,&#10;        $type,&#10;        $name,&#10;        $quantity,&#10;        $unit_price,&#10;        $tax_rate,&#10;        $discount,&#10;        $total_amount,&#10;        $discount_description,&#10;        $product_description,&#10;        $delivery_method,&#10;        $delivery_company,&#10;        $delivery_delay,&#10;        $delivery_number,&#10;        $product_category,&#10;        $shop_id&#10;    )" start="316" end="352" crap="1" executable="18" executed="18" coverage="100"/>
+      <method name="getEuropeanArticleNumbering" signature="getEuropeanArticleNumbering()" start="357" end="360" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setEuropeanArticleNumbering" signature="setEuropeanArticleNumbering($european_article_numbering)" start="366" end="370" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getProductReference" signature="getProductReference()" start="375" end="378" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setProductReference" signature="setProductReference($product_reference)" start="385" end="389" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getType" signature="getType()" start="394" end="397" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setType" signature="setType($type)" start="403" end="407" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getName" signature="getName()" start="412" end="415" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setName" signature="setName($name)" start="421" end="425" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getQuantity" signature="getQuantity()" start="430" end="433" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setQuantity" signature="setQuantity($quantity)" start="439" end="443" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getUnitPrice" signature="getUnitPrice()" start="448" end="451" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setUnitPrice" signature="setUnitPrice($unit_price)" start="457" end="461" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getTaxRate" signature="getTaxRate()" start="466" end="469" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setTaxRate" signature="setTaxRate($tax_rate)" start="475" end="479" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDiscount" signature="getDiscount()" start="484" end="487" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDiscount" signature="setDiscount($discount)" start="493" end="497" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getTotalAmount" signature="getTotalAmount()" start="502" end="505" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setTotalAmount" signature="setTotalAmount($total_amount)" start="511" end="515" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDiscountDescription" signature="getDiscountDescription()" start="520" end="523" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDiscountDescription" signature="setDiscountDescription($discount_description)" start="529" end="533" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getProductDescription" signature="getProductDescription()" start="538" end="541" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setProductDescription" signature="setProductDescription($product_description)" start="547" end="551" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDeliveryMethod" signature="getDeliveryMethod()" start="556" end="559" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDeliveryMethod" signature="setDeliveryMethod($delivery_method)" start="565" end="569" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDeliveryCompany" signature="getDeliveryCompany()" start="574" end="577" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDeliveryCompany" signature="setDeliveryCompany($delivery_company)" start="583" end="587" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDeliveryDelay" signature="getDeliveryDelay()" start="592" end="595" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDeliveryDelay" signature="setDeliveryDelay($delivery_delay)" start="601" end="605" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getDeliveryNumber" signature="getDeliveryNumber()" start="610" end="613" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setDeliveryNumber" signature="setDeliveryNumber($delivery_number)" start="619" end="623" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getProductCategory" signature="getProductCategory()" start="628" end="631" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setProductCategory" signature="setProductCategory($product_category)" start="637" end="641" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getShopId" signature="getShopId()" start="646" end="649" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setShopId" signature="setShopId($shop_id)" start="655" end="659" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="toArray" signature="toArray()" start="666" end="671" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="prepareParams" signature="prepareParams($object, &amp;$params)" start="680" end="688" crap="3" executable="5" executed="5" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="168">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="169">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="170">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="171">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="172">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="173">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="174">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="175">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="176">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="177">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="178">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="179">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="180">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="181">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="182">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="183">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="184">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="185">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="208">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="209">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="210">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="211">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="212">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="213">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="214">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="215">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="216">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="217">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="246">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="247">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="248">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="249">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="250">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="251">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="252">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="253">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="254">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="256">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="257">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+      </line>
+      <line nr="260">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="282">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="283">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="284">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="285">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="286">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="287">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="288">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="289">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="290">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+      </line>
+      <line nr="335">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="336">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="337">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="338">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="339">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="340">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="341">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="342">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="343">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="344">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="345">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="346">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="347">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="348">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="349">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="350">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="351">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="352">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+      </line>
+      <line nr="359">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetEuropeanArticleNumbering"/>
+      </line>
+      <line nr="368">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetEuropeanArticleNumbering"/>
+      </line>
+      <line nr="369">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetEuropeanArticleNumbering"/>
+      </line>
+      <line nr="377">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductReference"/>
+      </line>
+      <line nr="387">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductReference"/>
+      </line>
+      <line nr="388">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductReference"/>
+      </line>
+      <line nr="396">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetType"/>
+      </line>
+      <line nr="405">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetType"/>
+      </line>
+      <line nr="406">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetType"/>
+      </line>
+      <line nr="414">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetName"/>
+      </line>
+      <line nr="423">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetName"/>
+      </line>
+      <line nr="424">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetName"/>
+      </line>
+      <line nr="432">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetQuantity"/>
+      </line>
+      <line nr="441">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetQuantity"/>
+      </line>
+      <line nr="442">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetQuantity"/>
+      </line>
+      <line nr="450">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetUnitPrice"/>
+      </line>
+      <line nr="459">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetUnitPrice"/>
+      </line>
+      <line nr="460">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetUnitPrice"/>
+      </line>
+      <line nr="468">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTaxRate"/>
+      </line>
+      <line nr="477">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTaxRate"/>
+      </line>
+      <line nr="478">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTaxRate"/>
+      </line>
+      <line nr="486">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscount"/>
+      </line>
+      <line nr="495">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscount"/>
+      </line>
+      <line nr="496">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscount"/>
+      </line>
+      <line nr="504">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTotalAmount"/>
+      </line>
+      <line nr="513">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTotalAmount"/>
+      </line>
+      <line nr="514">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetTotalAmount"/>
+      </line>
+      <line nr="522">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeFees"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscountDescription"/>
+      </line>
+      <line nr="531">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscountDescription"/>
+      </line>
+      <line nr="532">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testBuildItemTypeDiscount"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDiscountDescription"/>
+      </line>
+      <line nr="540">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductDescription"/>
+      </line>
+      <line nr="549">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductDescription"/>
+      </line>
+      <line nr="550">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductDescription"/>
+      </line>
+      <line nr="558">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryMethod"/>
+      </line>
+      <line nr="567">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryMethod"/>
+      </line>
+      <line nr="568">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryMethod"/>
+      </line>
+      <line nr="576">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryCompany"/>
+      </line>
+      <line nr="585">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryCompany"/>
+      </line>
+      <line nr="586">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryCompany"/>
+      </line>
+      <line nr="594">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryDelay"/>
+      </line>
+      <line nr="603">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryDelay"/>
+      </line>
+      <line nr="604">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryDelay"/>
+      </line>
+      <line nr="612">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryNumber"/>
+      </line>
+      <line nr="621">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryNumber"/>
+      </line>
+      <line nr="622">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetDeliveryNumber"/>
+      </line>
+      <line nr="630">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductCategory"/>
+      </line>
+      <line nr="639">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductCategory"/>
+      </line>
+      <line nr="640">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetProductCategory"/>
+      </line>
+      <line nr="648">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstruct"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testConstructItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetShopID"/>
+      </line>
+      <line nr="657">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetShopID"/>
+      </line>
+      <line nr="658">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\ItemTest::testSetShopID"/>
+      </line>
+      <line nr="668">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="669">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="670">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="682">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="683">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="684">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="685">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+      <line nr="688">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testAddItem"/>
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Cart\CartTest::testToJson"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Enterprise SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2017 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Cart</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Enum</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Cart</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">TypeItems</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">AbstractModel</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="21"/>
+      <line no="22">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * Item model</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @category    HiPay</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @package     HiPay\Fullservice</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @author      Aymeric Berthelot &lt;aberthelot@hipay.com&gt;</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @copyright   Copyright (c) 2017 - HiPay</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> * @link        https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="31">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="33">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Item</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">AbstractModel</token>
+      </line>
+      <line no="34">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="35"/>
+      <line no="36">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     *  European article numbering</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     * @format EAN</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="42">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_european_article_numbering</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="44">
+        <token name="T_DOC_COMMENT">     *  Internal Product Reference</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @var string $_product_reference</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="48">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_product_reference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="49"/>
+      <line no="50">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="51">
+        <token name="T_DOC_COMMENT">     * The value must be a member of the following list:</token>
+      </line>
+      <line no="52">
+        <token name="T_DOC_COMMENT">     * - goods:</token>
+      </line>
+      <line no="53">
+        <token name="T_DOC_COMMENT">     * - discount:</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     * - fees:</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="56">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="57">
+        <token name="T_DOC_COMMENT">     * @value good | discount | fees</token>
+      </line>
+      <line no="58">
+        <token name="T_DOC_COMMENT">     * @required</token>
+      </line>
+      <line no="59">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="60">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_type</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="62"/>
+      <line no="63">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="64">
+        <token name="T_DOC_COMMENT">     *  Product description</token>
+      </line>
+      <line no="65">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="66">
+        <token name="T_DOC_COMMENT">     * @var string $_name</token>
+      </line>
+      <line no="67">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="68">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="69">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_name</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="70"/>
+      <line no="71">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="72">
+        <token name="T_DOC_COMMENT">     *  Product Quantity</token>
+      </line>
+      <line no="73">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="74">
+        <token name="T_DOC_COMMENT">     * @var int $_quantity Must be positive</token>
+      </line>
+      <line no="75">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_quantity</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="77"/>
+      <line no="78">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="79">
+        <token name="T_DOC_COMMENT">     * Product Unit Price</token>
+      </line>
+      <line no="80">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="81">
+        <token name="T_DOC_COMMENT">     * @var float(12,3) $_unit_price</token>
+      </line>
+      <line no="82">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="83">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_unit_price</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="84"/>
+      <line no="85">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="86">
+        <token name="T_DOC_COMMENT">     * Tax rate applied on product</token>
+      </line>
+      <line no="87">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="88">
+        <token name="T_DOC_COMMENT">     * @var float $_tax_rate</token>
+      </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="90">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_tax_rate</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="91"/>
+      <line no="92">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="93">
+        <token name="T_DOC_COMMENT">     * Amount of discount applied to the line</token>
+      </line>
+      <line no="94">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="95">
+        <token name="T_DOC_COMMENT">     * @var float(5,2) $_discount</token>
+      </line>
+      <line no="96">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_discount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="98"/>
+      <line no="99">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="100">
+        <token name="T_DOC_COMMENT">     * Total amount to the line</token>
+      </line>
+      <line no="101">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="102">
+        <token name="T_DOC_COMMENT">     * @var float(12,3) $_discount</token>
+      </line>
+      <line no="103">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="104">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_total_amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="105"/>
+      <line no="106">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="107">
+        <token name="T_DOC_COMMENT">     * Discount description</token>
+      </line>
+      <line no="108">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="109">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="110">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="111">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_discount_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="112"/>
+      <line no="113">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="114">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="115">
+        <token name="T_DOC_COMMENT">     * @var string</token>
+      </line>
+      <line no="116">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="117">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_product_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="118"/>
+      <line no="119">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="120">
+        <token name="T_DOC_COMMENT">     * Delivery Method</token>
+      </line>
+      <line no="121">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="122">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="123">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="124">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_delivery_method</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="125"/>
+      <line no="126">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="127">
+        <token name="T_DOC_COMMENT">     * Delivery Company</token>
+      </line>
+      <line no="128">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="129">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="130">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="131">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_delivery_company</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="132"/>
+      <line no="133">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="134">
+        <token name="T_DOC_COMMENT">     * Delivery Delay</token>
+      </line>
+      <line no="135">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="136">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="137">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="138">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_delivery_delay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="139"/>
+      <line no="140">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="141">
+        <token name="T_DOC_COMMENT">     * Delivery Number|null</token>
+      </line>
+      <line no="142">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="143">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="144">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="145">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_delivery_number</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="146"/>
+      <line no="147">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="148">
+        <token name="T_DOC_COMMENT">     * Id Category</token>
+      </line>
+      <line no="149">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="150">
+        <token name="T_DOC_COMMENT">     * @var int|null</token>
+      </line>
+      <line no="151">
+        <token name="T_DOC_COMMENT">     * @value</token>
+      </line>
+      <line no="152">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="153">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_product_category</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="154"/>
+      <line no="155">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="156">
+        <token name="T_DOC_COMMENT">     * Id Merchant from HiPay BO ( Only for Marketplace)</token>
+      </line>
+      <line no="157">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="158">
+        <token name="T_DOC_COMMENT">     * @var string|null</token>
+      </line>
+      <line no="159">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="160">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$_shop_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="161"/>
+      <line no="162">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="163">
+        <token name="T_DOC_COMMENT">     * Item constructor</token>
+      </line>
+      <line no="164">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="165">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="166">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="167">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="168">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_european_article_numbering</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="169">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_reference</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="170">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_type</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="171">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_name</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="172">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_quantity</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="173">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_unit_price</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DNUMBER">0.00</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="174">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_tax_rate</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DNUMBER">0.00</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="175">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DNUMBER">0.00</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="176">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_total_amount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DNUMBER">0.00</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="177">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="178">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="179">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_method</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="180">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_company</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="181">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_delay</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="182">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_number</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="183">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_category</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="184">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_shop_id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="185">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="186"/>
+      <line no="187">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="188">
+        <token name="T_DOC_COMMENT">     *  Hydrate an item with type Discount</token>
+      </line>
+      <line no="189">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="190">
+        <token name="T_DOC_COMMENT">     * @param string $product_reference</token>
+      </line>
+      <line no="191">
+        <token name="T_DOC_COMMENT">     * @param string $name</token>
+      </line>
+      <line no="192">
+        <token name="T_DOC_COMMENT">     * @param float $unit_price</token>
+      </line>
+      <line no="193">
+        <token name="T_DOC_COMMENT">     * @param float $tax_rate</token>
+      </line>
+      <line no="194">
+        <token name="T_DOC_COMMENT">     * @param float $discount</token>
+      </line>
+      <line no="195">
+        <token name="T_DOC_COMMENT">     * @param string $discount_description</token>
+      </line>
+      <line no="196">
+        <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
+      </line>
+      <line no="197">
+        <token name="T_DOC_COMMENT">     * @return \HiPay\Fullservice\Gateway\Model\Cart\Item</token>
+      </line>
+      <line no="198">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="199">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">buildItemTypeDiscount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="200">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="201">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="202">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="203">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="204">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="205">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="206">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$total_amount</token>
+      </line>
+      <line no="207">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="208">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">initInternalItem</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="209">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="210">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="211">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="212">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="213">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="214">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="215">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="216">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_STRING">TypeItems</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">DISCOUNT</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="217">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$discount_description</token>
+      </line>
+      <line no="218">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="219">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="220"/>
+      <line no="221">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="222">
+        <token name="T_DOC_COMMENT">     *  Hydrate generic item</token>
+      </line>
+      <line no="223">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="224">
+        <token name="T_DOC_COMMENT">     * @param string $product_reference</token>
+      </line>
+      <line no="225">
+        <token name="T_DOC_COMMENT">     * @param string $name</token>
+      </line>
+      <line no="226">
+        <token name="T_DOC_COMMENT">     * @param int $quantity</token>
+      </line>
+      <line no="227">
+        <token name="T_DOC_COMMENT">     * @param float $unit_price</token>
+      </line>
+      <line no="228">
+        <token name="T_DOC_COMMENT">     * @param float $tax_rate</token>
+      </line>
+      <line no="229">
+        <token name="T_DOC_COMMENT">     * @param float $discount</token>
+      </line>
+      <line no="230">
+        <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
+      </line>
+      <line no="231">
+        <token name="T_DOC_COMMENT">     * @param string|null $discount_description</token>
+      </line>
+      <line no="232">
+        <token name="T_DOC_COMMENT">     * @param string $type</token>
+      </line>
+      <line no="233">
+        <token name="T_DOC_COMMENT">     * @return \HiPay\Fullservice\Gateway\Model\Cart\Item</token>
+      </line>
+      <line no="234">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="235">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">initInternalItem</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="236">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="237">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="238">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="239">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="240">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="241">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="242">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="243">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="244">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+      </line>
+      <line no="245">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="246">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$cartItem</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Item</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="247">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$cartItem</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setProductReference</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="248">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setName</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="249">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setType</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="250">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setQuantity</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="251">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setUnitPrice</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="252">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setTaxRate</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="253">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setDiscount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="254">
+        <token name="T_WHITESPACE">                 </token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setTotalAmount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="255"/>
+      <line no="256">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_EQUAL">==</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">TypeItems</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">DISCOUNT</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="257">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$cartItem</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setDiscountDescription</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="258">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="259"/>
+      <line no="260">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cartItem</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="261">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="262"/>
+      <line no="263">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="264">
+        <token name="T_DOC_COMMENT">     *  Build an item of type Fees with quantity to 1</token>
+      </line>
+      <line no="265">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="266">
+        <token name="T_DOC_COMMENT">     * @param string $product_reference</token>
+      </line>
+      <line no="267">
+        <token name="T_DOC_COMMENT">     * @param string $name</token>
+      </line>
+      <line no="268">
+        <token name="T_DOC_COMMENT">     * @param float $unit_price</token>
+      </line>
+      <line no="269">
+        <token name="T_DOC_COMMENT">     * @param float $tax_rate</token>
+      </line>
+      <line no="270">
+        <token name="T_DOC_COMMENT">     * @param float $discount</token>
+      </line>
+      <line no="271">
+        <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
+      </line>
+      <line no="272">
+        <token name="T_DOC_COMMENT">     * @return \HiPay\Fullservice\Gateway\Model\Cart\Item</token>
+      </line>
+      <line no="273">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="274">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">buildItemTypeFees</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="275">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="276">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="277">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="278">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="279">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="280">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$total_amount</token>
+      </line>
+      <line no="281">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="282">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">initInternalItem</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="283">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="284">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="285">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="286">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="287">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="288">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="289">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="290">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_STRING">TypeItems</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">FEE</token>
+      </line>
+      <line no="291">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="292">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="293"/>
+      <line no="294">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="295">
+        <token name="T_DOC_COMMENT">     * Item constructor.</token>
+      </line>
+      <line no="296">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="297">
+        <token name="T_DOC_COMMENT">     * @param string $european_article_numbering</token>
+      </line>
+      <line no="298">
+        <token name="T_DOC_COMMENT">     * @param string $product_reference</token>
+      </line>
+      <line no="299">
+        <token name="T_DOC_COMMENT">     * @param string $type</token>
+      </line>
+      <line no="300">
+        <token name="T_DOC_COMMENT">     * @param string $name</token>
+      </line>
+      <line no="301">
+        <token name="T_DOC_COMMENT">     * @param int $quantity</token>
+      </line>
+      <line no="302">
+        <token name="T_DOC_COMMENT">     * @param float $unit_price</token>
+      </line>
+      <line no="303">
+        <token name="T_DOC_COMMENT">     * @param float $tax_rate</token>
+      </line>
+      <line no="304">
+        <token name="T_DOC_COMMENT">     * @param float $discount</token>
+      </line>
+      <line no="305">
+        <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
+      </line>
+      <line no="306">
+        <token name="T_DOC_COMMENT">     * @param string $discount_description</token>
+      </line>
+      <line no="307">
+        <token name="T_DOC_COMMENT">     * @param string $product_description</token>
+      </line>
+      <line no="308">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_method</token>
+      </line>
+      <line no="309">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_company</token>
+      </line>
+      <line no="310">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_delay</token>
+      </line>
+      <line no="311">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_number</token>
+      </line>
+      <line no="312">
+        <token name="T_DOC_COMMENT">     * @param int $product_category</token>
+      </line>
+      <line no="313">
+        <token name="T_DOC_COMMENT">     * @param string $shop_id</token>
+      </line>
+      <line no="314">
+        <token name="T_DOC_COMMENT">     * @return void</token>
+      </line>
+      <line no="315">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="316">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__constructItem</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="317">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$european_article_numbering</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="318">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="319">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="320">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="321">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="322">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="323">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="324">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="325">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="326">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="327">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_description</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="328">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$delivery_method</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="329">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$delivery_company</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="330">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$delivery_delay</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="331">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$delivery_number</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="332">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$product_category</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="333">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$shop_id</token>
+      </line>
+      <line no="334">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="335">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_european_article_numbering</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$european_article_numbering</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="336">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_reference</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="337">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_type</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="338">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_name</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="339">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_quantity</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="340">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_unit_price</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="341">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_tax_rate</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="342">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="343">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_total_amount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="344">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="345">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="346">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_method</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_method</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="347">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_company</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_company</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="348">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_delay</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_delay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="349">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_number</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_number</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="350">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_category</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_category</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="351">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_shop_id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$shop_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="352">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="353"/>
+      <line no="354">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="355">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="356">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="357">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEuropeanArticleNumbering</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="358">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="359">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_european_article_numbering</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="360">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="361"/>
+      <line no="362">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="363">
+        <token name="T_DOC_COMMENT">     * @param string $european_article_numbering</token>
+      </line>
+      <line no="364">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="365">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="366">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setEuropeanArticleNumbering</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$european_article_numbering</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="367">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="368">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_european_article_numbering</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$european_article_numbering</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="369">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="370">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="371"/>
+      <line no="372">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="373">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="374">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="375">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getProductReference</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="376">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="377">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_reference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="378">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="379"/>
+      <line no="380">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="381">
+        <token name="T_DOC_COMMENT">     * @param string $product_reference</token>
+      </line>
+      <line no="382">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="383">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="384">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="385">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setProductReference</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="386">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="387">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_reference</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_reference</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="388">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="389">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="390"/>
+      <line no="391">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="392">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="393">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="394">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getType</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="395">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="396">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_type</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="397">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="398"/>
+      <line no="399">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="400">
+        <token name="T_DOC_COMMENT">     * @param string $type</token>
+      </line>
+      <line no="401">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="402">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="403">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setType</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="404">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="405">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_type</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$type</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="406">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="407">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="408"/>
+      <line no="409">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="410">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="411">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="412">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getName</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="413">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="414">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_name</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="415">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="416"/>
+      <line no="417">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="418">
+        <token name="T_DOC_COMMENT">     * @param string $name</token>
+      </line>
+      <line no="419">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="420">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="421">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setName</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="422">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="423">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_name</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="424">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="425">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="426"/>
+      <line no="427">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="428">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="429">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="430">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getQuantity</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="431">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="432">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_quantity</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="433">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="434"/>
+      <line no="435">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="436">
+        <token name="T_DOC_COMMENT">     * @param int $quantity</token>
+      </line>
+      <line no="437">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="438">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="439">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setQuantity</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="440">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="441">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_quantity</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$quantity</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="442">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="443">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="444"/>
+      <line no="445">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="446">
+        <token name="T_DOC_COMMENT">     * @return float</token>
+      </line>
+      <line no="447">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="448">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getUnitPrice</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="449">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="450">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_unit_price</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="451">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="452"/>
+      <line no="453">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="454">
+        <token name="T_DOC_COMMENT">     * @param float $unit_price</token>
+      </line>
+      <line no="455">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="456">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="457">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setUnitPrice</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="458">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="459">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_unit_price</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$unit_price</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="460">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="461">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="462"/>
+      <line no="463">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="464">
+        <token name="T_DOC_COMMENT">     * @return float</token>
+      </line>
+      <line no="465">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="466">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getTaxRate</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="467">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="468">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_tax_rate</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="469">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="470"/>
+      <line no="471">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="472">
+        <token name="T_DOC_COMMENT">     * @param float $tax_rate</token>
+      </line>
+      <line no="473">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="474">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="475">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setTaxRate</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="476">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="477">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_tax_rate</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$tax_rate</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="478">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="479">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="480"/>
+      <line no="481">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="482">
+        <token name="T_DOC_COMMENT">     * @return float</token>
+      </line>
+      <line no="483">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="484">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDiscount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="485">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="486">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="487">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="488"/>
+      <line no="489">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="490">
+        <token name="T_DOC_COMMENT">     * @param float $discount</token>
+      </line>
+      <line no="491">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="492">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="493">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDiscount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="494">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="495">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$discount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="496">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="497">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="498"/>
+      <line no="499">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="500">
+        <token name="T_DOC_COMMENT">     * @return float</token>
+      </line>
+      <line no="501">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="502">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getTotalAmount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="503">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="504">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_total_amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="505">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="506"/>
+      <line no="507">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="508">
+        <token name="T_DOC_COMMENT">     * @param float $total_amount</token>
+      </line>
+      <line no="509">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="510">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="511">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setTotalAmount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="512">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="513">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_total_amount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$total_amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="514">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="515">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="516"/>
+      <line no="517">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="518">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="519">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="520">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDiscountDescription</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="521">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="522">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="523">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="524"/>
+      <line no="525">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="526">
+        <token name="T_DOC_COMMENT">     * @param string|null $discount_description</token>
+      </line>
+      <line no="527">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="528">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="529">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDiscountDescription</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="530">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="531">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_discount_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$discount_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="532">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="533">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="534"/>
+      <line no="535">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="536">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="537">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="538">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getProductDescription</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="539">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="540">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="541">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="542"/>
+      <line no="543">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="544">
+        <token name="T_DOC_COMMENT">     * @param string $product_description</token>
+      </line>
+      <line no="545">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="546">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="547">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setProductDescription</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$product_description</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="548">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="549">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="550">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="551">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="552"/>
+      <line no="553">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="554">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="555">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="556">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeliveryMethod</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="557">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="558">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_method</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="559">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="560"/>
+      <line no="561">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="562">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_method</token>
+      </line>
+      <line no="563">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="564">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="565">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDeliveryMethod</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$delivery_method</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="566">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="567">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_method</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_method</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="568">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="569">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="570"/>
+      <line no="571">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="572">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="573">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="574">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeliveryCompany</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="575">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="576">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_company</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="577">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="578"/>
+      <line no="579">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="580">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_company</token>
+      </line>
+      <line no="581">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="582">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="583">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDeliveryCompany</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$delivery_company</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="584">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="585">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_company</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_company</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="586">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="587">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="588"/>
+      <line no="589">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="590">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="591">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="592">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeliveryDelay</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="593">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="594">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_delay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="595">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="596"/>
+      <line no="597">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="598">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_delay</token>
+      </line>
+      <line no="599">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="600">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="601">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDeliveryDelay</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$delivery_delay</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="602">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="603">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_delay</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_delay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="604">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="605">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="606"/>
+      <line no="607">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="608">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="609">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="610">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeliveryNumber</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="611">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="612">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_number</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="613">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="614"/>
+      <line no="615">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="616">
+        <token name="T_DOC_COMMENT">     * @param string $delivery_number</token>
+      </line>
+      <line no="617">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="618">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="619">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setDeliveryNumber</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$delivery_number</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="620">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="621">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_delivery_number</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_number</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="622">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="623">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="624"/>
+      <line no="625">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="626">
+        <token name="T_DOC_COMMENT">     * @return int|null</token>
+      </line>
+      <line no="627">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="628">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getProductCategory</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="629">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="630">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_category</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="631">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="632"/>
+      <line no="633">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="634">
+        <token name="T_DOC_COMMENT">     * @param int $product_category</token>
+      </line>
+      <line no="635">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="636">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="637">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setProductCategory</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$product_category</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="638">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="639">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_product_category</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$product_category</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="640">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="641">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="642"/>
+      <line no="643">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="644">
+        <token name="T_DOC_COMMENT">     * @return string|null</token>
+      </line>
+      <line no="645">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="646">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getShopId</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="647">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="648">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_shop_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="649">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="650"/>
+      <line no="651">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="652">
+        <token name="T_DOC_COMMENT">     * @param string $shop_id</token>
+      </line>
+      <line no="653">
+        <token name="T_DOC_COMMENT">     * @return Item</token>
+      </line>
+      <line no="654">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="655">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setShopId</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$shop_id</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="656">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="657">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">_shop_id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$shop_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="658">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="659">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="660"/>
+      <line no="661">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="662">
+        <token name="T_DOC_COMMENT">     * Object to Array</token>
+      </line>
+      <line no="663">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="664">
+        <token name="T_DOC_COMMENT">     * @return array&lt;string, mixed&gt; Hashed array with key/value pairs (property/value)</token>
+      </line>
+      <line no="665">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="666">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">toArray</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="667">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="668">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="669">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">prepareParams</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="670">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="671">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="672"/>
+      <line no="673">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="674">
+        <token name="T_DOC_COMMENT">     * Populate $_params array with data to send to the gateway</token>
+      </line>
+      <line no="675">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="676">
+        <token name="T_DOC_COMMENT">     * @param Item $object</token>
+      </line>
+      <line no="677">
+        <token name="T_DOC_COMMENT">     * @param array&lt;string, mixed&gt; $params Passed by reference</token>
+      </line>
+      <line no="678">
+        <token name="T_DOC_COMMENT">     * @return void</token>
+      </line>
+      <line no="679">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="680">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">prepareParams</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$object</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AMPERSAND">&amp;</token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="681">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="682">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$properties</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">get_object_vars</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$object</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="683">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_FOREACH">foreach</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$properties</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$p</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$v</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="684">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_scalar</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$v</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="685">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$params</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_STRING">substr</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$p</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$v</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="686">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="687">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="688">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="689">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="690"/>
+    </source>
+  </file>
+</phpunit>
