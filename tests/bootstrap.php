@@ -12,9 +12,4 @@ $loader->add('End2end\HiPay\\', __DIR__ );
 //echo(print_r($loader->getPrefixes(),true).chr(10));
 //die(print_r($loader->getPrefixesPsr4(),true).chr(10));
 
-try {
-    Dotenv\Dotenv::createImmutable(__DIR__)->load();
-}
-catch (Exception $exception) {
-    die('You must complete the .env file'.PHP_EOL);
-}
+Dotenv\Dotenv::createImmutable(__DIR__)->safeLoad();
