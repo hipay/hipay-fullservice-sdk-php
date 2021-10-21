@@ -81,7 +81,7 @@ code-security:
   script:
     - /usr/local/bin/local-php-security-checker
   tags:
-    - small
+    - small 
 
 # Looks for typing and syntax errors
 stan:
