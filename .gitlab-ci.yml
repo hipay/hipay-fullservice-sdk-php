@@ -37,7 +37,7 @@ build:
     - php -r "unlink('composer-setup.php');"
   script:
       - php composer.phar install
-      - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
+      - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
       - php composer.phar info
   tags:
     - small
@@ -114,10 +114,7 @@ phpunit-7.2:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-      --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
+      --testsuite unit,integration
   allow_failure: true
   artifacts:
     when: always
@@ -141,10 +138,7 @@ phpunit-7.3:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-      --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
+      --testsuite unit,integration
   allow_failure: false
   artifacts:
     when: always
@@ -162,7 +156,7 @@ phpunit-7.4:
     <<: *global_cache
   before_script:
     - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - apt-get install git zip unzip php-xdebug -yqq
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
@@ -194,10 +188,7 @@ phpunit-8.0:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-      --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
+      --testsuite unit,integration
   allow_failure: true
   artifacts:
     when: always
@@ -213,6 +204,8 @@ infection:
   cache:
     <<: *global_cache
   before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip php-xdebug -yqq
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
     - chmod +x infection.phar
@@ -224,7 +217,7 @@ infection:
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
     - ./infection.phar \
-      --threads=4 \
+      -j$(nproc) \ # Use all available threads
       --coverage=tests/test-reports/_coverage \
       --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
