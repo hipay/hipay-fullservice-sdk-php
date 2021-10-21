@@ -30,6 +30,7 @@ build:
     policy: push
   before_script:
     # Install composer dependencies
+    - php -m
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
