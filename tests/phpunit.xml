@@ -16,9 +16,9 @@
         <testsuite name="integration">
             <directory >./Integration/HiPay/Tests/Fullservice/</directory>
         </testsuite>
-        <testsuite name="end2end">
+        <!--<testsuite name="end2end">
             <directory >./End2end/HiPay/Tests/Fullservice/</directory>
-        </testsuite>
+        </testsuite>-->
     </testsuites>
 
     <filter>
