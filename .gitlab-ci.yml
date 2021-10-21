@@ -11,7 +11,7 @@ stages:
     paths:
         - vendor/
         - composer.lock
-        - tests/unit/test-reports/_coverage
+        - tests/test-reports/_coverage
     policy: pull-push
 
 
