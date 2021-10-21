@@ -15,6 +15,10 @@ stages:
         - composer.phar
     policy: pull-push
 
+before_script:
+  - apt-get update -yqq
+  - apt-get install git -yqq
+
 
 #########
 # BUILD #
@@ -30,7 +34,7 @@ build:
     # Install composer dependencies
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
-    - php -r "unlink('composer-setup.php'); unlink('installer.sig');"
+    - php -r "unlink('composer-setup.php');"
   script:
       - php composer.phar install
       - php composer.phar info
