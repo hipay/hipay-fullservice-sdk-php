@@ -49,48 +49,48 @@ build:
 # VALIDATE #
 ############
 # Check code standards application (PSR-1, PSR-2...)
-# code-style:
-#   stage: validate
-#   cache:
-#     <<: *global_cache
-#   script:
-#     - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
-#   allow_failure: true # Temporary until error fix
-# #  allow_failure: 
-# #    exit_codes:
-# #      - 0 # OK.
-# #      - 1 # General error (or PHP minimal requirement not matched).
-# #      - 4 # Some files have invalid syntax (only in dry-run mode).
-# #      - 8 # Some files need fixing (only in dry-run mode).
-# #      - 16 # Configuration error of the application.
-# #      - 32 # Configuration error of a Fixer.
-# #      - 64 # Exception raised within the application.
-#   tags:
-#     - small
+code-style:
+  stage: validate
+  cache:
+    <<: *global_cache
+  script:
+    - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
+  allow_failure: true # Temporary until error fix
+#  allow_failure: 
+#    exit_codes:
+#      - 0 # OK.
+#      - 1 # General error (or PHP minimal requirement not matched).
+#      - 4 # Some files have invalid syntax (only in dry-run mode).
+#      - 8 # Some files need fixing (only in dry-run mode).
+#      - 16 # Configuration error of the application.
+#      - 32 # Configuration error of a Fixer.
+#      - 64 # Exception raised within the application.
+  tags:
+    - small
 
-# # Looks for dependancies known vulnerabilities
-# code-security:
-#   stage: validate
-#   cache:
-#     <<: *global_cache
-#   before_script: 
-#     - curl -L https://github.com/fabpot/local-php-security-checker/releases/download/v1.2.0/local-php-security-checker_1.2.0_linux_386 --output /usr/local/bin/local-php-security-checker
-#     - chmod a+x /usr/local/bin/local-php-security-checker
-#   script:
-#     - /usr/local/bin/local-php-security-checker
-#   tags:
-#     - small
+# Looks for dependancies known vulnerabilities
+code-security:
+  stage: validate
+  cache:
+    <<: *global_cache
+  before_script: 
+    - curl -L https://github.com/fabpot/local-php-security-checker/releases/download/v1.2.0/local-php-security-checker_1.2.0_linux_386 --output /usr/local/bin/local-php-security-checker
+    - chmod a+x /usr/local/bin/local-php-security-checker
+  script:
+    - /usr/local/bin/local-php-security-checker
+  tags:
+    - small
 
-# # Looks for typing and syntax errors
-# stan:
-#   stage: validate
-#   cache: 
-#     <<: *global_cache  
-#   script:
-#     - ./vendor/bin/phpstan analyse lib/ --level 8
-#   allow_failure: true # Temporary until error fix
-#   tags:
-#     - small
+# Looks for typing and syntax errors
+stan:
+  stage: validate
+  cache: 
+    <<: *global_cache  
+  script:
+    - ./vendor/bin/phpstan analyse lib/ --level 8
+  allow_failure: true # Temporary until error fix
+  tags:
+    - small
 
 ################
 # END VALIDATE #
@@ -105,6 +105,7 @@ phpunit-7.2:
   stage: test
   cache:
     <<: *global_cache
+    policy: pull
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -157,6 +158,7 @@ phpunit-8.0:
   stage: test
   cache:
     <<: *global_cache
+    policy: pull
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -168,7 +170,7 @@ phpunit-8.0:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-  allow_failure: false
+  allow_failure: true
   artifacts:
     when: always
     reports:
@@ -177,33 +179,33 @@ phpunit-8.0:
   tags:
     - small
 
-# Unit tests mutation
-# infection:
-#   stage: test
-#   cache:
-#     <<: *global_cache
-#   before_script:
-#     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar --output infection.phar
-#     - curl -L https://github.com/infection/infection/releases/download/0.15.0/infection.phar.asc --output infection.phar.asc
-#     - chmod +x infection.phar
-#   script:
-#     - ./vendor/bin/phpunit \
-#       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
-#       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-#       --log-junit=tests/test-reports/_coverage/junit.xml \
-#       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-#     - ./infection.phar \
-#       --threads=4 \
-#       --coverage=tests/test-reports/_coverage \
-#       --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
-#   allow_failure: false
-#   artifacts:
-#     paths:
-#       - infection.log
-#     expire_in: 1 day
-#   tags:
-#     - small
+Unit tests mutation
+infection:
+  stage: test
+  cache:
+    <<: *global_cache
+  before_script:
+    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
+    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
+    - chmod +x infection.phar
+  script:
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --testsuite unit,integration \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml
+    - ./infection.phar \
+      --threads=4 \
+      --coverage=tests/test-reports/_coverage \
+      --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
+  allow_failure: false
+  artifacts:
+    paths:
+      - infection.log
+    expire_in: 1 day
+  tags:
+    - small
 
 # ############
 # # END TEST #
@@ -213,28 +215,28 @@ phpunit-8.0:
 # # SONAR #
 # #########
 
-# sonar:
-#   stage: sonar
-#   image: sonarsource/sonar-scanner-cli:latest
-#   cache:
-#     <<: *global_cache
-#   variables:
-#     GIT_DEPTH: "0"
-#     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
-#   script:
-#     - sonar-scanner \
-#       -Dsonar.log.level=DEBUG \
-#       -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-#       -Dsonar.sources=lib \
-#       -Dsonar.tests=tests \
-#       -Dsonar.host.url=https://sonar-ce.hipay.org \
-#       -Dsonar.login=$SONAR_TOKEN \
-#       -Dsonar.php.tests.reportPath=tests/test-reports/_coverage/junit.xml \
-#       -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
-# #  only:
-# #    - develop
-#   tags:
-#     - small
+sonar:
+  stage: sonar
+  image: sonarsource/sonar-scanner-cli:latest
+  cache:
+    <<: *global_cache
+  variables:
+    GIT_DEPTH: "0"
+    SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
+  script:
+    - sonar-scanner \
+      -Dsonar.log.level=DEBUG \
+      -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+      -Dsonar.sources=lib \
+      -Dsonar.tests=tests \
+      -Dsonar.host.url=https://sonar-ce.hipay.org \
+      -Dsonar.login=$SONAR_TOKEN \
+      -Dsonar.php.tests.reportPath=tests/test-reports/_coverage/junit.xml \
+      -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+#  only:
+#    - develop
+  tags:
+    - small
 
 #############
 # END SONAR #

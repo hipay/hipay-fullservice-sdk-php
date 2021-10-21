@@ -62,7 +62,7 @@ class ClientProviderTest extends TestCase
 
         // now call the constructor
         $this->expectException(\TypeError::class);
-        $this->expectExceptionMessage(null);
+        $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
 
     }
