@@ -32,7 +32,6 @@ class AbstractResponseTest extends TestCase
     
     /**
      * @covers \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct
-     * @expectedException \HiPay\Fullservice\Exception\InvalidArgumentException
      */
     public function testCannotBeConstructFromNonNumericValue(){
     
