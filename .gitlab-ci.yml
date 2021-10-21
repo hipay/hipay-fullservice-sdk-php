@@ -117,6 +117,33 @@ phpunit-7.2:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
+  allow_failure: true
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+# Unit testing
+phpunit-7.3:
+  image: php:7.3
+  stage: test
+  cache:
+    <<: *global_cache
+    policy: pull
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
+  script:
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --testsuite unit,integration \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml
   allow_failure: false
   artifacts:
     when: always
@@ -179,7 +206,7 @@ phpunit-8.0:
   tags:
     - small
 
-#Unit tests mutation
+# Unit tests mutation
 infection:
   stage: test
   cache:
