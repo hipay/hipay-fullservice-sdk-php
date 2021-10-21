@@ -10,6 +10,7 @@ stages:
 .cache: &global_cache
     paths:
         - vendor/
+        - composer.lock
         - tests/unit/test-reports/_coverage
     policy: pull-push
 
@@ -23,7 +24,9 @@ build:
   stage: build
   cache:
       <<: *global_cache
+    - policy: push
   script:
+      - 
       - composer install --ignore-platform-reqs --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
       - composer info
       - ./vendor/bin/phpunit --version
