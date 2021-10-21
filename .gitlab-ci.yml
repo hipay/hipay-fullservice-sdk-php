@@ -106,6 +106,8 @@ phpunit-7.2:
   cache:
     <<: *global_cache
   before_script:
+    - apt-get update -yqq
+    - apt-get install git -yqq
     - php composer.phar require phpunit/phpunit:8.5
   script:
     - ./vendor/bin/phpunit \
@@ -130,6 +132,8 @@ phpunit-7.4:
   cache:
     <<: *global_cache
   before_script:
+    - apt-get update -yqq
+    - apt-get install git -yqq
     - php composer.phar require phpunit/phpunit:9.5
   script:
     - ./vendor/bin/phpunit \
@@ -154,6 +158,8 @@ phpunit-8.0:
   cache:
     <<: *global_cache
   before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
     - php composer.phar require phpunit/phpunit:9.5
   script:
     - ./vendor/bin/phpunit \
