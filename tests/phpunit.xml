@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./phpunit.xsd"
          backupGlobals="false"
          colors="true"
          bootstrap="./bootstrap.php"
@@ -12,15 +13,9 @@
         <testsuite name="unit">
             <directory >./Unit/HiPay/Tests/Fullservice/</directory>
         </testsuite>
-    </testsuites>
-
-    <testsuites>
         <testsuite name="integration">
             <directory >./Integration/HiPay/Tests/Fullservice/</directory>
         </testsuite>
-    </testsuites>
-
-    <testsuites>
         <testsuite name="end2end">
             <directory >./End2end/HiPay/Tests/Fullservice/</directory>
         </testsuite>
