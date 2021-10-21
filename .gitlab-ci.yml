@@ -16,8 +16,6 @@ stages:
     policy: pull-push
 
 before_script:
-  - apt-get update -yqq
-  - apt-get install git -yqq
 
 
 #########
@@ -32,6 +30,8 @@ build:
     policy: push
   before_script:
     # Install composer dependencies
+    - apt-get update -yqq
+    - apt-get install git -yqq
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
