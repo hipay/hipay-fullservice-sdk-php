@@ -1,4 +1,4 @@
-image: php:7.4
+image: mileschou/xdebug:7.4
 
 stages:
   - build
@@ -103,7 +103,7 @@ stan:
 ########
 # Unit testing
 phpunit-7.2:
-  image: php:7.2
+  image: mileschou/xdebug:7.2
   stage: test
   cache:
     <<: *global_cache
@@ -127,7 +127,7 @@ phpunit-7.2:
 
 # Unit testing
 phpunit-7.3:
-  image: php:7.3
+  image: mileschou/xdebug:7.3
   stage: test
   cache:
     <<: *global_cache
@@ -151,7 +151,7 @@ phpunit-7.3:
 
 # Unit testing
 phpunit-7.4:
-  image: php:7.4
+  image: mileschou/xdebug:7.4
   stage: test
   cache:
     <<: *global_cache
@@ -177,7 +177,7 @@ phpunit-7.4:
 
 # Unit testing
 phpunit-8.0:
-  image: php:8.0
+  image: mileschou/xdebug:8.0
   stage: test
   cache:
     <<: *global_cache
