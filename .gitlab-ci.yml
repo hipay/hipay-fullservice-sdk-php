@@ -216,8 +216,9 @@ infection:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
+    # Use all available threads
     - ./infection.phar \
-      -j$(nproc) \ # Use all available threads
+      -j$(nproc) \
       --coverage=tests/test-reports/_coverage \
       --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
