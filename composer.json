@@ -9,7 +9,7 @@
     "payment method"
   ],
   "scripts": {
-    "test": "phpunit -c tests/unit/phpunit.xml",
+    "test": "phpunit -c tests/phpunit.xml --testsuite unit,integration",
     "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
   },
   "homepage": "https://hipay.com/product-enterprise/",
