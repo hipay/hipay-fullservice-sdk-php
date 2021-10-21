@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="ApiErrorException.php" path="/Exception">
+    <totals>
+      <lines total="47" comments="31" code="16" executable="3" executed="3" percent="100.00"/>
+      <methods count="1" tested="1" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Exception\ApiErrorException" start="31" executable="3" executed="3" crap="1">
+      <package full="HiPay" name="HiPay" sub="" category="HiPay"/>
+      <namespace name="HiPay\Fullservice\Exception"/>
+      <method name="__construct" signature="__construct($message = &quot;&quot;, $code = 0, $description = &quot;&quot;, Throwable $previous = null)" start="41" end="46" crap="1" executable="3" executed="3" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="43">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+      </line>
+      <line nr="45">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+      </line>
+      <line nr="46">
+        <covered by="Unit\HiPay\Tests\Fullservice\HTTP\SimpleHTTPClientTest::testApiErrorExceptionIsRaisedForParsableHttpResponse"/>
+        <covered by="Integration\HiPay\Tests\Fullservice\GatewayTest::testNewOrderAlreadyPaid"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Exception</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Throwable</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20"/>
+      <line no="21">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> * Exception thrown if the Hipay API returns a specific error.</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * @category    HiPay</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @package     HiPay\Fullservice</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @author        Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @copyright   Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @link        https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="31">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ApiErrorException</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">RuntimeException</token>
+      </line>
+      <line no="32">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="33"/>
+      <line no="34">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">     * ApiErrorException constructor.</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     * @param string $message</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     * @param int $code</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     * @param string $description</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @param Throwable|null $previous</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="41">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$message</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$code</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$description</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Throwable</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$previous</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="42">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$text</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$message</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">PHP_EOL</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$description</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="44"/>
+      <line no="45">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">parent</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$text</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$code</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$previous</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="46">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="47">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="48"/>
+    </source>
+  </file>
+</phpunit>

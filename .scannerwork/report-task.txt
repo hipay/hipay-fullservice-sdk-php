@@ -1,0 +1,6 @@
+projectKey=hipay-fullservice-sdk-php
+serverUrl=https://sonar-ce.hipay.org
+serverVersion=8.7.1.42226
+dashboardUrl=https://sonar-ce.hipay.org/dashboard?id=hipay-fullservice-sdk-php
+ceTaskId=AXyitFNJKn9Hc9Qw2r4_
+ceTaskUrl=https://sonar-ce.hipay.org/api/ce/task?id=AXyitFNJKn9Hc9Qw2r4_

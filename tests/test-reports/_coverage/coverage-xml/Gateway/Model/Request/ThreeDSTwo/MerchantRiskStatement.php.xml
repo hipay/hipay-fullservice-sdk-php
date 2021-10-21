@@ -1,0 +1,653 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="MerchantRiskStatement.php" path="/Gateway/Model/Request/ThreeDSTwo">
+    <totals>
+      <lines total="148" comments="90" code="58" executable="7" executed="7" percent="100.00"/>
+      <methods count="7" tested="7" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatement" start="33" executable="7" executed="7" crap="7">
+      <package full="HiPay" name="HiPay" sub="" category="HiPay"/>
+      <namespace name="HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo"/>
+      <method name="getEmailDeliveryAddress" signature="getEmailDeliveryAddress()" start="96" end="99" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getDeliveryTimeFrame" signature="getDeliveryTimeFrame()" start="104" end="107" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPurchaseIndicator" signature="getPurchaseIndicator()" start="112" end="115" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPreOrderDate" signature="getPreOrderDate()" start="120" end="123" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getReorderIndicator" signature="getReorderIndicator()" start="128" end="131" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getShippingIndicator" signature="getShippingIndicator()" start="136" end="139" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getGiftCard" signature="getGiftCard()" start="144" end="147" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="98">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetEmailDeliveryAdress"/>
+      </line>
+      <line nr="106">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetDeliveryTimeFrame"/>
+      </line>
+      <line nr="114">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetPurchaseIndicator"/>
+      </line>
+      <line nr="122">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetPreOrderDate"/>
+      </line>
+      <line nr="130">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetReorderIndicator"/>
+      </line>
+      <line nr="138">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetShippingIndicator"/>
+      </line>
+      <line nr="146">
+        <covered by="Unit\HiPay\Tests\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatementTest::testGetGiftCart"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Enterprise SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2019 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16"/>
+      <line no="17">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">ThreeDSTwo</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">AbstractModel</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Gateway</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">ThreeDSTwo</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">MerchantRiskStatement</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">GiftCard</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="21"/>
+      <line no="22">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * Merchant's statement about the transaction he wants to proceed</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @category    HiPay</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @package     HiPay\Fullservice</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @author      HiPay &lt;support@hipay.com&gt;</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @copyright   Copyright (c) 2019 - HiPay</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT"> * @link        https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="31">
+        <token name="T_DOC_COMMENT"> * @api</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="33">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">MerchantRiskStatement</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">AbstractModel</token>
+      </line>
+      <line no="34">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="35">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">     * Email address to which the goods needs to be sent to</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     * @var string $email_delivery_address</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @example jane.doe@test.com</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="41">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$email_delivery_address</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="42"/>
+      <line no="43">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="44">
+        <token name="T_DOC_COMMENT">     * Indicates when the goods are willing to be received by the customer</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">     * @var integer $delivery_time_frame</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">     * @value DeliveryTimeFrame::ELECTRONIC_DELIVERY | DeliveryTimeFrame::SAME_DAY_SHIPPING |</token>
+      </line>
+      <line no="48">
+        <token name="T_DOC_COMMENT">     * DeliveryTimeFrame::OVERNIGHT_SHIPPING | DeliveryTimeFrame::TWO_DAY_OR_MORE_SHIPPING</token>
+      </line>
+      <line no="49">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$delivery_time_frame</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="51"/>
+      <line no="52">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="53">
+        <token name="T_DOC_COMMENT">     * Availability of the goods</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     * @var integer $purchase_indicator</token>
+      </line>
+      <line no="56">
+        <token name="T_DOC_COMMENT">     * @value PurchaseIndicator::MERCHANDISE_AVAILABLE | PurchaseIndicator::FUTURE_AVAILABILITY</token>
+      </line>
+      <line no="57">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="58">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$purchase_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="59"/>
+      <line no="60">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="61">
+        <token name="T_DOC_COMMENT">     * For a pre-ordered purchase, the expected date that the merchandise will be available.</token>
+      </line>
+      <line no="62">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="63">
+        <token name="T_DOC_COMMENT">     * @var integer $pre_order_date</token>
+      </line>
+      <line no="64">
+        <token name="T_DOC_COMMENT">     * @example 20190925</token>
+      </line>
+      <line no="65">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="66">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$pre_order_date</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="67"/>
+      <line no="68">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="69">
+        <token name="T_DOC_COMMENT">     * Unicity of the order for the customer</token>
+      </line>
+      <line no="70">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="71">
+        <token name="T_DOC_COMMENT">     * @var integer $reorder_indicator</token>
+      </line>
+      <line no="72">
+        <token name="T_DOC_COMMENT">     * @value ReorderIndicator::FIRST_TIME_ORDERED | ReorderIndicator::REORDERED</token>
+      </line>
+      <line no="73">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="74">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$reorder_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="75"/>
+      <line no="76">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="77">
+        <token name="T_DOC_COMMENT">     * Address to whom the goods are to be sent</token>
+      </line>
+      <line no="78">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="79">
+        <token name="T_DOC_COMMENT">     * @var integer $shipping_indicator</token>
+      </line>
+      <line no="80">
+        <token name="T_DOC_COMMENT">     * @value ShippingIndicator::SHIP_TO_CARDHOLDER_BILLING_ADDRESS | ShippingIndicator::SHIP_TO_VERIFIED_ADDRESS</token>
+      </line>
+      <line no="81">
+        <token name="T_DOC_COMMENT">     * ShippingIndicator::SHIP_TO_DIFFERENT_ADDRESS | ShippingIndicator::SHIP_TO_STORE | ShippingIndicator::DIGITAL_GOODS</token>
+      </line>
+      <line no="82">
+        <token name="T_DOC_COMMENT">     * ShippingIndicator::DIGITAL_TRAVEL_EVENT_TICKETS | ShippingIndicator::OTHER</token>
+      </line>
+      <line no="83">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="84">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$shipping_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="85"/>
+      <line no="86">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="87">
+        <token name="T_DOC_COMMENT">     * Information on order making through a gift card</token>
+      </line>
+      <line no="88">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     * @var GiftCard</token>
+      </line>
+      <line no="90">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$gift_card</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="92"/>
+      <line no="93">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="94">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="95">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="96">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getEmailDeliveryAddress</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="98">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">email_delivery_address</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="99">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="100"/>
+      <line no="101">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="102">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="103">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="104">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getDeliveryTimeFrame</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="105">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="106">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">delivery_time_frame</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="107">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="108"/>
+      <line no="109">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="110">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="111">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="112">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getPurchaseIndicator</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="113">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="114">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">purchase_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="115">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="116"/>
+      <line no="117">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="118">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="119">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getPreOrderDate</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="122">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">pre_order_date</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="123">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="124"/>
+      <line no="125">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="126">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="127">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="128">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getReorderIndicator</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="129">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="130">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">reorder_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="131">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="132"/>
+      <line no="133">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="134">
+        <token name="T_DOC_COMMENT">     * @return int</token>
+      </line>
+      <line no="135">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="136">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getShippingIndicator</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="138">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">shipping_indicator</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="139">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="140"/>
+      <line no="141">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="142">
+        <token name="T_DOC_COMMENT">     * @return GiftCard</token>
+      </line>
+      <line no="143">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="144">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getGiftCard</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="145">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="146">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">gift_card</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="147">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="148">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="149"/>
+    </source>
+  </file>
+</phpunit>

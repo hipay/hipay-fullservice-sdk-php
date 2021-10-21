@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="MapperInterface.php" path="/Mapper">
+    <totals>
+      <lines total="38" comments="30" code="8" executable="0" executed="0" percent="0"/>
+      <methods count="0" tested="0" percent="0"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="0" tested="0" percent="0"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="3">
+        <token name="T_DOC_COMMENT"> * HiPay Fullservice SDK PHP</token>
+      </line>
+      <line no="4">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="5">
+        <token name="T_DOC_COMMENT"> * NOTICE OF LICENSE</token>
+      </line>
+      <line no="6">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="7">
+        <token name="T_DOC_COMMENT"> * This source file is subject to the Apache 2.0 Licence</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * that is bundled with this package in the file LICENSE.md.</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * http://www.apache.org/licenses/LICENSE-2.0</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="12">
+        <token name="T_DOC_COMMENT"> * @copyright      Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="16">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Mapper</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="17"/>
+      <line no="18"/>
+      <line no="19">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HiPay</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Fullservice</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Model</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">AbstractModel</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="21">
+        <token name="T_DOC_COMMENT"> * Mapper Interface</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> * Map Model Response object</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * </token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> * @package HiPay\Fullservice</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT"> * @author Kassim Belghait &lt;kassim@sirateck.com&gt;</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT"> * @copyright Copyright (c) 2016 - HiPay</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT"> * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT"> * @link https://github.com/hipay/hipay-fullservice-sdk-php</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="30">
+        <token name="T_INTERFACE">interface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">MapperInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="31">
+        <token name="T_WHITESPACE">	</token>
+      </line>
+      <line no="32">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT">	 * Return an object model mapped</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT">	 * Each call map model object before return it</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">	 * </token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">	 * @return AbstractModel Model object filled with Client Response</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="38">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getModelObjectMapped</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="39">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+    </source>
+  </file>
+</phpunit>
