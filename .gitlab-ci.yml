@@ -30,8 +30,6 @@ build:
     policy: push
   before_script:
     # Install composer dependencies
-    - cat /etc/*-release
-    - lsb_release -a
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -158,7 +156,8 @@ phpunit-7.4:
     <<: *global_cache
   before_script:
     - apt-get update -yqq
-    - apt-get install git zip unzip php7.4-xdebug -yqq
+    - apt-get install git zip unzip -yqq
+    - apt-get install php-xdebug -yqq
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - ./vendor/bin/phpunit \
@@ -207,7 +206,8 @@ infection:
     <<: *global_cache
   before_script:
     - apt-get update -yqq
-    - apt-get install git zip unzip php7.4-xdebug -yqq
+    - apt-get install git zip unzip -yqq
+    - apt-get install php-xdebug -yqq
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
     - chmod +x infection.phar
@@ -218,7 +218,7 @@ infection:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    # Use all available threads
+      # Use all available threads
     - ./infection.phar \
       -j$(nproc) \
       --coverage=tests/test-reports/_coverage \
