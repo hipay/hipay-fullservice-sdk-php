@@ -16,30 +16,30 @@ stages:
     policy: pull-push
 
 
-# #########
-# # BUILD #
-# #########
+#########
+# BUILD #
+#########
 
-# # Build and cache project dependancies
-# build:
-#   stage: build
-#   cache:
-#     <<: *global_cache
-#     policy: push
-#   before_script:
-#     # Install composer dependencies
-#     - php -m
-#     - apt-get update -yqq
-#     - apt-get install git zip unzip -yqq
-#     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-#     - php composer-setup.php
-#     - php -r "unlink('composer-setup.php');"
-#   script:
-#       - php composer.phar install
-#       - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
-#       - php composer.phar info
-#   tags:
-#     - small
+# Build and cache project dependancies
+build:
+  stage: build
+  cache:
+    <<: *global_cache
+    policy: push
+  before_script:
+    # Install composer dependencies
+    - php -m
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+  script:
+      - php composer.phar install
+      - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
+      - php composer.phar info
+  tags:
+    - small
 
 # #############
 # # END BUILD #
