@@ -211,6 +211,7 @@ infection:
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
     - chmod +x infection.phar
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
+    - XDEBUG_MODE=coverage
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
@@ -218,7 +219,9 @@ infection:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
+    - ./infection.phar \
+      --coverage=tests/test-reports/_coverage \
+      --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     paths:
