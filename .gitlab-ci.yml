@@ -275,8 +275,8 @@ sonar:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
     - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
-    - unzip sonar-scanner-cli.zip -d sonar-scanner-cli
-    - chmod +x sonar-scanner-cli/bin/sonar-scanner
+    - unzip sonar-scanner-cli.zip -d ./
+    - chmod +x sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   variables:
     GIT_DEPTH: "0"
@@ -288,7 +288,7 @@ sonar:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    - ./sonar-scanner-cli/bin/sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
