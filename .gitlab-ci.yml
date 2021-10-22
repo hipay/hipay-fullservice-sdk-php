@@ -90,6 +90,7 @@ stan:
   stage: validate
   cache: 
     <<: *global_cache  
+    policy: pull
   script:
     - ./vendor/bin/phpstan analyse lib/ --level 8
   allow_failure: true # Temporary until error fix
