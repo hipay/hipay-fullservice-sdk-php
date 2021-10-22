@@ -117,6 +117,7 @@ phpunit-5.6:
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --log-junit=tests/test-reports/_coverage/junit.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
     when: always
@@ -142,6 +143,7 @@ phpunit-7.2:
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --log-junit=tests/test-reports/_coverage/junit.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
     when: always
@@ -167,6 +169,7 @@ phpunit-7.3:
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --log-junit=tests/test-reports/_coverage/junit.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: false
   artifacts:
     when: always
@@ -191,10 +194,12 @@ phpunit-7.4:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
       --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/coverage.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: false
   artifacts:
     when: always
@@ -222,6 +227,7 @@ phpunit-8.0:
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --log-junit=tests/test-reports/_coverage/junit.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
     when: always
@@ -236,6 +242,7 @@ infection-7.4:
   stage: test
   cache:
     <<: *global_cache
+    policy: pull
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -244,13 +251,6 @@ infection-7.4:
     - chmod +x infection.phar
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
-    - export XDEBUG_MODE=coverage
-    - ./vendor/bin/phpunit \
-      --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-      --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
     - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
@@ -284,13 +284,6 @@ sonar-7.4:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - export XDEBUG_MODE=coverage
-    - ./vendor/bin/phpunit \
-      --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
-      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
-      --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
     - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
