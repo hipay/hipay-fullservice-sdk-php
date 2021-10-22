@@ -219,9 +219,7 @@ infection:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    - ./infection.phar \
-      --coverage=tests/test-reports/_coverage \
-      --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
+    - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
     paths:
