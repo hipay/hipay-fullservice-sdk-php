@@ -253,6 +253,10 @@ infection-7.4:
     - chmod +x infection.phar
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
+    - ls libs/hipay-fullservice-sdk-php/lib/HiPay/Fullservice/Data/Category
+    - cd libs/hipay-fullservice-sdk-php/lib/HiPay/Fullservice/Data/Category
+    - pwd
+    - cd ~
     - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
@@ -275,6 +279,7 @@ sonar-7.4:
   image: mileschou/xdebug:7.4
   cache:
     <<: *global_cache
+  needs: [phpunit-7.4]
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
