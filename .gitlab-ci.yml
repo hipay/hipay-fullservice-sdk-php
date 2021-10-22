@@ -253,10 +253,6 @@ infection-7.4:
     - chmod +x infection.phar
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
-    - ls lib/hipay-fullservice-sdk-php/lib/HiPay/Fullservice/Data/Category
-    - cd lib/hipay-fullservice-sdk-php/lib/HiPay/Fullservice/Data/Category
-    - pwd
-    - cd ~
     - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
   allow_failure: false
   artifacts:
