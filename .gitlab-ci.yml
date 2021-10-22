@@ -194,6 +194,7 @@ phpunit-7.4:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
       --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
