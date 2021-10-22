@@ -243,6 +243,7 @@ infection-7.4:
   cache:
     <<: *global_cache
     policy: pull
+  needs: [phpunit-7.4]
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
