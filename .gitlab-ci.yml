@@ -127,6 +127,30 @@ phpunit-7.2:
     - small
 
 # Unit testing
+phpunit-5.6:
+  image: mileschou/xdebug:5.6
+  stage: test
+  cache:
+    <<: *global_cache
+    policy: pull
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php composer.phar require phpunit/phpunit:6.5 --with-all-dependencies
+  script:
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --testsuite unit,integration \
+      --log-junit=tests/test-reports/_coverage/junit.xml
+  allow_failure: true
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
 phpunit-7.3:
   image: mileschou/xdebug:7.3
   stage: test
