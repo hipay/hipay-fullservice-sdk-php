@@ -213,7 +213,7 @@ infection:
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
     - php -dxdebug.mode=coverage \
-      ./vendor/bin/phpunit \
+      ~/vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
