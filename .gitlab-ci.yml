@@ -88,6 +88,7 @@ stan:
   stage: validate
   cache: 
     <<: *global_cache  
+  needs: [build]
   script:
     - ./vendor/bin/phpstan analyse lib/ --level 8
   allow_failure: true # Temporary until error fix
@@ -200,8 +201,10 @@ phpunit-7.4:
       --testsuite unit,integration \
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
-      --coverage-clover=tests/test-reports/_coverage/coverage.xml
-      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml \
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml \
+      --coverage-text \
+      --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/coverage.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
@@ -246,7 +249,7 @@ infection-7.4:
   stage: test
   cache:
     <<: *global_cache
-  needs: [phpunit-7.4]
+  needs: [build]
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -289,7 +292,7 @@ sonar-7.4:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - .sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
