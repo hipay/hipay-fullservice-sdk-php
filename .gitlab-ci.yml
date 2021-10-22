@@ -232,7 +232,7 @@ phpunit-8.0:
     - small
 
 # Unit tests mutation
-infection:
+infection-7.4:
   stage: test
   cache:
     <<: *global_cache
@@ -268,7 +268,7 @@ infection:
 # SONAR #
 #########
 
-sonar:
+sonar-7.4:
   stage: sonar
   image: mileschou/xdebug:7.4
   cache:
@@ -284,6 +284,7 @@ sonar:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
