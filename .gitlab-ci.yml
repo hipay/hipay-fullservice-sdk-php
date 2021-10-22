@@ -102,8 +102,8 @@ stan:
 # TEST #
 ########
 # Unit testing
-phpunit-7.2:
-  image: mileschou/xdebug:7.2
+phpunit-5.6:
+  image: mileschou/xdebug:5.6
   stage: test
   cache:
     <<: *global_cache
@@ -111,8 +111,9 @@ phpunit-7.2:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
+    - php composer.phar require phpunit/phpunit:5.7.27 --with-all-dependencies
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
@@ -126,9 +127,8 @@ phpunit-7.2:
   tags:
     - small
 
-# Unit testing
-phpunit-5.6:
-  image: mileschou/xdebug:5.6
+phpunit-7.2:
+  image: mileschou/xdebug:7.2
   stage: test
   cache:
     <<: *global_cache
@@ -136,8 +136,9 @@ phpunit-5.6:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:6.5 --with-all-dependencies
+    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
@@ -162,6 +163,7 @@ phpunit-7.3:
     - apt-get install git zip unzip -yqq
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
@@ -186,6 +188,7 @@ phpunit-7.4:
     - apt-get install git zip unzip -yqq
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
@@ -213,6 +216,7 @@ phpunit-8.0:
     - apt-get install git zip unzip -yqq
     - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
+    - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
