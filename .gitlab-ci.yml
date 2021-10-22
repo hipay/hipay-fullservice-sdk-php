@@ -300,7 +300,7 @@ sonar-7.4:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
     - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
-    - unzip sonar-scanner-cli.zip ./
+    - unzip sonar-scanner-cli.zip -d ./
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
