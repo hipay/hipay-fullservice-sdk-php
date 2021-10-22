@@ -310,7 +310,7 @@ sonar-7.4:
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
       --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
-    - ./sonar-scanner-cli/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
