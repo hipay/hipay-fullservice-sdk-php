@@ -208,9 +208,7 @@ phpunit-7.4:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
-      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml \
-      --coverage-text \
-      --colors=never
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: false
@@ -291,15 +289,28 @@ infection-7.4:
 
 sonar-7.4:
   stage: sonar
-  image: sonarsource/sonar-scanner-cli:latest
+  image: mileschou/xdebug:7.4
   cache:
     <<: *global_cache
   needs: [phpunit-7.4]
   variables:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
+    - unzip sonar-scanner-cli.zip .
   script:
-    - sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --testsuite unit,integration \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml \
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
+    - ./sonar-scanner-cli/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
