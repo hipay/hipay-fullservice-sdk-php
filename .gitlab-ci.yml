@@ -194,11 +194,13 @@ phpunit-7.4:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
   allow_failure: false
   artifacts:
     when: always
     reports:
       junit: tests/test-reports/_coverage/junit.xml
+      cobertura: tests/test-reports/_coverage/cobertura.xml
     expire_in: 1 day
   tags:
     - small
@@ -288,12 +290,7 @@ sonar:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner \
-      -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-      -Dsonar.sources=lib -Dsonar.tests=tests \
-      -Dsonar.host.url=https://sonar-ce.hipay.org \
-      -Dsonar.login=$SONAR_TOKEN \
-      -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
