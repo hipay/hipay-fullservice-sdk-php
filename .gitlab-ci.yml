@@ -268,28 +268,27 @@ phpunit-7.4:
 
 sonar:
   stage: sonar
-  image: sonarsource/sonar-scanner-cli:latest
+  image: mileschou/xdebug:7.4
   cache:
     <<: *global_cache
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
-    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
-    - chmod +x infection.phar
-    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
+    - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
+    - unzip sonar-scanner-cli.zip -d sonar-scanner-cli
+    - chmod +x sonar-scanner-cli/bin/sonar-scanner
+    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   variables:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - ls
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
-    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - ./sonar-scanner-cli/bin/sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
