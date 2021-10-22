@@ -115,7 +115,8 @@ phpunit-7.2:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration
+      --testsuite unit,integration \
+      --log-junit=tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
     when: always
@@ -139,7 +140,8 @@ phpunit-7.3:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration
+      --testsuite unit,integration \
+      --log-junit=tests/test-reports/_coverage/junit.xml
   allow_failure: false
   artifacts:
     when: always
@@ -189,7 +191,8 @@ phpunit-8.0:
   script:
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration
+      --testsuite unit,integration \
+      --log-junit=tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
     when: always
@@ -245,15 +248,7 @@ sonar:
     GIT_DEPTH: "0"
     SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   script:
-    - sonar-scanner \
-      -Dsonar.log.level=DEBUG \
-      -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-      -Dsonar.sources=lib \
-      -Dsonar.tests=tests \
-      -Dsonar.host.url=https://sonar-ce.hipay.org \
-      -Dsonar.login=$SONAR_TOKEN \
-      -Dsonar.php.tests.reportPath=tests/test-reports/_coverage/junit.xml \
-      -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - sonar-scanner -Dsonar.log.level=DEBUG -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:
