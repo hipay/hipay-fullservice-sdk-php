@@ -212,8 +212,9 @@ infection:
     - chmod +x infection.phar
     - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
   script:
-    - php -dzend_extension=xdebug -dxdebug.mode=coverage \
-      ./vendor/bin/phpunit \
+    - php -i
+    - grep '^xdebug.mode' php.ini
+    - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
       --testsuite unit,integration \
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
