@@ -10,8 +10,8 @@ class ThreeDSecureTest extends TestCase
 {
     private $_threeDSecureData;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_threeDSecureData = array(
             "eci" => "000001",
             "enrollmentStatus" => ThreeDSecureStatus::ENROLLMENT_AUTHENTICATION_AVAILABLE,

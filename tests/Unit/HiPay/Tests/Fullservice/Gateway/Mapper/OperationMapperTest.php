@@ -12,7 +12,7 @@ class OperationMapperTest extends TestCase
 {
     private $_operationMapper;
 
-    public function setUp(): void
+    public function set_up()
     {
         $this->_operationMapper = array(
             "mid" => "capture",

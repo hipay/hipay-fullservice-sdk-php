@@ -11,8 +11,8 @@ class OperationTest extends TestCase
 {
     private $_operation;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_operation = array(
             "mid" => "capture",
             "authorizationCode" => "000001",

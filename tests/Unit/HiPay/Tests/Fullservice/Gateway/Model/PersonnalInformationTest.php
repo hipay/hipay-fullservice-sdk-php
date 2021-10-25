@@ -9,8 +9,8 @@ class PersonnalInformationTest extends TestCase
 {
     private $_personnalInformationData;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_personnalInformationData = array(
             "firstname" => "Jane",
             "lastname" => "Doe",

@@ -10,8 +10,8 @@ class OrderTest extends TestCase
 {
     private $_order;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_order = array(
             "id" => "000001",
             "customerId" => "000002",

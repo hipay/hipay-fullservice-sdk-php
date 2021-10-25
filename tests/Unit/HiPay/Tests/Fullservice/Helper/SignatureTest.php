@@ -37,8 +37,8 @@ class SignatureTest extends TestCase
     private $_hashedSignatureSHA256 = "9664430560899c4a1eeff059f4244265d783bdba077c525943ec1438db04b8bc";
     private $_hashedSignatureSHA512 = "dca1c8cd59e00362d6c1516596e5cc514778f7d88a2fcbedf4feae035333dddc3e86175d7df65616857571d3ce75b994fe3abc43048bfca248cdb198c521e7a0";
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $_GET['signature'] = $this->_signature;
     }
 

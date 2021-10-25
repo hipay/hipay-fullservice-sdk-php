@@ -10,7 +10,7 @@ class PersonalInformationMapperTest extends TestCase
 {
     private $_personalInformationMapper;
 
-    public function setUp(): void
+    public function set_up()
     {
         $this->_personalInformationMapper = array(
             "firstname" => "Jane",

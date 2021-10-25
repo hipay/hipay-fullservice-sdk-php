@@ -10,8 +10,8 @@ class SecuritySettingsMapperTest extends TestCase
 {
     private $_securitySettingsMapper;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_securitySettingsMapper = array(
             "hashingAlgorithm" => "sha-2"
         );

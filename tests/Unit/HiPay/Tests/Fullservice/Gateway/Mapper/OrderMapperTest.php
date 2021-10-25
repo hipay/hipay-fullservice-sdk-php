@@ -12,7 +12,7 @@ class OrderMapperTest extends TestCase
 {
     private $_orderMapper;
 
-    public function setUp(): void
+    public function set_up()
     {
         $this->_orderMapper = array(
             "id" => "000001",

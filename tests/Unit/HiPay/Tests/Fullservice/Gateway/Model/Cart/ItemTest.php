@@ -12,8 +12,8 @@ class ItemTest extends TestCase
 
     protected $_itemInfo;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_itemInfo = array(
             "european_article_numbering" => "000001",
             "product_reference" => "000002",

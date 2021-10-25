@@ -16,8 +16,8 @@ class TransactionMapperTest extends TestCase
 {
     private $_transactionMapper;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_transactionMapper = array(
             "state" => "completed",
             "reason" => "",

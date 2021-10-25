@@ -9,8 +9,8 @@ class SecuritySettingsTest extends TestCase
 {
     private $_securitySettingData;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_securitySettingData = array(
             "hashingAlgorithm" => "sha-2"
         );

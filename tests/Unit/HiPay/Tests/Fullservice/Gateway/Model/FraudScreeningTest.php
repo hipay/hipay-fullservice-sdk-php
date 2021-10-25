@@ -9,8 +9,8 @@ class FraudScreeningTest extends TestCase
 {
     private $_fraudScreening;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_fraudScreening = array(
             "scoring" => 0,
             "result" => \HiPay\Fullservice\Enum\Transaction\FraudScreening::RESULT_ACCEPTED,

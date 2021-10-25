@@ -9,8 +9,8 @@ class PaymentMethodTest extends TestCase
 {
     private $_paymentMethodData;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_paymentMethodData = array(
             "token" => "d99ef51e45b3faa3c85bbf98c88417a894a32c572db430de15de4a28651e4ebd",
             "brand" => "VISA",

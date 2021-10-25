@@ -9,8 +9,8 @@ class OperationResponseTest extends TestCase
 {
     private $_operationResponse;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_operationResponse = array(
             "type" => "capture",
             "id" => "000001",

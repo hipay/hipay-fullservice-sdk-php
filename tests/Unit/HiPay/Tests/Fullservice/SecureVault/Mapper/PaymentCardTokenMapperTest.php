@@ -10,8 +10,8 @@ class PaymentCardTokenMapperTest extends TestCase
 {
     protected $_paymentCardTokenAsArray;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $this->_paymentCardTokenAsArray = array(
             "token" => "1c1880287b6c1a8749daca1dcd867a67bb2f47248db9a417864b13e58a30a8bd",
             "brand" => "VISA",

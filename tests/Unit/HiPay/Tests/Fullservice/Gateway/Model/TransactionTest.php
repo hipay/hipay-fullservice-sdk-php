@@ -22,8 +22,8 @@ class TransactionTest extends TestCase
 {
     private $_transactionData;
 
-    public function setUp(): void
-    {
+    public function set_up()
+{
         $paymentProduct = new PaymentProduct(array());
 
         $paymentMethod = new PaymentMethod(
