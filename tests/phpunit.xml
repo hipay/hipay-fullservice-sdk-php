@@ -11,7 +11,7 @@
 
     <testsuites>
         <testsuite name="unit">
-            <directory >./Unit/HiPay/Tests/Fullservice/Helper/</directory>
+            <directory >./Unit/HiPay/Tests/Fullservice/</directory>
         </testsuite>
         <testsuite name="integration">
             <directory >./Integration/HiPay/Tests/Fullservice/</directory>

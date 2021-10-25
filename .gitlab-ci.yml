@@ -204,6 +204,10 @@ phpunit-5.6:
     - mv composer.56.json composer.json
     - php composer.phar install
   script:
+    - ls
+    - ls tests
+    - cat tests/phpunit.xml
+    - ls tests/Unit
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
