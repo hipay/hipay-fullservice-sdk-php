@@ -399,9 +399,7 @@ class ConfigurationTest extends TestCase
 
 
         if (version_compare(phpversion(), '7.0.0', '<')) {
-            set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Missing argument 1 for HiPay\Fullservice\HTTP\Configuration\Configuration::__construct(), called in /builds/KBqBd7hp/0/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/Configuration/ConfigurationTest.php on line 409 and defined", $errstr);
-            });
+            $this->expectError();
         } else {
             $this->expectException(\ArgumentCountError::class);
         }
