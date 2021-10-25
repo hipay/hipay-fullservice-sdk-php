@@ -191,7 +191,7 @@ phpunit-7.4:
 
 phpunit-5.6:
   image: mileschou/xdebug:5.6
-  stage: Others versions tests
+  stage: Other versions tests
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -220,7 +220,7 @@ phpunit-5.6:
 
 phpunit-8.0:
   image: mileschou/xdebug:8.0
-  stage: Others versions tests
+  stage: Other versions tests
   cache:
     <<: *global_cache
   before_script:
