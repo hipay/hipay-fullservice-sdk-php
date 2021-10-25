@@ -16,7 +16,7 @@ namespace HiPay\TestCase;
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-abstract class TestCase extends \PHPUnit\Framework\TestCase {
+abstract class TestCase extends \Yoast\PHPUnitPolyfills\TestCases\TestCase {
 
 	/**
 	 * {@inheritDoc}
