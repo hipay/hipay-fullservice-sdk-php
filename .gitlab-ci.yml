@@ -253,8 +253,6 @@ infection-7.4:
     - apt-get install git zip unzip -yqq
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
-    - chmod +x infection.phar
-    - php composer.phar require --dev phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
