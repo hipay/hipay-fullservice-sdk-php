@@ -35,7 +35,7 @@
     "phpstan/phpstan": "0.*",
     "phpcompatibility/php-compatibility": "^9.3",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-    "friendsofphp/php-cs-fixer": "^2.19",
+    "friendsofphp/php-cs-fixer": "^2.18",
     "vlucas/phpdotenv": "^4.2"
   },
   "autoload": {
