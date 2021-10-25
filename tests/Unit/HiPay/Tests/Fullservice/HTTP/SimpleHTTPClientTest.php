@@ -49,7 +49,7 @@ class SimpleHTTPClientTest extends TestCase
         if (version_compare(phpversion(), '8.0.0', '<')) {
             $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
         } else {
-            $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/1/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 49');
+            $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/1/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55');
         }
 
         $client = new SimpleHTTPClient(null);
@@ -112,6 +112,7 @@ class SimpleHTTPClientTest extends TestCase
         if (version_compare(phpversion(), '8.0.0', '<')) {
             $this->assertEquals(true, is_resource($client->getHttpClient()));
         } else {
+            print_r(get_class($client->getHttpClient()));
             $this->assertInstanceOf(\CurlHandle::class, is_resource($client->getHttpClient()));
         }
     }
