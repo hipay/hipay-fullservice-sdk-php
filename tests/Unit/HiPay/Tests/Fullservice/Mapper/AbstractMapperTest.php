@@ -39,8 +39,14 @@ class AbstractMapperTest extends TestCase
     public function testCannotBeConstructUsingInvalidArgument()
     {
         $mock = $this->getAbstractMock($this->_abstractName);
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            set_error_handler(function ($errno, $errstr) {
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\Mapper\AbstractMapper::__construct() must be of the type array, null given", $errstr);
+            });
+        } else {
+            $this->expectException(\TypeError::class);
+        }
 
-        $this->expectException(\TypeError::class);
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
     }
 

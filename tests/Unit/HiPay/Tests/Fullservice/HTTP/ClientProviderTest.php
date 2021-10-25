@@ -48,7 +48,7 @@ class ClientProviderTest extends TestCase
         // now call the constructor
         if (version_compare(phpversion(), '7.0.0', '<')) {
             set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given", $errstr);
+                $this->assertEquals("Undefined variable: configuration", $errstr);
             });
         } else {
             $this->expectException(\TypeError::class);

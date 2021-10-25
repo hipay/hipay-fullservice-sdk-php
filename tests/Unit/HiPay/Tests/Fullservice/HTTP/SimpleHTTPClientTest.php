@@ -122,7 +122,14 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client)
     {
-        $this->expectException(\TypeError::class);
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            set_error_handler(function ($errno, $errstr) {
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/0/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55 and defined", $errstr);
+            });
+        } else {
+            $this->expectException(\TypeError::class);
+        }
+
         $client->request('GETTED', "1234", "foo", 1234);
     }
 
