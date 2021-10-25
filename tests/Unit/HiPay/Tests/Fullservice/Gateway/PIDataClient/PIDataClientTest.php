@@ -50,7 +50,7 @@ class PIDataClientTest extends TestCase
      */
     protected $_clientProvider;
 
-    protected function setUp(): void
+    protected function set_up()
     {
         $this->_config = new Configuration(
             array(

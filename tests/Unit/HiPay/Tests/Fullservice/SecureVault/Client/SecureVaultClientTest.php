@@ -47,7 +47,7 @@ class SecureVaultClientTest extends TestCase
      */
     protected $_response;
 
-    protected function setUp(): void
+    protected function set_up()
     {
         $this->_config = $this->getMockBuilder('\HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface')
                               ->disableOriginalConstructor()
