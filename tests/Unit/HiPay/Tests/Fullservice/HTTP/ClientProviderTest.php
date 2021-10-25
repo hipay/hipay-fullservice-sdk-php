@@ -68,12 +68,18 @@ class ClientProviderTest extends TestCase
         $mock = $this->getAbstractMock($this->_abstractName);
 
         // now call the constructor
-        $this->expectException(\TypeError::class);
-
-        if (version_compare(phpversion(), '8.0.0', '<')) {
-            $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            set_error_handler(function ($errno, $errstr) {
+                $this->assertEquals("Argument 3 passed to HiPay\Fullservice\HTTP\Response\Response::__construct() must be of the type array, string given, called in /builds/KBqBd7hp/0/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/Response/ResponseTest.php on line 46 and defined", $errstr);
+            });
         } else {
-            $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given');
+            $this->expectException(\TypeError::class);
+
+            if (version_compare(phpversion(), '8.0.0', '<')) {
+                $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
+            } else {
+                $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given');
+            }
         }
 
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
