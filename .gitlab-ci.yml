@@ -103,7 +103,7 @@ build:
 # TEST #
 ########
 
-Unit testing
+# Unit testing
 phpunit-7.2:
   image: mileschou/xdebug:7.2
   stage: Current version tests
