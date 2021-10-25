@@ -147,7 +147,7 @@ class Item extends AbstractModel
     /**
      * Id Category
      *
-     * @var int|null
+     * @var string|null
      * @value
      */
     protected $_product_category;
@@ -623,7 +623,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int|null
+     * @return string|null
      */
     public function getProductCategory()
     {
@@ -631,7 +631,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @param int $product_category
+     * @param string $product_category
      * @return Item
      */
     public function setProductCategory($product_category)

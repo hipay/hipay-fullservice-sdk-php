@@ -113,7 +113,7 @@ class PaymentCardToken extends AbstractModel
      * @param string $brand
      * @param string $pan
      * @param string $cardHolder
-     * @param string $cardExpiryMonth
+     * @param string|null $cardExpiryMonth
      * @param string $cardExpiryYear
      * @param string $issuer
      * @param string $country
