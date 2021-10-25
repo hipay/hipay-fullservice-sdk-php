@@ -117,7 +117,6 @@ stages:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-text \
 #       --colors=never
@@ -144,7 +143,6 @@ stages:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-text \
 #       --colors=never
@@ -172,7 +170,6 @@ stages:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
@@ -207,12 +204,9 @@ phpunit-5.6:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
       --configuration tests/phpunit.xml \
-      --testsuite unit,integration \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-text \
-      --colors=never \
-      --debug \
-      --verbose
+      --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: true
   artifacts:
@@ -236,7 +230,6 @@ phpunit-5.6:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-text \
 #       --colors=never
@@ -266,7 +259,6 @@ phpunit-5.6:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-clover=tests/test-reports/_coverage/coverage.xml
@@ -304,7 +296,6 @@ phpunit-5.6:
 #     - export XDEBUG_MODE=coverage
 #     - ./vendor/bin/phpunit \
 #       --configuration tests/phpunit.xml \
-#       --testsuite unit,integration \
 #       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
 #       --log-junit=tests/test-reports/_coverage/junit.xml \
 #       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
