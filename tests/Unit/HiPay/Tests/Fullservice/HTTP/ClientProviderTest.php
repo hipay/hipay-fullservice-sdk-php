@@ -48,7 +48,7 @@ class ClientProviderTest extends TestCase
         // now call the constructor
         if (version_compare(phpversion(), '7.0.0', '<')) {
             set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Undefined variable: configuration", $errstr);
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given", $errstr);
             });
         } else {
             $this->expectException(\TypeError::class);
@@ -70,7 +70,7 @@ class ClientProviderTest extends TestCase
         // now call the constructor
         if (version_compare(phpversion(), '7.0.0', '<')) {
             set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 3 passed to HiPay\Fullservice\HTTP\Response\Response::__construct() must be of the type array, string given, called in /builds/KBqBd7hp/0/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/Response/ResponseTest.php on line 46 and defined", $errstr);
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given", $errstr);
             });
         } else {
             $this->expectException(\TypeError::class);
