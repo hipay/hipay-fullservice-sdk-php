@@ -46,10 +46,14 @@ class SimpleHTTPClientTest extends TestCase
     {
         $this->expectException(\TypeError::class);
 
-        if (version_compare(phpversion(), '8.0.0', '<')) {
-            $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            $this->expectError();
         } else {
-            $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/1/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55');
+            if (version_compare(phpversion(), '8.0.0', '<')) {
+                $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
+            } else {
+                $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/1/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55');
+            }
         }
 
         $client = new SimpleHTTPClient(null);
@@ -123,9 +127,7 @@ class SimpleHTTPClientTest extends TestCase
     public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client)
     {
         if (version_compare(phpversion(), '7.0.0', '<')) {
-            set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/0/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55 and defined", $errstr);
-            });
+            $this->expectError();
         } else {
             $this->expectException(\TypeError::class);
         }
