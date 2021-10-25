@@ -176,9 +176,13 @@ class PIDataClientTest extends TestCase
         $this->assertSame(152.0,$params['amount']);
         $this->assertSame(456118,$params['transaction_id']);
 
-        
-        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
-        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        if (version_compare(phpversion(), '<', '7.3.0')) {
+            $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+            $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        } else {
+            $this->assertMatchesRegularExpression('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+            $this->assertMatchesRegularExpression('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        }
 
         unset($params['monitoring']);
 
@@ -236,8 +240,13 @@ class PIDataClientTest extends TestCase
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
 
-        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
-        $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        if (version_compare(phpversion(), '<', '7.3.0')) {
+            $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+            $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        } else {
+            $this->assertMatchesRegularExpression('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
+            $this->assertMatchesRegularExpression('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
+        }
 
         unset($params['monitoring']);
 
