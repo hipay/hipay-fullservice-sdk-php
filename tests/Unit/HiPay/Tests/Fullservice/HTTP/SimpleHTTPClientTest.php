@@ -44,15 +44,15 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testCannotBeConstructFromInvalidArgument()
     {
-        $this->expectException(\TypeError::class);
-
         if (version_compare(phpversion(), '7.0.0', '<')) {
             $this->expectError();
         } else {
+            $this->expectException(\TypeError::class);
+
             if (version_compare(phpversion(), '8.0.0', '<')) {
                 $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
             } else {
-                $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in /builds/KBqBd7hp/1/pi-ecommerce/libs/hipay-fullservice-sdk-php/tests/Unit/HiPay/Tests/Fullservice/HTTP/SimpleHTTPClientTest.php on line 55');
+                $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in ' . __FILE__ . ' on line 59');
             }
         }
 
