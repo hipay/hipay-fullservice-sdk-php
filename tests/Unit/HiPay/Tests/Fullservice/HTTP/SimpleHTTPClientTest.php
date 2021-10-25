@@ -112,8 +112,7 @@ class SimpleHTTPClientTest extends TestCase
         if (version_compare(phpversion(), '8.0.0', '<')) {
             $this->assertEquals(true, is_resource($client->getHttpClient()));
         } else {
-            print_r(get_class($client->getHttpClient()));
-            $this->assertInstanceOf(\CurlHandle::class, is_resource($client->getHttpClient()));
+            $this->assertInstanceOf(\CurlHandle::class, $client->getHttpClient());
         }
     }
 
