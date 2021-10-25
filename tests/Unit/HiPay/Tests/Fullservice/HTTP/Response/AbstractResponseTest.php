@@ -47,7 +47,13 @@ class AbstractResponseTest extends TestCase
     public function testCannotBeConstructFromNonArrayValue(){
     
         $mock = $this->getAbstractMock($this->_abstractName);
-        $this->expectException(\TypeError::class);
+
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            $this->expectError();
+        } else {
+            $this->expectException(\TypeError::class);
+        }
+
         $this->getClassConstructor($this->_abstractName)->invoke($mock,'some string',500,'Content-Type: application/json');
     
     }
