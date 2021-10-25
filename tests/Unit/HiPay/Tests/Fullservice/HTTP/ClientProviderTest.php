@@ -50,6 +50,7 @@ class ClientProviderTest extends TestCase
             set_error_handler(function ($errno, $errstr) {
                 $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given", $errstr);
             });
+            exit();
         } else {
             $this->expectException(\TypeError::class);
             $this->expectExceptionMessage("Too few arguments to function HiPay\Fullservice\HTTP\ClientProvider::__construct(), 0 passed and exactly 1 expected");
