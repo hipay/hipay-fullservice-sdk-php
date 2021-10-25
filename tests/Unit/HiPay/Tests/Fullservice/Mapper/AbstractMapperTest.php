@@ -41,7 +41,7 @@ class AbstractMapperTest extends TestCase
         $mock = $this->getAbstractMock($this->_abstractName);
         if (version_compare(phpversion(), '7.0.0', '<')) {
             set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\Mapper\AbstractMapper::__construct() must be of the type array, null given", $errstr);
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given", $errstr);
             });
         } else {
             $this->expectException(\TypeError::class);
