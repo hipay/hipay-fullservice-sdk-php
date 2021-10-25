@@ -396,7 +396,15 @@ class ConfigurationTest extends TestCase
     }
 
     public function testCantBeConstructWithoutParams() {
-        $this->expectException(\ArgumentCountError::class);
+
+
+        if (version_compare(phpversion(), '7.0.0', '<')) {
+            set_error_handler(function ($errno, $errstr) {
+                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given", $errstr);
+            });
+        } else {
+            $this->expectException(\ArgumentCountError::class);
+        }
 
         new Configuration(); // @phpstan-ignore-line
     }
