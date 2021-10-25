@@ -200,8 +200,9 @@ phpunit-5.6:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
-    - php composer.phar install --ignore-platform-reqs
-    - php composer.phar require --dev phpunit/phpunit:5.7.27 --with-all-dependencies --ignore-platform-reqs
+    - rm composer.json
+    - mv composer.56.json composer.json
+    - php composer.phar install
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
