@@ -112,7 +112,7 @@ phpunit-7.2:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php composer.phar require phpunit/phpunit:8.5 --with-all-dependencies
+    - php composer.phar require phpunit/phpunit:9.5 --with-all-dependencies
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
@@ -176,7 +176,9 @@ phpunit-7.4:
       --coverage-xml=tests/test-reports/_coverage/coverage-xml \
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
-      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml \
+      --coverage-text \
+      --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
   allow_failure: false
