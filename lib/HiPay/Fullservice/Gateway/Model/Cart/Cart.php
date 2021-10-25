@@ -31,7 +31,6 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Cart extends AbstractModel
 {
-
     /**
      *  List of items
      *

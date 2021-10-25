@@ -29,7 +29,7 @@ namespace HiPay\Fullservice\Data;
  */
 class DeliveryMethodAttribute
 {
-    const DEFAULT_LANG_ISO_CODE = "EN";
+    public const DEFAULT_LANG_ISO_CODE = "EN";
 
     /**
      * code

@@ -107,5 +107,4 @@ class CustomerBillingInfoRequest extends AbstractRequest
      * @length 2
      */
     public $country;
-
 }

@@ -13,14 +13,15 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum\Transaction;
 
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
  * # Template type constant values
- * 
- * 
+ *
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -30,13 +31,8 @@ use HiPay\Fullservice\Enum\AbstractEnum;
  */
 class Template extends AbstractEnum
 {
-    
     /**
      * @var string BASIC_JS basic js template type
      */
-    const BASIC_JS = 'basic-js';
-
-    
-    
-   
+    public const BASIC_JS = 'basic-js';
 }

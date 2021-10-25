@@ -29,7 +29,7 @@ namespace HiPay\Fullservice\Data;
  */
 class Category
 {
-    const DEFAULT_LANG_ISO_CODE = "EN";
+    public const DEFAULT_LANG_ISO_CODE = "EN";
 
     /**
      * @var int $_code Technical code

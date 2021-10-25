@@ -44,72 +44,71 @@ use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
  */
 class GatewayClient implements GatewayClientInterface
 {
-
     /**
      *
      * @var string ENDPOINT_NEW_ORDER endpoint to create a new transaction order
      */
-    const ENDPOINT_NEW_ORDER = 'v1/order';
+    public const ENDPOINT_NEW_ORDER = 'v1/order';
 
     /**
      *
      * @var string METHOD_NEW_ORDER http method to create a new transaction order
      */
-    const METHOD_NEW_ORDER = 'POST';
+    public const METHOD_NEW_ORDER = 'POST';
 
     /**
      *
      * @var string ENDPOINT_HOSTED_PAYMENT_PAGE endpoint to call Hosted payment page
      */
-    const ENDPOINT_HOSTED_PAYMENT_PAGE = 'v1/hpayment';
+    public const ENDPOINT_HOSTED_PAYMENT_PAGE = 'v1/hpayment';
 
     /**
      *
      * @var string METHOD_HOSTED_PAYMENT_PAGE http method to call Hosted payment page
      */
-    const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
+    public const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
 
     /**
      *
      * @var string ENDPOINT_MAINTENANCE_OPERATION endpoint to do a maintenance operation (capture, refund, accept, etc, ...)
      */
-    const ENDPOINT_MAINTENANCE_OPERATION = 'v1/maintenance/transaction/{transaction}';
+    public const ENDPOINT_MAINTENANCE_OPERATION = 'v1/maintenance/transaction/{transaction}';
 
     /**
      *
      * @var string METHOD_MAINTENANCE_OPERATION http method to do a maintenance operation
      */
-    const METHOD_MAINTENANCE_OPERATION = 'POST';
+    public const METHOD_MAINTENANCE_OPERATION = 'POST';
 
     /**
      * @var string ENDPOINT_TRANSACTION_DETAILS endpoint to call transaction information
      */
-    const ENDPOINT_TRANSACTION_INFORMATION = 'v1/transaction/{transaction}';
+    public const ENDPOINT_TRANSACTION_INFORMATION = 'v1/transaction/{transaction}';
 
     /**
      * @var string METHOD_TRANSACTION_DETAILS http method to call transaction information
      */
-    const METHOD_TRANSACTION_INFORMATION = 'GET';
+    public const METHOD_TRANSACTION_INFORMATION = 'GET';
 
     /**
      * @var string ENDPOINT_ORDER_TRANSACTION_INFORMATION endpoint to call transaction information
      */
-    const ENDPOINT_ORDER_TRANSACTION_INFORMATION = 'v1/transaction';
+    public const ENDPOINT_ORDER_TRANSACTION_INFORMATION = 'v1/transaction';
 
     /**
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
-    const METHOD_ORDER_TRANSACTION_INFORMATION = 'GET';
+    public const METHOD_ORDER_TRANSACTION_INFORMATION = 'GET';
 
     /**
      * @var string ENDPOINT_SECURITY_SETTINGS endpoint to call security settings information
      */
-    const ENDPOINT_SECURITY_SETTINGS = 'v2/security-settings';
+    public const ENDPOINT_SECURITY_SETTINGS = 'v2/security-settings';
 
     /**
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
-    const METHOD_SECURITY_SETTINGS = 'GET';
+    public const METHOD_SECURITY_SETTINGS = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
@@ -171,7 +170,7 @@ class GatewayClient implements GatewayClientInterface
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
 
-        if($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
+        if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
         }
 
@@ -216,8 +215,7 @@ class GatewayClient implements GatewayClientInterface
         $amount = null,
         $operationId = null,
         MaintenanceRequest $maintenanceRequest = null
-    )
-    {
+    ) {
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();
         }

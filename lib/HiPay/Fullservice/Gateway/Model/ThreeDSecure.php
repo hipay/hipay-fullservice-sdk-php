@@ -54,8 +54,6 @@ class ThreeDSecure extends AbstractModel
         $authenticationToken,
         $xid
     ) {
-
-
         $this->_eci = $eci;
         $this->_enrollmentStatus = $enrollmentStatus;
         $this->_enrollmentMessage = $enrollmentMessage;
@@ -63,7 +61,6 @@ class ThreeDSecure extends AbstractModel
         $this->_authenticationMessage = $authenticationMessage;
         $this->_authenticationToken = $authenticationToken;
         $this->_xid = $xid;
-
     }
 
     /**

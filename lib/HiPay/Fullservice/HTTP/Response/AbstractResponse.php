@@ -31,7 +31,6 @@ use HiPay\Fullservice\Exception\OutOfBoundsException;
  */
 abstract class AbstractResponse implements ResponseInterface
 {
-
     /**
      * Response returned by http request to TPP
      *

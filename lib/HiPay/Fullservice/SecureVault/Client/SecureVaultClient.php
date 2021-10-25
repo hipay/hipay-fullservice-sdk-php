@@ -36,12 +36,12 @@ class SecureVaultClient implements SecureVaultClientInterface
     /**
      * @var string ENDPOINT_LOOKUP_TOKEN endpoint to get vault information by token
      */
-    const ENDPOINT_LOOKUP_TOKEN = 'v2/token/{token}';
+    public const ENDPOINT_LOOKUP_TOKEN = 'v2/token/{token}';
 
     /**
      * @var string METHOD_LOOKUP_TOKEN http method to get vault information by token
      */
-    const METHOD_LOOKUP_TOKEN = 'GET';
+    public const METHOD_LOOKUP_TOKEN = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
@@ -66,7 +66,6 @@ class SecureVaultClient implements SecureVaultClientInterface
      */
     public function requestLookupToken($token, $requestId = '0')
     {
-
         $endPoint = str_replace('{token}', $token, self::ENDPOINT_LOOKUP_TOKEN);
 
         // Add request_id on end point url

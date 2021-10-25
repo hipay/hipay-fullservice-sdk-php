@@ -32,7 +32,7 @@ use HiPay\Fullservice\Data\PaymentProduct;
  */
 class Collection
 {
-    const PAYMENT_CONFIG_FILE_PATH = __DIR__ . "/../../PaymentConfigFiles/";
+    public const PAYMENT_CONFIG_FILE_PATH = __DIR__ . "/../../PaymentConfigFiles/";
 
     /**
      *  Get a Payment Product item with a code
@@ -97,8 +97,9 @@ class Collection
      * @param array<string>|string|null $paymentProductList
      * @return string|null
      */
-    public static function orderByPriority($paymentProductList){
-        if(!empty($paymentProductList)) {
+    public static function orderByPriority($paymentProductList)
+    {
+        if (!empty($paymentProductList)) {
             $paymentProductArray = explode(',', $paymentProductList);
             $paymentProductDetailsArray = array();
 
@@ -117,7 +118,9 @@ class Collection
 
             usort($paymentProductDetailsArray, array(self::class, 'cmpPaymentProduct'));
 
-            return implode(',', array_map(function($paymentProductDetails) { return $paymentProductDetails->getProductCode(); }, $paymentProductDetailsArray));
+            return implode(',', array_map(function ($paymentProductDetails) {
+                return $paymentProductDetails->getProductCode();
+            }, $paymentProductDetailsArray));
         }
 
         return null;
@@ -129,8 +132,9 @@ class Collection
      * @param PaymentProduct $p2
      * @return int
      */
-    private static function cmpPaymentProduct($p1, $p2){
-        if($p1->getPriority() === $p2->getPriority()){
+    private static function cmpPaymentProduct($p1, $p2)
+    {
+        if ($p1->getPriority() === $p2->getPriority()) {
             return 0;
         }
 

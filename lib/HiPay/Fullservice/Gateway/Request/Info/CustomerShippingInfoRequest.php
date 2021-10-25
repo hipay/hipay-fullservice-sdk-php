@@ -30,7 +30,6 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class CustomerShippingInfoRequest extends AbstractRequest
 {
-
     /**
      * @var string $shipto_firstname The first name of the order recipient.
      * @required

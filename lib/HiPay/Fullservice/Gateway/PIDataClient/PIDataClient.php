@@ -39,12 +39,12 @@ class PIDataClient implements PIDataClientInterface
     /**
      * @var string ENDPOINT_DATA_API endpoint to create / update a data set
      */
-    const ENDPOINT_DATA_API = '/checkout-data';
+    public const ENDPOINT_DATA_API = '/checkout-data';
 
     /**
      * @var string METHOD_DATA_API http method to create / update a data set
      */
-    const METHOD_DATA_API = 'POST';
+    public const METHOD_DATA_API = 'POST';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
@@ -82,8 +82,13 @@ class PIDataClient implements PIDataClientInterface
      */
     public function sendData($data)
     {
-        $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API,
-            $data, false, true);
+        $this->getClientProvider()->request(
+            self::METHOD_DATA_API,
+            self::ENDPOINT_DATA_API,
+            $data,
+            false,
+            true
+        );
     }
 
     /**
@@ -175,9 +180,9 @@ class PIDataClient implements PIDataClientInterface
      */
     public function getDataId(array $params)
     {
-        if(!empty($params['forward_url'])){
+        if (!empty($params['forward_url'])) {
             return hash('sha256', $params['forward_url']);
-        } elseif(!empty($params['device_fingerprint'])) {
+        } elseif (!empty($params['device_fingerprint'])) {
             $params['url_accept'] = empty($params['url_accept']) ? null : $params['url_accept'];
 
             // Cleaning the domain from http(s) tag, www tag, any path and ports
@@ -222,8 +227,12 @@ class PIDataClient implements PIDataClientInterface
         );
         $host = '';
         foreach ($possibleHostSources as $source) {
-            if (!empty($host)) break;
-            if (empty($_SERVER[$source])) continue;
+            if (!empty($host)) {
+                break;
+            }
+            if (empty($_SERVER[$source])) {
+                continue;
+            }
             $host = $_SERVER[$source];
             if (array_key_exists($source, $sourceTransformations)) {
                 $host = $sourceTransformations[$source]($host);
@@ -243,15 +252,22 @@ class PIDataClient implements PIDataClientInterface
      */
     private function getDomain($rawHostname)
     {
-        return preg_replace('/:[0-9]+$/', '',
-            preg_replace('/\/(.*)$/', '',
-                preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)));
+        return preg_replace(
+            '/:[0-9]+$/',
+            '',
+            preg_replace(
+                '/\/(.*)$/',
+                '',
+                preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)
+            )
+        );
     }
 
     /**
      * @return string
      */
-    private function getCurDateUTCFormatted(){
+    private function getCurDateUTCFormatted()
+    {
         $curDate = new \DateTime('now', new \DateTimeZone('UTC'));
         $milliSec = str_pad(strval(floor($curDate->format('u') / 1000)), 3, "0", STR_PAD_LEFT);
         return $curDate->format('Y-m-d\TH:i:s.') . $milliSec . 'Z';

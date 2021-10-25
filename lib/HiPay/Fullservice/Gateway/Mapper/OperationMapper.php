@@ -30,7 +30,6 @@ use HiPay\Fullservice\Gateway\Model\Operation;
  */
 class OperationMapper extends AbstractMapper
 {
-
     /**
      * @var Operation $_modelObject Model object to populate
      */
@@ -60,7 +59,7 @@ class OperationMapper extends AbstractMapper
         $state = null;
         $message = isset($source['message']) ? $source['message'] : null;
         $authorizedAmount = isset($source['authorizedAmount']) ? $source['authorizedAmount'] : null;
-        $capturedAmount = isset($source['capturedAmount']) ? $source['capturedAmount']: null;
+        $capturedAmount = isset($source['capturedAmount']) ? $source['capturedAmount'] : null;
         $refundedAmount = isset($source['refundedAmount']) ? $source['refundedAmount'] : null;
         $decimals = isset($source['decimals']) ? $source['decimals'] : null;
         $currency = isset($source['currency']) ? $source['currency'] : null;

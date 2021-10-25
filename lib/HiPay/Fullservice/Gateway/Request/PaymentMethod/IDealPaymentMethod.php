@@ -29,5 +29,4 @@ namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
  */
 class IDealPaymentMethod extends IssuerBankIDPaymentMethod
 {
-
 }

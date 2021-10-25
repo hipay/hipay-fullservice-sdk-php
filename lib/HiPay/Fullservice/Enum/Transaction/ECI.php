@@ -35,7 +35,7 @@ class ECI extends AbstractEnum
     /**
      * @var int UNDEFINED default value
      */
-    const UNDEFINED = -1;
+    public const UNDEFINED = -1;
 
     /**
      * The merchant received the customer's financial details over the phone or via fax/mail,
@@ -43,7 +43,7 @@ class ECI extends AbstractEnum
      *
      * @var int MOTO MO/TO (Card Not Present)
      */
-    const MOTO = 1;
+    public const MOTO = 1;
 
     /**
      * The first transaction of the customer was a Mail Order / Telephone Order transaction;
@@ -53,12 +53,12 @@ class ECI extends AbstractEnum
      *
      * @var int RECURRING_MOTO Recurring MO/TO
      */
-    const RECURRING_MOTO = 2;
+    public const RECURRING_MOTO = 2;
 
     /**
      * @var int INSTALLMENT_PAYMENT Partial payment of goods/services that have already been delivered, but will be paid for in several spread payments.
      */
-    const INSTALLMENT_PAYMENT = 3;
+    public const INSTALLMENT_PAYMENT = 3;
 
     /**
      * The customer is physically present in front of the merchant.
@@ -67,7 +67,7 @@ class ECI extends AbstractEnum
      *
      * @var int MANUALLY_KEYED_CARD_PRESENT Manually Keyed (Card Present)
      */
-    const MANUALLY_KEYED_CARD_PRESENT = 4;
+    public const MANUALLY_KEYED_CARD_PRESENT = 4;
 
     /**
      * The payment transaction was conducted over a secure channel (for example, SSL/TLS),
@@ -76,7 +76,7 @@ class ECI extends AbstractEnum
      *
      * @var int SECURE_ECOMMERCE Secure E-commerce with SSL/TLS Encryption
      */
-    const SECURE_ECOMMERCE = 7;
+    public const SECURE_ECOMMERCE = 7;
 
     /**
      * The first transaction of the customer was an e-Commerce transaction;
@@ -88,6 +88,5 @@ class ECI extends AbstractEnum
      *
      * @var int RECURRING_ECOMMERCE The first transaction of the customer was an e-Commerce transaction.
      */
-    const RECURRING_ECOMMERCE = 9;
+    public const RECURRING_ECOMMERCE = 9;
 }
-

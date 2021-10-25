@@ -15,7 +15,6 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class OperationResponse extends AbstractModel
 {
-
     /**
      * @var string $_type Type of maintenance operation
      */

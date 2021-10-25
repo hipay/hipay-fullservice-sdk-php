@@ -93,7 +93,6 @@ class RequestSerializer
          * Else if value of property is scalar we assign it
          */
         foreach ($properties as $p => $v) {
-
             if (is_scalar($v)) {
                 $params[$p] = $v;
             } elseif (is_array($v)) {
