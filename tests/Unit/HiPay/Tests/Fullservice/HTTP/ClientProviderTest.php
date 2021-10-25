@@ -47,10 +47,7 @@ class ClientProviderTest extends TestCase
 
         // now call the constructor
         if (version_compare(phpversion(), '7.0.0', '<')) {
-            set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, none given", $errstr);
-            });
-            exit();
+            $this->expectError();
         } else {
             $this->expectException(\TypeError::class);
             $this->expectExceptionMessage("Too few arguments to function HiPay\Fullservice\HTTP\ClientProvider::__construct(), 0 passed and exactly 1 expected");
@@ -69,18 +66,12 @@ class ClientProviderTest extends TestCase
         $mock = $this->getAbstractMock($this->_abstractName);
 
         // now call the constructor
-        if (version_compare(phpversion(), '7.0.0', '<')) {
-            set_error_handler(function ($errno, $errstr) {
-                $this->assertEquals("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given", $errstr);
-            });
-        } else {
-            $this->expectException(\TypeError::class);
+        $this->expectException(\TypeError::class);
 
-            if (version_compare(phpversion(), '8.0.0', '<')) {
-                $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
-            } else {
-                $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given');
-            }
+        if (version_compare(phpversion(), '8.0.0', '<')) {
+            $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
+        } else {
+            $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given');
         }
 
         $this->getClassConstructor($this->_abstractName)->invoke($mock, null);
