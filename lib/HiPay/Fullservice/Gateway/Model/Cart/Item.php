@@ -308,7 +308,7 @@ class Item extends AbstractModel
      * @param string $delivery_company
      * @param string $delivery_delay
      * @param string $delivery_number
-     * @param int $product_category
+     * @param string $product_category
      * @param string $shop_id
      * @return void
      */

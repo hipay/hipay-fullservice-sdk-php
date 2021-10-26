@@ -140,29 +140,31 @@ class SimpleHTTPClient extends ClientProvider
             curl_setopt($this->_httpClient, $option, $value);
         }
 
+        /**
+         * @var string|false $result
+         */
         $result = curl_exec($this->_httpClient);
+
         // execute the given cURL session
-        if ((false === $result) && !$isData) {
+        if (($result === false) && !$isData) {
             throw new CurlException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
         }
-
-        $body = $result;
 
         $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
 
         if (floor($status / 100) != 2 && !$isData) {
-            $httpResponse = json_decode($body);
+            $httpResponse = json_decode($result);
 
             if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
                 $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
                 throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
             } else {
-                throw new HttpErrorException($body, $status);
+                throw new HttpErrorException($result, $status);
             }
         }
 
         //Return a simple response object
-        return new Response((string)$body, $status, array('Content-Type' => array('application/json; encoding=UTF-8')));
+        return new Response((string)$result, $status, array('Content-Type' => array('application/json; encoding=UTF-8')));
     }
 
     /**

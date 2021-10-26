@@ -2,6 +2,8 @@
 
 namespace HiPay\Fullservice\Helper;
 
+use HiPay\Fullservice\Exception\UnexpectedValueException;
+
 class Convert
 {
     /**
@@ -47,7 +49,13 @@ class Convert
      */
     public static function toUnderscored($string)
     {
-        return strtolower(preg_replace('/(.)([A-Z0-9])/', "$1_$2", $string));
+        $toUnderscored = preg_replace('/(.)([A-Z0-9])/', "$1_$2", $string);
+
+        if (is_null($toUnderscored)) {
+            throw new UnexpectedValueException("Invalid key \"$string\"");
+        }
+
+        return strtolower($toUnderscored);
     }
 
     /**

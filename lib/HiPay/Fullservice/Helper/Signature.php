@@ -64,8 +64,12 @@ class Signature
      */
     public static function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
     {
-        if (strlen(static::getComputedSignature($secretPassphrase, $hashAlgorithm)) == strlen(static::getSignature())) {
-            return true;
+        $computedPassphrase = static::getComputedSignature($secretPassphrase, $hashAlgorithm);
+
+        if ($computedPassphrase !== false) {
+            if (strlen($computedPassphrase) == strlen(static::getSignature())) {
+                return true;
+            }
         }
 
         return false;

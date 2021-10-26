@@ -58,12 +58,11 @@ class OrderMapper extends AbstractMapper
         $gender = isset($source['gender']) ? $source['gender'] : null;
         $language = isset($source['language']) ? $source['language'] : null;
 
-        /**
-         * @var PersonalInformation $shippingAddress
-         */
         $shippingAddress = null;
         if (isset($source['shippingAddress'])) {
             $pim = new PersonalInformationMapper($source['shippingAddress']);
+
+            /** @var PersonalInformation $shippingAddress */
             $shippingAddress = $pim->getModelObjectMapped();
         }
 

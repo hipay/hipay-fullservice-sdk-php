@@ -57,6 +57,8 @@ code-style:
   cache:
     <<: *global_cache
   script:
+    # @PSR12 is the default ruleset use
+    # Don't apply visibility_require for PHP5.6 backward compatibility (public/private/protected on const)
     - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run --rules=@PSR12,-visibility_required
   allow_failure: true # Temporary until error fix
 #  allow_failure: 
