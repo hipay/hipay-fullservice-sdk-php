@@ -15,7 +15,6 @@
  */
 
 namespace HiPay\Fullservice\Gateway\Request\Order;
-
 use HiPay\Fullservice\Data\PaymentProduct\Collection;
 
 /**
@@ -33,6 +32,7 @@ use HiPay\Fullservice\Data\PaymentProduct\Collection;
  * */
 class HostedPaymentPageRequest extends OrderRequest
 {
+
     /**
      * @var array<string>|string|null $payment_product_list The list of payment products to display on the payment page.
      * @required
@@ -86,8 +86,7 @@ class HostedPaymentPageRequest extends OrderRequest
     /**
      * @return void
      */
-    public function reorderPaymentProductList()
-    {
+    public function reorderPaymentProductList(){
         $this->payment_product_list = Collection::orderByPriority($this->payment_product_list);
     }
 }

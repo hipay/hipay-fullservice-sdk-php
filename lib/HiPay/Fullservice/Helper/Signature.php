@@ -40,6 +40,7 @@ use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
  */
 class Signature
 {
+
     /**
      * @param string $secretPassphrase
      * @param string $hashAlgorithm

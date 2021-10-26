@@ -30,6 +30,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class CommonRequest extends AbstractRequest
 {
+
     /**
      * You can use these parameters to submit custom values you wish to show in HiPay back office transaction details,
      * receive back in the API response messages, in the notifications or to activate specific FPS rules.

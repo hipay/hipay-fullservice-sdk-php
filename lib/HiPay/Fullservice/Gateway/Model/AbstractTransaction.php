@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
+
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
@@ -32,6 +33,8 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 abstract class AbstractTransaction extends AbstractModel
 {
+
+
     /**
      *
      * @param string $mid
@@ -65,6 +68,7 @@ abstract class AbstractTransaction extends AbstractModel
         $decimals,
         $currency
     ) {
+
         $this->_mid = $mid;
         $this->_authorizationCode = $authorizationCode;
         $this->_transactionReference = $transactionReference;
@@ -79,6 +83,7 @@ abstract class AbstractTransaction extends AbstractModel
         $this->_refundedAmount = $refundedAmount;
         $this->_decimals = $decimals;
         $this->_currency = $currency;
+
     }
 
     /**

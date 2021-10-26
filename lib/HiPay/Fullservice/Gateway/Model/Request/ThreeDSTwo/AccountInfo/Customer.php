@@ -77,4 +77,5 @@ class Customer extends AbstractModel
     {
         return $this->password_change;
     }
+
 }

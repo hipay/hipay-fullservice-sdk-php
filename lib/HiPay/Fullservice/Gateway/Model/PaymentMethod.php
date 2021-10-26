@@ -53,6 +53,7 @@ class PaymentMethod extends AbstractModel
         $issuer,
         $country
     ) {
+
         $this->_token = $token;
         $this->_brand = $brand;
         $this->_pan = $pan;
@@ -61,6 +62,7 @@ class PaymentMethod extends AbstractModel
         $this->_cardExpiryYear = $cardExpiryYear;
         $this->_issuer = $issuer;
         $this->_country = $country;
+
     }
 
     /**

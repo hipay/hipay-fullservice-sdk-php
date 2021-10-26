@@ -30,6 +30,7 @@ use Throwable;
  */
 class ApiErrorException extends \RuntimeException
 {
+
     /**
      * ApiErrorException constructor.
      * @param string $message

@@ -31,6 +31,7 @@ use HiPay\Fullservice\Gateway\Model\SecuritySettings;
  */
 class SecuritySettingsMapper extends AbstractMapper
 {
+
     /**
      * @var SecuritySettings $_modelObject Model object to populate
      */

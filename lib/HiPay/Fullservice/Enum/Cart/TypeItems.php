@@ -30,24 +30,25 @@ use HiPay\Fullservice\Enum\AbstractEnum;
  */
 class TypeItems extends AbstractEnum
 {
+
     /**
      *  Type for an article item
      *
      * @var string GOOD
      */
-    public const GOOD = 'good';
+    const GOOD = 'good';
 
     /**
      *  Type for an discount item
      *
      * @var string DISCOUNT
      */
-    public const DISCOUNT = 'discount';
+    const DISCOUNT = 'discount';
 
     /**
      *  Type for an shipping item
      *
      * @var string FEE
      */
-    public const FEE = 'fee';
+    const FEE = 'fee';
 }

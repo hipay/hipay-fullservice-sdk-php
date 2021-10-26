@@ -39,14 +39,14 @@ class ThreeDSecureStatus extends AbstractEnum
     /**
      * @var string ENROLLMENT_UNKNOWN Default value
      */
-    public const ENROLLMENT_UNKNOWN = ' ';
+    const ENROLLMENT_UNKNOWN = ' ';
 
     /**
      * Card is enrolled in the 3-D Secure program and the payer is eligible for authentication processing.
      *
      * @var string ENROLLMENT_AUTHENTICATION_AVAILABLE Card is enrolled in the 3-D Secure program
      */
-    public const ENROLLMENT_AUTHENTICATION_AVAILABLE = 'Y';
+    const ENROLLMENT_AUTHENTICATION_AVAILABLE = 'Y';
 
     /**
      * **Chargeback Liability Shift**:
@@ -55,7 +55,7 @@ class ThreeDSecureStatus extends AbstractEnum
      *
      * @var string ENROLLMENT_CARD_HOLDER_NOT_ENROLLED Card is not enrolled in 3-D Secure program.
      */
-    public const ENROLLMENT_CARD_HOLDER_NOT_ENROLLED = 'N';
+    const ENROLLMENT_CARD_HOLDER_NOT_ENROLLED = 'N';
 
     /**
      * Merchants can choose to accept the card nonetheless
@@ -66,7 +66,7 @@ class ThreeDSecureStatus extends AbstractEnum
      *
      * @var string ENROLLMENT_UNABLE_TO_AUTHENTICATE The card associations were unable to verify if the cardholder is enrolled in the 3- D Secure program.
      */
-    public const ENROLLMENT_UNABLE_TO_AUTHENTICATE = 'U';
+    const ENROLLMENT_UNABLE_TO_AUTHENTICATE = 'U';
 
     /**
      * **Chargeback Liability Shift**:
@@ -75,7 +75,7 @@ class ThreeDSecureStatus extends AbstractEnum
      *
      * @var string ENROLLMENT_OTHER_ERROR An error occurred during the enrollment verification process.
      */
-    public const ENROLLMENT_OTHER_ERROR = 'E';
+    const ENROLLMENT_OTHER_ERROR = 'E';
 
     /*
      * ***************************************
@@ -86,21 +86,21 @@ class ThreeDSecureStatus extends AbstractEnum
     /**
      * @var string AUTHENTICATION_UNKNOWN default status
      */
-    public const AUTHENTICATION_UNKNOWN = ' ';
+    const AUTHENTICATION_UNKNOWN = ' ';
 
     /**
      * The Issuer has authenticated the cardholder by verifying the identity information or password.
      *
      * @var string AUTHENTICATION_SUCCESSFUL Cardholder was successfully authenticated.
      */
-    public const AUTHENTICATION_SUCCESSFUL = 'Y';
+    const AUTHENTICATION_SUCCESSFUL = 'Y';
 
     /**
      * Authentication could not be performed but a proof of authentication attempt was provided.
      *
      * @var string AUTHENTICATION_ATTEMPTED Authentication Attempted
      */
-    public const AUTHENTICATION_ATTEMPTED = 'A';
+    const AUTHENTICATION_ATTEMPTED = 'A';
 
     /**
      * The Issuer is not able to complete the authentication request due to a technical error or other problem.
@@ -111,7 +111,7 @@ class ThreeDSecureStatus extends AbstractEnum
      *
      * @var string AUTHENTICATION_COULD_NOT_PERFORMED The Issuer is not able to complete the authentication request
      */
-    public const AUTHENTICATION_COULD_NOT_PERFORMED = 'U';
+    const AUTHENTICATION_COULD_NOT_PERFORMED = 'U';
 
     /**
      * The cardholder did not complete authentication and the card should not be accepted for payment.
@@ -125,12 +125,14 @@ class ThreeDSecureStatus extends AbstractEnum
      *
      * @var string AUTHENTICATION_FAILED Authentication failed and the card should not be accepted for payment
      */
-    public const AUTHENTICATION_FAILED = 'N';
+    const AUTHENTICATION_FAILED = 'N';
 
     /**
      * Note: **Authorization request should not be submitted.**
      *
      * @var string AUTHENTICATION_OTHER An error occurred during the authentication process.
      */
-    public const AUTHENTICATION_OTHER = 'E';
+    const AUTHENTICATION_OTHER = 'E';
+
+
 }

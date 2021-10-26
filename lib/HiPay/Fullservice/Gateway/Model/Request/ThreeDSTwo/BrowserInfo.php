@@ -189,4 +189,5 @@ class BrowserInfo extends AbstractModel
     {
         return $this->timezone;
     }
+
 }

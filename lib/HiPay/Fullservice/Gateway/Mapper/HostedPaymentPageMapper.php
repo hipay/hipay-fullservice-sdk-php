@@ -32,6 +32,7 @@ use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
  */
 class HostedPaymentPageMapper extends AbstractMapper
 {
+
     /**
      * @var HostedPaymentPage $_modelObject Model object to populate
      */

@@ -31,6 +31,7 @@ use HiPay\Fullservice\HTTP\Response\AbstractResponse;
  */
 abstract class ClientProvider implements Client
 {
+
     /**
      * @var ConfigurationInterface $_configuration Configuration object used for authentication and endpoints
      */

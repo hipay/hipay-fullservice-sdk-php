@@ -30,10 +30,10 @@ class NameIndicator
     /**
      * Account name identical to shipping Name
      */
-    public const IDENTICAL = 1;
+    const IDENTICAL = 1;
 
     /**
      * Account name different than shipping Name
      */
-    public const DIFFERENT = 2;
+    const DIFFERENT = 2;
 }

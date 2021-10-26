@@ -30,20 +30,20 @@ class DeliveryTimeFrame
     /**
      * ELECTRONIC DELIVERY
      */
-    public const ELECTRONIC_DELIVERY = 1;
+    const ELECTRONIC_DELIVERY = 1;
 
     /**
      * SAME DAY SHIPPING
      */
-    public const SAME_DAY_SHIPPING = 2;
+    const SAME_DAY_SHIPPING = 2;
 
     /**
      * OVERNIGHT SHIPPING
      */
-    public const OVERNIGHT_SHIPPING = 3;
+    const OVERNIGHT_SHIPPING = 3;
 
     /**
      * TWO DAY OR MORE SHIPPING
      */
-    public const TWO_DAY_OR_MORE_SHIPPING = 4;
+    const TWO_DAY_OR_MORE_SHIPPING = 4;
 }

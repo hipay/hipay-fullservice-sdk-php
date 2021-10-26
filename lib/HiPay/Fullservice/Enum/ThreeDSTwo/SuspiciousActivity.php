@@ -30,10 +30,10 @@ class SuspiciousActivity
     /**
      * No suspicious activity has been observed
      */
-    public const NO_SUSPICIOUS_ACTIVITY = 1;
+    const NO_SUSPICIOUS_ACTIVITY = 1;
 
     /**
      * Suspicious activity has been observed
      */
-    public const SUSPICIOUS_ACTIVITY = 2;
+    const SUSPICIOUS_ACTIVITY = 2;
 }

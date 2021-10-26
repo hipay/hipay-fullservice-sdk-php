@@ -32,6 +32,7 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Item extends AbstractModel
 {
+
     /**
      *  European article numbering
      *

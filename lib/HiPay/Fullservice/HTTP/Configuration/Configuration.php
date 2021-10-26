@@ -37,62 +37,62 @@ class Configuration implements ConfigurationInterface
     /**
      * @var string SECURE_VAULT_ENDPOINT_PROD Secure Vault Endpoint for production
      */
-    public const SECURE_VAULT_ENDPOINT_PROD = "https://secure2-vault.hipay-tpp.com/rest/";
+    const SECURE_VAULT_ENDPOINT_PROD = "https://secure2-vault.hipay-tpp.com/rest/";
 
     /**
      * @var string SECURE_VAULT_ENDPOINT_STAGE Secure Vault Endpoint for test
      */
-    public const SECURE_VAULT_ENDPOINT_STAGE = "https://stage-secure2-vault.hipay-tpp.com/rest/";
+    const SECURE_VAULT_ENDPOINT_STAGE = "https://stage-secure2-vault.hipay-tpp.com/rest/";
 
     /**
      * @var string API_ENDPOINT_PROD API Endpoint for production
      */
-    public const API_ENDPOINT_PROD = "https://secure-gateway.hipay-tpp.com/rest/";
+    const API_ENDPOINT_PROD = "https://secure-gateway.hipay-tpp.com/rest/";
 
     /**
      * @var string API_ENDPOINT_STAGE API Endpoint for test
      */
-    public const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
+    const API_ENDPOINT_STAGE = "https://stage-secure-gateway.hipay-tpp.com/rest/";
 
     /**
      * @var string API_ENDPOINT_V2_PROD API Endpoint v2 for production
      */
-    public const API_ENDPOINT_V2_PROD = "https://api.hipay.com/";
+    const API_ENDPOINT_V2_PROD = "https://api.hipay.com/";
 
     /**
      * @var string API_ENDPOINT_V2_STAGE API Endpoint v2 for test
      */
-    public const API_ENDPOINT_V2_STAGE = "https://stage-api.hipay.com/";
+    const API_ENDPOINT_V2_STAGE = "https://stage-api.hipay.com/";
 
     /**
      * @var string DATA_API_ENDPOINT_PROD Data API Endpoint for production
      */
-    public const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
+    const DATA_API_ENDPOINT_PROD = "https://data.hipay.com/";
 
     /**
      * @var string DATA_API_ENDPOINT_STAGE Data API Endpoint for test
      */
-    public const DATA_API_ENDPOINT_STAGE = "https://stage-data.hipay.com/";
+    const DATA_API_ENDPOINT_STAGE = "https://stage-data.hipay.com/";
 
     /**
      * @var string DATA_API_HTTP_USER_AGENT custom user agent for the data API
      */
-    public const DATA_API_HTTP_USER_AGENT = 'sdk-php-hipay';
+    const DATA_API_HTTP_USER_AGENT = 'sdk-php-hipay';
 
     /**
      * @var string API_ENV_STAGE Stage environment. Useful for integration tests.
      */
-    public const API_ENV_STAGE = 'stage';
+    const API_ENV_STAGE = 'stage';
 
     /**
      * @var string API_ENV_PRODUCTION Production environment. Used in real payment process
      */
-    public const API_ENV_PRODUCTION = 'production';
+    const API_ENV_PRODUCTION = 'production';
 
     /**
      * @var string API_ENV_CUSTOM Custom environment. Used in demo and development tests
      */
-    public const API_ENV_CUSTOM = 'custom';
+    const API_ENV_CUSTOM = 'custom';
 
     /**
      * @var string[] $_validHTPPHeaders Allowed HTTP header Accept's values
@@ -319,7 +319,6 @@ class Configuration implements ConfigurationInterface
                 } else {
                     return $this->urlCustom;
                 }
-                // no break
             case self::API_ENV_PRODUCTION:
                 return $this->getApiEndpointProd();
             case self::API_ENDPOINT_STAGE:
@@ -383,7 +382,6 @@ class Configuration implements ConfigurationInterface
                     } else {
                         return $this->urlCustom;
                     }
-                    // no break
                 case self::API_ENV_PRODUCTION:
                     return $this->getApiEndpointV2Prod();
                 case self::API_ENDPOINT_STAGE:

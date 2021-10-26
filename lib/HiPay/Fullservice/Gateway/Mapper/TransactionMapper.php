@@ -35,6 +35,7 @@ use HiPay\Fullservice\Mapper\AbstractMapper;
  */
 class TransactionMapper extends AbstractMapper
 {
+
     /**
      * @var Transaction $_modelObject Model object to populate
      */

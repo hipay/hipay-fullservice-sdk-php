@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Request\Maintenance;
 
+
 use HiPay\Fullservice\Gateway\Request\CommonRequest;
 
 /**
@@ -32,6 +33,7 @@ use HiPay\Fullservice\Gateway\Request\CommonRequest;
  * */
 class MaintenanceRequest extends CommonRequest
 {
+
     /**
      *  Operation type for maintenance request
      *
@@ -53,4 +55,5 @@ class MaintenanceRequest extends CommonRequest
      * @var float
      */
     public $amount;
+    
 }

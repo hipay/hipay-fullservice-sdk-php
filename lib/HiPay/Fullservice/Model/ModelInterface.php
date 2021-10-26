@@ -30,6 +30,7 @@ namespace HiPay\Fullservice\Model;
  */
 interface ModelInterface
 {
+
     /**
      * Return Json representation of public attributes
      * @return string Json representation

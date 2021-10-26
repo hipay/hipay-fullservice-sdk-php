@@ -13,7 +13,6 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -21,7 +20,7 @@ use HiPay\Fullservice\Gateway\Model\PaymentMethod;
 
 /**
  * Mapper for Payment Method Model Object
- *
+ *  
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,12 +28,12 @@ use HiPay\Fullservice\Gateway\Model\PaymentMethod;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PaymentMethodMapper extends AbstractMapper
-{
-    /**
-     * @var PaymentMethod $_modelObject Model object to populate
-     */
-    protected $_modelObject;
+class PaymentMethodMapper extends AbstractMapper {
+	
+	/**
+	 * @var PaymentMethod $_modelObject Model object to populate
+	 */
+	protected $_modelObject;
 
     /**
      * @var string $_modelClassName
@@ -58,8 +57,10 @@ class PaymentMethodMapper extends AbstractMapper
         $cardExpiryYear = isset($source['cardExpiryYear']) ? $source['cardExpiryYear'] : null;
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
-
+        
         $this->_modelObject = new PaymentMethod($token, $brand, $pan, $cardHolder, $cardExpiryMonth, $cardExpiryYear, $issuer, $country);
+        
+ 			
     }
 
     /**
@@ -83,4 +84,7 @@ class PaymentMethodMapper extends AbstractMapper
     {
         return '\HiPay\Fullservice\Gateway\Model\PaymentMethod';
     }
+
+
+
 }

@@ -30,15 +30,15 @@ class DeviceChannel
     /**
      * App-based (APP)
      */
-    public const APP_BASED = 1;
+    const APP_BASED = 1;
 
     /**
      * Browser (BRW)
      */
-    public const BROWSER = 2;
+    const BROWSER = 2;
 
     /**
      * 3DS Requestor Initiated (3RI)
      */
-    public const THREE_DS_REQUESTOR_INITIATED = 3;
+    const THREE_DS_REQUESTOR_INITIATED = 3;
 }

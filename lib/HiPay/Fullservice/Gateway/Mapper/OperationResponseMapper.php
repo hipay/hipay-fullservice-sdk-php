@@ -31,6 +31,7 @@ use HiPay\Fullservice\Mapper\AbstractMapper;
  */
 class OperationResponseMapper extends AbstractMapper
 {
+
     /**
      * @var OperationResponse $_modelObject Model object to populate
      */

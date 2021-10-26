@@ -59,6 +59,7 @@ class Order extends AbstractModel
         $language,
         $shippingAddress
     ) {
+
         $this->_id = $id;
         $this->_customerId = $customerId;
         $this->_amount = $amount;

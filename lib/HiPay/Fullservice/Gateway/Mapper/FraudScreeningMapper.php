@@ -13,7 +13,6 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -32,6 +31,7 @@ use HiPay\Fullservice\Gateway\Model\FraudScreening;
  */
 class FraudScreeningMapper extends AbstractMapper
 {
+    
     /**
      * @var FraudScreening $_modelObject Model object to populate
      */
@@ -54,7 +54,7 @@ class FraudScreeningMapper extends AbstractMapper
         $scoring = isset($source['scoring']) ? $source['scoring'] : null;
         $result = isset($source['result']) ? $source['result'] : null;
         $review = isset($source['review']) ? $source['review'] : null;
-
+        
         $this->_modelObject = new FraudScreening($scoring, $result, $review);
     }
 

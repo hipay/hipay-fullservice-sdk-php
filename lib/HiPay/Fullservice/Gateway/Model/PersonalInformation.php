@@ -55,6 +55,7 @@ class PersonalInformation extends AbstractModel
         $phoneOperator,
         $email
     ) {
+
         $this->_firstname = $firstname;
         $this->_lastname = $lastname;
         $this->_streetAddress = $streetAddress;

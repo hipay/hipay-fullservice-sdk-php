@@ -37,6 +37,7 @@ use HiPay\Fullservice\HTTP\Response\Response;
  */
 class SimpleHTTPClient extends ClientProvider
 {
+
     /**
      * {@inheritDoc}
      *
@@ -53,7 +54,8 @@ class SimpleHTTPClient extends ClientProvider
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
-        } elseif (!$this->validateHttpMethod($method)) {
+        }
+        else if (!$this->validateHttpMethod($method)) {
             throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
         }
 

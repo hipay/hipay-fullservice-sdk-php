@@ -13,28 +13,27 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
-
 namespace HiPay\Fullservice\Mapper;
 
-use HiPay\Fullservice\Model\AbstractModel;
 
+use HiPay\Fullservice\Model\AbstractModel;
 /**
  * Mapper Interface
  * Map Model Response object
- *
+ * 
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  */
-interface MapperInterface
-{
-    /**
-     * Return an object model mapped
-     * Each call map model object before return it
-     *
-     * @return AbstractModel Model object filled with Client Response
-     */
-    public function getModelObjectMapped();
+interface MapperInterface {
+	
+	/**
+	 * Return an object model mapped
+	 * Each call map model object before return it
+	 * 
+	 * @return AbstractModel Model object filled with Client Response
+	 */
+	public function getModelObjectMapped();
 }
