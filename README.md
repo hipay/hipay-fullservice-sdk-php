@@ -1,9 +1,6 @@
 # HiPay Enterprise SDK for PHP
 
-[![Build Status](https://hook.hipay.org/badge-ci/build/pi-ecommerce/hipay-fullservice-sdk-php/develop?service=github)]()
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/hipay/hipay-fullservice-sdk-php/master/LICENSE.md)
-[![Quality Gate Status](https://sonar-ce.hipay.org/api/project_badges/measure?project=hipay-fullservice-sdk-php&metric=alert_status)](https://sonar-ce.hipay.org/dashboard?id=hipay-fullservice-sdk-php)
-[![Coverage](https://sonar-ce.hipay.org/api/project_badges/measure?project=hipay-fullservice-sdk-php&metric=coverage)](https://sonar-ce.hipay.org/dashboard?id=hipay-fullservice-sdk-php)
 
 The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform (Symfony, CMS module, custom website...).
 

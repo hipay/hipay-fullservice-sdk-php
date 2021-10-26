@@ -95,7 +95,6 @@ class Collection
         if ($files) {
             foreach ($files as $file) {
                 if (preg_match('/(.*)\.json/', $file) == 1) {
-
                     $paymentProductConfig = file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $file);
 
                     if ($paymentProductConfig) {
@@ -120,7 +119,7 @@ class Collection
             } else {
                 $paymentProductArray = explode(',', $paymentProductList);
             }
-            
+
             $paymentProductDetailsArray = array();
 
             foreach ($paymentProductArray as $paymentProduct) {
