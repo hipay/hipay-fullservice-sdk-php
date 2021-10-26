@@ -13,13 +13,14 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum\Customer;
 
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
  * # Customer gender constant values
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,17 +30,16 @@ use HiPay\Fullservice\Enum\AbstractEnum;
  */
 class Gender extends AbstractEnum
 {
-    
     /**
      * @var string UNKNOWN  UNKNOWN gender
      */
     const UNKNOWN = 'U';
-    
+
     /**
      * @var string MALE Male
      */
     const MALE = 'M';
-    
+
     /**
      * @var string FEMALE Female
      */

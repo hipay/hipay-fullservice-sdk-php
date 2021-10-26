@@ -30,7 +30,6 @@ use HiPay\Fullservice\Enum\AbstractEnum;
  */
 class TypeItems extends AbstractEnum
 {
-
     /**
      *  Type for an article item
      *

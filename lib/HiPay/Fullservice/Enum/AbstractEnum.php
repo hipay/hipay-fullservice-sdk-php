@@ -13,11 +13,12 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum;
 
 /**
  * Abstract Enum class
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -26,5 +27,4 @@ namespace HiPay\Fullservice\Enum;
  */
 abstract class AbstractEnum
 {
-    
 }

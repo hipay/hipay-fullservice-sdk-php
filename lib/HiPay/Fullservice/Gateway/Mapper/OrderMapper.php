@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Gateway\Model\PersonalInformation;
@@ -21,7 +22,7 @@ use HiPay\Fullservice\Gateway\Model\Order;
 
 /**
  * Mapper for Order Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -29,8 +30,8 @@ use HiPay\Fullservice\Gateway\Model\Order;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class OrderMapper extends AbstractMapper {
-
+class OrderMapper extends AbstractMapper
+{
     /**
      * @var string $_modelClassName
      */
@@ -61,9 +62,9 @@ class OrderMapper extends AbstractMapper {
          * @var PersonalInformation $shippingAddress
          */
         $shippingAddress = null;
-        if(isset($source['shippingAddress'])){
-        	$pim = new PersonalInformationMapper($source['shippingAddress']);
-        	$shippingAddress = $pim->getModelObjectMapped();
+        if (isset($source['shippingAddress'])) {
+            $pim = new PersonalInformationMapper($source['shippingAddress']);
+            $shippingAddress = $pim->getModelObjectMapped();
         }
 
         $this->_modelObject = new Order(
@@ -80,7 +81,6 @@ class OrderMapper extends AbstractMapper {
             $language,
             $shippingAddress
         );
-        
     }
 
     /**
@@ -104,7 +104,4 @@ class OrderMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\Order';
     }
-
-
-
 }

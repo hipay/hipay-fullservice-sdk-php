@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum\Helper;
 
 use HiPay\Fullservice\Enum\AbstractEnum;
@@ -45,6 +46,4 @@ class HashAlgorithm extends AbstractEnum
      * @var string  Hashing SHA-512
      */
     const SHA512 = 'SHA512';
-
 }
-

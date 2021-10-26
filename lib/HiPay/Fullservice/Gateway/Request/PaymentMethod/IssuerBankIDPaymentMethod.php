@@ -37,5 +37,4 @@ class IssuerBankIDPaymentMethod extends AbstractRequest
      * @required
      */
     public $issuer_bank_id;
-
 }

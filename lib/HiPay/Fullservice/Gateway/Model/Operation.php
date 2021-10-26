@@ -38,7 +38,6 @@ class Operation extends AbstractTransaction
         $currency,
         $operation
     ) {
-
         parent::__construct(
             $mid,
             $authorizationCode,

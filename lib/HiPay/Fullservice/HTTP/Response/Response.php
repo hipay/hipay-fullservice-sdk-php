@@ -27,7 +27,6 @@ namespace HiPay\Fullservice\HTTP\Response;
  */
 class Response extends AbstractResponse
 {
-
     /**
      * Response constructor.
      *

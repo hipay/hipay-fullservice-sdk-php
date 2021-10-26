@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
 use HiPay\Fullservice\Request\AbstractRequest;
@@ -20,7 +21,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
 /**
  * Qiwi Wallet Payment Method
  * Data related to payment with qiwi wallet system
- * 
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -30,13 +31,13 @@ use HiPay\Fullservice\Request\AbstractRequest;
  */
 class QiwiWalletPaymentMethod extends AbstractRequest
 {
-   /**
-    * The Qiwi user's ID, to whom the invoice is issued.
-    * It is the user's phone number, in international format (+79263745223).
-    * 
-    * @var string $qiwiuser The Qiwi user's ID
-    * @length 12
-    * @required
-    */ 
-   public $qiwiuser;
+    /**
+     * The Qiwi user's ID, to whom the invoice is issued.
+     * It is the user's phone number, in international format (+79263745223).
+     *
+     * @var string $qiwiuser The Qiwi user's ID
+     * @length 12
+     * @required
+     */
+    public $qiwiuser;
 }

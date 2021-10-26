@@ -31,7 +31,6 @@ namespace HiPay\Fullservice\Model;
  */
 abstract class AbstractModel implements ModelInterface
 {
-
     /**
      * {@inheritDoc}
      *
@@ -39,7 +38,6 @@ abstract class AbstractModel implements ModelInterface
      */
     public function toArray()
     {
-
         $array = array();
 
         $classRef = new \ReflectionClass(get_class($this));

@@ -13,14 +13,15 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Enum\Transaction;
 
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
  * # Operation type constant values
- * 
- * 
+ *
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -30,22 +31,21 @@ use HiPay\Fullservice\Enum\AbstractEnum;
  */
 class Operation extends AbstractEnum
 {
-    
     /**
      * @var string CAPTURE operation capture
      */
     const CAPTURE = 'capture';
-    
+
     /**
      * @var string REFUND operation refund
      */
     const REFUND = 'refund';
-    
+
     /**
      * @var string CANCEL operation cancel
      */
     const CANCEL = 'cancel';
-    
+
     /**
      * @var string CAPTURE operation acceptChallenge
      */
@@ -54,8 +54,4 @@ class Operation extends AbstractEnum
      * @var string DENY_CHALLENGE operation denyChallenge
      */
     const DENY_CHALLENGE = 'denyChallenge';
-
-    
-    
-   
 }

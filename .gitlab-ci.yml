@@ -57,7 +57,7 @@ code-style:
   cache:
     <<: *global_cache
   script:
-    - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
+    - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run --rules=@PSR12,-visibility_required
   allow_failure: true # Temporary until error fix
 #  allow_failure: 
 #    exit_codes:

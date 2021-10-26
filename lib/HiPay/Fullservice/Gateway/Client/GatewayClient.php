@@ -44,7 +44,6 @@ use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
  */
 class GatewayClient implements GatewayClientInterface
 {
-
     /**
      *
      * @var string ENDPOINT_NEW_ORDER endpoint to create a new transaction order
@@ -171,7 +170,7 @@ class GatewayClient implements GatewayClientInterface
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
 
-        if($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
+        if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
         }
 
@@ -216,8 +215,7 @@ class GatewayClient implements GatewayClientInterface
         $amount = null,
         $operationId = null,
         MaintenanceRequest $maintenanceRequest = null
-    )
-    {
+    ) {
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();
         }

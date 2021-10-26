@@ -33,7 +33,6 @@ use HiPay\Fullservice\Data\DeliveryMethodAttribute;
  */
 class CollectionModeShipping
 {
-
     /**
      * @return array<string, array<DeliveryMethodAttribute>> Collection
      */

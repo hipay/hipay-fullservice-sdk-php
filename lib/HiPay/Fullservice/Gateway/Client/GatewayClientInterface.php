@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Model\Transaction;
@@ -22,7 +23,6 @@ use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Model\Operation;
-
 
 /**
  * Client interface for all request send to TPP Fullservice.
@@ -37,7 +37,6 @@ use HiPay\Fullservice\Gateway\Model\Operation;
  */
 interface GatewayClientInterface
 {
-
     /**
      * Request a new order
      * @param OrderRequest $orderRequest
@@ -90,16 +89,15 @@ interface GatewayClientInterface
     public function requestOrderTransactionInformation($orderId);
 
     /**
-     * Get security settings 
-     * 
+     * Get security settings
+     *
      * @return mixed
      */
     public function requestSecuritySettings();
-    
+
     /**
      * Return current HTTP client provider
      * @return ClientProvider The current client provider
      */
     public function getClientProvider();
-
 }
