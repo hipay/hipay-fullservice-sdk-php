@@ -3,7 +3,7 @@ image: mileschou/xdebug:7.4
 stages:
   - Build
   - Lint
-  - Test
+  - test
   - Current version tests
   - Other versions tests
   - Infection
