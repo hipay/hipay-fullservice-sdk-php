@@ -160,6 +160,7 @@ class PIDataClientTest extends TestCase
                 "cms_module_version" => $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
+                "sdk_server_engine_version" => phpversion(),
             ),
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
