@@ -43,13 +43,24 @@ build:
   tags:
     - small
 
-# #############
-# # END BUILD #
-# #############
+#############
+# END BUILD #
+#############
 
-# ############
-# # VALIDATE #
-# ############
+########
+# SAST #
+########
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+############
+# END SAST #
+############
+
+############
+# VALIDATE #
+############
 
 # Check code standards application (PSR-1, PSR-2...)
 code-style:
