@@ -319,6 +319,7 @@ class Configuration implements ConfigurationInterface
                 } else {
                     return $this->urlCustom;
                 }
+                // no break
             case self::API_ENV_PRODUCTION:
                 return $this->getApiEndpointProd();
             case self::API_ENDPOINT_STAGE:
@@ -382,6 +383,7 @@ class Configuration implements ConfigurationInterface
                     } else {
                         return $this->urlCustom;
                     }
+                    // no break
                 case self::API_ENV_PRODUCTION:
                     return $this->getApiEndpointV2Prod();
                 case self::API_ENDPOINT_STAGE:

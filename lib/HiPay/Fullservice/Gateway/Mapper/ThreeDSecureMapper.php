@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Mapper\AbstractMapper;
@@ -20,7 +21,7 @@ use HiPay\Fullservice\Gateway\Model\ThreeDSecure;
 
 /**
  * Mapper for 3D Secure Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,12 +29,12 @@ use HiPay\Fullservice\Gateway\Model\ThreeDSecure;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class ThreeDSecureMapper extends AbstractMapper {
-	
-	/**
-	 * @var ThreeDSecure $_modelObject Model object to populate
-	 */
-	protected $_modelObject;
+class ThreeDSecureMapper extends AbstractMapper
+{
+    /**
+     * @var ThreeDSecure $_modelObject Model object to populate
+     */
+    protected $_modelObject;
 
     /**
      * @var string $_modelClassName
@@ -56,10 +57,8 @@ class ThreeDSecureMapper extends AbstractMapper {
         $authenticationMessage = isset($source['authenticationMessage']) ? $source['authenticationMessage'] : null;
         $authenticationToken = isset($source['authenticationToken']) ? $source['authenticationToken'] : null;
         $xid = isset($source['xid']) ? $source['xid'] : null;
-        
+
         $this->_modelObject = new ThreeDSecure($eci, $enrollmentStatus, $enrollmentMessage, $authenticationStatus, $authenticationMessage, $authenticationToken, $xid);
-        
- 			
     }
 
     /**
@@ -83,7 +82,4 @@ class ThreeDSecureMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\ThreeDSecure';
     }
-
-
-
 }

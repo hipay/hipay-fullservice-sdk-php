@@ -133,6 +133,4 @@ class ThreeDSecureStatus extends AbstractEnum
      * @var string AUTHENTICATION_OTHER An error occurred during the authentication process.
      */
     const AUTHENTICATION_OTHER = 'E';
-
-
 }

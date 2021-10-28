@@ -32,7 +32,6 @@ use HiPay\Fullservice\Data\DeliveryMethod;
  */
 class Collection
 {
-
     /**
      * @return DeliveryMethod[] Collection of Category
      */

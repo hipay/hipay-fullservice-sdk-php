@@ -90,4 +90,3 @@ class ECI extends AbstractEnum
      */
     const RECURRING_ECOMMERCE = 9;
 }
-

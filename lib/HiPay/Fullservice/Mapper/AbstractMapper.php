@@ -32,7 +32,6 @@ use HiPay\Fullservice\Helper\Convert;
  */
 abstract class AbstractMapper implements MapperInterface
 {
-
     /**
      * @var AbstractModel $_modelObject Model object to populate
      */
@@ -54,7 +53,6 @@ abstract class AbstractMapper implements MapperInterface
      */
     public function __construct(array $source)
     {
-
         if (count($source) < 1) {
             throw new LengthException("Mapper source must contains 1 element at least.");
         }
