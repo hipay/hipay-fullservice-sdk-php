@@ -82,6 +82,9 @@ class TransactionMapper extends AbstractMapper
         $eci = isset($source['eci']) ? $source['eci'] : null;
         $paymentProduct = isset($source['paymentProduct']) ? $source['paymentProduct'] : null;
 
+        /**
+         * @var PaymentMethod $paymentMethod
+         */
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
             $pmm = new PaymentMethodMapper($source['paymentMethod']);
@@ -90,6 +93,9 @@ class TransactionMapper extends AbstractMapper
             $paymentMethod = $pmm->getModelObjectMapped();
         }
 
+        /**
+         * @var ThreeDSecure $threeDSecure
+         */
         $threeDSecure = null;
         if (isset($source['threeDSecure']) && is_array($source['threeDSecure'])) {
             $tdsm = new ThreeDSecureMapper($source['threeDSecure']);
@@ -98,6 +104,9 @@ class TransactionMapper extends AbstractMapper
             $threeDSecure = $tdsm->getModelObjectMapped();
         }
 
+        /**
+         * @var FraudScreening $fraudScreening
+         */
         $fraudScreening = null;
         if (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) {
             $fsm = new FraudScreeningMapper($source['fraudScreening']);
@@ -106,6 +115,9 @@ class TransactionMapper extends AbstractMapper
             $fraudScreening = $fsm->getModelObjectMapped();
         }
 
+        /**
+         * @var Order $order
+         */
         $order = null;
         if (isset($source['order'])) {
             $om = new OrderMapper($source['order']);

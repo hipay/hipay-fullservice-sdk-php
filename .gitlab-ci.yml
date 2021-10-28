@@ -23,7 +23,7 @@ stages:
 # BUILD #
 #########
 
-# build and cache project dependancies
+# Build and cache project dependancies
 build:
   stage: build
   cache:
