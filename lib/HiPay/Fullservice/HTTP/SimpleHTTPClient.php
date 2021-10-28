@@ -55,8 +55,7 @@ class SimpleHTTPClient extends ClientProvider
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
         } elseif (!$this->validateHttpMethod($method)) {
             throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
-        }
-        else if (!$this->validateHttpMethod($method)) {
+        } elseif (!$this->validateHttpMethod($method)) {
             throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
         }
 
