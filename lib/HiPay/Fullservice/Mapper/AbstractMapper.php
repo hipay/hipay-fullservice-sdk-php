@@ -39,7 +39,7 @@ abstract class AbstractMapper implements MapperInterface
     protected $_modelObject;
 
     /**
-     * @var array $_source Source to parse
+     * @var array<string, mixed> $_source Source to parse
      */
     protected $_source;
 
@@ -49,7 +49,7 @@ abstract class AbstractMapper implements MapperInterface
      * Assign $source to local protected property $_source
      * $_source is used in mapResponseToModel method
      *
-     * @param array $source
+     * @param array<string, mixed> $source
      * @throws LengthException Source must contains 1 element at least
      */
     public function __construct(array $source)
@@ -68,6 +68,7 @@ abstract class AbstractMapper implements MapperInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Mapper\MapperInterface::getModelObjectMapped()
+     * @return AbstractModel
      */
     public function getModelObjectMapped()
     {
@@ -76,6 +77,9 @@ abstract class AbstractMapper implements MapperInterface
         return $this->_modelObject;
     }
 
+    /**
+     * @return void
+     */
     protected function uniformizeSourceKeys()
     {
         $this->_source = Convert::arrayKeysToCamelCase($this->_source);
@@ -84,7 +88,7 @@ abstract class AbstractMapper implements MapperInterface
     /**
      * Return source to map
      * @see AbstractMapper:::_construct
-     * @return array Local source
+     * @return array<string, mixed> Local source
      */
     protected function _getSource()
     {
@@ -98,12 +102,14 @@ abstract class AbstractMapper implements MapperInterface
      * with $_source array
      *
      * @throws \Exception
+     * @return void
      */
     abstract protected function mapResponseToModel();
 
     /**
      * Validate source data
      * @throws \Exception
+     * @return AbstractMapper
      */
     abstract protected function validate();
 

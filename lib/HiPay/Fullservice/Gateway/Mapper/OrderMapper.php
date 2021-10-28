@@ -15,6 +15,7 @@
  */
 namespace HiPay\Fullservice\Gateway\Mapper;
 
+use HiPay\Fullservice\Gateway\Model\PersonalInformation;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 use HiPay\Fullservice\Gateway\Model\Order;
 
@@ -29,7 +30,10 @@ use HiPay\Fullservice\Gateway\Model\Order;
  * @api
  */
 class OrderMapper extends AbstractMapper {
-    
+
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**
@@ -52,14 +56,30 @@ class OrderMapper extends AbstractMapper {
         $decimals = isset($source['decimals']) ? $source['decimals'] : null;
         $gender = isset($source['gender']) ? $source['gender'] : null;
         $language = isset($source['language']) ? $source['language'] : null;
+
+        /**
+         * @var PersonalInformation $shippingAddress
+         */
         $shippingAddress = null;
         if(isset($source['shippingAddress'])){
         	$pim = new PersonalInformationMapper($source['shippingAddress']);
         	$shippingAddress = $pim->getModelObjectMapped();
         }
-        
 
-        $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
+        $this->_modelObject = new Order(
+            $id,
+            $customerId,
+            $amount,
+            $tax,
+            $shipping,
+            $dateCreated,
+            $attempts,
+            $currency,
+            $decimals,
+            $gender,
+            $language,
+            $shippingAddress
+        );
         
     }
 

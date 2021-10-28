@@ -47,10 +47,18 @@ class OperationResponse extends AbstractModel
     protected $_dateAuthorized;
 
     /**
+     * OperationResponse constructor.
      *
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Gateway\Model\AbstractTransaction::__construct()
+     *
+     * @param string $type
+     * @param string $id
+     * @param string $reference
+     * @param float $amount
+     * @param string $currency
+     * @param string $dateAuthorized
      */
     public function __construct(
         $type,
@@ -78,6 +86,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param string $type
+     * @return void
      */
     public function setType($type)
     {
@@ -94,6 +103,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param string $id
+     * @return void
      */
     public function setId($id)
     {
@@ -110,6 +120,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param string $reference
+     * @return void
      */
     public function setReference($reference)
     {
@@ -126,6 +137,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param float $amount
+     * @return void
      */
     public function setAmount($amount)
     {
@@ -142,6 +154,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param mixed $currency
+     * @return void
      */
     public function setCurrency($currency)
     {
@@ -158,6 +171,7 @@ class OperationResponse extends AbstractModel
 
     /**
      * @param string $dateAuthorized
+     * @return void
      */
     public function setDateAuthorized($dateAuthorized)
     {

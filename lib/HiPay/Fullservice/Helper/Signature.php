@@ -78,7 +78,7 @@ class Signature
      * @param string $secretPassphrase
      * @param string $hashAlgorithm
      *
-     * @return string
+     * @return string|false
      */
     protected static function getComputedSignature($secretPassphrase, $hashAlgorithm)
     {
@@ -97,11 +97,17 @@ class Signature
         return $computedSignature;
     }
 
+    /**
+     * @return bool
+     */
     protected static function isRedirection()
     {
         return isset($_GET ['hash']);
     }
 
+    /**
+     * @return mixed
+     */
     protected static function getSignature()
     {
         if (static::isRedirection()) {
@@ -111,6 +117,9 @@ class Signature
         }
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected static function getParameters()
     {
         $params = $_GET;
@@ -119,11 +128,18 @@ class Signature
         return $params;
     }
 
+    /**
+     * @return false|string
+     */
     protected static function getRawPostData()
     {
         return file_get_contents("php://input");
     }
 
+    /**
+     * @param string $secretPassPhrase
+     * @return string
+     */
     protected static function getStringToCompute($secretPassPhrase)
     {
         $string2compute = "";

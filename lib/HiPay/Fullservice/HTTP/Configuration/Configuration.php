@@ -121,11 +121,11 @@ class Configuration implements ConfigurationInterface
      */
     private $_apiHTTPHeaderAccept = 'application/json';
     /**
-     * @var array proxy configuration
+     * @var array<string, mixed> proxy configuration
      */
     private $proxy = array();
     /**
-     * @var array Allowed proxy array key's values
+     * @var array<string> Allowed proxy array key's values
      */
     private $validProxyKeys = array("host", "port", "user", "password");
 
@@ -159,7 +159,7 @@ class Configuration implements ConfigurationInterface
      * - `application/xml` Return XML response. If you use this header, you must implement your Mapper Classes
      * - `application/json, application/xml;q=0.8, {@*}*;q=0.5` Accept 2 formats. If you use this header, you must implement your Mapper Classes
      *
-     * @param array $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [overridePaymentProductSorting], [hostedPageV2], [customApiURL]
+     * @param array<string, mixed> $params Needs to be an array with the following values : apiUsername, apiPassword, [apiEnv], [apiHTTPHeaderAccept], [proxy], [timeout], [connect_timeout], [overridePaymentProductSorting], [hostedPageV2], [customApiURL]
      */
     public function __construct($params)
     {
@@ -319,14 +319,11 @@ class Configuration implements ConfigurationInterface
                 } else {
                     return $this->urlCustom;
                 }
-                break;
             case self::API_ENV_PRODUCTION:
                 return $this->getApiEndpointProd();
-                break;
             case self::API_ENDPOINT_STAGE:
             default:
                 return $this->getApiEndpointStage();
-                break;
         }
     }
 
@@ -614,7 +611,7 @@ class Configuration implements ConfigurationInterface
      * @param string $apiPassword Merchant API Password
      * @param string $apiEnv API environment. Value between 'stage' or 'production'
      * @param string $apiHTTPHeaderAccept HTTP header Accept's value.
-     * @param array $proxy proxy configuration.
+     * @param array<string, mixed> $proxy proxy configuration.
      * @param int $timeout Timeout value for curl calls.
      * @param int $connect_timeout Timeout value for curl connection.
      * @throws InvalidArgumentException
@@ -622,7 +619,7 @@ class Configuration implements ConfigurationInterface
      * @see \HiPay\Fullservice\HTTP\ClientProvider::__construct Used for http client configuration (credentials,env etc ...)
      * @see \HiPay\Fullservice\HTTP\Configuration\Configuration::__constructFromArray()
      * @deprecated
-     * @return array The well formatted array to construct Configuration
+     * @return array<string, mixed> The well formatted array to construct Configuration
      */
     private function __constructDirect(
         $apiUsername,

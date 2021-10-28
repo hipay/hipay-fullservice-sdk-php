@@ -9,7 +9,7 @@
     "payment method"
   ],
   "scripts": {
-    "test": "phpunit -c tests/unit/phpunit.xml",
+    "test": "phpunit -c tests/phpunit.xml --testsuite unit,integration",
     "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
   },
   "homepage": "https://hipay.com/product-enterprise/",
@@ -31,10 +31,13 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "6.2.*",
+    "phpunit/phpunit": "5.7.27",
     "phpstan/phpstan": "0.*",
     "phpcompatibility/php-compatibility": "^9.3",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "friendsofphp/php-cs-fixer": "^3.2",
+    "vlucas/phpdotenv": "^4.2.1",
+    "yoast/phpunit-polyfills": "^1.0"
   },
   "autoload": {
     "psr-4": {

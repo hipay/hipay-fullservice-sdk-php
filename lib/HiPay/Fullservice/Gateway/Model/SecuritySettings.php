@@ -54,6 +54,7 @@ class SecuritySettings extends AbstractModel
 
     /**
      * @param string $hashingAlgorithm
+     * @return void
      */
     public function setHashingAlgorithm($hashingAlgorithm)
     {

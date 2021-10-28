@@ -55,7 +55,7 @@ class Collection
     }
 
     /**
-     * @param null|string|array $categories
+     * @param null|string|array<string> $categories
      * @return PaymentProduct[] Collection of payment products filtered by category
      */
     public static function getItems($categories = null)
@@ -80,7 +80,7 @@ class Collection
     /**
      * Get all payment methods json data from directory
      *
-     * @return \Generator
+     * @return \Generator<array<mixed>>
      */
     private static function getPaymentMethodsData()
     {
@@ -94,8 +94,8 @@ class Collection
     /**
      * Reorder payment product by priority for use in hpayment pages
      *
-     * @param string $paymentProductList
-     * @return null
+     * @param array<string>|string|null $paymentProductList
+     * @return string|null
      */
     public static function orderByPriority($paymentProductList){
         if(!empty($paymentProductList)) {

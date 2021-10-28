@@ -33,10 +33,13 @@ class FraudScreeningMapper extends AbstractMapper
 {
     
     /**
-     * @var ThreeDSecure $_modelObject Model object to populate
+     * @var FraudScreening $_modelObject Model object to populate
      */
     protected $_modelObject;
-    
+
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**

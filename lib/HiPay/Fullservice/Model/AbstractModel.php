@@ -65,12 +65,17 @@ abstract class AbstractModel implements ModelInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Model\ModelInterface::toJson()
+     * @return string|false
      */
     public function toJson()
     {
         return json_encode($this->toArray());
     }
 
+    /**
+     * @param string $name
+     * @return mixed|null
+     */
     public function __get($name)
     {
         return isset($this->{$name}) ? $this->{$name} : null;

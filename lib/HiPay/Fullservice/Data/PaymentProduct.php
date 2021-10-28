@@ -84,22 +84,22 @@ class PaymentProduct
     private $basketRequired = false;
 
     /**
-     * @var array $currencies currencies accepted by the payment method, no restriction if empty
+     * @var array<string> $currencies currencies accepted by the payment method, no restriction if empty
      */
     private $currencies = array();
 
     /**
-     * @var array $countries countries accepted by the payment method, no restriction if empty
+     * @var array<string> $countries countries accepted by the payment method, no restriction if empty
      */
     private $countries = array();
 
     /**
-     * @var array $checkoutFieldsMandatory mandatory information to provide when requesting a new transaction
+     * @var array<string> $checkoutFieldsMandatory mandatory information to provide when requesting a new transaction
      */
     private $checkoutFieldsMandatory = array();
 
     /**
-     * @var array $additionalFields information about payment method specific fields, no specific fields if empty
+     * @var array<string> $additionalFields information about payment method specific fields, no specific fields if empty
      */
     private $additionalFields = array();
 
@@ -111,7 +111,7 @@ class PaymentProduct
     /**
      * PaymentProduct constructor.
      *
-     * @param array $paymentProductData
+     * @param array<string, mixed> $paymentProductData
      */
     public function __construct($paymentProductData)
     {
@@ -211,7 +211,7 @@ class PaymentProduct
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getCurrencies()
     {
@@ -219,7 +219,7 @@ class PaymentProduct
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getCountries()
     {
@@ -227,7 +227,7 @@ class PaymentProduct
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getCheckoutFieldsMandatory()
     {
@@ -235,7 +235,7 @@ class PaymentProduct
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getAdditionalFields()
     {
@@ -251,7 +251,7 @@ class PaymentProduct
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function toArray()
     {

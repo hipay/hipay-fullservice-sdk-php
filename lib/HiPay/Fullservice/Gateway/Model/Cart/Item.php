@@ -36,7 +36,7 @@ class Item extends AbstractModel
     /**
      *  European article numbering
      *
-     * @var string
+     * @var string|null
      * @format EAN
      */
     protected $_european_article_numbering;
@@ -106,7 +106,7 @@ class Item extends AbstractModel
     /**
      * Discount description
      *
-     * @var string
+     * @var string|null
      */
     protected $_discount_description;
 
@@ -119,35 +119,35 @@ class Item extends AbstractModel
     /**
      * Delivery Method
      *
-     * @var string
+     * @var string|null
      */
     protected $_delivery_method;
 
     /**
      * Delivery Company
      *
-     * @var string
+     * @var string|null
      */
     protected $_delivery_company;
 
     /**
      * Delivery Delay
      *
-     * @var string
+     * @var string|null
      */
     protected $_delivery_delay;
 
     /**
-     * Delivery Number
+     * Delivery Number|null
      *
-     * @var string
+     * @var string|null
      */
     protected $_delivery_number;
 
     /**
      * Id Category
      *
-     * @var int
+     * @var string|null
      * @value
      */
     protected $_product_category;
@@ -155,7 +155,7 @@ class Item extends AbstractModel
     /**
      * Id Merchant from HiPay BO ( Only for Marketplace)
      *
-     * @var string
+     * @var string|null
      */
     protected $_shop_id;
 
@@ -169,7 +169,7 @@ class Item extends AbstractModel
         $this->_product_reference = "";
         $this->_type = "";
         $this->_name = "";
-        $this->_quantity = "";
+        $this->_quantity = 0;
         $this->_unit_price = 0.00;
         $this->_tax_rate = 0.00;
         $this->_discount = 0.00;
@@ -228,7 +228,7 @@ class Item extends AbstractModel
      * @param float $tax_rate
      * @param float $discount
      * @param float $total_amount
-     * @param string $discount_description
+     * @param string|null $discount_description
      * @param string $type
      * @return \HiPay\Fullservice\Gateway\Model\Cart\Item
      */
@@ -307,10 +307,11 @@ class Item extends AbstractModel
      * @param string $product_description
      * @param string $delivery_method
      * @param string $delivery_company
-     * @param int $delivery_delay
+     * @param string $delivery_delay
      * @param string $delivery_number
      * @param int $product_category
-     * @param int $shop_id
+     * @param string $shop_id
+     * @return void
      */
     public function __constructItem(
         $european_article_numbering,
@@ -351,7 +352,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEuropeanArticleNumbering()
     {
@@ -514,7 +515,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDiscountDescription()
     {
@@ -522,7 +523,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @param string $discount_description
+     * @param string|null $discount_description
      * @return Item
      */
     public function setDiscountDescription($discount_description)
@@ -550,7 +551,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryMethod()
     {
@@ -568,7 +569,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryCompany()
     {
@@ -586,7 +587,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryDelay()
     {
@@ -604,7 +605,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeliveryNumber()
     {
@@ -622,7 +623,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getProductCategory()
     {
@@ -640,7 +641,7 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getShopId()
     {
@@ -660,7 +661,7 @@ class Item extends AbstractModel
     /**
      * Object to Array
      *
-     * @return array Hashed array with key/value pairs (property/value)
+     * @return array<string, mixed> Hashed array with key/value pairs (property/value)
      */
     public function toArray()
     {
@@ -673,7 +674,8 @@ class Item extends AbstractModel
      * Populate $_params array with data to send to the gateway
      *
      * @param Item $object
-     * @param array $params Passed by reference
+     * @param array<string, mixed> $params Passed by reference
+     * @return void
      */
     protected function prepareParams($object, &$params)
     {

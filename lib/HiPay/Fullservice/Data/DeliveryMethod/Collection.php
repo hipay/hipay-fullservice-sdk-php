@@ -52,7 +52,6 @@ class Collection
     }
 
     /**
-     *
      * @var string $_JSON Json collection
      */
     private static $_JSON = <<<EOT

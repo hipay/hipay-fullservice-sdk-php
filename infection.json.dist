@@ -1,0 +1,17 @@
+{
+    "source": {
+        "directories": [
+            "lib\/HiPay\/Fullservice"
+        ]
+    },
+    "phpUnit": {
+        "configDir": "tests"
+    },
+    "mutators": {
+        "@default": true
+    },
+    
+    "logs": {
+        "text": "infection.log"
+    }
+}

@@ -34,7 +34,10 @@ class ThreeDSecureMapper extends AbstractMapper {
 	 * @var ThreeDSecure $_modelObject Model object to populate
 	 */
 	protected $_modelObject;
-    
+
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**

@@ -235,7 +235,7 @@ class OrderRequest extends CommonRequest
      * Eg. {"merchant_promotion":"CODE"}
      * Alternative Ex. ["merchant_promotion" => "CODE"]
      *
-     * @var array|string $source (JSON).
+     * @var array<string, mixed>|string $payment_product_parameters (JSON).
      */
     public $payment_product_parameters;
 }

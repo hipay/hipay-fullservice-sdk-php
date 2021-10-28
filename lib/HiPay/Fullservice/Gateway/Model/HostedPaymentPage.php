@@ -31,7 +31,7 @@ use HiPay\Fullservice\Model\AbstractModel;
 class HostedPaymentPage extends AbstractModel
 {
     /**
-     * @var Order $_order
+     * @var Order|null $_order
      */
     protected $_order;
 
@@ -61,7 +61,7 @@ class HostedPaymentPage extends AbstractModel
     }
 
     /**
-     * @return Order
+     * @return Order|null
      */
     public function getOrder()
     {

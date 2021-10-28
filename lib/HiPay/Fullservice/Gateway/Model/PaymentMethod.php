@@ -32,7 +32,17 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class PaymentMethod extends AbstractModel
 {
-
+    /**
+     * PaymentMethod constructor.
+     * @param string $token
+     * @param string $brand
+     * @param string $pan
+     * @param string $cardHolder
+     * @param string $cardExpiryMonth
+     * @param string $cardExpiryYear
+     * @param string $issuer
+     * @param string $country
+     */
     public function __construct(
         $token,
         $brand,
@@ -95,41 +105,65 @@ class PaymentMethod extends AbstractModel
      */
     protected $_country;
 
+    /**
+     * @return string
+     */
     public function getToken()
     {
         return $this->_token;
     }
 
+    /**
+     * @return string
+     */
     public function getBrand()
     {
         return $this->_brand;
     }
 
+    /**
+     * @return string
+     */
     public function getPan()
     {
         return $this->_pan;
     }
 
+    /**
+     * @return string
+     */
     public function getCardHolder()
     {
         return $this->_cardHolder;
     }
 
+    /**
+     * @return string
+     */
     public function getCardExpiryMonth()
     {
         return $this->_cardExpiryMonth;
     }
 
+    /**
+     * @return string
+     */
     public function getCardExpiryYear()
     {
         return $this->_cardExpiryYear;
     }
 
+    /**
+     * @return string
+     */
     public function getIssuer()
     {
         return $this->_issuer;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry()
     {
         return $this->_country;

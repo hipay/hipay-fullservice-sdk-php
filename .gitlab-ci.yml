@@ -1,19 +1,307 @@
-cache:
-  key: ${CI_COMMIT_REF_SLUG}-${CI_PIPELINE_ID}
-  paths:
-    - composer.lock
-    - vendor/
+image: mileschou/xdebug:7.4
 
 stages:
-  - test
+  - Build
+  - Lint
+  - Current version tests
+  - Other versions tests
+  - Infection
+  - Sonar
 
-phpunit:
-  image: pathmotion/composer-php-7.2:latest
-  stage: test
+
+.cache: &global_cache
+    paths:
+        - vendor/
+        - composer.lock
+        - tests/test-reports/
+        - composer.phar
+    policy: pull
+
+
+#########
+# BUILD #
+#########
+
+# Build and cache project dependancies
+build:
+  stage: Build
+  cache:
+    <<: *global_cache
+    policy: push
   before_script:
-    - composer install
+    # Install composer dependencies
+    - php -m
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
   script:
-    - ./vendor/bin/phpunit -c tests/unit/phpunit.xml
-  allow_failure: false
+      - php composer.phar install
+      - php composer.phar require --dev phpunit/phpunit:9.5 --with-all-dependencies
+      - php composer.phar info
   tags:
-    - gcp-small-runner-prod
+    - small
+
+# #############
+# # END BUILD #
+# #############
+
+# ############
+# # VALIDATE #
+# ############
+
+# Check code standards application (PSR-1, PSR-2...)
+code-style:
+  stage: Lint
+  cache:
+    <<: *global_cache
+  script:
+    - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run
+  allow_failure: true # Temporary until error fix
+#  allow_failure: 
+#    exit_codes:
+#      - 0 # OK.
+#      - 1 # General error (or PHP minimal requirement not matched).
+#      - 4 # Some files have invalid syntax (only in dry-run mode).
+#      - 8 # Some files need fixing (only in dry-run mode).
+#      - 16 # Configuration error of the application.
+#      - 32 # Configuration error of a Fixer.
+#      - 64 # Exception raised within the application.
+  tags:
+    - small
+
+# Looks for dependancies known vulnerabilities
+code-security:
+  stage: Lint
+  cache:
+    <<: *global_cache
+  before_script: 
+    - curl -L https://github.com/fabpot/local-php-security-checker/releases/download/v1.2.0/local-php-security-checker_1.2.0_linux_386 --output /usr/local/bin/local-php-security-checker
+    - chmod a+x /usr/local/bin/local-php-security-checker
+  script:
+    - /usr/local/bin/local-php-security-checker
+  tags:
+    - small
+
+# Looks for typing and syntax errors
+stan:
+  stage: Lint
+  cache: 
+    <<: *global_cache
+  script:
+    - ./vendor/bin/phpstan analyse lib/ --level 8
+  allow_failure: true # Temporary until error fix
+  tags:
+    - small
+
+################
+# END VALIDATE #
+################
+
+########
+# TEST #
+########
+
+# Unit testing
+phpunit-7.2:
+  image: mileschou/xdebug:7.2
+  stage: Current version tests
+  cache:
+    <<: *global_cache
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php composer.phar require --dev phpunit/phpunit:8.5 --with-all-dependencies
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+phpunit-7.3:
+  image: mileschou/xdebug:7.3
+  stage: Current version tests
+  cache:
+    <<: *global_cache
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+phpunit-7.4:
+  image: mileschou/xdebug:7.4
+  stage: Current version tests
+  cache:
+    <<: *global_cache
+    policy: pull-push
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml \
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+      cobertura: tests/test-reports/_coverage/cobertura.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+phpunit-5.6:
+  image: mileschou/xdebug:5.6
+  stage: Other versions tests
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - rm composer.json
+    - mv composer.56.json composer.json
+    - php composer.phar install
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+phpunit-8.0:
+  image: mileschou/xdebug:8.0
+  stage: Other versions tests
+  cache:
+    <<: *global_cache
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  allow_failure: false
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
+# Unit tests mutation
+infection-7.4:
+  stage: Infection
+  cache:
+    <<: *global_cache
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
+    - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
+    - chmod +x infection.phar
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml
+    - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
+  allow_failure: false
+  artifacts:
+    paths:
+      - infection.log
+    expire_in: 1 day
+  tags:
+    - small
+
+############
+# END TEST #
+############
+
+#########
+# SONAR #
+#########
+
+sonar-7.4:
+  stage: Sonar
+  image: mileschou/xdebug:7.4
+  cache:
+    <<: *global_cache
+  variables:
+    GIT_DEPTH: "0"
+    SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+    - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
+    - unzip sonar-scanner-cli.zip -d ./
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --coverage-xml=tests/test-reports/_coverage/coverage-xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-clover=tests/test-reports/_coverage/coverage.xml \
+      --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
+    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+#  only:
+#    - develop
+  tags:
+    - small
+
+#############
+# END SONAR #
+#############

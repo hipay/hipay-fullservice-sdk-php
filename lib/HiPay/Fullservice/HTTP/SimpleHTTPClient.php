@@ -21,6 +21,7 @@ use HiPay\Fullservice\Exception\CurlException;
 use HiPay\Fullservice\Exception\HttpErrorException;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Client\GatewayClient;
+use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 use HiPay\Fullservice\HTTP\Response\Response;
 
 /**
@@ -41,11 +42,21 @@ class SimpleHTTPClient extends ClientProvider
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::doRequest()
+     *
+     * @param string $method
+     * @param string $endpoint
+     * @param array<string, mixed> $params
+     * @param bool $isVault
+     * @param bool $isData
+     * @return AbstractResponse
      */
     protected function doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
+        }
+        else if (!$this->validateHttpMethod($method)) {
+            throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
         }
 
         if (empty($endpoint) || !is_string($endpoint)) {
@@ -160,6 +171,8 @@ class SimpleHTTPClient extends ClientProvider
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::createHttpClient()
+     *
+     * @return void
      */
     protected function createHttpClient()
     {

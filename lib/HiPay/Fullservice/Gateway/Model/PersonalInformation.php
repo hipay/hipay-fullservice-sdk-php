@@ -30,7 +30,19 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class PersonalInformation extends AbstractModel
 {
-
+    /**
+     * PersonalInformation constructor.
+     * @param string $firstname
+     * @param string $lastname
+     * @param string $streetAddress
+     * @param string $locality
+     * @param string $postalCode
+     * @param string $country
+     * @param string $msisdn
+     * @param string $phone
+     * @param string $phoneOperator
+     * @param string $email
+     */
     public function __construct(
         $firstname,
         $lastname,

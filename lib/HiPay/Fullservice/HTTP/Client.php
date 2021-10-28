@@ -40,7 +40,7 @@ interface Client
      *
      * @param string $method HTTP method
      * @param string $endpoint Api Endpoint for this request. Base url is determined by Configuration Object
-     * @param array $params Request params to apply.
+     * @param array<string, mixed> $params Request params to apply.
      * @param bool $isVault If true, perform request on secure vault endpoint
      * @param bool $isData If true, perform request on HiPay data API
      *
