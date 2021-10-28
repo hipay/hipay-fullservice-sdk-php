@@ -48,7 +48,7 @@ class HostedPaymentPage extends AbstractModel
     /**
      * @param string $mid
      * @param string $forwardUrl
-     * @param Order | null $order
+     * @param Order|null $order
      */
     public function __construct(
         $mid,

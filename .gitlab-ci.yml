@@ -1,12 +1,13 @@
 image: mileschou/xdebug:7.4
 
 stages:
-  - Build
-  - Lint
-  - Current version tests
-  - Other versions tests
-  - Infection
-  - Sonar
+  - build
+  - lint
+  - test
+  - current version tests
+  - other versions tests
+  - infection
+  - sonar
 
 
 .cache: &global_cache
@@ -24,7 +25,7 @@ stages:
 
 # Build and cache project dependancies
 build:
-  stage: Build
+  stage: build
   cache:
     <<: *global_cache
     policy: push
@@ -43,37 +44,40 @@ build:
   tags:
     - small
 
-# #############
-# # END BUILD #
-# #############
+#############
+# END BUILD #
+#############
 
-# ############
-# # VALIDATE #
-# ############
+########
+# SAST #
+########
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+############
+# END SAST #
+############
+
+############
+# VALIDATE #
+############
 
 # Check code standards application (PSR-1, PSR-2...)
 code-style:
-  stage: Lint
+  stage: lint
   cache:
     <<: *global_cache
   script:
+    # @PSR12 is the default ruleset use
+    # Don't apply visibility_require for PHP5.6 backward compatibility (public/private/protected on const)
     - ./vendor/bin/php-cs-fixer fix ./lib -vvv --dry-run --rules=@PSR12,-visibility_required
-  allow_failure: true # Temporary until error fix
-#  allow_failure: 
-#    exit_codes:
-#      - 0 # OK.
-#      - 1 # General error (or PHP minimal requirement not matched).
-#      - 4 # Some files have invalid syntax (only in dry-run mode).
-#      - 8 # Some files need fixing (only in dry-run mode).
-#      - 16 # Configuration error of the application.
-#      - 32 # Configuration error of a Fixer.
-#      - 64 # Exception raised within the application.
   tags:
     - small
 
 # Looks for dependancies known vulnerabilities
 code-security:
-  stage: Lint
+  stage: lint
   cache:
     <<: *global_cache
   before_script: 
@@ -86,12 +90,11 @@ code-security:
 
 # Looks for typing and syntax errors
 stan:
-  stage: Lint
+  stage: lint
   cache: 
     <<: *global_cache
   script:
     - ./vendor/bin/phpstan analyse lib/ --level 8
-  allow_failure: true # Temporary until error fix
   tags:
     - small
 
@@ -106,7 +109,7 @@ stan:
 # Unit testing
 phpunit-7.2:
   image: mileschou/xdebug:7.2
-  stage: Current version tests
+  stage: current version tests
   cache:
     <<: *global_cache
   before_script:
@@ -121,7 +124,6 @@ phpunit-7.2:
       --coverage-text \
       --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-  allow_failure: false
   artifacts:
     when: always
     reports:
@@ -132,7 +134,7 @@ phpunit-7.2:
 
 phpunit-7.3:
   image: mileschou/xdebug:7.3
-  stage: Current version tests
+  stage: current version tests
   cache:
     <<: *global_cache
   before_script:
@@ -146,7 +148,6 @@ phpunit-7.3:
       --coverage-text \
       --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-  allow_failure: false
   artifacts:
     when: always
     reports:
@@ -157,7 +158,7 @@ phpunit-7.3:
 
 phpunit-7.4:
   image: mileschou/xdebug:7.4
-  stage: Current version tests
+  stage: current version tests
   cache:
     <<: *global_cache
     policy: pull-push
@@ -176,7 +177,6 @@ phpunit-7.4:
       --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/cobertura.xml
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-  allow_failure: false
   artifacts:
     when: always
     reports:
@@ -188,7 +188,7 @@ phpunit-7.4:
 
 phpunit-5.6:
   image: mileschou/xdebug:5.6
-  stage: Other versions tests
+  stage: other versions tests
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
@@ -206,7 +206,6 @@ phpunit-5.6:
       --coverage-text \
       --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-  allow_failure: false
   artifacts:
     when: always
     reports:
@@ -217,7 +216,7 @@ phpunit-5.6:
 
 phpunit-8.0:
   image: mileschou/xdebug:8.0
-  stage: Other versions tests
+  stage: other versions tests
   cache:
     <<: *global_cache
   before_script:
@@ -231,7 +230,6 @@ phpunit-8.0:
       --coverage-text \
       --colors=never
     - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-  allow_failure: false
   artifacts:
     when: always
     reports:
@@ -242,7 +240,7 @@ phpunit-8.0:
 
 # Unit tests mutation
 infection-7.4:
-  stage: Infection
+  stage: infection
   cache:
     <<: *global_cache
   before_script:
@@ -259,7 +257,6 @@ infection-7.4:
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml
     - ./infection.phar --coverage=tests/test-reports/_coverage --test-framework-options="--log-junit=tests/test-reports/_coverage/junit.xml"
-  allow_failure: false
   artifacts:
     paths:
       - infection.log
@@ -276,7 +273,7 @@ infection-7.4:
 #########
 
 sonar-7.4:
-  stage: Sonar
+  stage: sonar
   image: mileschou/xdebug:7.4
   cache:
     <<: *global_cache
@@ -296,7 +293,7 @@ sonar-7.4:
       --log-junit=tests/test-reports/_coverage/junit.xml \
       --coverage-clover=tests/test-reports/_coverage/coverage.xml \
       --coverage-cobertura=tests/test-reports/_coverage/cobertura.xml
-    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=https://sonar-ce.hipay.org -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
+    - ./sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=lib -Dsonar.tests=tests -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.php.coverage.reportPaths=tests/test-reports/_coverage/coverage.xml
 #  only:
 #    - develop
   tags:

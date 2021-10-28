@@ -16,6 +16,8 @@
 
 namespace HiPay\Fullservice\Model;
 
+use HiPay\Fullservice\Exception\UnexpectedValueException;
+
 /**
  * Model abstract class
  *
@@ -85,6 +87,12 @@ abstract class AbstractModel implements ModelInterface
      */
     private function decamelize($string)
     {
-        return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
+        $snakeCase = preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string);
+
+        if (is_null($snakeCase)) {
+            throw new UnexpectedValueException("Invalid key \"$string\"");
+        }
+
+        return strtolower($snakeCase);
     }
 }

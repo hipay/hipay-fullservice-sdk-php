@@ -17,6 +17,8 @@
 namespace HiPay\Fullservice\Gateway\Mapper;
 
 use HiPay\Fullservice\Gateway\Model\FraudScreening;
+use HiPay\Fullservice\Gateway\Model\Operation;
+use HiPay\Fullservice\Gateway\Model\OperationResponse;
 use HiPay\Fullservice\Gateway\Model\Order;
 use HiPay\Fullservice\Gateway\Model\PaymentMethod;
 use HiPay\Fullservice\Gateway\Model\ThreeDSecure;
@@ -86,6 +88,8 @@ class TransactionMapper extends AbstractMapper
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
             $pmm = new PaymentMethodMapper($source['paymentMethod']);
+
+            /** @var PaymentMethod $paymentMethod */
             $paymentMethod = $pmm->getModelObjectMapped();
         }
 
@@ -95,6 +99,8 @@ class TransactionMapper extends AbstractMapper
         $threeDSecure = null;
         if (isset($source['threeDSecure']) && is_array($source['threeDSecure'])) {
             $tdsm = new ThreeDSecureMapper($source['threeDSecure']);
+
+            /** @var ThreeDSecure $threeDSecure */
             $threeDSecure = $tdsm->getModelObjectMapped();
         }
 
@@ -104,6 +110,8 @@ class TransactionMapper extends AbstractMapper
         $fraudScreening = null;
         if (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) {
             $fsm = new FraudScreeningMapper($source['fraudScreening']);
+
+            /** @var FraudScreening $fraudScreening */
             $fraudScreening = $fsm->getModelObjectMapped();
         }
 
@@ -113,12 +121,16 @@ class TransactionMapper extends AbstractMapper
         $order = null;
         if (isset($source['order'])) {
             $om = new OrderMapper($source['order']);
+
+            /** @var Order $order */
             $order = $om->getModelObjectMapped();
         }
 
         $operation = null;
         if (isset($source['operation'])) {
             $orm = new OperationResponseMapper($source['operation']);
+
+            /** @var OperationResponse $operation */
             $operation = $orm->getModelObjectMapped();
         }
 

@@ -59,10 +59,10 @@ class Transaction extends AbstractTransaction
      * @param string $cvcResult
      * @param string $eci
      * @param string $paymentProduct
-     * @param PaymentMethod $paymentMethod
-     * @param ThreeDSecure $threeDSecure
-     * @param FraudScreening $fraudScreening
-     * @param Order $order
+     * @param PaymentMethod|null $paymentMethod
+     * @param ThreeDSecure|null $threeDSecure
+     * @param FraudScreening|null $fraudScreening
+     * @param Order|null $order
      * @param array<string, mixed> $debitAgreement
      * @param array<string, mixed> $basket
      * @param OperationResponse|null $operation
@@ -217,26 +217,26 @@ class Transaction extends AbstractTransaction
     protected $_paymentProduct;
 
     /**
-     * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod $_paymentMethod Payment method object
+     * @var \HiPay\Fullservice\Gateway\Model\PaymentMethod|null $_paymentMethod Payment method object
      * @see \HiPay\Fullservice\Gateway\Request\Order\OrderRequest::$paymentMethod
      * @see \HiPay\Fullservice\Gateway\Model\PaymentMethod
      */
     protected $_paymentMethod;
 
     /**
-     * @var ThreeDSecure $_threeDSecure Model 3ds secure enrollment and authentication result
+     * @var ThreeDSecure|null $_threeDSecure Model 3ds secure enrollment and authentication result
      */
     protected $_threeDSecure;
 
     /**
      *
-     * @var FraudScreening $_fraudScreening Model Result of the fraud screening
+     * @var FraudScreening|null $_fraudScreening Model Result of the fraud screening
      */
     protected $_fraudScreening;
 
     /**
      *
-     * @var Order $_order Model Result Order (customer, order information...)
+     * @var Order|null $_order Model Result Order (customer, order information...)
      */
     protected $_order;
 
@@ -366,7 +366,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return PaymentMethod
+     * @return PaymentMethod|null
      */
     public function getPaymentMethod()
     {
@@ -374,7 +374,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return ThreeDSecure
+     * @return ThreeDSecure|null
      */
     public function getThreeDSecure()
     {
@@ -382,7 +382,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return FraudScreening
+     * @return FraudScreening|null
      */
     public function getFraudScreening()
     {
@@ -390,7 +390,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return Order
+     * @return Order|null
      */
     public function getOrder()
     {

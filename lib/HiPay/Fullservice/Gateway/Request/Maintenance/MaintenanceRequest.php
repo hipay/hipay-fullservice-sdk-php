@@ -50,7 +50,7 @@ class MaintenanceRequest extends CommonRequest
     /**
      *  Amount of maintenance operation
      *
-     * @var float
+     * @var float|string
      */
     public $amount;
 }

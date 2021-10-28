@@ -43,7 +43,7 @@ class Order extends AbstractModel
      * @param int $decimals
      * @param string $gender
      * @param string $language
-     * @param PersonalInformation $shippingAddress
+     * @param PersonalInformation|null $shippingAddress
      */
     public function __construct(
         $id,
@@ -142,7 +142,7 @@ class Order extends AbstractModel
 
     /**
      *
-     * @var PersonalInformation $_shippingAddress Customer Shipping address information
+     * @var PersonalInformation|null $_shippingAddress Customer Shipping address information
      */
     protected $_shippingAddress;
 
@@ -239,7 +239,7 @@ class Order extends AbstractModel
     }
 
     /**
-     * @return PersonalInformation
+     * @return PersonalInformation|null
      */
     public function getShippingAddress()
     {

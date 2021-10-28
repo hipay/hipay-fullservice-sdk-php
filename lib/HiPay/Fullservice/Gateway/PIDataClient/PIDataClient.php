@@ -17,6 +17,7 @@
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
 use HiPay\Fullservice\Exception\ApiErrorException;
+use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
@@ -137,7 +138,12 @@ class PIDataClient implements PIDataClientInterface
      */
     private function getCommonData($dataId, OrderRequest $request)
     {
-        $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../composer.json"));
+        $composerConfig = file_get_contents(__DIR__ . "/../../../../../composer.json");
+        if ($composerConfig === false) {
+            throw new UnexpectedValueException("Error while trying to retrieve composer configuration.");
+        }
+
+        $composerData = json_decode($composerConfig);
 
         if (!is_array($request->source)) {
             $sourceData = json_decode($request->source, true);
@@ -156,6 +162,7 @@ class PIDataClient implements PIDataClientInterface
                 "cms_module_version" => empty($sourceData['integration_version']) ? "" : $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
+                "sdk_server_engine_version" => phpversion(),
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),
@@ -252,14 +259,26 @@ class PIDataClient implements PIDataClientInterface
      */
     private function getDomain($rawHostname)
     {
+        if (!$rawHostname) {
+            return "";
+        }
+
+        $withoutProtocol = preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname);
+
+        if (is_null($withoutProtocol)) {
+            throw new UnexpectedValueException("Invalid hostname \"$rawHostname\"");
+        }
+
+        $withoutDirectory = preg_replace('/\/(.*)$/', '', $withoutProtocol);
+
+        if (is_null($withoutDirectory)) {
+            throw new UnexpectedValueException("Invalid hostname \"$rawHostname\"");
+        }
+
         return preg_replace(
             '/:[0-9]+$/',
             '',
-            preg_replace(
-                '/\/(.*)$/',
-                '',
-                preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)
-            )
+            $withoutDirectory
         );
     }
 

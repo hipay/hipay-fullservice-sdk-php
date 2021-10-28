@@ -17,6 +17,7 @@
 namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
+use HiPay\Fullservice\Gateway\Model\Operation;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
@@ -251,7 +252,10 @@ class GatewayClient implements GatewayClientInterface
             );
 
         $om = new OperationMapper($response->toArray());
-        return $om->getModelObjectMapped();
+
+        /** @var Operation $operation */
+        $operation = $om->getModelObjectMapped();
+        return $operation;
     }
 
     /**
@@ -275,7 +279,10 @@ class GatewayClient implements GatewayClientInterface
 
         $transactionMapper = new TransactionMapper($data['transaction']);
 
-        return $transactionMapper->getModelObjectMapped();
+        /** @var Transaction $transaction */
+        $transaction = $transactionMapper->getModelObjectMapped();
+
+        return $transaction;
     }
 
 
@@ -303,11 +310,17 @@ class GatewayClient implements GatewayClientInterface
         // Single transaction response
         if (!empty($data['transaction']['state'])) {
             $transactionMapper = new TransactionMapper($data['transaction']);
-            $transactions[] = $transactionMapper->getModelObjectMapped();
+
+            /** @var Transaction $transaction */
+            $transaction = $transactionMapper->getModelObjectMapped();
+            $transactions[] = $transaction;
         } else { // Array of transactions
             foreach ($data['transaction'] as $transaction) {
                 $transactionMapper = new TransactionMapper($transaction);
-                $transactions[] = $transactionMapper->getModelObjectMapped();
+
+                /** @var Transaction $transaction */
+                $transaction = $transactionMapper->getModelObjectMapped();
+                $transactions[] = $transaction;
             }
         }
 
