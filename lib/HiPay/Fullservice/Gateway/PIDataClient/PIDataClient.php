@@ -162,6 +162,7 @@ class PIDataClient implements PIDataClientInterface
                 "cms_module_version" => empty($sourceData['integration_version']) ? "" : $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
+                "sdk_server_engine_version" => phpversion(),
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),
