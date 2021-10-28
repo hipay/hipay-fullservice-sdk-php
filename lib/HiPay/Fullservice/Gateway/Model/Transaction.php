@@ -367,6 +367,7 @@ class Transaction extends AbstractTransaction
 
     /**
      * @return PaymentMethod|null
+     */
     public function getPaymentMethod()
     {
         return $this->_paymentMethod;
