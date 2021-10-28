@@ -230,7 +230,7 @@ class PIDataClientTest extends TestCase
                 "cms_module_version" => $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
-                "sdk_server_engine_version" => $sourceData['sdk_server_engine_version'],
+                "sdk_server_engine_version" => phpversion(),
                 "template" => $hostedPaymentPageRequest->template
             ),
             "event" => "initHpayment",
