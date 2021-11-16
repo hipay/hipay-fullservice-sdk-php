@@ -54,8 +54,8 @@ vendor/
 doc/
 .idea
 /nbproject/private/
-/composer.lock
 .tests/tests-reports
 .cache
 .scannerwork/scanner-report/
 *.env
+/composer.lock
