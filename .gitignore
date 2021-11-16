@@ -58,3 +58,4 @@ doc/
 .cache
 .scannerwork/scanner-report/
 *.env
+/composer.lock
