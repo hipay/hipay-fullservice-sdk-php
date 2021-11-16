@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.9.0
+
+- [change]: improvement on qualimetry
+
 ## Version 2.8.4
 
 - [fix]: Fixed DSP2 field names in OrderRequest
