@@ -13,14 +13,16 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Mapper;
 
+use HiPay\Fullservice\Gateway\Model\PersonalInformation;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 use HiPay\Fullservice\Gateway\Model\Order;
 
 /**
  * Mapper for Order Model Object
- *  
+ *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
  * @copyright Copyright (c) 2016 - HiPay
@@ -28,8 +30,11 @@ use HiPay\Fullservice\Gateway\Model\Order;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class OrderMapper extends AbstractMapper {
-    
+class OrderMapper extends AbstractMapper
+{
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**
@@ -52,15 +57,29 @@ class OrderMapper extends AbstractMapper {
         $decimals = isset($source['decimals']) ? $source['decimals'] : null;
         $gender = isset($source['gender']) ? $source['gender'] : null;
         $language = isset($source['language']) ? $source['language'] : null;
-        $shippingAddress = null;
-        if(isset($source['shippingAddress'])){
-        	$pim = new PersonalInformationMapper($source['shippingAddress']);
-        	$shippingAddress = $pim->getModelObjectMapped();
-        }
-        
 
-        $this->_modelObject = new Order($id, $customerId, $amount, $tax, $shipping, $dateCreated, $attempts, $currency, $decimals, $gender, $language, $shippingAddress);
-        
+        $shippingAddress = null;
+        if (isset($source['shippingAddress'])) {
+            $pim = new PersonalInformationMapper($source['shippingAddress']);
+
+            /** @var PersonalInformation $shippingAddress */
+            $shippingAddress = $pim->getModelObjectMapped();
+        }
+
+        $this->_modelObject = new Order(
+            $id,
+            $customerId,
+            $amount,
+            $tax,
+            $shipping,
+            $dateCreated,
+            $attempts,
+            $currency,
+            $decimals,
+            $gender,
+            $language,
+            $shippingAddress
+        );
     }
 
     /**
@@ -84,7 +103,4 @@ class OrderMapper extends AbstractMapper {
     {
         return '\HiPay\Fullservice\Gateway\Model\Order';
     }
-
-
-
 }

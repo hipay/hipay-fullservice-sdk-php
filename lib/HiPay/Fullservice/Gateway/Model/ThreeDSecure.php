@@ -35,7 +35,16 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class ThreeDSecure extends AbstractModel
 {
-
+    /**
+     * ThreeDSecure constructor.
+     * @param int $eci
+     * @param string $enrollmentStatus
+     * @param string $enrollmentMessage
+     * @param string $authenticationStatus
+     * @param string $authenticationMessage
+     * @param string $authenticationToken
+     * @param string $xid
+     */
     public function __construct(
         $eci,
         $enrollmentStatus,
@@ -45,8 +54,6 @@ class ThreeDSecure extends AbstractModel
         $authenticationToken,
         $xid
     ) {
-
-
         $this->_eci = $eci;
         $this->_enrollmentStatus = $enrollmentStatus;
         $this->_enrollmentMessage = $enrollmentMessage;
@@ -54,7 +61,6 @@ class ThreeDSecure extends AbstractModel
         $this->_authenticationMessage = $authenticationMessage;
         $this->_authenticationToken = $authenticationToken;
         $this->_xid = $xid;
-
     }
 
     /**
@@ -103,36 +109,57 @@ class ThreeDSecure extends AbstractModel
      */
     protected $_xid;
 
+    /**
+     * @return int
+     */
     public function getEci()
     {
         return $this->_eci;
     }
 
+    /**
+     * @return string
+     */
     public function getEnrollmentStatus()
     {
         return $this->_enrollmentStatus;
     }
 
+    /**
+     * @return string
+     */
     public function getEnrollmentMessage()
     {
         return $this->_enrollmentMessage;
     }
 
+    /**
+     * @return string
+     */
     public function getAuthenticationStatus()
     {
         return $this->_authenticationStatus;
     }
 
+    /**
+     * @return string
+     */
     public function getAuthenticationMessage()
     {
         return $this->_authenticationMessage;
     }
 
+    /**
+     * @return string
+     */
     public function getAuthenticationToken()
     {
         return $this->_authenticationToken;
     }
 
+    /**
+     * @return string
+     */
     public function getXid()
     {
         return $this->_xid;

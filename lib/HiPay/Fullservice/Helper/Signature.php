@@ -40,7 +40,6 @@ use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
  */
 class Signature
 {
-
     /**
      * @param string $secretPassphrase
      * @param string $hashAlgorithm
@@ -65,8 +64,12 @@ class Signature
      */
     public static function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
     {
-        if (strlen(static::getComputedSignature($secretPassphrase, $hashAlgorithm)) == strlen(static::getSignature())) {
-            return true;
+        $computedPassphrase = static::getComputedSignature($secretPassphrase, $hashAlgorithm);
+
+        if ($computedPassphrase !== false) {
+            if (strlen($computedPassphrase) == strlen(static::getSignature())) {
+                return true;
+            }
         }
 
         return false;
@@ -78,7 +81,7 @@ class Signature
      * @param string $secretPassphrase
      * @param string $hashAlgorithm
      *
-     * @return string
+     * @return string|false
      */
     protected static function getComputedSignature($secretPassphrase, $hashAlgorithm)
     {
@@ -97,11 +100,17 @@ class Signature
         return $computedSignature;
     }
 
+    /**
+     * @return bool
+     */
     protected static function isRedirection()
     {
         return isset($_GET ['hash']);
     }
 
+    /**
+     * @return mixed
+     */
     protected static function getSignature()
     {
         if (static::isRedirection()) {
@@ -111,6 +120,9 @@ class Signature
         }
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected static function getParameters()
     {
         $params = $_GET;
@@ -119,11 +131,18 @@ class Signature
         return $params;
     }
 
+    /**
+     * @return false|string
+     */
     protected static function getRawPostData()
     {
         return file_get_contents("php://input");
     }
 
+    /**
+     * @param string $secretPassPhrase
+     * @return string
+     */
     protected static function getStringToCompute($secretPassPhrase)
     {
         $string2compute = "";

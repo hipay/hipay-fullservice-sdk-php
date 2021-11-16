@@ -27,12 +27,15 @@ namespace HiPay\Fullservice\HTTP\Response;
  */
 class Response extends AbstractResponse
 {
-
     /**
+     * Response constructor.
      *
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\Response\AbstractResponse::__construct()
+     * @param string $body
+     * @param int $statusCode
+     * @param array<string, mixed> $headers
      */
     public function __construct($body, $statusCode, array $headers)
     {

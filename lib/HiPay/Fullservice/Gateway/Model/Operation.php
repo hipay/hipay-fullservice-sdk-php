@@ -18,6 +18,8 @@ class Operation extends AbstractTransaction
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Gateway\Model\AbstractTransaction::__construct()
+     *
+     * @param Operation $operation
      */
     public function __construct(
         $mid,
@@ -36,7 +38,6 @@ class Operation extends AbstractTransaction
         $currency,
         $operation
     ) {
-
         parent::__construct(
             $mid,
             $authorizationCode,
@@ -57,6 +58,9 @@ class Operation extends AbstractTransaction
         $this->_operation = $operation;
     }
 
+    /**
+     * @return Operation
+     */
     public function getOperation()
     {
         return $this->_operation;

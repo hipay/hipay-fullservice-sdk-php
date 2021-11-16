@@ -43,9 +43,15 @@ class Collection
     public static function getItem($product_code)
     {
         if (file_exists(self::PAYMENT_CONFIG_FILE_PATH . $product_code . ".json")) {
+            $paymentProductConfig = file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $product_code . ".json");
+
+            if ($paymentProductConfig === false) {
+                return null;
+            }
+
             return new PaymentProduct(
                 json_decode(
-                    file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $product_code . ".json"),
+                    $paymentProductConfig,
                     true
                 )
             );
@@ -55,7 +61,7 @@ class Collection
     }
 
     /**
-     * @param null|string|array $categories
+     * @param null|string|array<string> $categories
      * @return PaymentProduct[] Collection of payment products filtered by category
      */
     public static function getItems($categories = null)
@@ -80,13 +86,21 @@ class Collection
     /**
      * Get all payment methods json data from directory
      *
-     * @return \Generator
+     * @return \Generator<array<mixed>>
      */
     private static function getPaymentMethodsData()
     {
-        foreach (scandir(self::PAYMENT_CONFIG_FILE_PATH) as $file) {
-            if (preg_match('/(.*)\.json/', $file) == 1) {
-                yield json_decode(file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $file), true);
+        $files = scandir(self::PAYMENT_CONFIG_FILE_PATH);
+
+        if ($files) {
+            foreach ($files as $file) {
+                if (preg_match('/(.*)\.json/', $file) == 1) {
+                    $paymentProductConfig = file_get_contents(self::PAYMENT_CONFIG_FILE_PATH . $file);
+
+                    if ($paymentProductConfig) {
+                        yield json_decode($paymentProductConfig, true);
+                    }
+                }
             }
         }
     }
@@ -94,12 +108,18 @@ class Collection
     /**
      * Reorder payment product by priority for use in hpayment pages
      *
-     * @param string $paymentProductList
-     * @return null
+     * @param array<string>|string|null $paymentProductList
+     * @return string|null
      */
-    public static function orderByPriority($paymentProductList){
-        if(!empty($paymentProductList)) {
-            $paymentProductArray = explode(',', $paymentProductList);
+    public static function orderByPriority($paymentProductList)
+    {
+        if (!empty($paymentProductList)) {
+            if (is_array($paymentProductList)) {
+                $paymentProductArray = $paymentProductList;
+            } else {
+                $paymentProductArray = explode(',', $paymentProductList);
+            }
+
             $paymentProductDetailsArray = array();
 
             foreach ($paymentProductArray as $paymentProduct) {
@@ -117,7 +137,9 @@ class Collection
 
             usort($paymentProductDetailsArray, array(self::class, 'cmpPaymentProduct'));
 
-            return implode(',', array_map(function($paymentProductDetails) { return $paymentProductDetails->getProductCode(); }, $paymentProductDetailsArray));
+            return implode(',', array_map(function ($paymentProductDetails) {
+                return $paymentProductDetails->getProductCode();
+            }, $paymentProductDetailsArray));
         }
 
         return null;
@@ -129,8 +151,9 @@ class Collection
      * @param PaymentProduct $p2
      * @return int
      */
-    private static function cmpPaymentProduct($p1, $p2){
-        if($p1->getPriority() === $p2->getPriority()){
+    private static function cmpPaymentProduct($p1, $p2)
+    {
+        if ($p1->getPriority() === $p2->getPriority()) {
             return 0;
         }
 

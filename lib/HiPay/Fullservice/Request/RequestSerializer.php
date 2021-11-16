@@ -52,7 +52,7 @@ class RequestSerializer
      * Returns data string as Json
      *
      * @param bool $pretty If true, display with pretty format (const: JSON_PRETTY_PRINT)
-     * @return string Return result of json_encode function
+     * @return string|false Return result of json_encode function
      */
     public function toJson($pretty = false)
     {
@@ -61,7 +61,7 @@ class RequestSerializer
 
     /**
      * Returns data array with only scalar values
-     * @return array Hashed array with key/value pairs (property/value)
+     * @return array<string, mixed> Hashed array with key/value pairs (property/value)
      */
     public function toArray()
     {
@@ -80,7 +80,8 @@ class RequestSerializer
      * This method will be called recursively
      *
      * @param AbstractRequest $object Object source
-     * @param array $params Passed by reference
+     * @param array<string, mixed> $params Passed by reference
+     * @return void
      */
     protected function prepareParams($object, &$params)
     {
@@ -92,7 +93,6 @@ class RequestSerializer
          * Else if value of property is scalar we assign it
          */
         foreach ($properties as $p => $v) {
-
             if (is_scalar($v)) {
                 $params[$p] = $v;
             } elseif (is_array($v)) {

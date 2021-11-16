@@ -30,7 +30,6 @@ namespace HiPay\Fullservice\Model;
  */
 interface ModelInterface
 {
-
     /**
      * Return Json representation of public attributes
      * @return string Json representation
@@ -39,7 +38,7 @@ interface ModelInterface
 
     /**
      * Return public attributes accessible by getter in ARRAY format
-     * @return array public attributes array
+     * @return array<string, mixed> public attributes array
      */
     public function toArray();
 }

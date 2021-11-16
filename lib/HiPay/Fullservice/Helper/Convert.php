@@ -2,8 +2,14 @@
 
 namespace HiPay\Fullservice\Helper;
 
+use HiPay\Fullservice\Exception\UnexpectedValueException;
+
 class Convert
 {
+    /**
+     * @param string $string
+     * @return string
+     */
     public static function toCamelCase($string)
     {
         $string = strtolower($string);
@@ -13,6 +19,10 @@ class Convert
         return lcfirst($string);
     }
 
+    /**
+     * @param array<string, mixed> $array
+     * @return array<string, mixed>
+     */
     public static function arrayKeysToCamelCase($array)
     {
         $newArray = array();
@@ -33,15 +43,25 @@ class Convert
         return $newArray;
     }
 
+    /**
+     * @param string $string
+     * @return string
+     */
     public static function toUnderscored($string)
     {
-        return strtolower(preg_replace('/(.)([A-Z0-9])/', "$1_$2", $string));
+        $toUnderscored = preg_replace('/(.)([A-Z0-9])/', "$1_$2", $string);
+
+        if (is_null($toUnderscored)) {
+            throw new UnexpectedValueException("Invalid key \"$string\"");
+        }
+
+        return strtolower($toUnderscored);
     }
 
     /**
      * Check if the array is a simple(one dimensional and not nested) and a sequential(non-associative) array
      *
-     * @param array $data
+     * @param array<mixed, mixed> $data
      * @return bool
      */
     protected static function _isSimpleSequentialArray(array $data)

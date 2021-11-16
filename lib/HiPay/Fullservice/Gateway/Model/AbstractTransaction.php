@@ -16,7 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
-
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**
@@ -33,8 +32,6 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 abstract class AbstractTransaction extends AbstractModel
 {
-
-
     /**
      *
      * @param string $mid
@@ -43,8 +40,8 @@ abstract class AbstractTransaction extends AbstractModel
      * @param string $dateCreated
      * @param string $dateUpdated
      * @param string $dateAuthorized
-     * @param int $status
-     * @param string $state
+     * @param int|null $status
+     * @param string|null $state
      * @param string $message
      * @param float $authorizedAmount
      * @param float $capturedAmount
@@ -68,7 +65,6 @@ abstract class AbstractTransaction extends AbstractModel
         $decimals,
         $currency
     ) {
-
         $this->_mid = $mid;
         $this->_authorizationCode = $authorizationCode;
         $this->_transactionReference = $transactionReference;
@@ -83,7 +79,6 @@ abstract class AbstractTransaction extends AbstractModel
         $this->_refundedAmount = $refundedAmount;
         $this->_decimals = $decimals;
         $this->_currency = $currency;
-
     }
 
     /**
@@ -122,13 +117,13 @@ abstract class AbstractTransaction extends AbstractModel
     protected $_dateAuthorized;
 
     /**
-     * @var int $_status Transaction status return by Fullservice API.
+     * @var int|null $_status Transaction status return by Fullservice API.
      * @see \HiPay\Fullservice\Enum\Transaction\TransactionStatus
      */
     protected $_status;
 
     /**
-     * @var string $_state Transaction state return by Fullservice API.
+     * @var string|null $_state Transaction state return by Fullservice API.
      * @see \HiPay\Fullservice\Enum\Transaction\TransactionState
      */
     protected $_state;
@@ -163,74 +158,118 @@ abstract class AbstractTransaction extends AbstractModel
      */
     protected $_currency;
 
-
+    /**
+     * @var Operation
+     */
     protected $_operation;
 
+    /**
+     * @return string
+     */
     public function getMid()
     {
         return $this->_mid;
     }
 
+    /**
+     * @return string
+     */
     public function getAuthorizationCode()
     {
         return $this->_authorizationCode;
     }
 
+    /**
+     * @return string
+     */
     public function getTransactionReference()
     {
         return $this->_transactionReference;
     }
 
+    /**
+     * @return string
+     */
     public function getDateCreated()
     {
         return $this->_dateCreated;
     }
 
+    /**
+     * @return string
+     */
     public function getDateUpdated()
     {
         return $this->_dateUpdated;
     }
 
+    /**
+     * @return string
+     */
     public function getDateAuthorized()
     {
         return $this->_dateAuthorized;
     }
 
+    /**
+     * @return int|null
+     */
     public function getStatus()
     {
         return $this->_status;
     }
 
+    /**
+     * @return string|null
+     */
     public function getState()
     {
         return $this->_state;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage()
     {
         return $this->_message;
     }
 
+    /**
+     * @return float
+     */
     public function getAuthorizedAmount()
     {
         return $this->_authorizedAmount;
     }
 
+    /**
+     * @return float
+     */
     public function getCapturedAmount()
     {
         return $this->_capturedAmount;
     }
 
+    /**
+     * @return float
+     */
     public function getRefundedAmount()
     {
         return $this->_refundedAmount;
     }
 
+    /**
+     * @return int
+     */
     public function getDecimals()
     {
         return $this->_decimals;
     }
 
+    /**
+     * @return string
+     */
     public function getCurrency()
     {
         return $this->_currency;

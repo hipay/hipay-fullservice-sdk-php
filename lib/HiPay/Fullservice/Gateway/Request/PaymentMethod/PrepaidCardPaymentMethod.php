@@ -34,6 +34,8 @@ class PrepaidCardPaymentMethod extends AbstractRequest
      *  The prepaid card number
      *
      * @required
+     *
+     * @var string
      */
     public $prepaid_card_number;
 
@@ -41,6 +43,8 @@ class PrepaidCardPaymentMethod extends AbstractRequest
      * The prepaid card security code
      *
      * @required
+     *
+     * @var string
      */
     public $prepaid_card_security_code;
 }

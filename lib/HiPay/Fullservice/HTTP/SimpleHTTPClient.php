@@ -21,6 +21,7 @@ use HiPay\Fullservice\Exception\CurlException;
 use HiPay\Fullservice\Exception\HttpErrorException;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Client\GatewayClient;
+use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 use HiPay\Fullservice\HTTP\Response\Response;
 
 /**
@@ -36,16 +37,26 @@ use HiPay\Fullservice\HTTP\Response\Response;
  */
 class SimpleHTTPClient extends ClientProvider
 {
-
     /**
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::doRequest()
+     *
+     * @param string $method
+     * @param string $endpoint
+     * @param array<string, mixed> $params
+     * @param bool $isVault
+     * @param bool $isData
+     * @return AbstractResponse
      */
     protected function doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
+        } elseif (!$this->validateHttpMethod($method)) {
+            throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
+        } elseif (!$this->validateHttpMethod($method)) {
+            throw new InvalidArgumentException("HTTP METHOD \"$method\" doesn't exist");
         }
 
         if (empty($endpoint) || !is_string($endpoint)) {
@@ -131,35 +142,39 @@ class SimpleHTTPClient extends ClientProvider
             curl_setopt($this->_httpClient, $option, $value);
         }
 
+        /**
+         * @var string|false $result
+         */
         $result = curl_exec($this->_httpClient);
+
         // execute the given cURL session
-        if ((false === $result) && !$isData) {
+        if (($result === false) && !$isData) {
             throw new CurlException(curl_error($this->_httpClient), curl_errno($this->_httpClient));
         }
-
-        $body = $result;
 
         $status = (int)curl_getinfo($this->_httpClient, CURLINFO_HTTP_CODE);
 
         if (floor($status / 100) != 2 && !$isData) {
-            $httpResponse = json_decode($body);
+            $httpResponse = json_decode($result);
 
             if (is_object($httpResponse) && isset($httpResponse->message, $httpResponse->code)) {
                 $description = (isset($httpResponse->description)) ? $httpResponse->description : "";
                 throw new ApiErrorException($httpResponse->message, $httpResponse->code, $description);
             } else {
-                throw new HttpErrorException($body, $status);
+                throw new HttpErrorException($result, $status);
             }
         }
 
         //Return a simple response object
-        return new Response((string)$body, $status, array('Content-Type' => array('application/json; encoding=UTF-8')));
+        return new Response((string)$result, $status, array('Content-Type' => array('application/json; encoding=UTF-8')));
     }
 
     /**
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\HTTP\ClientProvider::createHttpClient()
+     *
+     * @return void
      */
     protected function createHttpClient()
     {

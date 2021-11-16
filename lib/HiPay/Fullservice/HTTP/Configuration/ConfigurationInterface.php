@@ -165,7 +165,7 @@ interface ConfigurationInterface
     /**
      * Return proxy configuration
      *
-     * @return array with keys "host", "port", "user", "password"
+     * @return array<string, mixed> with keys "host", "port", "user", "password"
      */
     public function getProxy();
 
@@ -187,6 +187,7 @@ interface ConfigurationInterface
      * Sets Merchant API Username
      *
      * @param string $apiUsername
+     * @return void
      */
     public function setApiUsername($apiUsername);
 
@@ -194,6 +195,7 @@ interface ConfigurationInterface
      * Sets Merchant API Password
      *
      * @param string $apiPassword
+     * @return void
      */
     public function setApiPassword($apiPassword);
 
@@ -201,19 +203,22 @@ interface ConfigurationInterface
      * Sets targeted environment
      *
      * @param string $apiEnv
+     * @return void
      */
     public function setApiEnv($apiEnv);
 
     /**
      * Sets HTTP Accept header for requests
      * @param string $apiHTTPHeaderAccept
+     * @return void
      */
     public function setApiHTTPHeaderAccept($apiHTTPHeaderAccept);
 
     /**
      * Sets proxy configuration
      *
-     * @param array $proxy
+     * @param array<string, mixed> $proxy
+     * @return void
      */
     public function setProxy($proxy);
 
@@ -222,6 +227,7 @@ interface ConfigurationInterface
      * Sets Main timeout value for cUrl calls
      *
      * @param int $curl_timeout
+     * @return void
      */
     public function setCurlTimeout($curl_timeout);
 
@@ -229,6 +235,7 @@ interface ConfigurationInterface
      * Sets connect timeout value for cUrl calls
      *
      * @param int $curl_connect_timeout
+     * @return void
      */
     public function setCurlConnectTimeout($curl_connect_timeout);
 
@@ -243,6 +250,7 @@ interface ConfigurationInterface
      * Sets override sorting payment products parameter
      *
      * @param bool $overridePaymentProductSorting
+     * @return void
      */
     public function setOverridePaymentProductSorting($overridePaymentProductSorting);
 
@@ -257,6 +265,7 @@ interface ConfigurationInterface
      * Sets hostedpage v2 parameter
      *
      * @param bool $hostedPageV2
+     * @return void
      */
     public function setHostedPageV2($hostedPageV2);
 }

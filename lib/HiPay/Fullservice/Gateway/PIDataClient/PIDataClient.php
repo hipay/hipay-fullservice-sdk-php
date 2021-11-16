@@ -17,6 +17,7 @@
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
 use HiPay\Fullservice\Exception\ApiErrorException;
+use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
@@ -82,8 +83,13 @@ class PIDataClient implements PIDataClientInterface
      */
     public function sendData($data)
     {
-        $this->getClientProvider()->request(self::METHOD_DATA_API, self::ENDPOINT_DATA_API,
-            $data, false, true);
+        $this->getClientProvider()->request(
+            self::METHOD_DATA_API,
+            self::ENDPOINT_DATA_API,
+            $data,
+            false,
+            true
+        );
     }
 
     /**
@@ -107,6 +113,11 @@ class PIDataClient implements PIDataClientInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::getHPaymentData()
+     *
+     * @param string $dataId
+     * @param HostedPaymentPageRequest $hostedPaymentPageRequest
+     * @param HostedPaymentPage $transaction
+     * @return array<string, mixed>
      */
     public function getHPaymentData($dataId, HostedPaymentPageRequest $hostedPaymentPageRequest, HostedPaymentPage $transaction)
     {
@@ -121,13 +132,18 @@ class PIDataClient implements PIDataClientInterface
 
     /**
      * Returns common request data
-     * @param $dataId
+     * @param string $dataId
      * @param OrderRequest $request
-     * @return array
+     * @return array<string, mixed>
      */
     private function getCommonData($dataId, OrderRequest $request)
     {
-        $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../composer.json"));
+        $composerConfig = file_get_contents(__DIR__ . "/../../../../../composer.json");
+        if ($composerConfig === false) {
+            throw new UnexpectedValueException("Error while trying to retrieve composer configuration.");
+        }
+
+        $composerData = json_decode($composerConfig);
 
         if (!is_array($request->source)) {
             $sourceData = json_decode($request->source, true);
@@ -146,6 +162,7 @@ class PIDataClient implements PIDataClientInterface
                 "cms_module_version" => empty($sourceData['integration_version']) ? "" : $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
+                "sdk_server_engine_version" => phpversion(),
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),
@@ -164,12 +181,15 @@ class PIDataClient implements PIDataClientInterface
      * Computation is a sha256 of device_fingerprint:host_domain or a sha256 of the forward_url if present
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
+     *
+     * @param array<string, mixed>$params
+     * @return false|string
      */
     public function getDataId(array $params)
     {
-        if(!empty($params['forward_url'])){
+        if (!empty($params['forward_url'])) {
             return hash('sha256', $params['forward_url']);
-        } elseif(!empty($params['device_fingerprint'])) {
+        } elseif (!empty($params['device_fingerprint'])) {
             $params['url_accept'] = empty($params['url_accept']) ? null : $params['url_accept'];
 
             // Cleaning the domain from http(s) tag, www tag, any path and ports
@@ -192,12 +212,17 @@ class PIDataClient implements PIDataClientInterface
 
     /**
      * Initializes request date to current datetime
+     * @return void
      */
     public function setRequestDate()
     {
         $this->_requestDate = $this->getCurDateUTCFormatted();
     }
 
+    /**
+     * @param string $defaultHost
+     * @return string
+     */
     private function getHost($defaultHost = "")
     {
         $possibleHostSources = array('HTTP_REFERER','HTTP_X_FORWARDED_HOST', 'HTTP_HOST');
@@ -209,8 +234,12 @@ class PIDataClient implements PIDataClientInterface
         );
         $host = '';
         foreach ($possibleHostSources as $source) {
-            if (!empty($host)) break;
-            if (empty($_SERVER[$source])) continue;
+            if (!empty($host)) {
+                break;
+            }
+            if (empty($_SERVER[$source])) {
+                continue;
+            }
             $host = $_SERVER[$source];
             if (array_key_exists($source, $sourceTransformations)) {
                 $host = $sourceTransformations[$source]($host);
@@ -224,16 +253,42 @@ class PIDataClient implements PIDataClientInterface
         return trim($host);
     }
 
+    /**
+     * @param string $rawHostname
+     * @return string|null
+     */
     private function getDomain($rawHostname)
     {
-        return preg_replace('/:[0-9]+$/', '',
-            preg_replace('/\/(.*)$/', '',
-                preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname)));
+        if (!$rawHostname) {
+            return "";
+        }
+
+        $withoutProtocol = preg_replace('/(^(http|https):\/\/)?(www\.)?/', '', $rawHostname);
+
+        if (is_null($withoutProtocol)) {
+            throw new UnexpectedValueException("Invalid hostname \"$rawHostname\"");
+        }
+
+        $withoutDirectory = preg_replace('/\/(.*)$/', '', $withoutProtocol);
+
+        if (is_null($withoutDirectory)) {
+            throw new UnexpectedValueException("Invalid hostname \"$rawHostname\"");
+        }
+
+        return preg_replace(
+            '/:[0-9]+$/',
+            '',
+            $withoutDirectory
+        );
     }
 
-    private function getCurDateUTCFormatted(){
+    /**
+     * @return string
+     */
+    private function getCurDateUTCFormatted()
+    {
         $curDate = new \DateTime('now', new \DateTimeZone('UTC'));
-        $milliSec = str_pad(floor($curDate->format('u') / 1000), 3, "0", STR_PAD_LEFT);
+        $milliSec = str_pad(strval(floor($curDate->format('u') / 1000)), 3, "0", STR_PAD_LEFT);
         return $curDate->format('Y-m-d\TH:i:s.') . $milliSec . 'Z';
     }
 }

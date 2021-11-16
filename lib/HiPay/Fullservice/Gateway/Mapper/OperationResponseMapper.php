@@ -31,12 +31,14 @@ use HiPay\Fullservice\Mapper\AbstractMapper;
  */
 class OperationResponseMapper extends AbstractMapper
 {
-
     /**
      * @var OperationResponse $_modelObject Model object to populate
      */
     protected $_modelObject;
 
+    /**
+     * @var string $_modelClassName
+     */
     protected $_modelClassName;
 
     /**

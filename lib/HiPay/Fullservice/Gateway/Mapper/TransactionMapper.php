@@ -16,6 +16,12 @@
 
 namespace HiPay\Fullservice\Gateway\Mapper;
 
+use HiPay\Fullservice\Gateway\Model\FraudScreening;
+use HiPay\Fullservice\Gateway\Model\Operation;
+use HiPay\Fullservice\Gateway\Model\OperationResponse;
+use HiPay\Fullservice\Gateway\Model\Order;
+use HiPay\Fullservice\Gateway\Model\PaymentMethod;
+use HiPay\Fullservice\Gateway\Model\ThreeDSecure;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Mapper\AbstractMapper;
 
@@ -31,12 +37,14 @@ use HiPay\Fullservice\Mapper\AbstractMapper;
  */
 class TransactionMapper extends AbstractMapper
 {
-
     /**
      * @var Transaction $_modelObject Model object to populate
      */
     protected $_modelObject;
 
+    /**
+     * @var string
+     */
     protected $_modelClassName;
 
     /**
@@ -74,33 +82,55 @@ class TransactionMapper extends AbstractMapper
         $eci = isset($source['eci']) ? $source['eci'] : null;
         $paymentProduct = isset($source['paymentProduct']) ? $source['paymentProduct'] : null;
 
+        /**
+         * @var PaymentMethod $paymentMethod
+         */
         $paymentMethod = null;
         if (isset($source['paymentMethod']) && is_array($source['paymentMethod'])) {
             $pmm = new PaymentMethodMapper($source['paymentMethod']);
+
+            /** @var PaymentMethod $paymentMethod */
             $paymentMethod = $pmm->getModelObjectMapped();
         }
 
+        /**
+         * @var ThreeDSecure $threeDSecure
+         */
         $threeDSecure = null;
         if (isset($source['threeDSecure']) && is_array($source['threeDSecure'])) {
             $tdsm = new ThreeDSecureMapper($source['threeDSecure']);
+
+            /** @var ThreeDSecure $threeDSecure */
             $threeDSecure = $tdsm->getModelObjectMapped();
         }
 
+        /**
+         * @var FraudScreening $fraudScreening
+         */
         $fraudScreening = null;
         if (isset($source['fraudScreening']) && is_array($source['fraudScreening'])) {
             $fsm = new FraudScreeningMapper($source['fraudScreening']);
+
+            /** @var FraudScreening $fraudScreening */
             $fraudScreening = $fsm->getModelObjectMapped();
         }
 
+        /**
+         * @var Order $order
+         */
         $order = null;
         if (isset($source['order'])) {
             $om = new OrderMapper($source['order']);
+
+            /** @var Order $order */
             $order = $om->getModelObjectMapped();
         }
 
         $operation = null;
         if (isset($source['operation'])) {
             $orm = new OperationResponseMapper($source['operation']);
+
+            /** @var OperationResponse $operation */
             $operation = $orm->getModelObjectMapped();
         }
 

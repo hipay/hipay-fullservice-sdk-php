@@ -16,6 +16,9 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
+use HiPay\Fullservice\Gateway\Model\Operation;
+use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\PIDataClient\PIDataClient;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
@@ -42,7 +45,6 @@ use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
  */
 class GatewayClient implements GatewayClientInterface
 {
-
     /**
      *
      * @var string ENDPOINT_NEW_ORDER endpoint to create a new transaction order
@@ -146,6 +148,9 @@ class GatewayClient implements GatewayClientInterface
 
         //Transform response to Transaction Model with TransactionMapper
         $transactionMapper = new TransactionMapper($response->toArray());
+        /**
+         * @var Transaction $transaction
+         */
         $transaction = $transactionMapper->getModelObjectMapped();
 
         if ($piDataId) {
@@ -166,7 +171,7 @@ class GatewayClient implements GatewayClientInterface
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
 
-        if($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
+        if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
         }
 
@@ -183,6 +188,9 @@ class GatewayClient implements GatewayClientInterface
 
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
         $mapper = new HostedPaymentPageMapper($response->toArray());
+        /**
+         * @var HostedPaymentPage $hostedPagePayment
+         */
         $hostedPagePayment = $mapper->getModelObjectMapped();
 
         $piDataId = $piDataClient->getDataId(array(
@@ -208,8 +216,7 @@ class GatewayClient implements GatewayClientInterface
         $amount = null,
         $operationId = null,
         MaintenanceRequest $maintenanceRequest = null
-    )
-    {
+    ) {
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();
         }
@@ -245,7 +252,10 @@ class GatewayClient implements GatewayClientInterface
             );
 
         $om = new OperationMapper($response->toArray());
-        return $om->getModelObjectMapped();
+
+        /** @var Operation $operation */
+        $operation = $om->getModelObjectMapped();
+        return $operation;
     }
 
     /**
@@ -269,7 +279,10 @@ class GatewayClient implements GatewayClientInterface
 
         $transactionMapper = new TransactionMapper($data['transaction']);
 
-        return $transactionMapper->getModelObjectMapped();
+        /** @var Transaction $transaction */
+        $transaction = $transactionMapper->getModelObjectMapped();
+
+        return $transaction;
     }
 
 
@@ -297,11 +310,17 @@ class GatewayClient implements GatewayClientInterface
         // Single transaction response
         if (!empty($data['transaction']['state'])) {
             $transactionMapper = new TransactionMapper($data['transaction']);
-            $transactions[] = $transactionMapper->getModelObjectMapped();
+
+            /** @var Transaction $transaction */
+            $transaction = $transactionMapper->getModelObjectMapped();
+            $transactions[] = $transaction;
         } else { // Array of transactions
             foreach ($data['transaction'] as $transaction) {
                 $transactionMapper = new TransactionMapper($transaction);
-                $transactions[] = $transactionMapper->getModelObjectMapped();
+
+                /** @var Transaction $transaction */
+                $transaction = $transactionMapper->getModelObjectMapped();
+                $transactions[] = $transaction;
             }
         }
 
@@ -341,7 +360,7 @@ class GatewayClient implements GatewayClientInterface
     /**
      * Serialize to array an object request
      * @param AbstractRequest $request
-     * @return array
+     * @return array<string, mixed>
      */
     protected function _serializeRequestToArray(AbstractRequest $request)
     {

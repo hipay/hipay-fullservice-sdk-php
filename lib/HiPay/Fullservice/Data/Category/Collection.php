@@ -33,7 +33,6 @@ use HiPay\Fullservice\Data\Category;
  */
 class Collection
 {
-
     /**
      * @var string $_JSON Json collection
      */

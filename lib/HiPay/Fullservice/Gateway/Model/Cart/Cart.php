@@ -31,11 +31,10 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Cart extends AbstractModel
 {
-
     /**
      *  List of items
      *
-     * @var array HiPay\Fullservice\Gateway\Model\CartCategories\Item
+     * @var array<Item> HiPay\Fullservice\Gateway\Model\CartCategories\Item
      */
     protected $_items;
 
@@ -51,6 +50,7 @@ class Cart extends AbstractModel
      *  Add an item ( Fee, Good , Discount) into the cart
      *
      * @param Item $item
+     * @return void
      */
     public function addItem($item)
     {
@@ -75,7 +75,7 @@ class Cart extends AbstractModel
     /**
      *  Return all items present in Cart
      *
-     * @return array
+     * @return array<Item>
      */
     public function getAllItems()
     {

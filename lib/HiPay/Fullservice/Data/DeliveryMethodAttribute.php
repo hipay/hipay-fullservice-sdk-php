@@ -34,7 +34,7 @@ class DeliveryMethodAttribute
     /**
      * code
      *
-     * @var string $_mode Mode
+     * @var string $_code Mode
      * @value STORE|CARRIER|RELAYPOINT|ELECTRONIC|TRAVEL|STANDARD|EXPRESS|PRIORITY24H|PRIORITY2H|PRIORITY1H|INSTANT
      */
     private $_code;
@@ -42,7 +42,7 @@ class DeliveryMethodAttribute
     /**
      * Display name
      *
-     * @var array $_displayName
+     * @var array<string, string> $_displayName
      */
     private $_displayName;
 
@@ -50,7 +50,7 @@ class DeliveryMethodAttribute
      * DeliveryMode constructor.
      *
      * @param string $code
-     * @param array $displayName
+     * @param array<string, string> $displayName
      */
     public function __construct($code, $displayName)
     {
@@ -72,7 +72,8 @@ class DeliveryMethodAttribute
     }
 
     /**
-     * @param array $displayName
+     * @param array<string, string> $displayName
+     * @return void
      */
     public function setDisplayName($displayName)
     {
@@ -89,6 +90,7 @@ class DeliveryMethodAttribute
 
     /**
      * @param string $code
+     * @return void
      */
     public function setCode($code)
     {

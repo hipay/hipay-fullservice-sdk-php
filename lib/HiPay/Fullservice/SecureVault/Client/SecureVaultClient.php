@@ -16,7 +16,9 @@
 namespace HiPay\Fullservice\SecureVault\Client;
 
 use HiPay\Fullservice\HTTP\ClientProvider;
+use HiPay\Fullservice\Model\AbstractModel;
 use HiPay\Fullservice\SecureVault\Mapper\PaymentCardTokenMapper;
+use HiPay\Fullservice\SecureVault\Model\PaymentCardToken;
 
 /**
  * Client interface for vault request send to TPP Fullservice.
@@ -60,10 +62,10 @@ class SecureVaultClient implements SecureVaultClientInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\SecureVault\Client\SecureVaultClientInterface::requestLookupToken()
+     * @return AbstractModel
      */
     public function requestLookupToken($token, $requestId = '0')
     {
-
         $endPoint = str_replace('{token}', $token, self::ENDPOINT_LOOKUP_TOKEN);
 
         // Add request_id on end point url

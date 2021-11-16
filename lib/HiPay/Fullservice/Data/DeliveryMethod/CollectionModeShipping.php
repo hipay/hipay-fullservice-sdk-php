@@ -33,9 +33,8 @@ use HiPay\Fullservice\Data\DeliveryMethodAttribute;
  */
 class CollectionModeShipping
 {
-
     /**
-     * @return array Collection
+     * @return array<string, array<DeliveryMethodAttribute>> Collection
      */
     public static function getItems()
     {
@@ -55,7 +54,7 @@ class CollectionModeShipping
     }
 
     /**
-     * @var string $_JSON Json collection
+     * @var string $_JSON_MODE Json collection
      */
     private static $_JSON_MODE = <<<EOT
     
@@ -100,7 +99,7 @@ class CollectionModeShipping
 EOT;
 
     /**
-     * @var string $_JSON Json collection
+     * @var string $_JSON_SHIPPING Json collection
      */
     private static $_JSON_SHIPPING = <<<EOT
     

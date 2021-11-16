@@ -16,6 +16,8 @@
 
 namespace HiPay\Fullservice\Model;
 
+use HiPay\Fullservice\Exception\UnexpectedValueException;
+
 /**
  * Model abstract class
  *
@@ -31,7 +33,6 @@ namespace HiPay\Fullservice\Model;
  */
 abstract class AbstractModel implements ModelInterface
 {
-
     /**
      * {@inheritDoc}
      *
@@ -39,7 +40,6 @@ abstract class AbstractModel implements ModelInterface
      */
     public function toArray()
     {
-
         $array = array();
 
         $classRef = new \ReflectionClass(get_class($this));
@@ -65,12 +65,17 @@ abstract class AbstractModel implements ModelInterface
      * {@inheritDoc}
      *
      * @see \HiPay\Fullservice\Model\ModelInterface::toJson()
+     * @return string|false
      */
     public function toJson()
     {
         return json_encode($this->toArray());
     }
 
+    /**
+     * @param string $name
+     * @return mixed|null
+     */
     public function __get($name)
     {
         return isset($this->{$name}) ? $this->{$name} : null;
@@ -82,6 +87,12 @@ abstract class AbstractModel implements ModelInterface
      */
     private function decamelize($string)
     {
-        return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
+        $snakeCase = preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string);
+
+        if (is_null($snakeCase)) {
+            throw new UnexpectedValueException("Invalid key \"$string\"");
+        }
+
+        return strtolower($snakeCase);
     }
 }

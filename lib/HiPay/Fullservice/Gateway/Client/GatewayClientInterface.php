@@ -13,6 +13,7 @@
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
  *
  */
+
 namespace HiPay\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Model\Transaction;
@@ -22,7 +23,6 @@ use HiPay\Fullservice\HTTP\ClientProvider;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Model\Operation;
-
 
 /**
  * Client interface for all request send to TPP Fullservice.
@@ -37,7 +37,6 @@ use HiPay\Fullservice\Gateway\Model\Operation;
  */
 interface GatewayClientInterface
 {
-
     /**
      * Request a new order
      * @param OrderRequest $orderRequest
@@ -49,9 +48,9 @@ interface GatewayClientInterface
      * Request Maintenance operation on a transaction
      * Because this api call is simple, we don't use an object request as method parameter
      *
-     * @param string $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
+     * @param string|null $operationType (capture,refund,cancel,acceptChallenge and denyChallenge)
      * @param string $transactionReference Transaction ID related to customer order
-     * @param string $amount Amount to process
+     * @param string|float $amount Amount to process
      * @param string $operationId Operation ID
      * @param MaintenanceRequest $maintenanceRequest
      * @deprecated
@@ -85,21 +84,20 @@ interface GatewayClientInterface
      * Get order Transaction information
      *
      * @param string $orderId
-     * @return Transaction[] Transaction Model
+     * @return array<int, Transaction> Transaction Model
      */
     public function requestOrderTransactionInformation($orderId);
 
     /**
-     * Get security settings 
-     * 
+     * Get security settings
+     *
      * @return mixed
      */
     public function requestSecuritySettings();
-    
+
     /**
      * Return current HTTP client provider
      * @return ClientProvider The current client provider
      */
     public function getClientProvider();
-
 }

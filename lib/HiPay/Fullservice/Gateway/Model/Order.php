@@ -30,7 +30,21 @@ use HiPay\Fullservice\Model\AbstractModel;
  */
 class Order extends AbstractModel
 {
-
+    /**
+     * Order constructor.
+     * @param string $id
+     * @param string $customerId
+     * @param float $amount
+     * @param float $tax
+     * @param float $shipping
+     * @param string $dateCreated
+     * @param int $attempts
+     * @param string $currency
+     * @param int $decimals
+     * @param string $gender
+     * @param string $language
+     * @param PersonalInformation|null $shippingAddress
+     */
     public function __construct(
         $id,
         $customerId,
@@ -45,7 +59,6 @@ class Order extends AbstractModel
         $language,
         $shippingAddress
     ) {
-
         $this->_id = $id;
         $this->_customerId = $customerId;
         $this->_amount = $amount;
@@ -58,7 +71,6 @@ class Order extends AbstractModel
         $this->_gender = $gender;
         $this->_language = $language;
         $this->_shippingAddress = $shippingAddress;
-
     }
 
     /**
@@ -130,7 +142,7 @@ class Order extends AbstractModel
 
     /**
      *
-     * @var PersonalInformation $_shippingAddress Customer Shipping address information
+     * @var PersonalInformation|null $_shippingAddress Customer Shipping address information
      */
     protected $_shippingAddress;
 
@@ -227,7 +239,7 @@ class Order extends AbstractModel
     }
 
     /**
-     * @return PersonalInformation
+     * @return PersonalInformation|null
      */
     public function getShippingAddress()
     {

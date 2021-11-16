@@ -32,7 +32,6 @@ use HiPay\Fullservice\Data\DeliveryMethod;
  */
 class Collection
 {
-
     /**
      * @return DeliveryMethod[] Collection of Category
      */
@@ -52,7 +51,6 @@ class Collection
     }
 
     /**
-     *
      * @var string $_JSON Json collection
      */
     private static $_JSON = <<<EOT

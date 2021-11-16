@@ -75,6 +75,7 @@ class DeliveryMethod
 
     /**
      * @param string $mode
+     * @return void
      */
     public function setMode($mode)
     {
@@ -91,6 +92,7 @@ class DeliveryMethod
 
     /**
      * @param string $shipping
+     * @return void
      */
     public function setShipping($shipping)
     {
@@ -107,6 +109,7 @@ class DeliveryMethod
 
     /**
      * @param int $code
+     * @return void
      */
     public function setCode($code)
     {

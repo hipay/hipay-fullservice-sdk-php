@@ -15,6 +15,7 @@
  */
 
 namespace HiPay\Fullservice\Gateway\Request\Order;
+
 use HiPay\Fullservice\Data\PaymentProduct\Collection;
 
 /**
@@ -32,15 +33,14 @@ use HiPay\Fullservice\Data\PaymentProduct\Collection;
  * */
 class HostedPaymentPageRequest extends OrderRequest
 {
-
     /**
-     * @var string The list of payment products to display on the payment page.
+     * @var array<string>|string|null $payment_product_list The list of payment products to display on the payment page.
      * @required
      */
     public $payment_product_list;
 
     /**
-     * @var array The categories of payment products to be displayed on the payment page.
+     * @var array<string> The categories of payment products to be displayed on the payment page.
      * @value "visa","mastercard","maestro","cb"
      */
     public $payment_product_category_list;
@@ -83,7 +83,11 @@ class HostedPaymentPageRequest extends OrderRequest
      */
     public $multi_use;
 
-    public function reorderPaymentProductList(){
+    /**
+     * @return void
+     */
+    public function reorderPaymentProductList()
+    {
         $this->payment_product_list = Collection::orderByPriority($this->payment_product_list);
     }
 }
