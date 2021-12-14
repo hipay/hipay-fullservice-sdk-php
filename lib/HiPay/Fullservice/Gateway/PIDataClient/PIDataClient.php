@@ -151,8 +151,12 @@ class PIDataClient implements PIDataClientInterface
             $sourceData = $request->source;
         }
 
-        $phpversion = explode('-', phpversion());
-        $sdkServerEngineVersion = $phpversion[0];
+        $phpversion = phpversion();
+        $sdkServerEngineVersion = null;
+        if ($phpversion) {
+            $phpversionArray = explode('-', $phpversion);
+            $sdkServerEngineVersion = $phpversionArray[0];
+        }
 
         $params = array(
             "id" => $dataId,
