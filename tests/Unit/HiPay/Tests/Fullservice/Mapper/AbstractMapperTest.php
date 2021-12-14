@@ -39,7 +39,9 @@ class AbstractMapperTest extends TestCase
     public function testCannotBeConstructUsingInvalidArgument()
     {
         $mock = $this->getAbstractMock($this->_abstractName);
-        if (version_compare(phpversion(), '7.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+        if (version_compare($sdkServerEngineVersion, '7.0.0', '<')) {
             $this->expectError();
         } else {
             $this->expectException(\TypeError::class);

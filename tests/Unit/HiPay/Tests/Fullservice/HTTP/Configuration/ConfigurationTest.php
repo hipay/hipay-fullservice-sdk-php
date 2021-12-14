@@ -397,7 +397,10 @@ class ConfigurationTest extends TestCase
 
     public function testCantBeConstructWithoutParams() {
 
-        if (version_compare(phpversion(), '7.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
+        if (version_compare($sdkServerEngineVersion, '7.0.0', '<')) {
             $this->expectError();
         } else {
             $this->expectException(\ArgumentCountError::class);

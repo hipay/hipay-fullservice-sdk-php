@@ -44,12 +44,18 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testCannotBeConstructFromInvalidArgument()
     {
-        if (version_compare(phpversion(), '7.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
+        if (version_compare($sdkServerEngineVersion, '7.0.0', '<')) {
             $this->expectError();
         } else {
             $this->expectException(\TypeError::class);
 
-            if (version_compare(phpversion(), '8.0.0', '<')) {
+            $phpversion = explode('-', phpversion());
+            $sdkServerEngineVersion = $phpversion[0];
+
+            if (version_compare($sdkServerEngineVersion, '8.0.0', '<')) {
                 $this->expectExceptionMessage("Argument 1 passed to HiPay\Fullservice\HTTP\ClientProvider::__construct() must implement interface HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given");
             } else {
                 $this->expectExceptionMessage('HiPay\Fullservice\HTTP\ClientProvider::__construct(): Argument #1 ($configuration) must be of type HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface, null given, called in ' . __FILE__ . ' on line 59');
@@ -113,7 +119,10 @@ class SimpleHTTPClientTest extends TestCase
     {
         $this->assertNotEmpty($client->getHttpClient());
 
-        if (version_compare(phpversion(), '8.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
+        if (version_compare($sdkServerEngineVersion, '8.0.0', '<')) {
             $this->assertEquals(true, is_resource($client->getHttpClient()));
         } else {
             $this->assertInstanceOf(\CurlHandle::class, $client->getHttpClient());
@@ -126,7 +135,9 @@ class SimpleHTTPClientTest extends TestCase
      */
     public function testRequestCannotBeExcutedFromAllInvalidArguments(ClientProvider $client)
     {
-        if (version_compare(phpversion(), '7.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+        if (version_compare($sdkServerEngineVersion, '7.0.0', '<')) {
             $this->expectError();
         } else {
             $this->expectException(\TypeError::class);
