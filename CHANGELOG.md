@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.9.1
+
+- [fix]: qualimetry and tests
+
 ## Version 2.9.0
 
 - [change]: improvement on qualimetry
