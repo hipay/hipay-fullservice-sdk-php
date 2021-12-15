@@ -148,6 +148,9 @@ class PIDataClientTest extends TestCase
 
         $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../../../composer.json"));
 
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
         $testParams = array(
             "id" => $dataId,
             "amount" => $orderRequest->amount,
@@ -160,7 +163,7 @@ class PIDataClientTest extends TestCase
                 "cms_module_version" => $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
-                "sdk_server_engine_version" => phpversion(),
+                "sdk_server_engine_version" => $sdkServerEngineVersion,
             ),
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
@@ -177,7 +180,10 @@ class PIDataClientTest extends TestCase
         $this->assertSame(152.0,$params['amount']);
         $this->assertSame(456118,$params['transaction_id']);
 
-        if (version_compare(phpversion(), '7.3.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
+        if (version_compare($sdkServerEngineVersion, '7.3.0', '<')) {
             $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
             $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
         } else {
@@ -218,6 +224,9 @@ class PIDataClientTest extends TestCase
 
         $composerData = json_decode(file_get_contents(__DIR__ . "/../../../../../../../composer.json"));
 
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
         $testParams = array(
             "id" => $dataId,
             "amount" => $hostedPaymentPageRequest->amount,
@@ -230,7 +239,7 @@ class PIDataClientTest extends TestCase
                 "cms_module_version" => $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
-                "sdk_server_engine_version" => phpversion(),
+                "sdk_server_engine_version" => $sdkServerEngineVersion,
                 "template" => $hostedPaymentPageRequest->template
             ),
             "event" => "initHpayment",
@@ -242,7 +251,10 @@ class PIDataClientTest extends TestCase
         $this->assertTrue(!empty($params['monitoring']['date_request']));
         $this->assertTrue(!empty($params['monitoring']['date_response']));
 
-        if (version_compare(phpversion(), '7.3.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+
+        if (version_compare($sdkServerEngineVersion, '7.3.0', '<')) {
             $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_request']);
             $this->assertRegExp('/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/', $params['monitoring']['date_response']);
         } else {

@@ -151,6 +151,13 @@ class PIDataClient implements PIDataClientInterface
             $sourceData = $request->source;
         }
 
+        $phpversion = phpversion();
+        $sdkServerEngineVersion = null;
+        if ($phpversion) {
+            $phpversionArray = explode('-', $phpversion);
+            $sdkServerEngineVersion = $phpversionArray[0];
+        }
+
         $params = array(
             "id" => $dataId,
             "amount" => (float) $request->amount,
@@ -162,7 +169,7 @@ class PIDataClient implements PIDataClientInterface
                 "cms_module_version" => empty($sourceData['integration_version']) ? "" : $sourceData['integration_version'],
                 "sdk_server" => "php",
                 "sdk_server_version" => $composerData->version,
-                "sdk_server_engine_version" => phpversion(),
+                "sdk_server_engine_version" => $sdkServerEngineVersion,
             ),
             "monitoring" => array(
                 "date_request" => $this->getRequestDate(),

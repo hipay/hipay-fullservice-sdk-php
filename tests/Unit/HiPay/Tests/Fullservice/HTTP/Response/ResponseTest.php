@@ -42,7 +42,9 @@ class ResponseTest extends TestCase
      */
     public function testCannotBeConstructFromNonArrayValue()
     {
-        if (version_compare(phpversion(), '7.0.0', '<')) {
+        $phpversion = explode('-', phpversion());
+        $sdkServerEngineVersion = $phpversion[0];
+        if (version_compare($sdkServerEngineVersion, '7.0.0', '<')) {
             $this->expectError();
         } else {
             $this->expectException(\TypeError::class);

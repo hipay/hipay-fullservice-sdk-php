@@ -131,6 +131,7 @@ phpunit-7.2:
     expire_in: 1 day
   tags:
     - small
+  allow_failure: true
 
 phpunit-7.3:
   image: mileschou/xdebug:7.3
