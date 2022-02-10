@@ -22,7 +22,7 @@
           "en": "Phone",
           "fr": "Téléphone"
         },
-        "type": "tel",
+        "type": "text",
         "required": true,
         "controlType": "phone"
       }
