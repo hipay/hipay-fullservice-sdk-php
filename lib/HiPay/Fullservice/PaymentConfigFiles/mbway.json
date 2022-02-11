@@ -13,6 +13,20 @@
   "currencies": [],
   "countries": ["PT"],
   "checkoutFieldsMandatory": ["phone"],
-  "additionalFields": {},
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\PhonePaymentMethod",
+    "defaultFieldsValue": {},
+    "formFields": {
+      "phone": {
+        "label": {
+          "en": "Phone",
+          "fr": "Téléphone"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "phone"
+      }
+    }
+  },
   "priority": 29
 }
