@@ -16,6 +16,10 @@ class GatewayTest extends TestCase
 {
     public function testNewOrderAlreadyPaid()
     {
+        if (getenv('CI') === "true") {
+            $this->markTestSkipped('Skip this test on CI.');
+        }
+
         $configuration = new Configuration(
             array(
                 "apiUsername" => $_ENV['STAGE_API_LOGIN'],

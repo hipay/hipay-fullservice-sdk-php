@@ -54,7 +54,7 @@ vendor/
 doc/
 .idea
 /nbproject/private/
-.tests/tests-reports
+tests/test-reports
 .cache
 .scannerwork/scanner-report/
 *.env
