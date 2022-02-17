@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.9.2
+
+- [fix]: Added MB Way mandatory controls
+
 ## Version 2.9.1
 
 - [fix]: qualimetry and tests
