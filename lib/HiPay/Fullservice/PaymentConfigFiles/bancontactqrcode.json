@@ -1,0 +1,20 @@
+{
+  "productCode": "bancontactqrcode",
+  "brandName": "Bancontact",
+  "category": "debit-card",
+  "comment": "Available only in Belgium.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": ["EUR"],
+  "countries": ["BE"],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\CardTokenPaymentMethod"
+  },
+  "priority": 14
+}
