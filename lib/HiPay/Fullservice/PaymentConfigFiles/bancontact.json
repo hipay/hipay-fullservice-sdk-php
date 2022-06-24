@@ -1,5 +1,5 @@
 {
-  "productCode": "bancontactqrcode",
+  "productCode": "bancontact",
   "brandName": "Bancontact",
   "category": "debit-card",
   "comment": "Available only in Belgium.",
@@ -13,8 +13,6 @@
   "currencies": ["EUR"],
   "countries": ["BE"],
   "checkoutFieldsMandatory": [],
-  "additionalFields": {
-    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\CardTokenPaymentMethod"
-  },
-  "priority": 14
+  "additionalFields": {},
+  "priority": 15
 }
