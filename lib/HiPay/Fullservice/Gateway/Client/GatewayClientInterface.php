@@ -53,7 +53,6 @@ interface GatewayClientInterface
      * @param string|float $amount Amount to process
      * @param string $operationId Operation ID
      * @param MaintenanceRequest $maintenanceRequest
-     * @deprecated
      * @return Operation
      */
     public function requestMaintenanceOperation(

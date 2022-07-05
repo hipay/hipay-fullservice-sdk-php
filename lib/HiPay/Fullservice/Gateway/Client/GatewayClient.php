@@ -208,7 +208,7 @@ class GatewayClient implements GatewayClientInterface
      *
      * {@inheritDoc}
      *
-     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceTransaction()
+     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestMaintenanceOperation()
      */
     public function requestMaintenanceOperation(
         $operationType,
