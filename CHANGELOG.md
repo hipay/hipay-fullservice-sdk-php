@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.10.0
+
+- [add]: Added **Bancontact Credit Card / QR code** payment method
+
 ## Version 2.9.2
 
 - [fix]: Added MB Way mandatory controls
