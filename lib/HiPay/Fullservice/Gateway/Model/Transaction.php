@@ -48,7 +48,7 @@ class Transaction extends AbstractTransaction
      * @param float $refundedAmount
      * @param int $decimals
      * @param string $currency
-     * @param string $reason
+     * @param array<string, mixed>|null $reason
      * @param string $forwardUrl
      * @param string $attemptId
      * @param string $referenceToPay
@@ -148,7 +148,7 @@ class Transaction extends AbstractTransaction
     protected $_transactionReference;
 
     /**
-     * @var string $_reason Reason why transaction was declined. Optional.
+     * @var array<string, mixed>|null $_reason Reason why transaction was declined. Optional.
      */
     protected $_reason;
 
@@ -278,7 +278,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return string
+     * @return array<string, mixed>|null
      */
     public function getReason()
     {
