@@ -1,6 +1,6 @@
 {
   "productCode": "bancontact",
-  "brandName": "Bancontact CD / QR code",
+  "brandName": "Bancontact Credit Card / QR code",
   "category": "debit-card",
   "comment": "Available only in Belgium.",
   "can3ds": 1,
