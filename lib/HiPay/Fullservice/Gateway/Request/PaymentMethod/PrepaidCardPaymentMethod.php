@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * PrepaidCardPaymentMethod Payment Method
  *
@@ -28,7 +26,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PrepaidCardPaymentMethod extends AbstractRequest
+class PrepaidCardPaymentMethod extends PaymentMethodRequest
 {
     /**
      *  The prepaid card number

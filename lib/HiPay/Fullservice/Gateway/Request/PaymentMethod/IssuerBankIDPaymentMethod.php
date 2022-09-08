@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Issuer Bank ID Payment Method
  * Data related to payment with issuer bank id (generic method)
@@ -29,7 +27,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class IssuerBankIDPaymentMethod extends AbstractRequest
+class IssuerBankIDPaymentMethod extends PaymentMethodRequest
 {
     /**
      * Issuers’ bank Id listF

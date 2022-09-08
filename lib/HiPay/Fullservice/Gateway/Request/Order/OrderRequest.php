@@ -25,7 +25,7 @@ use HiPay\Fullservice\Gateway\Request\Info\CustomerBillingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\Info\CustomerShippingInfoRequest;
 use HiPay\Fullservice\Gateway\Request\CommonRequest;
 use HiPay\Fullservice\Gateway\Request\Info\DeliveryShippingInfoRequest;
-use HiPay\Fullservice\Gateway\Model\PaymentMethod;
+use HiPay\Fullservice\Gateway\Request\PaymentMethod\PaymentMethodRequest;
 
 /**
  * Order request class.
@@ -182,7 +182,7 @@ class OrderRequest extends CommonRequest
     public $customerShippingInfo;
 
     /**
-     * @var PaymentMethod $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
+     * @var PaymentMethodRequest $paymentMethod A specific payment method (Card Token, IDeal,Qiwi Wallet,Split Payment ...)
      */
     public $paymentMethod;
 

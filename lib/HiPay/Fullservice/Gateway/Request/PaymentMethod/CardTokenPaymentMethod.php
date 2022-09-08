@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Card Token Payment Method
  * Data related to payment with token system
@@ -29,7 +27,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class CardTokenPaymentMethod extends AbstractRequest
+class CardTokenPaymentMethod extends PaymentMethodRequest
 {
     /**
      * For further details about the card token and its integration,  refer to the HiPay TPP - Tokenization

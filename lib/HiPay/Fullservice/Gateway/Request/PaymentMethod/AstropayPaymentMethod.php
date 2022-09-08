@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Astropay Payment Method
  *
@@ -30,7 +28,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class AstropayPaymentMethod extends AbstractRequest
+class AstropayPaymentMethod extends PaymentMethodRequest
 {
     /**
      *  The national Identification Number

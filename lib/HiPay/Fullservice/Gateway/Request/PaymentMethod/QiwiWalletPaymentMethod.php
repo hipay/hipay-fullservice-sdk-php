@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Qiwi Wallet Payment Method
  * Data related to payment with qiwi wallet system
@@ -29,7 +27,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class QiwiWalletPaymentMethod extends AbstractRequest
+class QiwiWalletPaymentMethod extends PaymentMethodRequest
 {
     /**
      * The Qiwi user's ID, to whom the invoice is issued.

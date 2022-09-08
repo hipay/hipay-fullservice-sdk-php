@@ -16,23 +16,16 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
+use HiPay\Fullservice\Request\AbstractRequest;
+
 /**
- * Phone Payment Method
- * Data related to payment with phone number (generic method)
+ * Payment method request abstract.
  *
- * @package HiPay\Fullservice
- * @author Etienne Landais <elandais@hipay.com>
- * @copyright Copyright (c) 2016 - HiPay
- * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link https://github.com/hipay/hipay-fullservice-sdk-php
- * @api
+ * @package     HiPay\Fullservice
+ * @copyright   Copyright (c) 2016 - HiPay
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
+ * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
-class PhonePaymentMethod extends PaymentMethodRequest
+abstract class PaymentMethodRequest extends AbstractRequest
 {
-    /**
-     * phone number
-     * @var string $phone
-     * @required
-     */
-    public $phone;
 }
