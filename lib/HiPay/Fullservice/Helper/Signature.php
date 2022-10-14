@@ -40,10 +40,10 @@ use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
 class Signature
 {
     /**
-     * @param string            $secretPassphrase
-     * @param string            $hashAlgorithm
-     * @param string|null       $signature
-     * @param array|string|null $payload
+     * @param string                           $secretPassphrase
+     * @param string                           $hashAlgorithm
+     * @param string|null                      $signature
+     * @param string|array<string, mixed>|null $payload
      *
      * @return bool
      */
@@ -63,10 +63,10 @@ class Signature
     /**
      * Detects is same hash algorithm is used for signature.
      *
-     * @param string            $secretPassphrase
-     * @param string            $hashAlgorithm
-     * @param string|null       $signature
-     * @param array|string|null $payload
+     * @param string                           $secretPassphrase
+     * @param string                           $hashAlgorithm
+     * @param string|null                      $signature
+     * @param string|array<string, mixed>|null $payload
      *
      * @return bool
      */
@@ -88,11 +88,11 @@ class Signature
     /**
      * Compute signature according to hash and passphrase.
      *
-     * @param string       $secretPassphrase
-     * @param string       $hashAlgorithm
-     * @param array|string $payload
+     * @param string                      $secretPassphrase
+     * @param string                      $hashAlgorithm
+     * @param string|array<string, mixed> $payload
      *
-     * @return string
+     * @return string|false
      */
     protected static function getComputedSignature($secretPassphrase, $hashAlgorithm, $payload)
     {
@@ -142,21 +142,21 @@ class Signature
     }
 
     /**
-     * @param string       $secretPassPhrase
-     * @param string|array $payload
+     * @param string                      $secretPassPhrase
+     * @param string|array<string, mixed> $payload
      *
      * @return string
      */
     protected static function getStringToCompute($secretPassPhrase, $payload)
     {
         $string2compute = '';
-        if (static::isRedirection($payload)) {
+        if (static::isRedirection() && is_array($payload)) {
             foreach ($payload as $name => $value) {
                 if (strlen($value) > 0) {
                     $string2compute .= $name.$value.$secretPassPhrase;
                 }
             }
-        } else {
+        } elseif (is_string($payload)) {
             $string2compute = $payload.$secretPassPhrase;
         }
 
