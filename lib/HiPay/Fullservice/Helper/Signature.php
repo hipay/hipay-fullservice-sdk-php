@@ -1,6 +1,6 @@
 <?php
 /**
- * HiPay Fullservice SDK PHP
+ * HiPay Fullservice SDK PHP.
  *
  * NOTICE OF LICENSE
  *
@@ -11,7 +11,6 @@
  *
  * @copyright      Copyright (c) 2016 - HiPay
  * @license        http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 Licence
- *
  */
 
 namespace HiPay\Fullservice\Helper;
@@ -19,7 +18,7 @@ namespace HiPay\Fullservice\Helper;
 use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
 
 /**
- *  Class Signature validator
+ * Class Signature validator.
  *
  * For the URL notification, the signature is sent on the HTTP header under the “HTTP_X_ALLOPASS_SIGNATURE” parameter
  * To check this point, we concatenate the passphrase with the POST content of the query.
@@ -30,70 +29,84 @@ use HiPay\Fullservice\Enum\Helper\HashAlgorithm;
  * b) The value can’t be empty.
  * c) The parameter must be sorted in alphabetical order.
  *
- *
- * @package     HiPay\Fullservice
  * @author        Kassim Belghait <kassim@sirateck.com>
  * @copyright   Copyright (c) 2016 - HiPay
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
- * @link        https://github.com/hipay/hipay-fullservice-sdk-php
+ *
+ * @see        https://github.com/hipay/hipay-fullservice-sdk-php
+ *
  * @api
  */
 class Signature
 {
     /**
-     * @param string $secretPassphrase
-     * @param string $hashAlgorithm
+     * @param string            $secretPassphrase
+     * @param string            $hashAlgorithm
+     * @param string|null       $signature
+     * @param array|string|null $payload
+     *
      * @return bool
      */
-    public static function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1)
+    public static function isValidHttpSignature($secretPassphrase, $hashAlgorithm = HashAlgorithm::SHA1, $signature = null, $payload = null)
     {
-        if (static::getComputedSignature($secretPassphrase, $hashAlgorithm) == static::getSignature()) {
-            return true;
+        if (null === $signature) {
+            $signature = static::getSignatureFromGlobals();
         }
 
-        return false;
+        if (null === $payload) {
+            $payload = static::getPayloadFromGlobals();
+        }
+
+        return static::getComputedSignature($secretPassphrase, $hashAlgorithm, $payload) === $signature;
     }
 
     /**
-     *  Detects is same hash algorithm is used for signature
+     * Detects is same hash algorithm is used for signature.
      *
-     * @param string $secretPassphrase
-     * @param string $hashAlgorithm
+     * @param string            $secretPassphrase
+     * @param string            $hashAlgorithm
+     * @param string|null       $signature
+     * @param array|string|null $payload
      *
-     * @return boolean
+     * @return bool
      */
-    public static function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm)
+    public static function isSameHashAlgorithm($secretPassphrase, $hashAlgorithm, $signature = null, $payload = null)
     {
-        $computedPassphrase = static::getComputedSignature($secretPassphrase, $hashAlgorithm);
-
-        if ($computedPassphrase !== false) {
-            if (strlen($computedPassphrase) == strlen(static::getSignature())) {
-                return true;
-            }
+        if (null === $signature) {
+            $signature = static::getSignatureFromGlobals();
         }
 
-        return false;
+        if (null === $payload) {
+            $payload = static::getPayloadFromGlobals();
+        }
+
+        $computedPassphrase = static::getComputedSignature($secretPassphrase, $hashAlgorithm, $payload);
+
+        return false !== $computedPassphrase && strlen($computedPassphrase) == strlen($signature);
     }
 
     /**
-     *  Compute signature according to hash and passphrase
+     * Compute signature according to hash and passphrase.
      *
-     * @param string $secretPassphrase
-     * @param string $hashAlgorithm
+     * @param string       $secretPassphrase
+     * @param string       $hashAlgorithm
+     * @param array|string $payload
      *
-     * @return string|false
+     * @return string
      */
-    protected static function getComputedSignature($secretPassphrase, $hashAlgorithm)
+    protected static function getComputedSignature($secretPassphrase, $hashAlgorithm, $payload)
     {
+        $stringToCompute = static::getStringToCompute($secretPassphrase, $payload);
+
         switch ($hashAlgorithm) {
             case HashAlgorithm::SHA256:
-                $computedSignature = hash(HashAlgorithm::SHA256, static::getStringToCompute($secretPassphrase));
+                $computedSignature = hash(HashAlgorithm::SHA256, $stringToCompute);
                 break;
             case HashAlgorithm::SHA512:
-                $computedSignature = hash(HashAlgorithm::SHA512, static::getStringToCompute($secretPassphrase));
+                $computedSignature = hash(HashAlgorithm::SHA512, $stringToCompute);
                 break;
             default:
-                $computedSignature = sha1(static::getStringToCompute($secretPassphrase));
+                $computedSignature = sha1($stringToCompute);
                 break;
         }
 
@@ -101,23 +114,61 @@ class Signature
     }
 
     /**
-     * @return bool
-     */
-    protected static function isRedirection()
-    {
-        return isset($_GET ['hash']);
-    }
-
-    /**
+     * Load signature from gobals var.
+     *
      * @return mixed
      */
-    protected static function getSignature()
+    protected static function getSignatureFromGlobals()
     {
         if (static::isRedirection()) {
             return $_GET['hash'];
         } else {
             return $_SERVER['HTTP_X_ALLOPASS_SIGNATURE'];
         }
+    }
+
+    /**
+     * Load payload from globals var.
+     *
+     * @return mixed
+     */
+    protected static function getPayloadFromGlobals()
+    {
+        if (static::isRedirection()) {
+            return static::getParameters();
+        } else {
+            return static::getRawPostData();
+        }
+    }
+
+    /**
+     * @param string       $secretPassPhrase
+     * @param string|array $payload
+     *
+     * @return string
+     */
+    protected static function getStringToCompute($secretPassPhrase, $payload)
+    {
+        $string2compute = '';
+        if (static::isRedirection($payload)) {
+            foreach ($payload as $name => $value) {
+                if (strlen($value) > 0) {
+                    $string2compute .= $name.$value.$secretPassPhrase;
+                }
+            }
+        } else {
+            $string2compute = $payload.$secretPassPhrase;
+        }
+
+        return $string2compute;
+    }
+
+    /**
+     * @return bool
+     */
+    protected static function isRedirection()
+    {
+        return isset($_GET['hash']);
     }
 
     /**
@@ -128,6 +179,7 @@ class Signature
         $params = $_GET;
         unset($params['hash']);
         ksort($params);
+
         return $params;
     }
 
@@ -136,26 +188,6 @@ class Signature
      */
     protected static function getRawPostData()
     {
-        return file_get_contents("php://input");
-    }
-
-    /**
-     * @param string $secretPassPhrase
-     * @return string
-     */
-    protected static function getStringToCompute($secretPassPhrase)
-    {
-        $string2compute = "";
-        if (static::isRedirection()) {
-            foreach (static::getParameters() as $name => $value) {
-                if (strlen($value) > 0) {
-                    $string2compute .= $name . $value . $secretPassPhrase;
-                }
-            }
-        } else {
-            $string2compute = static::getRawPostData() . $secretPassPhrase;
-        }
-
-        return $string2compute;
+        return file_get_contents('php://input');
     }
 }
