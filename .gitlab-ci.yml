@@ -113,6 +113,8 @@ phpunit-7.2:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
+    - rm vendor -R composer.lock
+    - php composer.phar install
     - php composer.phar require --dev phpunit/phpunit:8.5 --with-all-dependencies
   script:
     - export XDEBUG_MODE=coverage
