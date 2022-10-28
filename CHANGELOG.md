@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.11.0
+
+- [add]: Comparison of signatures decorated with global variables
+
 ## Version 2.10.0
 
 - [add]: Added **Bancontact Credit Card / QR code** payment method
