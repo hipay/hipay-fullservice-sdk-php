@@ -32,9 +32,9 @@ build:
     - php -m
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
+    - php -r "copy('https://getcomposer.org/download/2.3.8/composer.phar', 'composer.phar');"
+    # - php composer-setup.php
+    # - php -r "unlink('composer-setup.php');"
   script:
     - php composer.phar install
     - php composer.phar require --dev phpunit/phpunit:9.5 --with-all-dependencies
@@ -113,6 +113,8 @@ phpunit-7.2:
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
+    - rm vendor -R composer.lock
+    - php composer.phar install
     - php composer.phar require --dev phpunit/phpunit:8.5 --with-all-dependencies
   script:
     - export XDEBUG_MODE=coverage
@@ -279,8 +281,8 @@ sonar-7.4:
   cache:
     <<: *global_cache
   variables:
-    GIT_DEPTH: '0'
-    SONAR_PROJECT_KEY: 'hipay-fullservice-sdk-php'
+    GIT_DEPTH: "0"
+    SONAR_PROJECT_KEY: "hipay-fullservice-sdk-php"
   before_script:
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
