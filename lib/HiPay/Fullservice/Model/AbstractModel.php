@@ -87,7 +87,7 @@ abstract class AbstractModel implements ModelInterface
      */
     private function decamelize($string)
     {
-        $snakeCase = preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string);
+        $snakeCase = preg_replace('~(?<!^)([A-Z]|[\d]+)~', '_$1', lcfirst($string));
 
         if (is_null($snakeCase)) {
             throw new UnexpectedValueException("Invalid key \"$string\"");
