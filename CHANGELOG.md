@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.11.1
+
+- [add]: fix model parameters with number in the name
+
 ## Version 2.11.0
 
 - [add]: Comparison of signatures decorated with global variables
