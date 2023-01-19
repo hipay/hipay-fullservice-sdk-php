@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.11.2
+
+- [add]: add expiration limit method payment
+
 ## Version 2.11.1
 
 - [add]: fix model parameters with number in the name
