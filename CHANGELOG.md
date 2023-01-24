@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.11.3
+
+- [fix]: disabled refund partially for przelewy24
+
 ## Version 2.11.2
 
 - [add]: add expiration limit method payment
