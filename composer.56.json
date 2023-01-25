@@ -3,13 +3,17 @@
   "type": "library",
   "minimum-stability": "stable",
   "description": "The HiPay Enterprise SDK for PHP is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform.",
-  "keywords": ["hipay", "payment", "payment method"],
+  "keywords": [
+    "hipay",
+    "payment",
+    "payment method"
+  ],
   "scripts": {
     "test": "phpunit -c tests/phpunit.xml --testsuite unit,integration",
     "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
   },
   "homepage": "https://hipay.com/product-enterprise/",
-  "version": "2.11.2",
+  "version": "2.11.3",
   "license": "Apache-2.0",
   "authors": [
     {
