@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * 3X,4X,3X no fees and 4X no fees creditcard Payment Method
  * Data related to payment with split payment system
@@ -29,7 +27,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class XTimesCreditCardPaymentMethod extends AbstractRequest
+class XTimesCreditCardPaymentMethod extends AbstractPaymentMethodRequest
 {
     /**
      * Gender of the ship-to customer.
