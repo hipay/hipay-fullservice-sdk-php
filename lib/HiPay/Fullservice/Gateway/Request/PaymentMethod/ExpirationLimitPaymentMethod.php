@@ -15,8 +15,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Expiration Limit Payment Method
  * Data related to payment with an expiration limit.
@@ -28,7 +26,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  *
  * @api
  */
-class ExpirationLimitPaymentMethod extends AbstractRequest
+class ExpirationLimitPaymentMethod extends AbstractPaymentMethodRequest
 {
     /**
      * expiration limit in day.

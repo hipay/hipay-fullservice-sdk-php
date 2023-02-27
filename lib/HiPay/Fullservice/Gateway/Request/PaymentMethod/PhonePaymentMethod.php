@@ -16,8 +16,6 @@
 
 namespace HiPay\Fullservice\Gateway\Request\PaymentMethod;
 
-use HiPay\Fullservice\Request\AbstractRequest;
-
 /**
  * Phone Payment Method
  * Data related to payment with phone number (generic method)
@@ -29,7 +27,7 @@ use HiPay\Fullservice\Request\AbstractRequest;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class PhonePaymentMethod extends AbstractRequest
+class PhonePaymentMethod extends AbstractPaymentMethodRequest
 {
     /**
      * phone number
