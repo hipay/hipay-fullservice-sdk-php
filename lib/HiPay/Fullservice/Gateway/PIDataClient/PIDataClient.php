@@ -260,7 +260,11 @@ class PIDataClient implements PIDataClientInterface
             $host = $defaultHost;
         }
 
-        return trim($host);
+        if (!empty($host)) {
+            $host = trim($host);
+        }
+
+        return $host;
     }
 
     /**
