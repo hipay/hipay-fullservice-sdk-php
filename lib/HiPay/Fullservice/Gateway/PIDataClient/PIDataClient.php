@@ -146,7 +146,7 @@ class PIDataClient implements PIDataClientInterface
         $composerData = json_decode($composerConfig);
 
         $sourceData = array();
-        if(!empty($request->source)) {
+        if (!empty($request->source)) {
             if (!is_array($request->source)) {
                 $sourceData = json_decode($request->source, true);
             } else {
