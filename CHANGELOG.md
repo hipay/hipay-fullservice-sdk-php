@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.11.5
+
+- [fix]: Fixed issues with PHP 8.2
+
 ## Version 2.11.4
 
 - [fix]: PhpDoc correction. Thanks to [VincentLanglet](https://github.com/VincentLanglet) on [#61](https://github.com/hipay/hipay-fullservice-sdk-php/pull/61)

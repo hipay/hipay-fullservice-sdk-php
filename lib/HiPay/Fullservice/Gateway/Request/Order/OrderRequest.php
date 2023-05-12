@@ -239,4 +239,11 @@ class OrderRequest extends CommonRequest
      * @var array<string, mixed>|string $payment_product_parameters (JSON).
      */
     public $payment_product_parameters;
+
+    /**
+     * Validity period of the payment code in days.
+     *
+     * @var integer $expiration_limit
+     */
+    public $expiration_limit;
 }

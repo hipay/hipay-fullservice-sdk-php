@@ -42,6 +42,11 @@ class CustomerBillingInfoRequest extends AbstractRequest
     public $phone;
 
     /**
+     * @var string $msisdn The customer's phone number.
+     */
+    public $msisdn;
+
+    /**
      * @var string $birthdate Birth date of the customer (YYYYMMDD). For fraud detection reasons.
      * @format yyyyMMdd
      * @length 8
