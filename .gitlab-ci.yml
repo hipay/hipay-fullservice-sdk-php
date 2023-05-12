@@ -241,6 +241,30 @@ phpunit-8.0:
   tags:
     - small
 
+phpunit-8.2:
+  image: mileschou/xdebug:8.2
+  stage: other versions tests
+  cache:
+    <<: *global_cache
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+  script:
+    - export XDEBUG_MODE=coverage
+    - ./vendor/bin/phpunit \
+      --configuration tests/phpunit.xml \
+      --log-junit=tests/test-reports/_coverage/junit.xml \
+      --coverage-text \
+      --colors=never
+    - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
+  artifacts:
+    when: always
+    reports:
+      junit: tests/test-reports/_coverage/junit.xml
+    expire_in: 1 day
+  tags:
+    - small
+
 # Unit tests mutation
 infection-7.4:
   stage: infection

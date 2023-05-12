@@ -145,10 +145,13 @@ class PIDataClient implements PIDataClientInterface
 
         $composerData = json_decode($composerConfig);
 
-        if (!is_array($request->source)) {
-            $sourceData = json_decode($request->source, true);
-        } else {
-            $sourceData = $request->source;
+        $sourceData = array();
+        if (!empty($request->source)) {
+            if (!is_array($request->source)) {
+                $sourceData = json_decode($request->source, true);
+            } else {
+                $sourceData = $request->source;
+            }
         }
 
         $phpversion = phpversion();
@@ -257,7 +260,11 @@ class PIDataClient implements PIDataClientInterface
             $host = $defaultHost;
         }
 
-        return trim($host);
+        if (!empty($host)) {
+            $host = trim($host);
+        }
+
+        return $host;
     }
 
     /**
