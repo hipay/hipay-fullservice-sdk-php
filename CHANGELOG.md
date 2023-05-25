@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- [add]: Added support for new payment means:
+  - Alma 3x
+  - Alma 4x
+
 ## Version 2.11.5
 
 - [fix]: Fixed issues with PHP 8.2
