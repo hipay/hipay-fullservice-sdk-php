@@ -32,7 +32,7 @@ use HiPay\Fullservice\Data\PaymentProduct;
  */
 class Collection
 {
-    const PAYMENT_CONFIG_FILE_PATH = __DIR__ . "/../../PaymentConfigFiles/";
+    private const PAYMENT_CONFIG_FILE_PATH = __DIR__ . "/../../PaymentConfigFiles/";
 
     /**
      *  Get a Payment Product item with a code

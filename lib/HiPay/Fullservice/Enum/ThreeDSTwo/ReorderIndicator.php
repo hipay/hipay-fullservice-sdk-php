@@ -30,10 +30,10 @@ class ReorderIndicator
     /**
      * FIRST TIME ORDERED
      */
-    const FIRST_TIME_ORDERED = 1;
+    public const FIRST_TIME_ORDERED = 1;
 
     /**
      * REORDERED
      */
-    const REORDERED = 2;
+    public const REORDERED = 2;
 }

@@ -30,10 +30,10 @@ class PurchaseIndicator
     /**
      * MERCHANDISE AVAILABLE
      */
-    const MERCHANDISE_AVAILABLE = 1;
+    public const MERCHANDISE_AVAILABLE = 1;
 
     /**
      * FUTURE AVAILABILITY
      */
-    const FUTURE_AVAILABILITY = 2;
+    public const FUTURE_AVAILABILITY = 2;
 }

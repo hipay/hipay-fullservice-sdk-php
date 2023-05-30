@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## Version 2.12.0
 
+- [add]: Remove support for PHP 5.x --> Minimum supported version is now **7.2**
 - [add]: Added support for new payment means:
   - Alma 3x
   - Alma 4x

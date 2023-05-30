@@ -36,12 +36,12 @@ class SecureVaultClient implements SecureVaultClientInterface
     /**
      * @var string ENDPOINT_LOOKUP_TOKEN endpoint to get vault information by token
      */
-    const ENDPOINT_LOOKUP_TOKEN = 'v2/token/{token}';
+    private const ENDPOINT_LOOKUP_TOKEN = 'v2/token/{token}';
 
     /**
      * @var string METHOD_LOOKUP_TOKEN http method to get vault information by token
      */
-    const METHOD_LOOKUP_TOKEN = 'GET';
+    private const METHOD_LOOKUP_TOKEN = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider

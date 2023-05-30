@@ -15,6 +15,7 @@
 
 namespace HiPay\Fullservice\HTTP;
 
+use CurlHandle;
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 
