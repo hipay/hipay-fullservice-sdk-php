@@ -1,0 +1,18 @@
+{
+  "productCode": "alma-4x",
+  "brandName": "Alma 4x",
+  "category": "credit-card",
+  "comment": "Available only in France, Germany, Italia, Belgium, Luxembourg, Netherlands, Ireland, Austria, Portugal or Spain.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 1,
+  "canManualCapturePartially": 1,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": ["EUR"],
+  "countries": ["FR", "DE", "IT", "BE", "LUX", "NL", "IE", "AT", "PT", "ES"],
+  "checkoutFieldsMandatory": [],
+  "additionalFields": {},
+  "priority": 11
+}

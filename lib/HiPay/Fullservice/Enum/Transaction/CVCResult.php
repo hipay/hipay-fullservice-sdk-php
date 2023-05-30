@@ -48,30 +48,30 @@ class CVCResult extends AbstractEnum
     /**
      * @var string NOT_APPLICABLE NoCVC check was not possible.
      */
-    const NOT_APPLICABLE = ' ';
+    public const NOT_APPLICABLE = ' ';
 
     /**
      * @var string MATCH  CVC match.
      */
-    const MATCH = 'M';
+    public const MATCH = 'M';
 
     /**
      * @var string NO_MATCH CVC does not match.
      */
-    const NO_MATCH = 'N';
+    public const NO_MATCH = 'N';
 
     /**
      * @var string NOT_PROCESSED CVC request not processed.
      */
-    const NOT_PROCESSED = 'P';
+    public const NOT_PROCESSED = 'P';
 
     /**
      * @var string MISSING CVC should be on the card, but the cardholder has reported that it isn't.
      */
-    const MISSING = 'S';
+    public const MISSING = 'S';
 
     /**
      * @var string NOT_SUPPORTED Card issuer does not support CVC.
      */
-    const NOT_SUPPORTED = 'U';
+    public const NOT_SUPPORTED = 'U';
 }

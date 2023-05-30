@@ -40,12 +40,12 @@ class PIDataClient implements PIDataClientInterface
     /**
      * @var string ENDPOINT_DATA_API endpoint to create / update a data set
      */
-    const ENDPOINT_DATA_API = '/checkout-data';
+    private const ENDPOINT_DATA_API = '/checkout-data';
 
     /**
      * @var string METHOD_DATA_API http method to create / update a data set
      */
-    const METHOD_DATA_API = 'POST';
+    private const METHOD_DATA_API = 'POST';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider

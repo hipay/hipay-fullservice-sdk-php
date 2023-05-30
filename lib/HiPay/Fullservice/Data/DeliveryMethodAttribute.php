@@ -29,7 +29,7 @@ namespace HiPay\Fullservice\Data;
  */
 class DeliveryMethodAttribute
 {
-    const DEFAULT_LANG_ISO_CODE = "EN";
+    private const DEFAULT_LANG_ISO_CODE = "EN";
 
     /**
      * code
@@ -62,13 +62,13 @@ class DeliveryMethodAttribute
      * @param string $langIsoCode
      * @return mixed
      */
-    public function getDisplayName($langIsoCode = DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE)
+    public function getDisplayName($langIsoCode = self::DEFAULT_LANG_ISO_CODE)
     {
         if (isset($this->_displayName[$langIsoCode])) {
             return $this->_displayName[$langIsoCode];
         }
 
-        return $this->_displayName[DeliveryMethodAttribute::DEFAULT_LANG_ISO_CODE];
+        return $this->_displayName[self::DEFAULT_LANG_ISO_CODE];
     }
 
     /**

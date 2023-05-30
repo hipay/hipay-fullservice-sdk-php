@@ -19,7 +19,7 @@ namespace HiPay\Fullservice\Enum\Transaction;
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
- * # Fraud screening constant values
+ * Fraud screening constant values
  *
  * Constants result: The overall result of risk assessment returned by the Payment Gateway.
  * Constants review: The decision made when the overall risk result returns challenged.
@@ -42,27 +42,27 @@ class FraudScreening extends AbstractEnum
     /**
      * @var string RESULT_UNKNOWN Unknown result
      */
-    const RESULT_UNKNOWN = 'unknown';
+    public const RESULT_UNKNOWN = 'unknown';
 
     /**
      * @var string RESULT_PENDING Rules were not checked.
      */
-    const RESULT_PENDING = 'pending';
+    public const RESULT_PENDING = 'pending';
 
     /**
      * @var string RESULT_ACCEPTED Transaction accepted.
      */
-    const RESULT_ACCEPTED = 'accepted';
+    public const RESULT_ACCEPTED = 'accepted';
 
     /**
      * @var string RESULT_BLOCKED transaction rejected due to system rules.
      */
-    const RESULT_BLOCKED = 'blocked';
+    public const RESULT_BLOCKED = 'blocked';
 
     /**
      * @var string RESULT_CHALLENGED transaction has been marked for review.
      */
-    const RESULT_CHALLENGED = 'challenged';
+    public const RESULT_CHALLENGED = 'challenged';
 
 
     /*
@@ -74,20 +74,20 @@ class FraudScreening extends AbstractEnum
     /**
      * @var string REVIEW_NONE No value
      */
-    const REVIEW_NONE = 'none';
+    public const REVIEW_NONE = 'none';
 
     /**
      * @var string REVIEW_PENDING A decision to release or cancel the transaction is pending.
      */
-    const REVIEW_PENDING = 'pending';
+    public const REVIEW_PENDING = 'pending';
 
     /**
      * @var string REVIEW_ALLOWED The transaction has been released for processing.
      */
-    const REVIEW_ALLOWED = 'allowed';
+    public const REVIEW_ALLOWED = 'allowed';
 
     /**
      * @var string REVIEW_DENIED The transaction has been cancelled.
      */
-    const REVIEW_DENIED = 'denied';
+    public const REVIEW_DENIED = 'denied';
 }

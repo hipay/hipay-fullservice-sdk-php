@@ -43,25 +43,25 @@ class TransactionState extends AbstractEnum
     /**
      * @var string COMPLETED Transaction is completed
      */
-    const COMPLETED = 'completed';
+    public const COMPLETED = 'completed';
 
     /**
      * @var string FORWARDING Transaction is forwarding action
      */
-    const FORWARDING = 'forwarding';
+    public const FORWARDING = 'forwarding';
 
     /**
      * @var string PENDING Transaction is in pending process
      */
-    const PENDING = 'pending';
+    public const PENDING = 'pending';
 
     /**
      * @var string DECLINED Transaction is declined
      */
-    const DECLINED = 'declined';
+    public const DECLINED = 'declined';
 
     /**
      * @var string ERROR an error occurred
      */
-    const ERROR = 'error';
+    public const ERROR = 'error';
 }

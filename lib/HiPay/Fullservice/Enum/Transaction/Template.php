@@ -19,8 +19,7 @@ namespace HiPay\Fullservice\Enum\Transaction;
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
- * # Template type constant values
- *
+ * Template type constant values
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -34,5 +33,5 @@ class Template extends AbstractEnum
     /**
      * @var string BASIC_JS basic js template type
      */
-    const BASIC_JS = 'basic-js';
+    public const BASIC_JS = 'basic-js';
 }

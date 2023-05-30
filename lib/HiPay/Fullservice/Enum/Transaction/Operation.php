@@ -19,8 +19,7 @@ namespace HiPay\Fullservice\Enum\Transaction;
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
- * # Operation type constant values
- *
+ * Operation type constant values
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -34,24 +33,24 @@ class Operation extends AbstractEnum
     /**
      * @var string CAPTURE operation capture
      */
-    const CAPTURE = 'capture';
+    public const CAPTURE = 'capture';
 
     /**
      * @var string REFUND operation refund
      */
-    const REFUND = 'refund';
+    public const REFUND = 'refund';
 
     /**
      * @var string CANCEL operation cancel
      */
-    const CANCEL = 'cancel';
+    public const CANCEL = 'cancel';
 
     /**
      * @var string CAPTURE operation acceptChallenge
      */
-    const ACCEPT_CHALLENGE = 'acceptChallenge';
+    public const ACCEPT_CHALLENGE = 'acceptChallenge';
     /**
      * @var string DENY_CHALLENGE operation denyChallenge
      */
-    const DENY_CHALLENGE = 'denyChallenge';
+    public const DENY_CHALLENGE = 'denyChallenge';
 }
