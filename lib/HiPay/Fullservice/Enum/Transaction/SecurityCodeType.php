@@ -19,8 +19,7 @@ namespace HiPay\Fullservice\Enum\Transaction;
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
- * # Security Code Type constant values
- *
+ * Security Code Type constant values
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -34,20 +33,20 @@ class SecurityCodeType extends AbstractEnum
     /**
      * @var string NONE no security code. Ex.: Maestro
      */
-    const NONE = 'none';
+    public const NONE = 'none';
 
     /**
      * @var string NOT_APPLICABLE Security code not applicable. Ex.: CMC (for domestic networks or specific issuer payment products, we don't know if there's a security code as it depends on the card scheme)
      */
-    const NOT_APPLICABLE = 'not_applicable';
+    public const NOT_APPLICABLE = 'not_applicable';
 
     /**
      * @var string CVV Type CVV. EX.: Visa, MasterCard
      */
-    const CVV = 'cvv';
+    public const CVV = 'cvv';
 
     /**
      * @var string CID Type cid. Ex.: American Express
      */
-    const CID = 'cid';
+    public const CID = 'cid';
 }

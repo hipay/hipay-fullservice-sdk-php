@@ -36,12 +36,12 @@ class AVSResult extends AbstractEnum
     /**
      * @var string NOT_APPLICABLE No AVS response was obtained (Default value empty).
      */
-    const NOT_APPLICABLE = ' ';
+    public const NOT_APPLICABLE = ' ';
 
     /**
      * @var string EXACT_MATCH  Street addresses and postal codes match.
      */
-    const EXACT_MATCH = 'Y';
+    public const EXACT_MATCH = 'Y';
 
     /**
      * Either the request does not include the postal codes or postal codes are not verified
@@ -49,7 +49,7 @@ class AVSResult extends AbstractEnum
      *
      * @var string The street addresses match but the postal codes do not match.
      */
-    const ADDRESS_MATCH = 'A';
+    public const ADDRESS_MATCH = 'A';
 
     /**
      * Either the request does not include the street addresses or street addresses are not verified
@@ -57,35 +57,35 @@ class AVSResult extends AbstractEnum
      *
      * @var string POSTCODE_MATCH The postal codes match but the street addresses do not match.
      */
-    const POSTCODE_MATCH = 'P';
+    public const POSTCODE_MATCH = 'P';
 
     /**
      * @var string NO_MATCH Neither the street addresses nor the postal codes match.
      */
-    const NO_MATCH = 'N';
+    public const NO_MATCH = 'N';
 
     /**
      * @var string NOT_COMPATIBLE Street addresses and postal codes not verified due to incompatible formats.
      */
-    const NOT_COMPATIBLE = 'C';
+    public const NOT_COMPATIBLE = 'C';
 
     /**
      * @var string NOT_ALLOWED AVS data is invalid or AVS is not allowed for this card type
      */
-    const NOT_ALLOWED = 'E';
+    public const NOT_ALLOWED = 'E';
 
     /**
      * @var string UNAVAILABLE Address information is unavailable for that account number, or the card issuer does not support AVS.
      */
-    const UNAVAILABLE = 'U';
+    public const UNAVAILABLE = 'U';
 
     /**
      * @var string RETRY Issuer authorization system is unavailable, try again later.
      */
-    const RETRY = 'R';
+    public const RETRY = 'R';
 
     /**
      * @var string NOT_SUPPORTED Card issuer does not support AVS.
      */
-    const NOT_SUPPORTED = 'S';
+    public const NOT_SUPPORTED = 'S';
 }

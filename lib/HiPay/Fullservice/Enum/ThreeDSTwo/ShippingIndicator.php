@@ -30,35 +30,35 @@ class ShippingIndicator
     /**
      * SHIP TO CARDHOLDER'S BILLING ADDRESS
      */
-    const SHIP_TO_CARDHOLDER_BILLING_ADDRESS = 1;
+    public const SHIP_TO_CARDHOLDER_BILLING_ADDRESS = 1;
 
     /**
      * SHIP TO ANOTHER VERIFIED ADDRESS ON FILE WITH MERCHANT
      */
-    const SHIP_TO_VERIFIED_ADDRESS = 2;
+    public const SHIP_TO_VERIFIED_ADDRESS = 2;
 
     /**
      * SHIP TO ADDRESS THAT IS DIFFERENT THAN THE CARDHOLDER'S BILLING ADDRESS
      */
-    const SHIP_TO_DIFFERENT_ADDRESS = 3;
+    public const SHIP_TO_DIFFERENT_ADDRESS = 3;
 
     /**
      * SHIP TO STORE / PICK UP AT LOCAL STOR
      */
-    const SHIP_TO_STORE = 4;
+    public const SHIP_TO_STORE = 4;
 
     /**
      * DIGITAL GOODS (includes online services, electronic gift cards and redemption codes)
      */
-    const DIGITAL_GOODS = 5;
+    public const DIGITAL_GOODS = 5;
 
     /**
      * TRAVEL AND EVENT TICKETS, NOT SHIPPED
      */
-    const DIGITAL_TRAVEL_EVENT_TICKETS = 6;
+    public const DIGITAL_TRAVEL_EVENT_TICKETS = 6;
 
     /**
      * OTHER (Gaming, digital services not shipped, e-media subscriptions)
      */
-    const OTHER = 7;
+    public const OTHER = 7;
 }

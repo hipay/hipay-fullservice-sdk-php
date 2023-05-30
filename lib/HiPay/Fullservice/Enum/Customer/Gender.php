@@ -19,7 +19,7 @@ namespace HiPay\Fullservice\Enum\Customer;
 use HiPay\Fullservice\Enum\AbstractEnum;
 
 /**
- * # Customer gender constant values
+ * Customer gender constant values
  *
  * @package HiPay\Fullservice
  * @author Kassim Belghait <kassim@sirateck.com>
@@ -33,15 +33,15 @@ class Gender extends AbstractEnum
     /**
      * @var string UNKNOWN  UNKNOWN gender
      */
-    const UNKNOWN = 'U';
+    public const UNKNOWN = 'U';
 
     /**
      * @var string MALE Male
      */
-    const MALE = 'M';
+    public const MALE = 'M';
 
     /**
      * @var string FEMALE Female
      */
-    const FEMALE = 'F';
+    public const FEMALE = 'F';
 }

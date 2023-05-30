@@ -49,67 +49,67 @@ class GatewayClient implements GatewayClientInterface
      *
      * @var string ENDPOINT_NEW_ORDER endpoint to create a new transaction order
      */
-    const ENDPOINT_NEW_ORDER = 'v1/order';
+    private const ENDPOINT_NEW_ORDER = 'v1/order';
 
     /**
      *
      * @var string METHOD_NEW_ORDER http method to create a new transaction order
      */
-    const METHOD_NEW_ORDER = 'POST';
+    private const METHOD_NEW_ORDER = 'POST';
 
     /**
      *
      * @var string ENDPOINT_HOSTED_PAYMENT_PAGE endpoint to call Hosted payment page
      */
-    const ENDPOINT_HOSTED_PAYMENT_PAGE = 'v1/hpayment';
+    public const ENDPOINT_HOSTED_PAYMENT_PAGE = 'v1/hpayment';
 
     /**
      *
      * @var string METHOD_HOSTED_PAYMENT_PAGE http method to call Hosted payment page
      */
-    const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
+    private const METHOD_HOSTED_PAYMENT_PAGE = 'POST';
 
     /**
      *
      * @var string ENDPOINT_MAINTENANCE_OPERATION endpoint to do a maintenance operation (capture, refund, accept, etc, ...)
      */
-    const ENDPOINT_MAINTENANCE_OPERATION = 'v1/maintenance/transaction/{transaction}';
+    private const ENDPOINT_MAINTENANCE_OPERATION = 'v1/maintenance/transaction/{transaction}';
 
     /**
      *
      * @var string METHOD_MAINTENANCE_OPERATION http method to do a maintenance operation
      */
-    const METHOD_MAINTENANCE_OPERATION = 'POST';
+    private const METHOD_MAINTENANCE_OPERATION = 'POST';
 
     /**
      * @var string ENDPOINT_TRANSACTION_DETAILS endpoint to call transaction information
      */
-    const ENDPOINT_TRANSACTION_INFORMATION = 'v1/transaction/{transaction}';
+    private const ENDPOINT_TRANSACTION_INFORMATION = 'v1/transaction/{transaction}';
 
     /**
      * @var string METHOD_TRANSACTION_DETAILS http method to call transaction information
      */
-    const METHOD_TRANSACTION_INFORMATION = 'GET';
+    private const METHOD_TRANSACTION_INFORMATION = 'GET';
 
     /**
      * @var string ENDPOINT_ORDER_TRANSACTION_INFORMATION endpoint to call transaction information
      */
-    const ENDPOINT_ORDER_TRANSACTION_INFORMATION = 'v1/transaction';
+    private const ENDPOINT_ORDER_TRANSACTION_INFORMATION = 'v1/transaction';
 
     /**
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
-    const METHOD_ORDER_TRANSACTION_INFORMATION = 'GET';
+    private const METHOD_ORDER_TRANSACTION_INFORMATION = 'GET';
 
     /**
      * @var string ENDPOINT_SECURITY_SETTINGS endpoint to call security settings information
      */
-    const ENDPOINT_SECURITY_SETTINGS = 'v2/security-settings';
+    private const ENDPOINT_SECURITY_SETTINGS = 'v2/security-settings';
 
     /**
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
-    const METHOD_SECURITY_SETTINGS = 'GET';
+    private const METHOD_SECURITY_SETTINGS = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
