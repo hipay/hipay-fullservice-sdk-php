@@ -59,7 +59,7 @@ class CollectionTest extends TestCase
     public function testGetItemsFilteredSuccess()
     {
         $collection = Collection::getItems('credit-card');
-        $this->assertCount(11, $collection);
+        $this->assertCount(9, $collection);
 
         foreach ($collection as $item) {
             $this->assertInstanceOf("HiPay\Fullservice\Data\PaymentProduct", $item);
