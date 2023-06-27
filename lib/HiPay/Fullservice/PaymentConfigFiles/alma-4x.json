@@ -6,7 +6,7 @@
   "can3ds": 1,
   "canRecurring": 0,
   "canManualCapture": 1,
-  "canManualCapturePartially": 1,
+  "canManualCapturePartially": 0,
   "canRefund": 1,
   "canRefundPartially": 1,
   "basketRequired": 0,
