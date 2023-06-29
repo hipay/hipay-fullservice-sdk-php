@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.12.3
+
+- [fix]: Fixed composer.json
+
 ## Version 2.12.2
 
 - [fix]: Removed partial capture for Alma 3x and 4x payment means
