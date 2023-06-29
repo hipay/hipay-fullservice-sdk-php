@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.12.1
+
+- [fix]: Removed partial capture for Alma 3x and 4x payment means
+
 ## Version 2.12.0
 
 - [add]: Remove support for PHP 5.x --> Minimum supported version is now **7.2**
