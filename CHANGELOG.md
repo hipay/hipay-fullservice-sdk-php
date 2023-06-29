@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 2.12.1
+## Version 2.12.2
 
 - [fix]: Removed partial capture for Alma 3x and 4x payment means
 
