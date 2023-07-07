@@ -73,7 +73,10 @@ class TransactionMapper extends AbstractMapper
         $reason = isset($source['reason']) ? $source['reason'] : null;
         $forwardUrl = isset($source['forwardUrl']) ? $source['forwardUrl'] : null;
         $attemptId = isset($source['attemptId']) ? $source['attemptId'] : null;
-        $referenceToPay = isset($source['referenceToPay']) ? $source['referenceToPay'] : null;
+        $referenceToPay = isset($source['referenceToPay']) ? json_encode($source['referenceToPay']) : null;
+        if (!$referenceToPay) {
+            $referenceToPay = isset($source['paymentReference']) ? json_encode($source['paymentReference']) : null;
+        }
         $ipAddress = isset($source['ipAddress']) ? $source['ipAddress'] : null;
         $ipCountry = isset($source['ipCountry']) ? $source['ipCountry'] : null;
         $deviceId = isset($source['deviceId']) ? $source['deviceId'] : null;
