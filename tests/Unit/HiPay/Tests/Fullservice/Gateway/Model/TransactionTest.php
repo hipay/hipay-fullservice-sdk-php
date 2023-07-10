@@ -23,7 +23,7 @@ class TransactionTest extends TestCase
     private $_transactionData;
 
     public function set_up()
-{
+    {
         $paymentProduct = new PaymentProduct(array());
 
         $paymentMethod = new PaymentMethod(
@@ -66,7 +66,6 @@ class TransactionTest extends TestCase
             Gender::FEMALE,
             "FR",
             "56 avenue de la paix, 75000 Paris"
-
         );
 
         $debitAgreement = array();
@@ -98,7 +97,7 @@ class TransactionTest extends TestCase
             "reason" => "DU",
             "forwardUrl" => "https://test.com/forward-url/",
             "attemptId" => "000003",
-            "referenceToPay" => "000004",
+            "referenceToPay" => ["reference" => "000004"],
             "ipAddress" => "127.0.0.1",
             "ipCountry" => "FRANCE",
             "deviceId" => "000005",
@@ -115,7 +114,6 @@ class TransactionTest extends TestCase
             "operation" => $operation,
             "customData" => null
         );
-
     }
 
     public function testConstruct()

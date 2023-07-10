@@ -51,7 +51,7 @@ class Transaction extends AbstractTransaction
      * @param array<string, mixed>|null $reason
      * @param string $forwardUrl
      * @param string $attemptId
-     * @param string $referenceToPay
+     * @param string|false|null $referenceToPay
      * @param string $ipAddress
      * @param string $ipCountry
      * @param string $deviceId
@@ -173,7 +173,7 @@ class Transaction extends AbstractTransaction
      * post offices, or paying electronically at an electronic
      * banking point.
      *
-     * @var string $_referenceToPay Reference to pay
+     * @var string|false|null $_referenceToPay Reference to pay
      */
     protected $_referenceToPay;
 
@@ -302,7 +302,7 @@ class Transaction extends AbstractTransaction
     }
 
     /**
-     * @return string
+     * @return string|false|null
      */
     public function getReferenceToPay()
     {
