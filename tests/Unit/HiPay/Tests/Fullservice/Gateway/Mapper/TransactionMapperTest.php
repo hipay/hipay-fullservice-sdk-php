@@ -17,7 +17,7 @@ class TransactionMapperTest extends TestCase
     private $_transactionMapper;
 
     public function set_up()
-{
+    {
         $this->_transactionMapper = array(
             "state" => "completed",
             "reason" => "",
@@ -27,7 +27,7 @@ class TransactionMapperTest extends TestCase
             "attempt_id" => 2,
             "authorization_code" => "test123",
             "transaction_reference" => "800131273123",
-            "reference_to_pay" => "",
+            "reference_to_pay" => ["reference" => "1234"],
             "date_created" => "2021-10-13T07:37:55+0000",
             "date_updated" => "2021-10-13T07:38:01+0000",
             "date_authorized" => "2021-10-13T07:38:00+0000",
@@ -150,7 +150,7 @@ class TransactionMapperTest extends TestCase
         $this->assertEquals($this->_transactionMapper['reason'], $transaction->getReason());
         $this->assertEquals($this->_transactionMapper['forward_url'], $transaction->getForwardUrl());
         $this->assertEquals($this->_transactionMapper['attempt_id'], $transaction->getAttemptId());
-        $this->assertEquals($this->_transactionMapper['reference_to_pay'], $transaction->getReferenceToPay());
+        $this->assertEquals($this->_transactionMapper['reference_to_pay'], json_decode($transaction->getReferenceToPay(), true));
         $this->assertEquals($this->_transactionMapper['ip_address'], $transaction->getIpAddress());
         $this->assertEquals($this->_transactionMapper['ip_country'], $transaction->getIpCountry());
         $this->assertEquals($this->_transactionMapper['device_id'], $transaction->getDeviceId());

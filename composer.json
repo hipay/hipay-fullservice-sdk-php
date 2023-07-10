@@ -13,7 +13,7 @@
     "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
   },
   "homepage": "https://hipay.com/product-enterprise/",
-  "version": "2.12.3",
+  "version": "2.12.4",
   "license": "Apache-2.0",
   "authors": [
     {
