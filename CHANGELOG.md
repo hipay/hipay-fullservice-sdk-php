@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.12.4
+
+- [fix]: Fixed `reference_to_pay` field in `Transaction` class
+- [fix]: Fixed partial capture for `Alma` methods as unavailable
+
 ## Version 2.12.3
 
 - [fix]: Fixed composer.json
