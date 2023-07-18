@@ -4,6 +4,7 @@
 
 - [fix]: Fixed `reference_to_pay` field in `Transaction` class
 - [fix]: Fixed partial capture for `Alma` methods as unavailable
+- [fix]: Fixed `basket` element in `transaction` object
 
 ## Version 2.12.3
 
