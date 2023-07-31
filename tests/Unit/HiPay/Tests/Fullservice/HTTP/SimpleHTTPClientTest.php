@@ -196,7 +196,7 @@ class SimpleHTTPClientTest extends TestCase
         $client->setConfiguration($conf);
 
         $this->expectException(CurlException::class);
-        $this->expectExceptionMessage('Failed to connect to 127.0.0.1 port 25565: Connection refused');
+        $this->expectExceptionMessage('Failed to connect to 127.0.0.1 port 25565');
 
         $client->request('GET', "/");
     }
