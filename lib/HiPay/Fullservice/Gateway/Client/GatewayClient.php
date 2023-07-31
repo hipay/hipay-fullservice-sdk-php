@@ -277,7 +277,15 @@ class GatewayClient implements GatewayClientInterface
             return null;
         }
 
-        $transactionMapper = new TransactionMapper($data['transaction']);
+        $res = $data["transaction"];
+
+        if(isset($data['basket'])) {
+            $res["basket"] = $data["basket"];
+        } else {
+            $res["basket"] = null;
+        }
+
+        $transactionMapper = new TransactionMapper($res);
 
         /** @var Transaction $transaction */
         $transaction = $transactionMapper->getModelObjectMapped();

@@ -84,6 +84,11 @@ class HostedPaymentPageRequest extends OrderRequest
     public $multi_use;
 
     /**
+     * @var string The theme code.
+     */
+    public $theme_code;
+
+    /**
      * @return void
      */
     public function reorderPaymentProductList()

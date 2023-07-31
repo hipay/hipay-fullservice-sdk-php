@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.13.0
+
+- [fix]: Fixed `basket` element in `transaction` object
+- [add]: Add Hosted Page to demo page
+
 ## Version 2.12.4
 
 - [fix]: Fixed `reference_to_pay` field in `Transaction` class
