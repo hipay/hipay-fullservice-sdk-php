@@ -2,6 +2,8 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
+use HiPay\Fullservice\Enum\Transaction\Operation as TransactionOperation;
+
 /**
  *
  * @package HiPay\Fullservice
@@ -19,7 +21,7 @@ class Operation extends AbstractTransaction
      *
      * @see \HiPay\Fullservice\Gateway\Model\AbstractTransaction::__construct()
      *
-     * @param Operation $operation
+     * @param TransactionOperation $operation
      */
     public function __construct(
         $mid,
@@ -59,7 +61,7 @@ class Operation extends AbstractTransaction
     }
 
     /**
-     * @return Operation
+     * @return TransactionOperation
      */
     public function getOperation()
     {
