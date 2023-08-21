@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.14.0
+
+- [add]: Add display_cancel_button property
+
 ## Version 2.13.0
 
 - [fix]: Fixed `basket` element in `transaction` object
