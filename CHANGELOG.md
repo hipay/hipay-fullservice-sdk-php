@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.14.1
+
+- [fix]: fix tag
+
 ## Version 2.14.0
 
 - [add]: Add display_cancel_button property

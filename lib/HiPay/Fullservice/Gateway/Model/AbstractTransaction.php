@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Model;
 
+use HiPay\Fullservice\Enum\Transaction\Operation;
 use HiPay\Fullservice\Model\AbstractModel;
 
 /**

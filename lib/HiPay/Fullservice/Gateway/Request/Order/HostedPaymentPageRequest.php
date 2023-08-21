@@ -89,6 +89,11 @@ class HostedPaymentPageRequest extends OrderRequest
     public $theme_code;
 
     /**
+     * @var boolean True if the cancel button is displayed.
+     */
+    public $display_cancel_button;
+
+    /**
      * @return void
      */
     public function reorderPaymentProductList()
