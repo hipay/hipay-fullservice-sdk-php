@@ -268,4 +268,18 @@ interface ConfigurationInterface
      * @return void
      */
     public function setHostedPageV2($hostedPageV2);
+
+    /**
+     * Returns data API ID
+     * 
+     * @return string
+     */
+    public function getDataId();
+
+    /**
+     * Sets data API ID
+     * 
+     * @param string $dataId
+     */
+    public function setDataId($dataId);
 }

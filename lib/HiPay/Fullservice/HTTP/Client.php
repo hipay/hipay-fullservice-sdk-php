@@ -41,6 +41,7 @@ interface Client
      * @param string $method HTTP method
      * @param string $endpoint Api Endpoint for this request. Base url is determined by Configuration Object
      * @param array<string, mixed> $params Request params to apply.
+     * @param array<string, mixed> $additionalHeaders Additional headers to send on the request
      * @param bool $isVault If true, perform request on secure vault endpoint
      * @param bool $isData If true, perform request on HiPay data API
      *
@@ -48,5 +49,5 @@ interface Client
      * @throws \HiPay\Fullservice\Exception\InvalidArgumentException
      * @return \HiPay\Fullservice\HTTP\Response\AbstractResponse
      */
-    public function request($method, $endpoint, array $params = array(), $isVault = false, $isData = false);
+    public function request($method, $endpoint, array $params = array(), array $additionalHeaders = array(), $isVault = false, $isData = false);
 }

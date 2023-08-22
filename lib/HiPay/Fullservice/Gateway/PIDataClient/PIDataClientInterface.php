@@ -67,9 +67,8 @@ interface PIDataClientInterface
     public function getHPaymentData($dataId, HostedPaymentPageRequest $orderRequest, HostedPaymentPage $transaction);
 
     /**
-     * Compute a data id from params
-     * @param array<string, mixed> $params
+     * Compute a data id
      * @return string
      */
-    public function getDataId(array $params);
+    public function getDataId();
 }

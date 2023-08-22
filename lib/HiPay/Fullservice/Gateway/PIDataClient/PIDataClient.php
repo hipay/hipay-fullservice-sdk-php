@@ -24,6 +24,8 @@ use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 
+use \Ramsey\Uuid\Uuid;
+
 /**
  * Client class for all request send to the Data API.
  *
@@ -87,6 +89,7 @@ class PIDataClient implements PIDataClientInterface
             self::METHOD_DATA_API,
             self::ENDPOINT_DATA_API,
             $data,
+            [],
             false,
             true
         );
@@ -187,29 +190,19 @@ class PIDataClient implements PIDataClientInterface
     /**
      * {@inheritDoc}
      *
-     * $params must contain a 'device_fingerprint' key with the associated value or a 'forward_url' key with the associated value
-     * Computation is a sha256 of device_fingerprint:host_domain or a sha256 of the forward_url if present
+     * Gets data id from Configuration, or creates a new UUID to act as one if no uuid is in Configuration
      *
      * @see \HiPay\Fullservice\Gateway\PIDataClient\PIDataClientInterface::initDataFromOrder()
      *
-     * @param array<string, mixed>$params
      * @return false|string
      */
-    public function getDataId(array $params)
+    public function getDataId()
     {
-        if (!empty($params['forward_url'])) {
-            return hash('sha256', $params['forward_url']);
-        } elseif (!empty($params['device_fingerprint'])) {
-            $params['url_accept'] = empty($params['url_accept']) ? null : $params['url_accept'];
-
-            // Cleaning the domain from http(s) tag, www tag, any path and ports
-            $domain = $this->getDomain($this->getHost($params['url_accept']));
-            $fingerprint = $params['device_fingerprint'];
-
-            return hash('sha256', $fingerprint . ':' . $domain);
-        } else {
-            return false;
+        if(empty($this->_clientProvider->getConfiguration()->getDataId())){
+            $this->_clientProvider->getConfiguration()->setDataId(Uuid::uuid4()->toString());
         }
+
+        return $this->_clientProvider->getConfiguration()->getDataId();
     }
 
     /**

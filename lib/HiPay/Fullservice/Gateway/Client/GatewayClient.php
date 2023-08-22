@@ -170,6 +170,7 @@ class GatewayClient implements GatewayClientInterface
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
+        $piDataId = $piDataClient->getDataId();
 
         if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
@@ -183,7 +184,10 @@ class GatewayClient implements GatewayClientInterface
         $response = $this->getClientProvider()->request(
             self::METHOD_HOSTED_PAYMENT_PAGE,
             self::ENDPOINT_HOSTED_PAYMENT_PAGE,
-            $params
+            $params,
+            array(
+                "X_HIPAY_DATA_ID" => $piDataId
+            )
         );
 
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
@@ -192,10 +196,6 @@ class GatewayClient implements GatewayClientInterface
          * @var HostedPaymentPage $hostedPagePayment
          */
         $hostedPagePayment = $mapper->getModelObjectMapped();
-
-        $piDataId = $piDataClient->getDataId(array(
-            'forward_url' => $hostedPagePayment->getForwardUrl()
-        ));
 
         if ($piDataId) {
             $piDataClient->sendData($piDataClient->getHPaymentData($piDataId, $pageRequest, $hostedPagePayment));

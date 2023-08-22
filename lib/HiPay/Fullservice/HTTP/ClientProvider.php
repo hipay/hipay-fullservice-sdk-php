@@ -38,7 +38,7 @@ abstract class ClientProvider implements Client
     protected $_configuration;
 
     /**
-     * @var resource $_httpClient Client used to execute HTTP request
+     * @var CurlHandle $_httpClient Client used to execute HTTP request
      */
     protected $_httpClient;
 
@@ -83,14 +83,15 @@ abstract class ClientProvider implements Client
      * @param string $method
      * @param string $endpoint
      * @param array<string, mixed> $params
+     * @param array<string, mixed> $additionalHeaders
      * @param bool $isVault
      * @param bool $isData
      *
      * @return AbstractResponse
      */
-    public function request($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
+    public function request($method, $endpoint, array $params = array(), array $additionalHeaders = array(), $isVault = false, $isData = false)
     {
-        return $this->doRequest($method, $endpoint, $params, $isVault, $isData);
+        return $this->doRequest($method, $endpoint, $params, $additionalHeaders, $isVault, $isData);
     }
 
     /**
@@ -113,7 +114,7 @@ abstract class ClientProvider implements Client
 
 
     /**
-     * @return resource $_httpClient Current HTTP client used
+     * @return CurlHandle $_httpClient Current HTTP client used
      */
     public function getHttpClient()
     {
@@ -127,6 +128,7 @@ abstract class ClientProvider implements Client
      * @param string $method HTTP method
      * @param string $endpoint Endpoint
      * @param array<string, mixed> $params Params to send
+     * @param array<string, mixed> $additionalHeaders
      * @param bool $isVault Secure vault action
      * @param bool $isData Special PI Data call
      *
@@ -134,7 +136,7 @@ abstract class ClientProvider implements Client
      * @throws \HiPay\Fullservice\Exception\InvalidArgumentException
      * @return \HiPay\Fullservice\HTTP\Response\AbstractResponse
      */
-    abstract protected function doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false);
+    abstract protected function doRequest($method, $endpoint, array $params = array(), array $additionalHeaders = array(), $isVault = false, $isData = false);
 
     /**
      * Create local http client object used in doRequest method

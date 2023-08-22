@@ -45,11 +45,12 @@ class SimpleHTTPClient extends ClientProvider
      * @param string $method
      * @param string $endpoint
      * @param array<string, mixed> $params
+     * @param array<string, mixed> $additionalHeaders
      * @param bool $isVault
      * @param bool $isData
      * @return AbstractResponse
      */
-    protected function doRequest($method, $endpoint, array $params = array(), $isVault = false, $isData = false)
+    protected function doRequest($method, $endpoint, array $params = array(), array $additionalHeaders = array(), $isVault = false, $isData = false)
     {
         if (empty($method) || !is_string($method)) {
             throw new InvalidArgumentException("HTTP METHOD must a string and a valid HTTP METHOD Value");
@@ -93,10 +94,10 @@ class SimpleHTTPClient extends ClientProvider
         $options = array(
             CURLOPT_URL => $finalUrl,
             CURLOPT_USERPWD => $credentials,
-            CURLOPT_HTTPHEADER => array(
+            CURLOPT_HTTPHEADER => array_merge($additionalHeaders, array(
                 'Accept: ' . $this->getConfiguration()->getApiHTTPHeaderAccept(),
                 'User-Agent: ' . $userAgent
-            ),
+            )),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FAILONERROR => false,
             CURLOPT_HEADER => false,
