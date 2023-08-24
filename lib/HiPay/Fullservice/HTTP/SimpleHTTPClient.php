@@ -45,7 +45,7 @@ class SimpleHTTPClient extends ClientProvider
      * @param string $method
      * @param string $endpoint
      * @param array<string, mixed> $params
-     * @param array<string, mixed> $additionalHeaders
+     * @param array<int, string> $additionalHeaders
      * @param bool $isVault
      * @param bool $isData
      * @return AbstractResponse

@@ -82,7 +82,7 @@ abstract class ClientProvider implements Client
      * @param string $method
      * @param string $endpoint
      * @param array<string, mixed> $params
-     * @param array<string, mixed> $additionalHeaders
+     * @param array<int, string> $additionalHeaders
      * @param bool $isVault
      * @param bool $isData
      *
@@ -127,7 +127,7 @@ abstract class ClientProvider implements Client
      * @param string $method HTTP method
      * @param string $endpoint Endpoint
      * @param array<string, mixed> $params Params to send
-     * @param array<string, mixed> $additionalHeaders
+     * @param array<int, string> $additionalHeaders
      * @param bool $isVault Secure vault action
      * @param bool $isData Special PI Data call
      *
