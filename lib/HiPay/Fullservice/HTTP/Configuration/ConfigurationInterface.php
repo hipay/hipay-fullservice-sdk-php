@@ -271,15 +271,16 @@ interface ConfigurationInterface
 
     /**
      * Returns data API ID
-     * 
+     *
      * @return string
      */
     public function getDataId();
 
     /**
      * Sets data API ID
-     * 
+     *
      * @param string $dataId
+     * @return void
      */
     public function setDataId($dataId);
 }

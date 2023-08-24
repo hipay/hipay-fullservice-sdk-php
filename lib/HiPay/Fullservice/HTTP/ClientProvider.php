@@ -15,7 +15,6 @@
 
 namespace HiPay\Fullservice\HTTP;
 
-use CurlHandle;
 use HiPay\Fullservice\HTTP\Configuration\ConfigurationInterface;
 use HiPay\Fullservice\HTTP\Response\AbstractResponse;
 
@@ -38,7 +37,7 @@ abstract class ClientProvider implements Client
     protected $_configuration;
 
     /**
-     * @var CurlHandle $_httpClient Client used to execute HTTP request
+     * @var resource $_httpClient Client used to execute HTTP request
      */
     protected $_httpClient;
 
@@ -114,7 +113,7 @@ abstract class ClientProvider implements Client
 
 
     /**
-     * @return CurlHandle $_httpClient Current HTTP client used
+     * @return resource $_httpClient Current HTTP client used
      */
     public function getHttpClient()
     {

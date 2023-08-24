@@ -24,7 +24,7 @@ use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
 
-use \Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Client class for all request send to the Data API.
@@ -198,7 +198,7 @@ class PIDataClient implements PIDataClientInterface
      */
     public function getDataId()
     {
-        if(empty($this->_clientProvider->getConfiguration()->getDataId())){
+        if(empty($this->_clientProvider->getConfiguration()->getDataId())) {
             $this->_clientProvider->getConfiguration()->setDataId(Uuid::uuid4()->toString());
         }
 
