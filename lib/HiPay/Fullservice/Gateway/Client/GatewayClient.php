@@ -184,7 +184,7 @@ class GatewayClient implements GatewayClientInterface
             self::ENDPOINT_HOSTED_PAYMENT_PAGE,
             $params,
             array(
-                'X_HIPAY_DATA_ID: ' . $piDataId
+                'X-HIPAY-DATA-ID: ' . $piDataId
             )
         );
 
