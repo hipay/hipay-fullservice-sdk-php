@@ -72,7 +72,7 @@ class SecureVaultClient implements SecureVaultClientInterface
         $endPoint .= '?request_id=' . $requestId;
 
         $response = $this->getClientProvider()
-                         ->request(self::METHOD_LOOKUP_TOKEN, $endPoint, array(), true);
+                         ->request(self::METHOD_LOOKUP_TOKEN, $endPoint, array(), array(), true);
 
         $pctMapper = new PaymentCardTokenMapper($response->toArray());
 

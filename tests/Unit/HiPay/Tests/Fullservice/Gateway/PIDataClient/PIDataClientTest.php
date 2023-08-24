@@ -77,21 +77,14 @@ class PIDataClientTest extends TestCase
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getDataId
      * @depends testCanBeConstructUsingClientProvider
      * @param PIDataClient $dataClient
-     * @return string
      */
-    public function testGetDataIdForOrder(PIDataClient $dataClient)
+    public function testGetPredefinedDataId(PIDataClient $dataClient)
     {
-        $deviceFingerprint = "I AM THE DEVICE";
-        $domainName = "i-am-the-domain-name.com";
+        $expectedDataId = uniqid();
 
-        $_SERVER['HTTP_HOST'] = "www." . $domainName . ":8085";
+        $dataId = $dataClient->getDataId($expectedDataId);
 
-        $trueId = hash('sha256', $deviceFingerprint . ':' . $domainName);
-
-        $this->assertNotEquals($trueId, $dataClient->getDataId(array('forward_url' => $deviceFingerprint)));
-        $this->assertEquals($trueId, $dataClient->getDataId(array('device_fingerprint' => $deviceFingerprint)));
-
-        return $trueId;
+        $this->assertEquals($expectedDataId, $dataId);
     }
 
     /**
@@ -100,26 +93,21 @@ class PIDataClientTest extends TestCase
      * @param PIDataClient $dataClient
      * @return string
      */
-    public function testGetDataIdForHPayment(PIDataClient $dataClient)
+    public function testGetEmptyDataId(PIDataClient $dataClient)
     {
-        $forwardUrl = "http://forward.me/132468453fs465v15ds4f6s";
-        $domainName = "i-am-the-domain-name.com";
+        $uuidFormat = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/';
 
-        $_SERVER['HTTP_HOST'] = "www." . $domainName . ":8085";
+        $dataId = $dataClient->getDataId();
 
-        $trueId = hash('sha256', $forwardUrl);
+        $this->assertMatchesRegularExpression($uuidFormat, $dataId);
 
-        $this->assertNotEquals($trueId, $dataClient->getDataId(array('device_fingerprint' => $forwardUrl)));
-        $this->assertEquals($trueId, $dataClient->getDataId(array('forward_url' => $forwardUrl)));
-
-        return $trueId;
+        return $dataId;
     }
-
 
     /**
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getOrderData
      * @depends testCanBeConstructUsingClientProvider
-     * @depends testGetDataIdForOrder
+     * @depends testGetEmptyDataId
      */
     public function testGetOrderData(PIDataClient $dataClient, $dataId)
     {
@@ -199,7 +187,7 @@ class PIDataClientTest extends TestCase
     /**
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getHPaymentData
      * @depends testCanBeConstructUsingClientProvider
-     * @depends testGetDataIdForHPayment
+     * @depends testGetEmptyDataId
      */
     public function testGetHPaymentData(PIDataClient $dataClient, $dataId)
     {

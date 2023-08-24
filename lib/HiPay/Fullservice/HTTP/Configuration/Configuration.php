@@ -599,6 +599,7 @@ class Configuration implements ConfigurationInterface
         $this->_hostedPageV2 = $hostedPageV2;
     }
 
+
     /**
      * Construct configuration object.
      *
