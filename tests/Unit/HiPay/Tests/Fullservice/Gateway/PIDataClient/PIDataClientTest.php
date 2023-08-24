@@ -75,15 +75,14 @@ class PIDataClientTest extends TestCase
 
     /**
      * @cover HiPay\Fullservice\Gateway\PIDataClient\PIDataClient::getDataId
+     * @depends testCanBeConstructUsingClientProvider
+     * @param PIDataClient $dataClient
      */
-    public function testGetPredefinedDataId()
+    public function testGetPredefinedDataId(PIDataClient $dataClient)
     {
         $expectedDataId = uniqid();
 
-        $this->_clientProvider->getConfiguration()->setDataId($expectedDataId);
-        $dataClient = new PIDataClient($this->_clientProvider);
-
-        $dataId = $dataClient->getDataId();
+        $dataId = $dataClient->getDataId($expectedDataId);
 
         $this->assertEquals($expectedDataId, $dataId);
     }

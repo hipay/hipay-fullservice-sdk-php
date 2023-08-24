@@ -68,7 +68,8 @@ interface PIDataClientInterface
 
     /**
      * Compute a data id
+     * @param string|null $dataId Existing data ID
      * @return string
      */
-    public function getDataId();
+    public function getDataId($dataId);
 }

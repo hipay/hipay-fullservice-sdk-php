@@ -40,9 +40,10 @@ interface GatewayClientInterface
     /**
      * Request a new order
      * @param OrderRequest $orderRequest
+     * @param string $dataId
      * @return Transaction $transaction
      */
-    public function requestNewOrder(OrderRequest $orderRequest);
+    public function requestNewOrder(OrderRequest $orderRequest, $dataId = null);
 
     /**
      * Request Maintenance operation on a transaction
@@ -67,9 +68,10 @@ interface GatewayClientInterface
     /**
      * Request Hosted Payment Page
      * @param HostedPaymentPageRequest $hppRequest
+     * @param string $dataId
      * @return HostedPaymentPage $hpp
      */
-    public function requestHostedPaymentPage(HostedPaymentPageRequest $hppRequest);
+    public function requestHostedPaymentPage(HostedPaymentPageRequest $hppRequest, $dataId = null);
 
     /**
      * Get Transaction information

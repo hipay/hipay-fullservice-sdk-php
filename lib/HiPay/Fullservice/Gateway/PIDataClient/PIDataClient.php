@@ -196,13 +196,13 @@ class PIDataClient implements PIDataClientInterface
      *
      * @return false|string
      */
-    public function getDataId()
+    public function getDataId($dataId = null)
     {
-        if(empty($this->_clientProvider->getConfiguration()->getDataId())) {
-            $this->_clientProvider->getConfiguration()->setDataId(Uuid::uuid4()->toString());
+        if(empty($dataId)) {
+            $dataId = Uuid::uuid4()->toString();
         }
 
-        return $this->_clientProvider->getConfiguration()->getDataId();
+        return $dataId;
     }
 
     /**

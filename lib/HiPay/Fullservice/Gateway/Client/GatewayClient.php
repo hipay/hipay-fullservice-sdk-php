@@ -131,11 +131,11 @@ class GatewayClient implements GatewayClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestNewOrder()
      */
-    public function requestNewOrder(OrderRequest $orderRequest)
+    public function requestNewOrder(OrderRequest $orderRequest, $dataId = null)
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
-        $piDataId = $piDataClient->getDataId();
+        $piDataId = $piDataClient->getDataId($dataId);
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($orderRequest);
@@ -164,11 +164,11 @@ class GatewayClient implements GatewayClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestHostedPaymentPage()
      */
-    public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest)
+    public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest, $dataId = null)
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
-        $piDataId = $piDataClient->getDataId();
+        $piDataId = $piDataClient->getDataId($dataId);
 
         if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();

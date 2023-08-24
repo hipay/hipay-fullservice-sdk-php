@@ -150,11 +150,6 @@ class Configuration implements ConfigurationInterface
     private $_hostedPageV2 = false;
 
     /**
-     * @var string Data ID to use in calls to Data API
-     */
-    private $_dataId = null;
-
-    /**
      * Construct configuration object.
      *
      * Configuration Object is used by HTTP client.
@@ -267,10 +262,6 @@ class Configuration implements ConfigurationInterface
             } else {
                 $this->setHostedPageV2($params['hostedPageV2']);
             }
-        }
-
-        if (isset($params['dataId']) && !is_null($params['dataId'])) {
-            $this->setDataId($params['dataId']);
         }
     }
 
@@ -606,22 +597,6 @@ class Configuration implements ConfigurationInterface
     public function setHostedPageV2($hostedPageV2)
     {
         $this->_hostedPageV2 = $hostedPageV2;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDataId()
-    {
-        return $this->_dataId;
-    }
-
-    /**
-     * @param string $dataId
-     */
-    public function setDataId($dataId)
-    {
-        $this->_dataId = $dataId;
     }
 
 
