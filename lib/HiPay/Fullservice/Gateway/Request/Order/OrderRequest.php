@@ -246,4 +246,11 @@ class OrderRequest extends CommonRequest
      * @var integer $expiration_limit
      */
     public $expiration_limit;
+
+    /**
+     * Billing descriptor for machine learning
+     *
+     * @var string
+     */
+    public $soft_descriptor;
 }
