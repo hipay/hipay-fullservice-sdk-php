@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- [add]: Add `soft_descriptor` property
+
 ## Version 2.14.1
 
 - [fix]: fix tag
