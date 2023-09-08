@@ -131,13 +131,11 @@ class GatewayClient implements GatewayClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestNewOrder()
      */
-    public function requestNewOrder(OrderRequest $orderRequest)
+    public function requestNewOrder(OrderRequest $orderRequest, $dataId = null)
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
-        $piDataId = $piDataClient->getDataId(array(
-            'device_fingerprint' => $orderRequest->device_fingerprint,
-            'url_accept' => $orderRequest->accept_url));
+        $piDataId = $piDataClient->getDataId($dataId);
 
         //Get params array from serializer
         $params = $this->_serializeRequestToArray($orderRequest);
@@ -166,10 +164,11 @@ class GatewayClient implements GatewayClientInterface
      *
      * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestHostedPaymentPage()
      */
-    public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest)
+    public function requestHostedPaymentPage(HostedPaymentPageRequest $pageRequest, $dataId = null)
     {
         // Handle additionnal data management
         $piDataClient = new PIDataClient($this->getClientProvider());
+        $piDataId = $piDataClient->getDataId($dataId);
 
         if ($this->getClientProvider()->getConfiguration()->isOverridePaymentProductSorting()) {
             $pageRequest->reorderPaymentProductList();
@@ -183,7 +182,10 @@ class GatewayClient implements GatewayClientInterface
         $response = $this->getClientProvider()->request(
             self::METHOD_HOSTED_PAYMENT_PAGE,
             self::ENDPOINT_HOSTED_PAYMENT_PAGE,
-            $params
+            $params,
+            array(
+                'X-HIPAY-DATA-ID: ' . $piDataId
+            )
         );
 
         //Transform response to HostedPaymentPage Model with HostedPaymentPageMapper
@@ -192,10 +194,6 @@ class GatewayClient implements GatewayClientInterface
          * @var HostedPaymentPage $hostedPagePayment
          */
         $hostedPagePayment = $mapper->getModelObjectMapped();
-
-        $piDataId = $piDataClient->getDataId(array(
-            'forward_url' => $hostedPagePayment->getForwardUrl()
-        ));
 
         if ($piDataId) {
             $piDataClient->sendData($piDataClient->getHPaymentData($piDataId, $pageRequest, $hostedPagePayment));

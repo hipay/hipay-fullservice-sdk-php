@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.15.0
+
+- [add]: Add `soft_descriptor` property to Order Requests
+- [add]: Add internal `data_id` property
+
 ## Version 2.14.1
 
 - [fix]: fix tag

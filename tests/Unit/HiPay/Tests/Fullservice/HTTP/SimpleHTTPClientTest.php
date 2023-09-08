@@ -249,7 +249,7 @@ class SimpleHTTPClientTest extends TestCase
         $mock = $this->createMock(Configuration::class);
         $mock->method('getSecureVaultEndpoint')->willReturn('http://www.mocky.io');
         $client = new SimpleHTTPClient($mock);
-        $response = $client->request('GET', "/v2/5d026cd63100002900ab2f83", array(), true);
+        $response = $client->request('GET', "/v2/5d026cd63100002900ab2f83", array(), array(), true);
         $this->assertInstanceOf('\HiPay\Fullservice\HTTP\Response\AbstractResponse', $response);
     }
 
