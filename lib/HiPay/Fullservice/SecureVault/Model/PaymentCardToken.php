@@ -81,7 +81,7 @@ class PaymentCardToken extends AbstractModel
      * @var bool $_multiUse
      */
     private $_multiUse;
-    
+
     /**
      * @var string Card domestic network (if applicable, e.g. "cb").
      */
