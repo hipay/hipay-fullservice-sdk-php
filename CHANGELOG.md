@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.15.1 - UNRELEASED
+
+- [fix]: Fixed uuid library version requirement
+
 ## 2.15.0
 
 - [add]: Add `soft_descriptor` property to Order Requests
