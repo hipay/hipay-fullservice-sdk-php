@@ -56,12 +56,14 @@ class PaymentCardTokenMapper extends AbstractMapper
         $issuer = isset($source['issuer']) ? $source['issuer'] : null;
         $country = isset($source['country']) ? $source['country'] : null;
         $requestId = isset($source['requestId']) ? $source['requestId'] : null;
+        $multiUse = isset($source['multiUse']) ? $source['multiUse'] : null;
         $domesticNetwork = isset($source['domesticNetwork']) ? $source['domesticNetwork'] : null;
         $cardHash = isset($source['cardHash']) ? $source['cardHash'] : null;
         $cardId = isset($source['cardId']) ? $source['cardId'] : null;
         $cardType = isset($source['cardType']) ? $source['cardType'] : null;
         $cardCategory = isset($source['cardCategory']) ? $source['cardCategory'] : null;
         $forbiddenIssuerCountry = isset($source['forbiddenIssuerCountry']) ? $source['forbiddenIssuerCountry'] : null;
+        $bin = isset($source['bin']) ? $source['bin'] : null;
 
         $this->_modelObject = new PaymentCardToken(
             $token,
@@ -73,12 +75,14 @@ class PaymentCardTokenMapper extends AbstractMapper
             $issuer,
             $country,
             $requestId,
+            $multiUse,
             $domesticNetwork,
             $cardHash,
             $cardId,
             $cardType,
             $cardCategory,
-            $forbiddenIssuerCountry
+            $forbiddenIssuerCountry,
+            $bin
         );
     }
 
