@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.15.1 - UNRELEASED
+## 2.15.1
 
 - [fix]: Fixed uuid library version requirement
 
