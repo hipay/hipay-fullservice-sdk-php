@@ -13,7 +13,7 @@
         "lint": "phpcs -p --standard=PHPCompatibility lib/ tests/"
     },
     "homepage": "https://hipay.com/product-enterprise/",
-    "version": "2.15.0",
+    "version": "2.15.1",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -29,7 +29,7 @@
         "php": ">=7.2",
         "ext-curl": "*",
         "ext-json": "*",
-        "ramsey/uuid": "^3.9.7"
+        "ramsey/uuid": "^3 || ^4"
     },
     "require-dev": {
         "phpunit/phpunit": "9.6",
