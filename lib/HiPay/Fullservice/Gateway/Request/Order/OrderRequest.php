@@ -253,4 +253,14 @@ class OrderRequest extends CommonRequest
      * @var string
      */
     public $soft_descriptor;
+
+    /**
+     * Parameter to use for specific provider data like PayPal.
+     *
+     * Accept JSON encoded string or PHP array
+     * Example: {"paypal_id":"3G784840JJ573503S"}
+     *
+     * @var array<string, mixed>|string $provider_data Provider data (JSON).
+     */
+    public $provider_data;
 }
