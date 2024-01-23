@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.16.0
+
+- [add]: Add `provider_data` property to Order Requests
+
 ## 2.15.1
 
 - [fix]: Fixed uuid library version requirement

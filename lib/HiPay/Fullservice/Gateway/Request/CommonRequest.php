@@ -62,4 +62,11 @@ class CommonRequest extends AbstractRequest
      * @format Cart|JSON
      */
     public $basket;
+
+    /**
+     * Billing descriptor for machine learning
+     *
+     * @var string
+     */
+    public $soft_descriptor;
 }

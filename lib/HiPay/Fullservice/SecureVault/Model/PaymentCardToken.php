@@ -78,6 +78,11 @@ class PaymentCardToken extends AbstractModel
     private $_requestId;
 
     /**
+     * @var bool $_multiUse
+     */
+    private $_multiUse;
+
+    /**
      * @var string Card domestic network (if applicable, e.g. "cb").
      */
     private $_domesticNetwork;
@@ -103,9 +108,14 @@ class PaymentCardToken extends AbstractModel
     private $_cardCategory;
 
     /**
-     * @var string $_forbiddenIssuerCountry
+     * @var bool $_forbiddenIssuerCountry
      */
     private $_forbiddenIssuerCountry;
+
+    /**
+     * @var string $_bin
+     */
+    private $_bin;
 
     /**
      * PaymentCardToken constructor.
@@ -118,12 +128,14 @@ class PaymentCardToken extends AbstractModel
      * @param string $issuer
      * @param string $country
      * @param string $requestId
+     * @param bool   $multiUse
      * @param string $domesticNetwork
      * @param string $cardHash
      * @param string $cardId
      * @param string $cardType
      * @param string $cardCategory
-     * @param string $forbiddenIssuerCountry
+     * @param bool   $forbiddenIssuerCountry
+     * @param string $bin
      */
     public function __construct(
         $token,
@@ -135,12 +147,14 @@ class PaymentCardToken extends AbstractModel
         $issuer,
         $country,
         $requestId,
+        $multiUse,
         $domesticNetwork,
         $cardHash,
         $cardId,
         $cardType,
         $cardCategory,
-        $forbiddenIssuerCountry
+        $forbiddenIssuerCountry,
+        $bin
     ) {
         $this->_token = $token;
         $this->_brand = $brand;
@@ -151,12 +165,14 @@ class PaymentCardToken extends AbstractModel
         $this->_issuer = $issuer;
         $this->_country = $country;
         $this->_requestId = $requestId;
+        $this->_multiUse = $multiUse;
         $this->_domesticNetwork = $domesticNetwork;
         $this->_cardHash = $cardHash;
         $this->_cardId = $cardId;
         $this->_cardType = $cardType;
         $this->_cardCategory = $cardCategory;
         $this->_forbiddenIssuerCountry = $forbiddenIssuerCountry;
+        $this->_bin = $bin;
     }
 
     /**
@@ -224,6 +240,14 @@ class PaymentCardToken extends AbstractModel
     }
 
     /**
+     * @return bool
+     */
+    public function getMultiUse()
+    {
+        return $this->_multiUse;
+    }
+
+    /**
      * @return string
      */
     public function getRequestId()
@@ -272,10 +296,18 @@ class PaymentCardToken extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getForbiddenIssuerCountry()
     {
         return $this->_forbiddenIssuerCountry;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBin()
+    {
+        return $this->_bin;
     }
 }

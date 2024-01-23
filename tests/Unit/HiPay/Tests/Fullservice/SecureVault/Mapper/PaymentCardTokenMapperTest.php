@@ -11,7 +11,7 @@ class PaymentCardTokenMapperTest extends TestCase
     protected $_paymentCardTokenAsArray;
 
     public function set_up()
-{
+    {
         $this->_paymentCardTokenAsArray = array(
             "token" => "1c1880287b6c1a8749daca1dcd867a67bb2f47248db9a417864b13e58a30a8bd",
             "brand" => "VISA",
@@ -22,12 +22,14 @@ class PaymentCardTokenMapperTest extends TestCase
             "issuer" => "BNP",
             "country" => "FRANCE",
             "requestId" => "00001",
+            "multiUse" => true,
             "domesticNetwork" => "",
             "cardHash" => "",
             "cardId" => "",
             "cardType" => "CREDIT",
             "cardCategory" => "",
-            "forbiddenIssuerCountry" => ""
+            "forbiddenIssuerCountry" => false,
+            "bin" => "400000"
         );
     }
 
@@ -46,6 +48,7 @@ class PaymentCardTokenMapperTest extends TestCase
      */
     public function testMapResponseToModel($paymentCardTokenMapper)
     {
+        /** @var PaymentCardToken */
         $paymentCardToken = $paymentCardTokenMapper->getModelObjectMapped();
 
         $this->assertInstanceOf(PaymentCardToken::class, $paymentCardToken);
@@ -59,10 +62,12 @@ class PaymentCardTokenMapperTest extends TestCase
         $this->assertEquals($this->_paymentCardTokenAsArray['issuer'], $paymentCardToken->getIssuer());
         $this->assertEquals($this->_paymentCardTokenAsArray['country'], $paymentCardToken->getCountry());
         $this->assertEquals($this->_paymentCardTokenAsArray['requestId'], $paymentCardToken->getRequestId());
+        $this->assertEquals($this->_paymentCardTokenAsArray['multiUse'], $paymentCardToken->getMultiUse());
         $this->assertEquals($this->_paymentCardTokenAsArray['domesticNetwork'], $paymentCardToken->getDomesticNetwork());
         $this->assertEquals($this->_paymentCardTokenAsArray['cardHash'], $paymentCardToken->getCardHash());
         $this->assertEquals($this->_paymentCardTokenAsArray['cardType'], $paymentCardToken->getCardType());
         $this->assertEquals($this->_paymentCardTokenAsArray['cardCategory'], $paymentCardToken->getCardCategory());
         $this->assertEquals($this->_paymentCardTokenAsArray['forbiddenIssuerCountry'], $paymentCardToken->getForbiddenIssuerCountry());
+        $this->assertEquals($this->_paymentCardTokenAsArray['bin'], $paymentCardToken->getBin());
     }
 }
