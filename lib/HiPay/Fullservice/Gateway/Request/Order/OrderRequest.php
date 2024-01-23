@@ -248,9 +248,12 @@ class OrderRequest extends CommonRequest
     public $expiration_limit;
 
     /**
-     * Billing descriptor for machine learning
+     * Parameter to use for specific provider data like PayPal.
      *
-     * @var string
+     * Accept JSON encoded string or PHP array
+     * Example: {"paypal_id":"3G784840JJ573503S"}
+     *
+     * @var array<string, mixed>|string $provider_data Provider data (JSON).
      */
-    public $soft_descriptor;
+    public $provider_data;
 }
