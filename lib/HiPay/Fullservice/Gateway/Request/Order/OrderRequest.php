@@ -263,7 +263,7 @@ class OrderRequest extends CommonRequest
      * When set to true, the payment process will bypass additional confirmation steps,
      * allowing for a quicker transaction experience for the customer.
      *
-     * @var boolean $one_click
+     * @var integer $one_click
      */
-    public $one_click;S
+    public $one_click;
 }
