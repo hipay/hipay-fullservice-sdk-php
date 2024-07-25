@@ -256,4 +256,13 @@ class OrderRequest extends CommonRequest
      * @var array<string, mixed>|string $provider_data Provider data (JSON).
      */
     public $provider_data;
+
+    /**
+     * This parameter indicates whether the payment should be a one-click payment.
+     *
+     * `1`: Initiate a one-click payment use case
+     *
+     * @var integer $one_click
+     */
+    public $one_click;
 }
