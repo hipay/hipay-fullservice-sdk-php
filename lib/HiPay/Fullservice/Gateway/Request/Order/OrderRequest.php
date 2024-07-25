@@ -260,8 +260,7 @@ class OrderRequest extends CommonRequest
     /**
      * This parameter indicates whether the payment should be a one-click payment.
      *
-     * When set to true, the payment process will bypass additional confirmation steps,
-     * allowing for a quicker transaction experience for the customer.
+     * `1`: Initiate a one-click payment use case
      *
      * @var integer $one_click
      */
