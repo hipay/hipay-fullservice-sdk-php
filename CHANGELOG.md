@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.17.0
+
+- [add]: Added `one_click` property to Order Requests
+
 ## 2.16.0
 
 - [add]: Add `provider_data` property to Order Requests
