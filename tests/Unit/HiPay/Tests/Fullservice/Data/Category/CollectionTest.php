@@ -11,7 +11,7 @@ class CollectionTest extends TestCase
     {
         $collection = Collection::getItems();
 
-        $this->assertCount(24, $collection);
+        $this->assertCount(26, $collection);
 
         foreach ($collection as $item) {
             $this->assertInstanceOf("HiPay\Fullservice\Data\Category", $item);
