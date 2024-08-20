@@ -1,0 +1,18 @@
+{
+  "productCode": "klarna",
+  "brandName": "Klarna",
+  "category": "credit-consumption",
+  "comment": "Available only in Germany, Austria, Belgium, Denmark, Spain, Finland, France, Italy, Norway, Netherlands, Poland, Portugal, United Kingdom, Sweden and Switzerland. Also available only in CHF, DKK, EUR, GBP, NOK, PLN and SEK currencies.",
+  "can3ds": 1,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 1,
+  "currencies": ["EUR","CHF","DKK","GBP","NOK","PLN","SEK"],
+  "countries": ["DE","AT","BE","DK","ES","FI","FR","IT","NO","NL","PL","PT","UK","SE","CH"],
+  "checkoutFieldsMandatory": ["firstname","lastname","email","streetaddress","city","zipcode","country"],
+  "additionalFields": {},
+  "priority": 12
+}
