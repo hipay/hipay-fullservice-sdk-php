@@ -14,5 +14,5 @@
   "countries": ["DE","AT","BE","DK","ES","FI","FR","IT","NO","NL","PL","PT","UK","SE","CH"],
   "checkoutFieldsMandatory": ["firstname","lastname","email","streetaddress","city","zipcode","country"],
   "additionalFields": {},
-  "priority": 13
+  "priority": 12
 }
