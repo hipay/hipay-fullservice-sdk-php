@@ -181,7 +181,8 @@ class PIDataClient implements PIDataClientInterface
                 "date_request" => $this->getRequestDate(),
                 "date_response" => $this->getCurDateUTCFormatted(),
             ),
-            "domain" => $this->getDomain($this->getHost($request->accept_url))
+            "domain" => $this->getDomain($this->getHost($request->accept_url)),
+            "one_click" => $request->one_click
         );
 
         return $params;
