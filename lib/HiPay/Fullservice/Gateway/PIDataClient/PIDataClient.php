@@ -199,7 +199,7 @@ class PIDataClient implements PIDataClientInterface
      */
     public function getDataId($dataId = null)
     {
-        if(empty($dataId)) {
+        if (empty($dataId)) {
             $dataId = Uuid::uuid4()->toString();
         }
 
