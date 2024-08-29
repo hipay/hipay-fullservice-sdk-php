@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.18.0
+
+- [add]: Added some PayPal v2 properties to HostedPage Requests
+
 ## 2.17.0
 
 - [add]: Added `one_click` property to Order Requests
