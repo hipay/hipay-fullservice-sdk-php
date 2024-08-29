@@ -107,6 +107,7 @@ class PIDataClient implements PIDataClientInterface
         $params['transaction_id'] = (int) $transaction->getTransactionReference();
         $params['status'] = $transaction->getStatus();
         $params['payment_method'] = $orderRequest->payment_product;
+        $params['one_click'] = boolval($orderRequest->one_click);
 
         return $params;
     }
@@ -181,7 +182,7 @@ class PIDataClient implements PIDataClientInterface
                 "date_request" => $this->getRequestDate(),
                 "date_response" => $this->getCurDateUTCFormatted(),
             ),
-            "domain" => $this->getDomain($this->getHost($request->accept_url))
+            "domain" => $this->getDomain($this->getHost($request->accept_url)),
         );
 
         return $params;
@@ -198,7 +199,7 @@ class PIDataClient implements PIDataClientInterface
      */
     public function getDataId($dataId = null)
     {
-        if(empty($dataId)) {
+        if (empty($dataId)) {
             $dataId = Uuid::uuid4()->toString();
         }
 
