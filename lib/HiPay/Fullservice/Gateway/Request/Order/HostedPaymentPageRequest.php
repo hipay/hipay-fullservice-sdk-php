@@ -94,6 +94,36 @@ class HostedPaymentPageRequest extends OrderRequest
     public $display_cancel_button;
 
     /**
+     * @var string Label of PayPal v2 button
+     * @value Default "pay"
+     */
+    public $paypal_v2_label;
+
+    /**
+     * @var string Shape of PayPal v2 button
+     * @value Default "pill"
+     */
+    public $paypal_v2_shape;
+
+    /**
+     * @var string Color of PayPal v2 button
+     * @value Default "gold"
+     */
+    public $paypal_v2_color;
+
+    /**
+     * @var int Height of PayPal v2 button
+     * @value Default 40
+     */
+    public $paypal_v2_height;
+
+    /**
+     * @var boolean display “Buy Now / Pay Later” PayPal v2 button below classic PayPal v2 button
+     * @value Default true
+     */
+    public $paypal_v2_bnpl;
+
+    /**
      * @return void
      */
     public function reorderPaymentProductList()
