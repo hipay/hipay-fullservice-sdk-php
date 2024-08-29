@@ -126,6 +126,7 @@ class PIDataClientTest extends TestCase
         $orderRequest->orderid = "10052";
         $orderRequest->payment_product = "visa";
         $orderRequest->source = json_encode($sourceData);
+        $orderRequest->one_click = 1;
 
         $transaction = new Transaction(null, null, "456118", null,
             null, null, 118, null, null, null,
@@ -156,7 +157,8 @@ class PIDataClientTest extends TestCase
             "event" => "request",
             "transaction_id" => $transaction->getTransactionReference(),
             "status" => $transaction->getStatus(),
-            "domain" => $domainName
+            "domain" => $domainName,
+            "one_click" => $orderRequest->one_click
         );
 
         $params = $dataClient->getOrderData($dataId, $orderRequest, $transaction);
