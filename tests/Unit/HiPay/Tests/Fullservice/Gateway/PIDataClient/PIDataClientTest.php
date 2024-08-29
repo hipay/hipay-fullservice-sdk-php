@@ -158,7 +158,7 @@ class PIDataClientTest extends TestCase
             "transaction_id" => $transaction->getTransactionReference(),
             "status" => $transaction->getStatus(),
             "domain" => $domainName,
-            "one_click" => $orderRequest->one_click
+            "one_click" => boolval($orderRequest->one_click)
         );
 
         $params = $dataClient->getOrderData($dataId, $orderRequest, $transaction);
