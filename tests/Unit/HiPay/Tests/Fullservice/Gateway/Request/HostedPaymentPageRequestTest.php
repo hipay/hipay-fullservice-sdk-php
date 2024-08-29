@@ -60,6 +60,11 @@ class HostedPaymentPageRequestTest extends TestCase
         $o->display_selector = "1";
         $o->time_limit_to_pay = "1000";
         $o->multi_use = "1";
+        $o->paypal_v2_label = "pay";
+        $o->paypal_v2_shape = "pill";
+        $o->paypal_v2_color = "gold";
+        $o->paypal_v2_height = 40;
+        $o->paypal_v2_bnpl = true;
 
         $o->foo = array('bar'=>'foobar');
 
@@ -75,6 +80,11 @@ class HostedPaymentPageRequestTest extends TestCase
         $this->assertEquals('1', $o->display_selector);
         $this->assertEquals('1000', $o->time_limit_to_pay);
         $this->assertEquals('1', $o->multi_use);
+        $this->assertEquals('pay', $o->paypal_v2_label);
+        $this->assertEquals('pill', $o->paypal_v2_shape);
+        $this->assertEquals("gold", $o->paypal_v2_color);
+        $this->assertEquals(40,$o->paypal_v2_height);
+        $this->assertEquals(true,$o->paypal_v2_bnpl);
 
         $this->assertEquals(array('bar'=>'foobar'), $o->foo);
         $toCompare = new \stdClass();
