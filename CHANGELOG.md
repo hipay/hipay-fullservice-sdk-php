@@ -3,6 +3,7 @@
 ## 2.18.0
 
 - [add]: Added some PayPal v2 properties to HostedPage Requests
+- [add]: Added Klarna payment method
 
 ## 2.17.0
 
