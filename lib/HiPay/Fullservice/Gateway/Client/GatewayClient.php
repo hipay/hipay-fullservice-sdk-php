@@ -31,6 +31,8 @@ use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
+use HiPay\Fullservice\Gateway\Request\Info\AvailablePaymentProductRequest;
+use HiPay\Fullservice\Gateway\Mapper\AvailablePaymentProductMapper;
 
 /**
  * Client class for all request send to TPP Fullservice.
@@ -110,6 +112,16 @@ class GatewayClient implements GatewayClientInterface
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
     private const METHOD_SECURITY_SETTINGS = 'GET';
+
+    /**
+     * @var string ENDPOINT_AVAILABLE_PAYMENT_PRODUCT endpoint to get available payment products
+     */
+    private const ENDPOINT_AVAILABLE_PAYMENT_PRODUCT = 'v2/available-payment-products';
+
+    /**
+     * @var string METHOD_AVAILABLE_PAYMENT_PRODUCT http method to get available payment products
+     */
+    private const METHOD_AVAILABLE_PAYMENT_PRODUCT = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
@@ -331,6 +343,34 @@ class GatewayClient implements GatewayClientInterface
         }
 
         return $transactions;
+    }
+
+    /**
+     * Request available payment products
+     *
+     * @param AvailablePaymentProductRequest $request
+     * @return array Array of AvailablePaymentProduct objects
+     */
+    public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request)
+    {
+        $queryString = $request->toQueryString();
+        $endpoint = self::ENDPOINT_AVAILABLE_PAYMENT_PRODUCT . '.json?' . $queryString;
+
+        $response = $this->getClientProvider()->request(
+            self::METHOD_AVAILABLE_PAYMENT_PRODUCT,
+            $endpoint
+        );
+
+        $data = $response->toArray();
+
+        $availablePaymentProducts = [];
+
+        foreach ($data as $productData) {
+            $mapper = new AvailablePaymentProductMapper($productData);
+            $availablePaymentProducts[] = $mapper->getModelObjectMapped();
+        }
+
+        return $availablePaymentProducts;
     }
 
     /**
