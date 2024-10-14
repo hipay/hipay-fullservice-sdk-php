@@ -112,7 +112,6 @@ class PIDataClient implements PIDataClientInterface
         return $params;
     }
 
-
     /**
      * {@inheritDoc}
      *
