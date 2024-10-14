@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\AvailablePaymentProduct;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Model\Operation;
 use HiPay\Fullservice\Gateway\Model\Transaction;
@@ -345,7 +346,6 @@ class GatewayClient implements GatewayClientInterface
         return $transactions;
     }
 
-
     /**
      *
      * {@inheritDoc}
@@ -364,14 +364,19 @@ class GatewayClient implements GatewayClientInterface
 
         $data = $response->toArray();
 
-        $availablePaymentProducts = [];
+        if (empty($data)) {
+            return array();
+        }
+
+        $availablePaymentProducts = array();
 
         foreach ($data as $productData) {
-            $mapper = new AvailablePaymentProductMapper($productData);
-            $availablePaymentProduct = $mapper->getModelObjectMapped();
+            $availablePaymentProductMapper = new AvailablePaymentProductMapper($productData);
+            $availablePaymentProduct = $availablePaymentProductMapper->getModelObjectMapped();
             $availablePaymentProducts[] = $availablePaymentProduct;
         }
 
+        /** @var array<AvailablePaymentProduct> $availablePaymentProducts */
         return $availablePaymentProducts;
     }
 
