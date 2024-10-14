@@ -28,8 +28,36 @@ use HiPay\Fullservice\Model\AbstractModel;
  * @link https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  */
-class AvailablePaymentProduct extends AbstractAvailablePaymentProduct
+class AbstractAvailablePaymentProduct extends AbstractModel
 {
+    /**
+     *
+     * @param string $id
+     * @param string $code
+     * @param string $description
+     * @param string $customerDescription
+     * @param string $paymentProductCategoryCode
+     * @param bool   $tokenizable
+     * @param array<string, mixed>  $options
+     */
+    public function __construct(
+        $id,
+        $code,
+        $description,
+        $customerDescription,
+        $paymentProductCategoryCode,
+        $tokenizable,
+        $options
+    ) {
+        $this->_id = $id;
+        $this->_code = $code;
+        $this->_description = $description;
+        $this->_customerDescription = $customerDescription;
+        $this->_paymentProductCategoryCode = $paymentProductCategoryCode;
+        $this->_tokenizable = $tokenizable;
+        $this->_options = $options;
+    }
+
     /**
      * @var string $_id Payment product ID
      */

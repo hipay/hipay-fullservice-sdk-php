@@ -368,7 +368,8 @@ class GatewayClient implements GatewayClientInterface
 
         foreach ($data as $productData) {
             $mapper = new AvailablePaymentProductMapper($productData);
-            $availablePaymentProducts[] = $mapper->getModelObjectMapped();
+            $availablePaymentProduct = $mapper->getModelObjectMapped();
+            $availablePaymentProducts[] = $availablePaymentProduct;
         }
 
         return $availablePaymentProducts;
