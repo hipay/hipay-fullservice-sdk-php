@@ -290,7 +290,7 @@ class GatewayClient implements GatewayClientInterface
 
         $res = $data["transaction"];
 
-        if(isset($data['basket'])) {
+        if (isset($data['basket'])) {
             $res["basket"] = $data["basket"];
         } else {
             $res["basket"] = null;
