@@ -345,11 +345,12 @@ class GatewayClient implements GatewayClientInterface
         return $transactions;
     }
 
+
     /**
-     * Request available payment products
      *
-     * @param AvailablePaymentProductRequest $request
-     * @return array Array of AvailablePaymentProduct objects
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestAvailablePaymentProduct()
      */
     public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request)
     {

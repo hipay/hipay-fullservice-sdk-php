@@ -514,7 +514,7 @@ class GatewayClientTest extends TestCase
 
         $gateway->method('_serializeRequestToArray')->willReturn($request);
 
-        $availablePaymentProductRequest = new AvailablePaymentProductRequest('alma-3x');
+        $availablePaymentProductRequest = new AvailablePaymentProductRequest('alma-3x', true);
 
         $availableProducts = $gateway->requestAvailablePaymentProduct($availablePaymentProductRequest);
 

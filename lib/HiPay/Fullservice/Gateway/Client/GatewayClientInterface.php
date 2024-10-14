@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\AvailablePaymentProduct;
 use HiPay\Fullservice\Gateway\Model\Transaction;
 use HiPay\Fullservice\Gateway\Request\Info\AvailablePaymentProductRequest;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
@@ -94,7 +95,7 @@ interface GatewayClientInterface
      * Request available payment products
      *
      * @param AvailablePaymentProductRequest $request
-     * @return array Array of AvailablePaymentProduct objects
+     * @return array<int, AvailablePaymentProduct> AvailablePaymentProduct Model
      */
     public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request);
 

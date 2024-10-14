@@ -31,14 +31,14 @@ use HiPay\Fullservice\Model\AbstractModel;
 class AvailablePaymentProduct extends AbstractModel
 {
     /**
-     * AvailablePaymentProduct constructor.
+     *
      * @param string $id
      * @param string $code
      * @param string $description
      * @param string $customerDescription
      * @param string $paymentProductCategoryCode
-     * @param bool $tokenizable
-     * @param array $options
+     * @param bool   $tokenizable
+     * @param array<string, mixed>|null  $options
      */
     public function __construct(
         $id,
@@ -142,7 +142,7 @@ class AvailablePaymentProduct extends AbstractModel
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>|null
      */
     public function getOptions()
     {
