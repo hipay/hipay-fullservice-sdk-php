@@ -95,7 +95,7 @@ interface GatewayClientInterface
      * Request available payment products
      *
      * @param AvailablePaymentProductRequest $request
-     * @return array<AvailablePaymentProduct> AbstractAvailablePaymentProduct Model
+     * @return array<AvailablePaymentProduct> AvailablePaymentProduct Model
      */
     public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request);
 
