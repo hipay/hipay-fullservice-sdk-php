@@ -66,35 +66,6 @@ class AvailablePaymentProductRequest extends AbstractRequest
     public $payment_product_category = [];
 
     /**
-     * AvailablePaymentProductRequest constructor.
-     *
-     * @param array<string> $payment_product
-     * @param bool $with_options
-     * @param array<string> $currency
-     * @param array<string> $customer_country
-     * @param array<string> $payment_product_category
-     * @param array<string> $eci
-     * @param array<string> $operation
-     */
-    public function __construct(
-        $payment_product = [],
-        $with_options = false,
-        $currency = [],
-        $customer_country = [],
-        $payment_product_category = [],
-        $eci = ['7'],
-        $operation = ['4']
-    ) {
-        $this->payment_product = $payment_product;
-        $this->with_options = $with_options;
-        $this->operation = $operation;
-        $this->eci = $eci;
-        $this->customer_country = $customer_country;
-        $this->currency = $currency;
-        $this->payment_product_category = $payment_product_category;
-    }
-
-    /**
      * Convert the request to a query string
      *
      * @return string
