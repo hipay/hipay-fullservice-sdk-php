@@ -219,7 +219,7 @@ class GatewayClientTest extends TestCase
 
         $orderRequest = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\OrderRequest')->getMock();
         $orderRequest->device_fingerprint = "I AM THE DEVICE";
-        $orderRequest->url_accept = "http://test.com/payment/accept/";
+        $orderRequest->accept_url = "http://test.com/payment/accept/";
 
         $transaction = $gateway->requestNewOrder($orderRequest);
 
@@ -252,7 +252,6 @@ class GatewayClientTest extends TestCase
                     "language" => "fr_FR",
                     "authentication_indicator" => "0",
                     "accept_url" => "http://test.com/payment/accept/",
-                    "url_accept" => "http://test.com/payment/accept/",
                     "decline_url" => "http://test.com/payment/decline/",
                     "pending_url" => "http://test.com/payment/pending/",
                     "exception_url" => "http://test.com/payment/exception/",
@@ -481,7 +480,7 @@ class GatewayClientTest extends TestCase
 
         $orderRequest = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\OrderRequest')->getMock();
         $orderRequest->device_fingerprint = "I AM THE DEVICE";
-        $orderRequest->url_accept = "http://test.com/payment/accept/";
+        $orderRequest->accept_url = "http://test.com/payment/accept/";
 
         $transaction = $gateway->requestNewOrder($orderRequest);
 
