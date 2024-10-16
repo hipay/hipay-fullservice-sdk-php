@@ -105,7 +105,7 @@ class AvailablePaymentProductRequest extends AbstractRequest
 
         // Remove null values and empty strings
         $filteredParams = array_filter($params, function ($value) {
-            return !is_null($value) && $value !== '';
+            return !empty($value);
         });
 
         return http_build_query($filteredParams);
