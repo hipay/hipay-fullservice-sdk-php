@@ -74,10 +74,10 @@ class AvailablePaymentProductRequest extends AbstractRequest
     public function __construct(
         $payment_product = '',
         $with_options = false,
-        $operation = '4',
-        $eci = '7',
+        $currency = '',
         $customer_country = '',
-        $currency = ''
+        $eci = '7',
+        $operation = '4'
     ) {
         $this->payment_product = $payment_product;
         $this->with_options = $with_options;
@@ -105,7 +105,7 @@ class AvailablePaymentProductRequest extends AbstractRequest
 
         // Remove null values and empty strings
         $filteredParams = array_filter($params, function ($value) {
-            return $value !== null && $value !== '';
+            return !is_null($value) && $value !== '';
         });
 
         return http_build_query($filteredParams);
