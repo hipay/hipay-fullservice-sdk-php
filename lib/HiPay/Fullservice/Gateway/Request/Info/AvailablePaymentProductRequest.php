@@ -31,20 +31,19 @@ use HiPay\Fullservice\Request\AbstractRequest;
 class AvailablePaymentProductRequest extends AbstractRequest
 {
     /**
-     * @var string $operation Transaction type
-     * @required
+     * @var array<string> $operation Transaction types
      */
-    public $operation = '4';
+    public $operation = ['4'];
 
     /**
-     * @var string $payment_product The payment product (e.g., alma-3x)
+     * @var array<string> $payment_product The payment products
      */
-    public $payment_product;
+    public $payment_product = [];
 
     /**
-     * @var string $eci Electronic Commerce Indicator (ECI)
+     * @var array<string> $eci Electronic Commerce Indicators (ECI)
      */
-    public $eci = '7';
+    public $eci = ['7'];
 
     /**
      * @var bool $with_options Whether to include additional options in the response
@@ -52,32 +51,39 @@ class AvailablePaymentProductRequest extends AbstractRequest
     public $with_options = false;
 
     /**
-     * @var string $customer_country The country code of the customer (ISO 3166-1 alpha-2)
+     * @var array<string> $customer_country The country codes of the customer (ISO 3166-1 alpha-2)
      */
-    public $customer_country;
+    public $customer_country = [];
 
     /**
-     * @var string $currency Base currency for this request. This three-character currency code complies with ISO 4217.
+     * @var array<string> $currency Base currencies for this request. These three-character currency codes comply with ISO 4217.
      */
-    public $currency;
+    public $currency = [];
+
+    /**
+     * @var array<string> $payment_product_category The payment product categories
+     */
+    public $payment_product_category = [];
 
     /**
      * AvailablePaymentProductRequest constructor.
      *
-     * @param string $payment_product
+     * @param array<string> $payment_product
      * @param bool $with_options
-     * @param string $eci
-     * @param string $operation
-     * @param string $customer_country
-     * @param string $currency
+     * @param array<string> $currency
+     * @param array<string> $customer_country
+     * @param array<string> $payment_product_category
+     * @param array<string> $eci
+     * @param array<string> $operation
      */
     public function __construct(
-        $payment_product = '',
+        $payment_product = [],
         $with_options = false,
-        $currency = '',
-        $customer_country = '',
-        $eci = '7',
-        $operation = '4'
+        $currency = [],
+        $customer_country = [],
+        $payment_product_category = [],
+        $eci = ['7'],
+        $operation = ['4']
     ) {
         $this->payment_product = $payment_product;
         $this->with_options = $with_options;
@@ -85,6 +91,7 @@ class AvailablePaymentProductRequest extends AbstractRequest
         $this->eci = $eci;
         $this->customer_country = $customer_country;
         $this->currency = $currency;
+        $this->payment_product_category = $payment_product_category;
     }
 
     /**
@@ -101,13 +108,18 @@ class AvailablePaymentProductRequest extends AbstractRequest
             'with_options' => $this->with_options ? 'true' : 'false',
             'customer_country' => $this->customer_country,
             'currency' => $this->currency,
+            'payment_product_category' => $this->payment_product_category,
         ];
 
-        // Remove null values and empty strings
+        // Remove empty values and convert non-empty arrays to comma-separated strings
         $filteredParams = array_filter($params, function ($value) {
             return !empty($value);
         });
 
-        return http_build_query($filteredParams);
+        $stringParams = array_map(function ($value) {
+            return is_array($value) ? implode(',', $value) : $value;
+        }, $filteredParams);
+
+        return http_build_query($stringParams);
     }
 }

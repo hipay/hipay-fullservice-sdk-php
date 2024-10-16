@@ -52,8 +52,8 @@ class AvailablePaymentProductMapper extends AbstractMapper
         $id = isset($source['id']) ? $source['id'] : null;
         $code = isset($source['code']) ? $source['code'] : null;
         $description = isset($source['description']) ? $source['description'] : null;
-        $customerDescription = isset($source['customer_description']) ? $source['customer_description'] : null;
-        $paymentProductCategoryCode = isset($source['payment_product_category_code']) ? $source['payment_product_category_code'] : null;
+        $customerDescription = isset($source['customerDescription']) ? $source['customerDescription'] : null;
+        $paymentProductCategoryCode = isset($source['paymentProductCategoryCode']) ? $source['paymentProductCategoryCode'] : null;
         $tokenizable = isset($source['tokenizable']) ? $source['tokenizable'] : false;
         $options = isset($source['options']) ? $source['options'] : [];
 

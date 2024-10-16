@@ -514,7 +514,15 @@ class GatewayClientTest extends TestCase
 
         $gateway->method('_serializeRequestToArray')->willReturn($request);
 
-        $availablePaymentProductRequest = new AvailablePaymentProductRequest('alma-3x', true);
+        $availablePaymentProductRequest = new AvailablePaymentProductRequest(
+            ['alma-3x'],  // payment_product
+            true,         // with_options
+            [],           // currency (empty array)
+            [],           // customer_country (empty array)
+            [],           // payment_product_category (empty array)
+            ['7'],        // eci
+            ['4']         // operation
+        );
 
         $availableProducts = $gateway->requestAvailablePaymentProduct($availablePaymentProductRequest);
 
@@ -526,6 +534,9 @@ class GatewayClientTest extends TestCase
             $this->assertEquals($response[0]['id'], $product->getId());
             $this->assertEquals($response[0]['code'], $product->getCode());
             $this->assertEquals($response[0]['description'], $product->getDescription());
+            $this->assertEquals($response[0]['payment_product_category_code'], $product->getPaymentProductCategoryCode());
+            $this->assertEquals($response[0]['tokenizable'], $product->isTokenizable());
+            $this->assertEquals($response[0]['options'], $product->getOptions());
         }
     }
 
