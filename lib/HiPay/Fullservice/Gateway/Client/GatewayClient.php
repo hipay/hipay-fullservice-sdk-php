@@ -16,6 +16,7 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\AvailablePaymentProduct;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Model\Operation;
 use HiPay\Fullservice\Gateway\Model\Transaction;
@@ -31,6 +32,8 @@ use HiPay\Fullservice\Request\AbstractRequest;
 use HiPay\Fullservice\Exception\InvalidArgumentException;
 use HiPay\Fullservice\Gateway\Mapper\TransactionMapper;
 use HiPay\Fullservice\Gateway\Mapper\SecuritySettingsMapper;
+use HiPay\Fullservice\Gateway\Request\Info\AvailablePaymentProductRequest;
+use HiPay\Fullservice\Gateway\Mapper\AvailablePaymentProductMapper;
 
 /**
  * Client class for all request send to TPP Fullservice.
@@ -110,6 +113,16 @@ class GatewayClient implements GatewayClientInterface
      * @var string METHOD_ORDER_TRANSACTION_INFORMATION http method to call transaction information
      */
     private const METHOD_SECURITY_SETTINGS = 'GET';
+
+    /**
+     * @var string ENDPOINT_AVAILABLE_PAYMENT_PRODUCT endpoint to get available payment products
+     */
+    private const ENDPOINT_AVAILABLE_PAYMENT_PRODUCT = 'v2/available-payment-products';
+
+    /**
+     * @var string METHOD_AVAILABLE_PAYMENT_PRODUCT http method to get available payment products
+     */
+    private const METHOD_AVAILABLE_PAYMENT_PRODUCT = 'GET';
 
     /**
      * @var ClientProvider $_clientProvider HTTP client provider
@@ -277,7 +290,7 @@ class GatewayClient implements GatewayClientInterface
 
         $res = $data["transaction"];
 
-        if(isset($data['basket'])) {
+        if (isset($data['basket'])) {
             $res["basket"] = $data["basket"];
         } else {
             $res["basket"] = null;
@@ -331,6 +344,40 @@ class GatewayClient implements GatewayClientInterface
         }
 
         return $transactions;
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * @see \HiPay\Fullservice\Gateway\Client\GatewayClientInterface::requestAvailablePaymentProduct()
+     */
+    public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request)
+    {
+        $queryString = $request->toQueryString();
+        $endpoint = self::ENDPOINT_AVAILABLE_PAYMENT_PRODUCT . '.json?' . $queryString;
+
+        $response = $this->getClientProvider()->request(
+            self::METHOD_AVAILABLE_PAYMENT_PRODUCT,
+            $endpoint
+        );
+
+        $data = $response->toArray();
+
+        if (empty($data)) {
+            return array();
+        }
+
+        $availablePaymentProducts = array();
+
+        foreach ($data as $productData) {
+            $availablePaymentProductMapper = new AvailablePaymentProductMapper($productData);
+            /** @var AvailablePaymentProduct $availablePaymentProduct */
+            $availablePaymentProduct = $availablePaymentProductMapper->getModelObjectMapped();
+            $availablePaymentProducts[] = $availablePaymentProduct;
+        }
+
+        return $availablePaymentProducts;
     }
 
     /**

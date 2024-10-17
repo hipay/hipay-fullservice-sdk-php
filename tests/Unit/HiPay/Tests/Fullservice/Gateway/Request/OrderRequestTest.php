@@ -48,8 +48,7 @@ class OrderRequestTest extends TestCase
      */
     public function testPropertiesCanBeSetted(OrderRequest $o){
         
-        $o->eci = '7';
-        $o->orderId = '123456';
+        $o->orderid = '123456';
         $o->operation = 'Sale';
         
         $o->foo = array('bar'=>'foobar');
@@ -57,8 +56,7 @@ class OrderRequestTest extends TestCase
         $o->obj = new \stdClass();
         $o->obj->p1 = 'value1';
         
-        $this->assertEquals('7', $o->eci);
-        $this->assertEquals('123456', $o->orderId);
+        $this->assertEquals('123456', $o->orderid);
         $this->assertEquals('Sale', $o->operation);
         
         $this->assertEquals(array('bar'=>'foobar'), $o->foo);

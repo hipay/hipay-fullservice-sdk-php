@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="./phpunit.xsd"
-         backupGlobals="false"
-         colors="true"
-         bootstrap="./bootstrap.php"
->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" backupGlobals="false" colors="true" bootstrap="./bootstrap.php" executionOrder="default">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">../lib/HiPay/Fullservice/</directory>
+        </include>
+        <report>
+            <html outputDirectory="test-reports/coverage"/>
+        </report>
+    </coverage>
     <php>
-        <ini name="error_reporting" value="-1" />
+        <ini name="error_reporting" value="-1"/>
     </php>
-
     <testsuites>
         <testsuite name="unit">
-            <directory >./Unit/HiPay/Tests/Fullservice/</directory>
+            <directory>./Unit/HiPay/Tests/Fullservice/</directory>
         </testsuite>
         <testsuite name="integration">
-            <directory >./Integration/HiPay/Tests/Fullservice/</directory>
+            <directory>./Integration/HiPay/Tests/Fullservice/</directory>
         </testsuite>
         <!--<testsuite name="end2end">
             <directory >./End2end/HiPay/Tests/Fullservice/</directory>
         </testsuite>-->
     </testsuites>
-
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../lib/HiPay/Fullservice/</directory>
-        </whitelist>
-    </filter>
     <logging>
-            <log type="coverage-html" target="test-reports/coverage" />
         <!--coverage_cov_placeholder
             <log type="coverage-php" target="{{coverage_dir}}/test-reports/coverage.cov"/>
         coverage_cov_placeholder-->
