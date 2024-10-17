@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASE
+## 2.19.0
 
 - [add]: Added implementation of GetAvailablePaymentProduct Endpoint API
 
