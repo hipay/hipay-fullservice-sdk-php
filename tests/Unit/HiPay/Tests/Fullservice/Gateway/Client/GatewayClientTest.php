@@ -18,6 +18,7 @@ namespace Unit\HiPay\Tests\Fullservice\Gateway\Client;
 
 use HiPay\Fullservice\Gateway\Client\GatewayClient;
 use HiPay\Fullservice\Gateway\Model\Transaction;
+use HiPay\Fullservice\Gateway\Request\Info\AvailablePaymentProductRequest;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\TestCase\TestCase;
 
@@ -218,7 +219,7 @@ class GatewayClientTest extends TestCase
 
         $orderRequest = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\OrderRequest')->getMock();
         $orderRequest->device_fingerprint = "I AM THE DEVICE";
-        $orderRequest->url_accept = "http://test.com/payment/accept/";
+        $orderRequest->accept_url = "http://test.com/payment/accept/";
 
         $transaction = $gateway->requestNewOrder($orderRequest);
 
@@ -251,7 +252,6 @@ class GatewayClientTest extends TestCase
                     "language" => "fr_FR",
                     "authentication_indicator" => "0",
                     "accept_url" => "http://test.com/payment/accept/",
-                    "url_accept" => "http://test.com/payment/accept/",
                     "decline_url" => "http://test.com/payment/decline/",
                     "pending_url" => "http://test.com/payment/pending/",
                     "exception_url" => "http://test.com/payment/exception/",
@@ -480,7 +480,7 @@ class GatewayClientTest extends TestCase
 
         $orderRequest = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Request\Order\OrderRequest')->getMock();
         $orderRequest->device_fingerprint = "I AM THE DEVICE";
-        $orderRequest->url_accept = "http://test.com/payment/accept/";
+        $orderRequest->accept_url = "http://test.com/payment/accept/";
 
         $transaction = $gateway->requestNewOrder($orderRequest);
 
@@ -489,5 +489,79 @@ class GatewayClientTest extends TestCase
         $this->assertInstanceOf(Transaction::class, $transactionInformation);
 
         $this->assertEquals($transaction->getTransactionReference(), $transactionInformation->getTransactionReference());
+    }
+
+    /**
+     * @dataProvider requestAvailablePaymentProductDataProvider
+     */
+    public function testRequestAvailablePaymentProduct($request, $response)
+    {
+        $this->_response->method('toArray')->willReturn($response);
+
+        $this->_clientProvider
+            ->method('request')
+            ->willReturn($this->_response);
+
+        $this->_clientProvider
+            ->method('getConfiguration')
+            ->willReturn($this->_config);
+
+        $gateway = $this->getMockBuilder('\HiPay\Fullservice\Gateway\Client\GatewayClient')
+            ->setMethods(['_serializeRequestToArray'])
+            ->setConstructorArgs([$this->_clientProvider])
+            ->getMock();
+
+        $gateway->method('_serializeRequestToArray')->willReturn($request);
+
+        $availablePaymentProductRequest = new AvailablePaymentProductRequest();
+        $availablePaymentProductRequest->payment_product = ['alma-3x'];
+        $availablePaymentProductRequest->with_options = true;
+        $availablePaymentProductRequest->eci = ['7'];
+        $availablePaymentProductRequest->operation = ['4'];
+
+        $availableProducts = $gateway->requestAvailablePaymentProduct($availablePaymentProductRequest);
+
+        $this->assertIsArray($availableProducts);
+        $this->assertNotEmpty($availableProducts);
+
+        foreach ($availableProducts as $product) {
+            $this->assertInstanceOf('\HiPay\Fullservice\Gateway\Model\AvailablePaymentProduct', $product);
+            $this->assertEquals($response[0]['id'], $product->getId());
+            $this->assertEquals($response[0]['code'], $product->getCode());
+            $this->assertEquals($response[0]['description'], $product->getDescription());
+            $this->assertEquals($response[0]['payment_product_category_code'], $product->getPaymentProductCategoryCode());
+            $this->assertEquals($response[0]['tokenizable'], $product->isTokenizable());
+            $this->assertEquals($response[0]['options'], $product->getOptions());
+        }
+    }
+
+    public function requestAvailablePaymentProductDataProvider()
+    {
+        return [
+            [
+                [
+                    'operation' => '4',
+                    'payment_product' => 'alma-3x',
+                    'eci' => '7',
+                    'with_options' => 'true',
+                ],
+                [
+                    [
+                        'id' => 'F8K8AVMM',
+                        'code' => 'alma-3x',
+                        'description' => 'Alma 3x',
+                        'customer_description' => '',
+                        'payment_product_category_code' => 'credit-consumption',
+                        'tokenizable' => false,
+                        'options' => [
+                            'basketAmountMin3x' => '50',
+                            'basketAmountMax3x' => '2000',
+                            'basketAmountMin4x' => '50',
+                            'basketAmountMax4x' => '2000'
+                        ]
+                    ]
+                ]
+            ]
+        ];
     }
 }

@@ -22,8 +22,8 @@ class GatewayTest extends TestCase
 
         $configuration = new Configuration(
             array(
-                "apiUsername" => $_ENV['STAGE_API_LOGIN'],
-                "apiPassword" => $_ENV['STAGE_API_PASSWORD'],
+                "apiUsername" => getenv('STAGE_API_LOGIN'),
+                "apiPassword" => getenv('STAGE_API_PASSWORD'),
                 "apiEnv" => Configuration::API_ENV_STAGE
             )
         );

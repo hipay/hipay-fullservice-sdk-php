@@ -16,14 +16,12 @@
 
 namespace HiPay\Fullservice\Gateway\PIDataClient;
 
-use HiPay\Fullservice\Exception\ApiErrorException;
 use HiPay\Fullservice\Exception\UnexpectedValueException;
 use HiPay\Fullservice\Gateway\Model\AbstractTransaction;
 use HiPay\Fullservice\Gateway\Model\HostedPaymentPage;
 use HiPay\Fullservice\Gateway\Request\Order\HostedPaymentPageRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
-
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -111,7 +109,6 @@ class PIDataClient implements PIDataClientInterface
 
         return $params;
     }
-
 
     /**
      * {@inheritDoc}

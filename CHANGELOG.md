@@ -1,8 +1,13 @@
 # Changelog
 
+## 2.19.0
+
+- [add]: Added implementation of GetAvailablePaymentProduct Endpoint API
+
 ## 2.18.0
 
 - [add]: Added some PayPal v2 properties to HostedPage Requests
+- [add]: Added Klarna payment method
 
 ## 2.17.0
 

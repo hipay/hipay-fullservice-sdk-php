@@ -16,7 +16,9 @@
 
 namespace HiPay\Fullservice\Gateway\Client;
 
+use HiPay\Fullservice\Gateway\Model\AvailablePaymentProduct;
 use HiPay\Fullservice\Gateway\Model\Transaction;
+use HiPay\Fullservice\Gateway\Request\Info\AvailablePaymentProductRequest;
 use HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest;
 use HiPay\Fullservice\Gateway\Request\Order\OrderRequest;
 use HiPay\Fullservice\HTTP\ClientProvider;
@@ -88,6 +90,14 @@ interface GatewayClientInterface
      * @return array<int, Transaction> Transaction Model
      */
     public function requestOrderTransactionInformation($orderId);
+
+    /**
+     * Request available payment products
+     *
+     * @param AvailablePaymentProductRequest $request
+     * @return array<AvailablePaymentProduct> AvailablePaymentProduct Model
+     */
+    public function requestAvailablePaymentProduct(AvailablePaymentProductRequest $request);
 
     /**
      * Get security settings

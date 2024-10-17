@@ -61,3 +61,4 @@ tests/test-reports
 /composer.lock
 .phpunit*
 .php-cs*
+infection.phar
