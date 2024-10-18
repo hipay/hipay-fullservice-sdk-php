@@ -11,7 +11,7 @@
   "canRefundPartially": 1,
   "basketRequired": 1,
   "currencies": ["EUR","CHF","DKK","GBP","NOK","PLN","SEK"],
-  "countries": ["DE","AT","BE","DK","ES","FI","FR","IT","NO","NL","PL","PT","UK","SE","CH"],
+  "countries": ["DE","AT","BE","DK","ES","FI","FR","IT","NO","NL","PL","PT","GB","SE","CH"],
   "checkoutFieldsMandatory": ["firstname","lastname","email","streetaddress","city","zipcode","country"],
   "additionalFields": {},
   "priority": 12
