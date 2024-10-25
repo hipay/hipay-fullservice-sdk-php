@@ -9,6 +9,5 @@ jobs:
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
-          CHANGELOG=$(jq -Rn --arg text "${{ github.event.release.body }}" '$text')
-          JSON='{ "project": "${{ github.event.repository.name }}", "version": "${{ github.event.release.tag_name }}", "release_link": "${{ github.event.release.html_url }}", "changelog": "$CHANGELOG" }'
-          curl -X POST -d "$JSON" -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
+          JSON='{ "project": "${{ github.event.repository.name }}", "version": "${{ github.event.release.tag_name }}", "release_link": "${{ github.event.release.html_url }}", "changelog": "${{ github.event.release.body }}" }'
+          curl -X POST --data-binary "$JSON" -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
