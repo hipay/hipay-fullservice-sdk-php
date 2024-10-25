@@ -10,4 +10,4 @@ jobs:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
-          curl -X POST -d $EVENT_CONTEXT -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
+          curl -X POST -d "$EVENT_CONTEXT" -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
