@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.19.1
+
+- [fix]: Fixed Klarna country restrictions
+
 ## 2.19.0
 
 - [add]: Added implementation of GetAvailablePaymentProduct Endpoint API
