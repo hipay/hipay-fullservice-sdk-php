@@ -1,0 +1,13 @@
+on:
+  release:
+    types: [published, released]
+
+jobs:
+  slack_message:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
+          curl -X POST -d $EVENT_CONTEXT -H "Content-Type: application/json" $SLACK_WEBHOOK_URL
