@@ -1,6 +1,6 @@
 on:
   release:
-    types: [published, released]
+    types: [published]
 
 jobs:
   slack_message:
@@ -10,4 +10,4 @@ jobs:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           JSON='{ "project": "${{ github.event.repository.name }}", "version": "${{ github.event.release.tag_name }}", "release_link": "${{ github.event.release.html_url }}", "changelog": ${{ toJSON(github.event.release.body) }} }'
-          curl -v -X POST --data-binary "$JSON" -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
+          curl -X POST --data-binary "$JSON" -H "Content-Type: application/json" ${{ vars.SLACK_WEBHOOK_URL }}
