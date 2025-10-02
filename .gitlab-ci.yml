@@ -104,33 +104,6 @@ stan:
 ########
 
 # Unit testing
-phpunit-7.2:
-    image: mileschou/xdebug:7.2
-    stage: current version tests
-    cache:
-        <<: *global_cache
-    before_script:
-        - apt-get update -yqq
-        - apt-get install git zip unzip -yqq
-        - rm vendor -R composer.lock
-        - php composer.phar require --dev phpunit/phpunit:8.5 --with-all-dependencies
-    script:
-        - export XDEBUG_MODE=coverage
-        - ./vendor/bin/phpunit \
-          --configuration tests/phpunit.xml \
-          --log-junit=tests/test-reports/_coverage/junit.xml \
-          --coverage-text \
-          --colors=never
-        - sed -i 's/\/builds\/.*\/0\/pi-ecommerce\/libs\/hipay-fullservice-sdk-php\///' tests/test-reports/_coverage/junit.xml
-    artifacts:
-        when: always
-        reports:
-            junit: tests/test-reports/_coverage/junit.xml
-        expire_in: 1 day
-    tags:
-        - small
-    allow_failure: true
-
 phpunit-7.3:
     image: mileschou/xdebug:7.3
     stage: current version tests
