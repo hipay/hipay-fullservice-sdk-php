@@ -41,6 +41,7 @@ use HiPay\Fullservice\Gateway\Request\PaymentMethod\AbstractPaymentMethodRequest
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  * */
+#[\AllowDynamicProperties]
 class OrderRequest extends CommonRequest
 {
     /**
