@@ -8,7 +8,7 @@
   "canManualCapture": 0,
   "canManualCapturePartially": 0,
   "canRefund": 1,
-  "canRefundPartially": 1,
+  "canRefundPartially": 0,
   "basketRequired": 0,
   "currencies": [
     "EUR"
