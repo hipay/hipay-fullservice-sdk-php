@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HiPay Fullservice SDK PHP
  *
