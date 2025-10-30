@@ -1,5 +1,11 @@
 # Changelog
 
+## UNRELEASE
+
+## 2.20.0
+
+- [add]: Added multibanco refund full/partial
+
 ## 2.19.1
 
 - [fix]: Fixed Klarna country restrictions

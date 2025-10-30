@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -26,6 +27,7 @@ namespace HiPay\Fullservice\Request;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 License
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  */
+#[\AllowDynamicProperties]
 abstract class AbstractRequest implements RequestInterface
 {
 }

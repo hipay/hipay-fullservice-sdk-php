@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HiPay Fullservice SDK PHP
  *
@@ -31,6 +32,7 @@ use HiPay\Fullservice\Data\PaymentProduct\Collection;
  * @link        https://github.com/hipay/hipay-fullservice-sdk-php
  * @api
  * */
+#[\AllowDynamicProperties]
 class HostedPaymentPageRequest extends OrderRequest
 {
     /**
