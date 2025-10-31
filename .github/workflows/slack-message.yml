@@ -1,0 +1,37 @@
+name: Automated Slack message
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  slack_message:
+    name: Slack message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release artifact
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          name: gitlab-data-artifact
+          github_token: ${{ github.token }}
+          workflow: info-release.yml
+      - name: Display artifact content
+        run: cat artifact.json
+      - name: Slack Markdown Converter
+        if: github.event.release.body
+        id: convert
+        uses: LoveToKnow/slackify-markdown-action@v1.1.1
+        with:
+          text: ${{ github.event.release.body }}
+      - name: Prepare and send Slack message
+        env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+          CONVERTED_TEXT: ${{ steps.convert.outputs.text }}
+          GITHUB_PROJECT_NAME: 'HiPay Enterprise SDK PHP'
+          GITHUB_RELEASE_TAG: ${{ github.event.release.tag_name }}
+          GITHUB_RELEASE_URL: ${{ github.event.release.html_url }}
+          JIRA_DOMAIN: ${{ vars.JIRA_DOMAIN }}
+          SLACK_CHANNEL_ID: ${{ vars.SLACK_CHANNEL_ID }}
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+        run: |-
+          curl -s https://raw.githubusercontent.com/hipay/common-workflows/main/scripts/slack-message.js | node
