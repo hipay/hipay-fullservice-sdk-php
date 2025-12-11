@@ -11,7 +11,7 @@
   "canRefundPartially": 1,
   "basketRequired": 0,
   "currencies": ["EUR"],
-  "countries": ["FR", "DE", "IT", "BE", "LUX", "NL", "IE", "AT", "PT", "ES"],
+  "countries": ["FR"],
   "checkoutFieldsMandatory": [],
   "additionalFields": {},
   "priority": 10

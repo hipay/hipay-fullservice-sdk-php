@@ -2,6 +2,8 @@
 
 ## UNRELEASE
 
+- [change]: authorize Alma only for France
+
 ## 2.20.0
 
 - [add]: Added multibanco refund full/partial
