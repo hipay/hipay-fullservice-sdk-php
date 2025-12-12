@@ -2,6 +2,8 @@
 
 ## UNRELEASE
 
+- [fix]: Fixed Alma country restrictions
+
 ## 2.20.0
 
 - [add]: Added multibanco refund full/partial

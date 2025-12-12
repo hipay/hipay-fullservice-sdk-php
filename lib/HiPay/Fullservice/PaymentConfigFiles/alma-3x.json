@@ -2,7 +2,7 @@
   "productCode": "alma-3x",
   "brandName": "Alma 3x",
   "category": "credit-consumption",
-  "comment": "Available only in France, Germany, Italia, Belgium, Luxembourg, Netherlands, Ireland, Austria, Portugal or Spain.",
+  "comment": "Available only in France.",
   "can3ds": 1,
   "canRecurring": 0,
   "canManualCapture": 1,
@@ -11,7 +11,7 @@
   "canRefundPartially": 1,
   "basketRequired": 0,
   "currencies": ["EUR"],
-  "countries": ["FR", "DE", "IT", "BE", "LUX", "NL", "IE", "AT", "PT", "ES"],
+  "countries": ["FR"],
   "checkoutFieldsMandatory": [],
   "additionalFields": {},
   "priority": 10
