@@ -2,7 +2,7 @@
 
 ## UNRELEASE
 
-- [change]: authorize Alma only for France
+- [fix]: Fixed Alma country restrictions
 
 ## 2.20.0
 
