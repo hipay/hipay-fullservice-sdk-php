@@ -38,7 +38,7 @@ class ApiErrorException extends \RuntimeException
      * @param string $description
      * @param Throwable|null $previous
      */
-    public function __construct($message = "", $code = 0, $description = "", Throwable $previous = null)
+    public function __construct($message = "", $code = 0, $description = "", ?Throwable $previous = null)
     {
         $text = $message . PHP_EOL . $description;
 

@@ -56,7 +56,7 @@ interface GatewayClientInterface
      * @param string $transactionReference Transaction ID related to customer order
      * @param string|float $amount Amount to process
      * @param string $operationId Operation ID
-     * @param MaintenanceRequest $maintenanceRequest
+     * @param MaintenanceRequest|null $maintenanceRequest
      * @return Operation
      */
     public function requestMaintenanceOperation(
@@ -64,7 +64,7 @@ interface GatewayClientInterface
         $transactionReference,
         $amount = null,
         $operationId = null,
-        MaintenanceRequest $maintenanceRequest = null
+        ?MaintenanceRequest $maintenanceRequest = null
     );
 
 
