@@ -38,19 +38,6 @@ class SEPADirectDebitPaymentMethod extends IssuerBankIDPaymentMethod
     public $debit_agreement_id;
 
     /**
-     * Indicates if the debit agreement will be created for a single-use or a multi-use.
-     *
-     * Possible values:
-     * - 0 = Single use
-     * - 1 = Multi use
-     *
-     * @var int $recurring_payment Represent debit agreement (single-use = 0 or a multi-use = 1)
-     * @length 1
-     * @values 0|Generate a single-use agreement id,1|Generate a multi-use agreement id
-     */
-    public $recurring_payment;
-
-    /**
      * Issuer Bank Name
      *
      * @var string

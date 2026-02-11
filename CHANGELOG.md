@@ -1,6 +1,7 @@
 # Changelog
 
 ## UNRELEASE
+- [add]: Added `recurring_payment` property to Order Requests
 
 ## 2.21.0
 
