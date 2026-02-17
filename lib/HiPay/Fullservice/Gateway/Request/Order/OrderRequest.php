@@ -267,4 +267,17 @@ class OrderRequest extends CommonRequest
      * @var integer $one_click
      */
     public $one_click;
+
+    /**
+     * Indicates if the transaction is part of a recurring payment flow.
+     *
+     * Possible values:
+     * - 0 = Not a recurring payment (default)
+     * - 1 = Recurring payment
+     *
+     * @var int $recurring_payment
+     * @length 1
+     * @values 0|Not a recurring payment,1|Recurring payment
+     */
+    public $recurring_payment;
 }

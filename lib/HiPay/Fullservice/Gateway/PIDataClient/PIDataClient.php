@@ -107,6 +107,7 @@ class PIDataClient implements PIDataClientInterface
         $params['status'] = $transaction->getStatus();
         $params['payment_method'] = $orderRequest->payment_product;
         $params['one_click'] = boolval($orderRequest->one_click);
+        $params['recurring_payment'] = boolval($orderRequest->recurring_payment);
 
         return $params;
     }
