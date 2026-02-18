@@ -1,7 +1,10 @@
 # Changelog
 
 ## UNRELEASE
+
+## 2.22.0
 - [add]: Added `recurring_payment` property to Order Requests
+- [fix]: Fixed PHP 8.4 compatibility issues
 
 ## 2.21.0
 
