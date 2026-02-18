@@ -227,7 +227,7 @@ class GatewayClient implements GatewayClientInterface
         $transactionReference,
         $amount = null,
         $operationId = null,
-        MaintenanceRequest $maintenanceRequest = null
+        ?MaintenanceRequest $maintenanceRequest = null
     ) {
         if ($maintenanceRequest == null) {
             $maintenanceRequest = new MaintenanceRequest();

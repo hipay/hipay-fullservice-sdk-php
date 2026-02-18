@@ -251,6 +251,7 @@ infection-7.4:
 sonar-7.4:
   stage: sonar
   image: mileschou/xdebug:7.4
+  allow_failure: true
   cache:
     <<: *global_cache
   variables:

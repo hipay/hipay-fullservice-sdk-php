@@ -127,6 +127,7 @@ class PIDataClientTest extends TestCase
         $orderRequest->payment_product = "visa";
         $orderRequest->source = json_encode($sourceData);
         $orderRequest->one_click = 1;
+        $orderRequest->recurring_payment = 1;
 
         $transaction = new Transaction(null, null, "456118", null,
             null, null, 118, null, null, null,
@@ -158,7 +159,8 @@ class PIDataClientTest extends TestCase
             "transaction_id" => $transaction->getTransactionReference(),
             "status" => $transaction->getStatus(),
             "domain" => $domainName,
-            "one_click" => boolval($orderRequest->one_click)
+            "one_click" => boolval($orderRequest->one_click),
+            "recurring_payment" => boolval($orderRequest->recurring_payment),
         );
 
         $params = $dataClient->getOrderData($dataId, $orderRequest, $transaction);
