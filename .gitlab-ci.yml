@@ -54,7 +54,7 @@ build:
 include:
   - template: Security/SAST.gitlab-ci.yml
   - project: 'pi-ecommerce/cms/cms-template-ci'
-    ref: '1.1.0'
+    ref: '1.2.0'
     file: 'release.yaml'
 
 ############
