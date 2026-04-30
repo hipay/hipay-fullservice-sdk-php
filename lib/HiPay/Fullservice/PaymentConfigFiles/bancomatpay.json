@@ -1,0 +1,33 @@
+{
+  "productCode": "bancomatpay",
+  "brandName": "Bancomat Pay",
+  "category": "ewallet",
+  "comment": "",
+  "can3ds": 0,
+  "canRecurring": 0,
+  "canManualCapture": 0,
+  "canManualCapturePartially": 0,
+  "canRefund": 1,
+  "canRefundPartially": 1,
+  "basketRequired": 0,
+  "currencies": [],
+  "countries": ["IT", "VA", "SM"],
+  "checkoutFieldsMandatory": ["phone"],
+  "additionalFields": {
+    "sdkClass": "HiPay\\Fullservice\\Gateway\\Request\\PaymentMethod\\PhonePaymentMethod",
+    "defaultFieldsValue": {},
+    "formFields": {
+      "phone": {
+        "label": {
+          "en": "Phone",
+          "fr": "Téléphone",
+          "it": "Telefono"
+        },
+        "type": "text",
+        "required": true,
+        "controlType": "phone"
+      }
+    }
+  },
+  "priority": 30
+}

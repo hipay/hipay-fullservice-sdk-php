@@ -1,6 +1,7 @@
 # Changelog
 
 ## UNRELEASE
+- [add]: Added Bancomat Pay
 
 ## 2.22.0
 - [add]: Added `recurring_payment` property to Order Requests
