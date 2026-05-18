@@ -82,7 +82,7 @@ code-security:
   cache:
     <<: *global_cache
   script:
-    - composer audit
+    - php composer.phar audit
   tags:
     - small
 
