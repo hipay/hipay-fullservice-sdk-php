@@ -33,7 +33,7 @@ build:
     - php -m
     - apt-get update -yqq
     - apt-get install git zip unzip -yqq
-    - php -r "copy('https://getcomposer.org/download/2.3.8/composer.phar', 'composer.phar');"
+    - php -r "copy('https://getcomposer.org/download/2.4.0/composer.phar', 'composer.phar');"
     # - php composer-setup.php
     # - php -r "unlink('composer-setup.php');"
   script:
