@@ -1,6 +1,8 @@
 # Changelog
 
 ## UNRELEASE
+
+## 2.23.0
 - [add]: Added Bancomat Pay
 
 ## 2.22.0
