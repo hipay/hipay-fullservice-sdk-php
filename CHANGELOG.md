@@ -2,6 +2,9 @@
 
 ## UNRELEASE
 
+## 2.23.0
+- [add]: Added Bancomat Pay
+
 ## 2.22.0
 - [add]: Added `recurring_payment` property to Order Requests
 - [fix]: Fixed PHP 8.4 compatibility issues
