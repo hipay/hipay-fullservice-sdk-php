@@ -1,6 +1,7 @@
 # Changelog
 
 ## UNRELEASE
+- [add]: Added Bizum
 
 ## 2.23.0
 - [add]: Added Bancomat Pay
