@@ -3,14 +3,10 @@
 ## UNRELEASE
 - [add]: Added Bizum
 
-- [fix]: Removed legacy default `http_user_agent` value on order requests. The SDK now uses the incoming HTTP User-Agent header when the field is not set.
-
 ## 2.23.0
-
 - [add]: Added Bancomat Pay
 
 ## 2.22.0
-
 - [add]: Added `recurring_payment` property to Order Requests
 - [fix]: Fixed PHP 8.4 compatibility issues
 
