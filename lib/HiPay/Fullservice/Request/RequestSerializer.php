@@ -94,6 +94,11 @@ class RequestSerializer
          * Else if value of property is scalar we assign it
          */
         foreach ($properties as $p => $v) {
+            if ($p === 'http_user_agent' && ($v === null || $v === '') && !empty($_SERVER['HTTP_USER_AGENT'])) {
+                $params[$p] = $_SERVER['HTTP_USER_AGENT'];
+                continue;
+            }
+
             if (is_scalar($v)) {
                 $params[$p] = $v;
             } elseif (is_array($v)) {
