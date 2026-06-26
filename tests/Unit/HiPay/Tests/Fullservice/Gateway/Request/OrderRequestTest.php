@@ -39,6 +39,7 @@ class OrderRequestTest extends TestCase
         $o = new OrderRequest();
         
         $this->assertInstanceOf("HiPay\Fullservice\Gateway\Request\Order\OrderRequest", $o);
+        $this->assertNull($o->http_user_agent);
         
         return $o;
     }

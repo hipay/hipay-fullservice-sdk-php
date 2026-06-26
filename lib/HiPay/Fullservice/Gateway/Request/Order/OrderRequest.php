@@ -156,10 +156,12 @@ class OrderRequest extends CommonRequest
     public $http_accept = "*/*";
 
     /**
-     * This element should contain the exact content of the HTTP "User-Agent" header as sent to the merchant from the customer's browser
-     * @var string $http_user_agent HTTP "User-Agent" header (Default to "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)").
+     * This element should contain the exact content of the HTTP "User-Agent" header as sent to the merchant from the customer's browser.
+     * When not set, the SDK uses the incoming HTTP User-Agent header if available.
+     *
+     * @var string|null $http_user_agent HTTP "User-Agent" header.
      */
-    public $http_user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)";
+    public $http_user_agent;
 
     /**
      * @var string $device_fingerprint This element should contain the value of the "ioBB" hidden field.
