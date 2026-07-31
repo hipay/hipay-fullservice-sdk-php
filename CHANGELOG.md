@@ -2,6 +2,8 @@
 
 ## UNRELEASE
 
+- [fix]: Restricted Bancomat Pay to EUR currency
+
 ## 2.24.0
 
 - [add]: Added Bizum
