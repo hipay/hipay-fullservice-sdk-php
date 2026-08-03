@@ -1,6 +1,8 @@
 # Changelog
 
-## UNRELEASE
+## 2.24.1
+
+- [fix]: Restricted Bancomat Pay to EUR currency
 
 ## 2.24.0
 
