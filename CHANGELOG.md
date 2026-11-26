@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- [fix]: Hardened HTTP signature verification: a query-string `hash` no longer bypasses the notification signature check
+
 ## 2.24.1
 
 - [fix]: Restricted Bancomat Pay to EUR currency
