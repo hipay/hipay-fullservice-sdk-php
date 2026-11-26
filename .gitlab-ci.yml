@@ -18,6 +18,17 @@ stages:
     - composer.phar
   policy: pull
 
+# Debian 11 (bullseye) is archived: its packages are no longer on deb.debian.org / security.debian.org.
+# Point bullseye images to archive.debian.org; newer images (bookworm) are left untouched.
+.apt-install:
+  before_script:
+    - |
+      if grep -qs bullseye /etc/apt/sources.list; then
+        sed -i -e 's|deb.debian.org|archive.debian.org|g' -e 's|security.debian.org|archive.debian.org|g' -e '/bullseye-updates/d' /etc/apt/sources.list
+      fi
+    - apt-get update -yqq
+    - apt-get install git zip unzip -yqq
+
 #########
 # BUILD #
 #########
@@ -31,8 +42,7 @@ build:
   before_script:
     # Install composer dependencies
     - php -m
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
     - php -r "copy('https://getcomposer.org/download/2.4.0/composer.phar', 'composer.phar');"
     # - php composer-setup.php
     # - php -r "unlink('composer-setup.php');"
@@ -111,8 +121,7 @@ phpunit-7.3:
   cache:
     <<: *global_cache
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
     - rm vendor -R composer.lock
     - php composer.phar install
   script:
@@ -138,8 +147,7 @@ phpunit-7.4:
     <<: *global_cache
     policy: pull-push
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
@@ -169,8 +177,7 @@ phpunit-8.0:
   cache:
     <<: *global_cache
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
@@ -193,8 +200,7 @@ phpunit-8.2:
   cache:
     <<: *global_cache
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
   script:
     - export XDEBUG_MODE=coverage
     - ./vendor/bin/phpunit \
@@ -217,8 +223,7 @@ infection-7.4:
   cache:
     <<: *global_cache
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar --output infection.phar
     - curl -L https://github.com/infection/infection/releases/download/0.25.3/infection.phar.asc --output infection.phar.asc
     - chmod +x infection.phar
@@ -255,8 +260,7 @@ sonar-7.4:
     GIT_DEPTH: '0'
     SONAR_PROJECT_KEY: 'hipay-fullservice-sdk-php'
   before_script:
-    - apt-get update -yqq
-    - apt-get install git zip unzip -yqq
+    - !reference [.apt-install, before_script]
     - curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip --output sonar-scanner-cli.zip
     - unzip sonar-scanner-cli.zip -d ./
   script:
