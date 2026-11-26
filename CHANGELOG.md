@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASED
+## 2.24.2
 
 - [fix]: Hardened HTTP signature verification: a query-string `hash` no longer bypasses the notification signature check
 
